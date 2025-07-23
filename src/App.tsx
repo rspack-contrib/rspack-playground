@@ -1,6 +1,6 @@
 import Editor from '@/components/Editor';
-import { ThemeProvider } from '@/components/ThemeProvider';
 import { ModeToggle } from '@/components/ModeToggle';
+import { ThemeProvider } from '@/components/ThemeProvider';
 
 const App = () => {
   return (
