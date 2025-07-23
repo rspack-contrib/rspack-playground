@@ -1,13 +1,20 @@
-import Editor from './components/Editor';
+import Editor from '@/components/Editor';
+import { ThemeProvider } from '@/components/ThemeProvider';
+import { ModeToggle } from '@/components/ModeToggle';
 
 const App = () => {
   return (
-    <div>
-      <div></div>
+    <ThemeProvider defaultTheme="system">
       <div>
-        <Editor />
+        <div>
+          <div>Rspack</div>
+          <ModeToggle />
+        </div>
+        <div>
+          <Editor />
+        </div>
       </div>
-    </div>
+    </ThemeProvider>
   );
 };
 
