@@ -1,18 +1,15 @@
 import Editor from "@/components/Editor";
-import { ModeToggle } from "@/components/ModeToggle";
+import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 const App = () => {
   return (
     <ThemeProvider defaultTheme="system">
-      <div>
-        <div>
-          <div>Rspack</div>
-          <ModeToggle />
-        </div>
-        <div>
+      <div className="h-screen flex flex-col">
+        <Header />
+        <main className="flex-1 overflow-hidden">
           <Editor />
-        </div>
+        </main>
       </div>
     </ThemeProvider>
   );
