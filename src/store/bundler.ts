@@ -14,7 +14,7 @@ export interface BundleResult {
 
 // Bundle
 export const isBundlingAtom = atom(false);
-export const sourceFilesAtom = atom<File[]>([]);
+export const inputFilesAtom = atom<File[]>([]);
 export const bundleResultAtom = atom<BundleResult | null>(null);
 
 // Version
