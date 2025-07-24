@@ -3,10 +3,10 @@ import type React from "react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import type { File } from "@/store/bundler";
+import type { SourceFile } from "@/store/bundler";
 
 interface FileTabsProps {
-  files: File[];
+  files: SourceFile[];
   activeIndex: number;
   onFileSelect: (index: number) => void;
   onFileCreate: (filename: string) => void;
@@ -66,7 +66,7 @@ export default function FileTabs({
             className={cn(
               "group flex items-center space-x-2 px-3 py-2 border-r cursor-pointer hover:bg-accent/50 transition-colors min-w-0",
               activeIndex === index &&
-                "bg-background border-b-2 border-b-primary",
+                "bg-background border-b-2 border-b-primary"
             )}
             onClick={() => onFileSelect(index)}
           >

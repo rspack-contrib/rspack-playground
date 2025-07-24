@@ -1,10 +1,10 @@
 import MonacoEditor from "@monaco-editor/react";
 import FileTabs from "@/components/Editor/FileTabs";
 import { useTheme } from "@/components/ThemeProvider";
-import type { File } from "@/store/bundler";
+import type { SourceFile } from "@/store/bundler";
 
 interface CodeEditorProps {
-  files: File[];
+  files: SourceFile[];
   activeIndex: number;
   readonly?: boolean;
   onFileSelect: (index: number) => void;

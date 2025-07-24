@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 import CodeEditor from "@/components/Editor/CodeEditor";
 import { bundle } from "@/lib/bundle";
-import type { File } from "@/store/bundler";
+import type { SourceFile } from "@/store/bundler";
 import {
   bundleResultAtom,
   inputFilesAtom,
@@ -16,7 +16,7 @@ function Editor() {
   const [_isBundling, setIsBundling] = useAtom(isBundlingAtom);
   const [bundleResult, setBundleResult] = useAtom(bundleResultAtom);
 
-  const setInputFiles = (files: File[]) => {
+  const setInputFiles = (files: SourceFile[]) => {
     _setInputFiles(files);
     handleBundle();
   };
@@ -40,7 +40,7 @@ function Editor() {
   };
 
   const handleInputFileCreate = (filename: string) => {
-    const newFile: File = {
+    const newFile: SourceFile = {
       filename,
       text: "",
     };

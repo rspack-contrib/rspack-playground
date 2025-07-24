@@ -1,20 +1,20 @@
 import { atom } from "jotai";
 
-export interface File {
+export interface SourceFile {
   filename: string;
   text: string;
 }
 
 export interface BundleResult {
   success: boolean;
-  output: File[];
+  output: SourceFile[];
   error?: string;
   duration: number;
 }
 
 // Bundle
 export const isBundlingAtom = atom(false);
-export const inputFilesAtom = atom<File[]>([]);
+export const inputFilesAtom = atom<SourceFile[]>([]);
 export const bundleResultAtom = atom<BundleResult | null>(null);
 
 // Version
