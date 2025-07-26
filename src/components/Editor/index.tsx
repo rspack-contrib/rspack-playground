@@ -1,9 +1,5 @@
 import { useAtom } from "jotai";
-import {
-  Panel,
-  PanelGroup,
-  PanelResizeHandle,
-} from "react-resizable-panels";
+import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import CodeEditor from "@/components/Editor/CodeEditor";
 import { bundle } from "@/lib/bundle";
 import type { SourceFile } from "@/store/bundler";
@@ -78,64 +74,102 @@ function Editor() {
     setInputFiles(newFiles);
   };
 
+  const InputPanel = ({ borderClass }: { borderClass: string }) => (
+    <Panel defaultSize={50} minSize={20} className="min-h-0">
+      <div className={`flex flex-col h-full ${borderClass}`}>
+        <div className="flex items-center justify-between p-2 border-b bg-muted/30">
+          <span className="text-sm font-medium">Input Files</span>
+        </div>
+        <div className="flex-1 min-h-0">
+          <CodeEditor
+            files={inputFiles}
+            activeIndex={activeInputFile}
+            onFileSelect={setActiveInputFile}
+            onFileCreate={handleInputFileCreate}
+            onFileDelete={handleInputFileDelete}
+            onFileRename={handleInputFileRename}
+            onContentChange={handleInputContentChange}
+          />
+        </div>
+      </div>
+    </Panel>
+  );
+
+  const OutputPanel = () => (
+    <Panel defaultSize={50} minSize={20} className="min-h-0">
+      <div className="flex flex-col h-full">
+        <div className="flex items-center justify-between p-2 border-b bg-muted/30">
+          <span className="text-sm font-medium">Output Files</span>
+          <span className="text-xs text-muted-foreground">
+            {bundleResult?.output.length} file
+            {bundleResult?.output.length !== 1 ? "s" : ""}
+          </span>
+        </div>
+        <div className="flex-1 min-h-0">
+          {bundleResult && bundleResult?.output.length > 0 ? (
+            <CodeEditor
+              files={bundleResult.output}
+              activeIndex={activeOutputFile}
+              onFileSelect={setActiveOutputFile}
+              readonly
+            />
+          ) : (
+            <div className="flex items-center justify-center h-full text-muted-foreground">
+              <div className="text-center">
+                <div className="text-lg mb-2">No output yet</div>
+                <div className="text-sm">
+                  Modify your code to see the bundled result
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </Panel>
+  );
+
+  const ResizeHandle = ({ isVertical }: { isVertical: boolean }) => (
+    <PanelResizeHandle
+      className={`${
+        isVertical
+          ? "h-1 bg-border hover:bg-border/80"
+          : "w-1 bg-border hover:bg-border/80"
+      } transition-colors relative group`}
+    >
+      <div
+        className={`absolute bg-border group-hover:bg-border/80 transition-colors ${
+          isVertical ? "inset-x-0 top-1/2 h-0.5" : "inset-y-0 left-1/2 w-0.5"
+        }`}
+      />
+      <div
+        className={`absolute bg-border group-hover:bg-border/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity ${
+          isVertical
+            ? "left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-1"
+            : "inset-y-0 left-1/2 -translate-x-1/2 w-1 h-8"
+        }`}
+      />
+    </PanelResizeHandle>
+  );
+
   return (
     <div className="flex h-full">
-      <PanelGroup direction="horizontal" className="h-full">
-        <Panel defaultSize={50} minSize={20}>
-          <div className="flex flex-col h-full border-r">
-            <div className="flex items-center justify-between p-2 border-b bg-muted/30">
-              <span className="text-sm font-medium">Input Files</span>
-            </div>
-            <div className="flex-1">
-              <CodeEditor
-                files={inputFiles}
-                activeIndex={activeInputFile}
-                onFileSelect={setActiveInputFile}
-                onFileCreate={handleInputFileCreate}
-                onFileDelete={handleInputFileDelete}
-                onFileRename={handleInputFileRename}
-                onContentChange={handleInputContentChange}
-              />
-            </div>
-          </div>
-        </Panel>
+      {/* Mobile layout (vertical) */}
+      <div className="flex flex-col h-full w-full md:hidden">
+        <PanelGroup direction="vertical" className="h-full">
+          <InputPanel borderClass="border-b" />
+          <ResizeHandle isVertical={true} />
+          <OutputPanel />
+        </PanelGroup>
+      </div>
 
-        <PanelResizeHandle className="w-1 bg-border hover:bg-border/80 transition-colors relative group">
-          <div className="absolute inset-y-0 left-1/2 w-0.5 bg-border group-hover:bg-border/80 transition-colors" />
-          <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-1 h-8 bg-border group-hover:bg-border/80 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-        </PanelResizeHandle>
-
-        <Panel defaultSize={50} minSize={20}>
-          <div className="flex flex-col h-full">
-            <div className="flex items-center justify-between p-2 border-b bg-muted/30">
-              <span className="text-sm font-medium">Output Files</span>
-              <span className="text-xs text-muted-foreground">
-                {bundleResult?.output.length} file
-                {bundleResult?.output.length !== 1 ? "s" : ""}
-              </span>
-            </div>
-            <div className="flex-1">
-              {bundleResult && bundleResult?.output.length > 0 ? (
-                <CodeEditor
-                  files={bundleResult.output}
-                  activeIndex={activeOutputFile}
-                  onFileSelect={setActiveOutputFile}
-                  readonly
-                />
-              ) : (
-                <div className="flex items-center justify-center h-full text-muted-foreground">
-                  <div className="text-center">
-                    <div className="text-lg mb-2">No output yet</div>
-                    <div className="text-sm">
-                      Modify your code to see the bundled result
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </Panel>
-      </PanelGroup>
+      {/* Desktop layout (horizontal) */}
+      <div className="hidden md:flex h-full w-full">
+        <PanelGroup direction="horizontal" className="h-full">
+          <InputPanel borderClass="border-r" />
+          <ResizeHandle isVertical={false} />
+          <OutputPanel />
+        </PanelGroup>
+      </div>
     </div>
   );
 }
