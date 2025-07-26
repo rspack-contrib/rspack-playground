@@ -59,12 +59,12 @@ export default function FileTabs({
 
   return (
     <div className="flex items-center border-b bg-muted/50">
-      <div className="flex flex-1 overflow-x-auto">
+      <div className="flex flex-1 overflow-x-auto scrollbar-thin">
         {files.map((file, index) => (
           <div
             key={file.filename}
             className={cn(
-              "group flex items-center space-x-2 px-3 py-2 border-r cursor-pointer hover:bg-accent/50 transition-colors min-w-0",
+              "group flex items-center space-x-2 px-3 py-2 border-r cursor-pointer hover:bg-accent/50 transition-colors flex-shrink-0",
               activeIndex === index &&
                 "bg-background border-b-2 border-b-primary",
             )}
@@ -82,7 +82,7 @@ export default function FileTabs({
                     setEditingName("");
                   }
                 }}
-                className="text-sm bg-transparent border-none outline-none min-w-0 flex-1"
+                className="text-sm bg-transparent border-none outline-none flex-1"
                 autoFocus
               />
             ) : (
