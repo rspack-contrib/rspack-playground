@@ -14,7 +14,7 @@ function Editor() {
   const [inputFiles, _setInputFiles] = useAtom(inputFilesAtom);
   const [activeInputFile, setActiveInputFile] = useAtom(activeInputFileAtom);
   const [activeOutputFile, setActiveOutputFile] = useAtom(activeOutputFileAtom);
-  const [_isBundling, setIsBundling] = useAtom(isBundlingAtom);
+  const [isBundling, setIsBundling] = useAtom(isBundlingAtom);
   const [bundleResult, setBundleResult] = useAtom(bundleResultAtom);
 
   const setInputFiles = (files: SourceFile[]) => {
@@ -97,7 +97,7 @@ function Editor() {
 
   const OutputPanel = () => (
     <Panel defaultSize={50} minSize={20} className="min-h-0">
-      <div className="flex flex-col h-full">
+      <div className="flex flex-col h-full relative">
         <div className="flex items-center justify-between p-2 border-b bg-muted/30">
           <span className="text-sm font-medium">Output Files</span>
           <span className="text-xs text-muted-foreground">
@@ -124,6 +124,17 @@ function Editor() {
             </div>
           )}
         </div>
+
+        {isBundling && (
+          <div className="absolute inset-0 bg-background/80 flex items-center justify-center z-10">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+              <div className="text-sm text-muted-foreground font-medium">
+                Bundling...
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Panel>
   );
