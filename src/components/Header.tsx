@@ -1,5 +1,6 @@
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
-import { Clock, RotateCcw } from "lucide-react";
+import { Clock, RotateCcw, Share2 } from "lucide-react";
+import { toast } from "sonner";
 import Github from "@/components/icon/Github";
 import Logo from "@/components/icon/Rspack";
 import { ModeToggle } from "@/components/ModeToggle";
@@ -21,6 +22,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { getShareUrl, type ShareData } from "@/lib/share";
 import {
   availableVersionsAtom,
   bundleResultAtom,
@@ -35,10 +37,29 @@ export default function Header() {
   const availableVersions = useAtomValue(availableVersionsAtom);
   const [bundleResult] = useAtom(bundleResultAtom);
   const [isBundling] = useAtom(isBundlingAtom);
+  const [inputFiles] = useAtom(inputFilesAtom);
   const setInputFiles = useSetAtom(inputFilesAtom);
 
   const handleReset = () => {
     setInputFiles([...INITIAL_FILES]);
+    window.history.replaceState(null, "", window.location.pathname);
+  };
+
+  const handleShare = async () => {
+    try {
+      const shareData: ShareData = {
+        rspackVersion,
+        inputFiles,
+      };
+
+      const shareUrl = getShareUrl(shareData);
+      await navigator.clipboard.writeText(shareUrl);
+      window.history.replaceState(null, "", shareUrl);
+      toast.success("Share link copied to clipboard!");
+    } catch (error) {
+      console.error("Failed to share:", error);
+      toast.error("Failed to copy share link");
+    }
   };
 
   return (
@@ -50,6 +71,15 @@ export default function Header() {
         </div>
         <div className="flex-1" />
         <div className="flex items-center space-x-4">
+          <Button
+            variant="default"
+            size="sm"
+            onClick={handleShare}
+            title="Share current configuration"
+          >
+            <Share2 className="h-4 w-4" />
+            <span>Share</span>
+          </Button>
           <div className="flex items-center space-x-2">
             <span className="text-sm text-muted-foreground">Version:</span>
             <DropdownMenu>
