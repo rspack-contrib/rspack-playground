@@ -40,5 +40,31 @@ export const inputFilesAtom = atom<SourceFile[]>([...INITIAL_FILES]);
 export const bundleResultAtom = atom<BundleResult | null>(null);
 
 // Version
-export const rspackVersionAtom = atom("1.0.0");
-export const availableVersionsAtom = atom(["1.0.0", "0.9.0", "0.8.0"]);
+export const availableVersionsAtom = atom(async () => {
+  const res = await fetch(
+    "https://registry.npmjs.org/@rspack/binding-wasm32-wasi",
+  );
+  const data = await res.json();
+  return Object.keys(data.versions).sort((a, b) => {
+    return b.localeCompare(a, undefined, {
+      numeric: true,
+      sensitivity: "base",
+    });
+  });
+});
+
+const defaultRspackVersionAtom = atom(async (get) => {
+  const versions = await get(availableVersionsAtom);
+  return versions[0] ?? "";
+});
+const overwrittenRspackVersionAtom = atom<string | null>(null);
+export const rspackVersionAtom = atom(
+  (get) => {
+    const overwritten = get(overwrittenRspackVersionAtom);
+    if (overwritten) return overwritten;
+    return get(defaultRspackVersionAtom);
+  },
+  (_, set, newVersion: string) => {
+    set(overwrittenRspackVersionAtom, newVersion);
+  },
+);

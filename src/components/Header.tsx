@@ -1,9 +1,8 @@
-import { useAtom, useSetAtom } from "jotai";
+import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import { Clock, RotateCcw } from "lucide-react";
 import Github from "@/components/icon/Github";
 import Logo from "@/components/icon/Rspack";
 import { ModeToggle } from "@/components/ModeToggle";
-import { Button } from "@/components/ui/button";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -15,6 +14,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -24,15 +24,15 @@ import {
 import {
   availableVersionsAtom,
   bundleResultAtom,
+  INITIAL_FILES,
+  inputFilesAtom,
   isBundlingAtom,
   rspackVersionAtom,
-  inputFilesAtom,
-  INITIAL_FILES,
 } from "@/store/bundler";
 
 export default function Header() {
   const [rspackVersion, setRspackVersion] = useAtom(rspackVersionAtom);
-  const [availableVersions] = useAtom(availableVersionsAtom);
+  const availableVersions = useAtomValue(availableVersionsAtom);
   const [bundleResult] = useAtom(bundleResultAtom);
   const [isBundling] = useAtom(isBundlingAtom);
   const setInputFiles = useSetAtom(inputFilesAtom);
@@ -98,7 +98,8 @@ export default function Header() {
               <AlertDialogHeader>
                 <AlertDialogTitle>Reset Files</AlertDialogTitle>
                 <AlertDialogDescription>
-                  This will reset all files to their initial state. This action cannot be undone.
+                  This will reset all files to their initial state. This action
+                  cannot be undone.
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
