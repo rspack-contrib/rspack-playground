@@ -1,4 +1,6 @@
 import { useAtom } from "jotai";
+import { debounce } from "lodash-es";
+import { useCallback, useMemo } from "react";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import CodeEditor from "@/components/Editor/CodeEditor";
 import { bundle } from "@/lib/bundle";
@@ -61,8 +63,8 @@ interface OutputPanelProps {
 function OutputPanel({
   bundleResult,
   activeOutputFile,
-  setActiveOutputFile,
   isBundling,
+  setActiveOutputFile,
 }: OutputPanelProps) {
   return (
     <Panel defaultSize={50} minSize={20} className="min-h-0">
@@ -116,27 +118,35 @@ function Editor() {
   const [isBundling, setIsBundling] = useAtom(isBundlingAtom);
   const [bundleResult, setBundleResult] = useAtom(bundleResultAtom);
 
+  const handleBundle = useCallback(
+    async (files: SourceFile[]) => {
+      setIsBundling(true);
+      const result = await bundle(files);
+      setBundleResult(result);
+
+      if (result.success) {
+        setBundleResult(result);
+        if (
+          result.output.length > 0 &&
+          activeOutputFile >= result.output.length
+        ) {
+          setActiveOutputFile(0);
+        }
+      }
+
+      setIsBundling(false);
+    },
+    [activeOutputFile, setActiveOutputFile, setIsBundling, setBundleResult],
+  );
+
+  const debouncedHandleBundle = useMemo(
+    () => debounce(handleBundle, 300),
+    [handleBundle],
+  );
+
   const setInputFiles = (files: SourceFile[]) => {
     _setInputFiles(files);
-    handleBundle();
-  };
-
-  const handleBundle = async () => {
-    setIsBundling(true);
-    const result = await bundle(inputFiles);
-    setBundleResult(result);
-
-    if (result.success) {
-      setBundleResult(result);
-      if (
-        result.output.length > 0 &&
-        activeOutputFile >= result.output.length
-      ) {
-        setActiveOutputFile(0);
-      }
-    }
-
-    setIsBundling(false);
+    debouncedHandleBundle(files);
   };
 
   const handleInputFileCreate = (filename: string) => {
