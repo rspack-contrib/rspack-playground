@@ -1,6 +1,6 @@
 import { useAtom } from "jotai";
 import { debounce } from "lodash-es";
-import { useCallback, useMemo } from "react";
+import { useCallback, useEffect, useMemo } from "react";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import CodeEditor from "@/components/Editor/CodeEditor";
 import { bundle } from "@/lib/bundle";
@@ -143,6 +143,11 @@ function Editor() {
     () => debounce(handleBundle, 300),
     [handleBundle],
   );
+
+  // biome-ignore lint/correctness/useExhaustiveDependencies: initialize bundle on mount
+  useEffect(() => {
+    handleBundle(inputFiles);
+  }, []);
 
   const setInputFiles = (files: SourceFile[]) => {
     _setInputFiles(files);
