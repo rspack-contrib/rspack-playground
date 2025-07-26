@@ -1,9 +1,20 @@
-import { useAtom } from "jotai";
-import { Clock } from "lucide-react";
+import { useAtom, useSetAtom } from "jotai";
+import { Clock, RotateCcw } from "lucide-react";
 import Github from "@/components/icon/Github";
 import Logo from "@/components/icon/Rspack";
 import { ModeToggle } from "@/components/ModeToggle";
 import { Button } from "@/components/ui/button";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,6 +26,8 @@ import {
   bundleResultAtom,
   isBundlingAtom,
   rspackVersionAtom,
+  inputFilesAtom,
+  INITIAL_FILES,
 } from "@/store/bundler";
 
 export default function Header() {
@@ -22,6 +35,11 @@ export default function Header() {
   const [availableVersions] = useAtom(availableVersionsAtom);
   const [bundleResult] = useAtom(bundleResultAtom);
   const [isBundling] = useAtom(isBundlingAtom);
+  const setInputFiles = useSetAtom(inputFilesAtom);
+
+  const handleReset = () => {
+    setInputFiles([...INITIAL_FILES]);
+  };
 
   return (
     <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -66,6 +84,31 @@ export default function Header() {
             </span>
           </div>
           <ModeToggle />
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button
+                variant="outline"
+                size="icon"
+                title="Reset to initial files"
+              >
+                <RotateCcw className="h-4 w-4" />
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Reset Files</AlertDialogTitle>
+                <AlertDialogDescription>
+                  This will reset all files to their initial state. This action cannot be undone.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction onClick={handleReset}>
+                  Reset
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
           <Button variant="ghost" size="icon" asChild>
             <a
               href="https://github.com/web-infra-dev/rspack"
