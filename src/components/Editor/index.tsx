@@ -2,13 +2,112 @@ import { useAtom } from "jotai";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import CodeEditor from "@/components/Editor/CodeEditor";
 import { bundle } from "@/lib/bundle";
-import type { SourceFile } from "@/store/bundler";
+import type { BundleResult, SourceFile } from "@/store/bundler";
 import {
   bundleResultAtom,
   inputFilesAtom,
   isBundlingAtom,
 } from "@/store/bundler";
 import { activeInputFileAtom, activeOutputFileAtom } from "@/store/editor";
+
+interface InputPanelProps {
+  inputFiles: SourceFile[];
+  activeInputFile: number;
+  setActiveInputFile: (index: number) => void;
+  handleInputFileCreate: (filename: string) => void;
+  handleInputFileDelete: (index: number) => void;
+  handleInputFileRename: (index: number, newName: string) => void;
+  handleInputContentChange: (index: number, content: string) => void;
+}
+
+function InputPanel({
+  inputFiles,
+  activeInputFile,
+  setActiveInputFile,
+  handleInputFileCreate,
+  handleInputFileDelete,
+  handleInputFileRename,
+  handleInputContentChange,
+}: InputPanelProps) {
+  return (
+    <Panel defaultSize={50} minSize={20} className="min-h-0">
+      <div className="flex flex-col h-full">
+        <div className="flex items-center justify-between p-2 border-b bg-muted/30">
+          <span className="text-sm font-medium">Input Files</span>
+        </div>
+        <div className="flex-1 min-h-0">
+          <CodeEditor
+            files={inputFiles}
+            activeIndex={activeInputFile}
+            onFileSelect={setActiveInputFile}
+            onFileCreate={handleInputFileCreate}
+            onFileDelete={handleInputFileDelete}
+            onFileRename={handleInputFileRename}
+            onContentChange={handleInputContentChange}
+          />
+        </div>
+      </div>
+    </Panel>
+  );
+}
+
+interface OutputPanelProps {
+  bundleResult: BundleResult | null;
+  activeOutputFile: number;
+  isBundling: boolean;
+  setActiveOutputFile: (index: number) => void;
+}
+
+function OutputPanel({
+  bundleResult,
+  activeOutputFile,
+  setActiveOutputFile,
+  isBundling,
+}: OutputPanelProps) {
+  return (
+    <Panel defaultSize={50} minSize={20} className="min-h-0">
+      <div className="flex flex-col h-full relative">
+        <div className="flex items-center justify-between p-2 border-b bg-muted/30">
+          <span className="text-sm font-medium">Output Files</span>
+          <span className="text-xs text-muted-foreground">
+            {bundleResult?.output.length} file
+            {bundleResult?.output.length !== 1 ? "s" : ""}
+          </span>
+        </div>
+        <div className="flex-1 min-h-0">
+          {bundleResult && bundleResult?.output.length > 0 ? (
+            <CodeEditor
+              files={bundleResult.output}
+              activeIndex={activeOutputFile}
+              onFileSelect={setActiveOutputFile}
+              readonly
+            />
+          ) : (
+            <div className="flex items-center justify-center h-full text-muted-foreground">
+              <div className="text-center">
+                <div className="text-lg mb-2">No output yet</div>
+                <div className="text-sm">
+                  Modify your code to see the bundled result
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {isBundling && (
+          <div className="absolute inset-0 bg-background/80 flex items-center justify-center z-10">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+              <div className="text-sm text-muted-foreground font-medium">
+                Bundling...
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </Panel>
+  );
+}
 
 function Editor() {
   const [inputFiles, _setInputFiles] = useAtom(inputFilesAtom);
@@ -74,71 +173,6 @@ function Editor() {
     setInputFiles(newFiles);
   };
 
-  const InputPanel = ({ borderClass }: { borderClass: string }) => (
-    <Panel defaultSize={50} minSize={20} className="min-h-0">
-      <div className={`flex flex-col h-full ${borderClass}`}>
-        <div className="flex items-center justify-between p-2 border-b bg-muted/30">
-          <span className="text-sm font-medium">Input Files</span>
-        </div>
-        <div className="flex-1 min-h-0">
-          <CodeEditor
-            files={inputFiles}
-            activeIndex={activeInputFile}
-            onFileSelect={setActiveInputFile}
-            onFileCreate={handleInputFileCreate}
-            onFileDelete={handleInputFileDelete}
-            onFileRename={handleInputFileRename}
-            onContentChange={handleInputContentChange}
-          />
-        </div>
-      </div>
-    </Panel>
-  );
-
-  const OutputPanel = () => (
-    <Panel defaultSize={50} minSize={20} className="min-h-0">
-      <div className="flex flex-col h-full relative">
-        <div className="flex items-center justify-between p-2 border-b bg-muted/30">
-          <span className="text-sm font-medium">Output Files</span>
-          <span className="text-xs text-muted-foreground">
-            {bundleResult?.output.length} file
-            {bundleResult?.output.length !== 1 ? "s" : ""}
-          </span>
-        </div>
-        <div className="flex-1 min-h-0">
-          {bundleResult && bundleResult?.output.length > 0 ? (
-            <CodeEditor
-              files={bundleResult.output}
-              activeIndex={activeOutputFile}
-              onFileSelect={setActiveOutputFile}
-              readonly
-            />
-          ) : (
-            <div className="flex items-center justify-center h-full text-muted-foreground">
-              <div className="text-center">
-                <div className="text-lg mb-2">No output yet</div>
-                <div className="text-sm">
-                  Modify your code to see the bundled result
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {isBundling && (
-          <div className="absolute inset-0 bg-background/80 flex items-center justify-center z-10">
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-              <div className="text-sm text-muted-foreground font-medium">
-                Bundling...
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </Panel>
-  );
-
   const ResizeHandle = ({ isVertical }: { isVertical: boolean }) => (
     <PanelResizeHandle
       className={`${
@@ -167,18 +201,44 @@ function Editor() {
       {/* Mobile layout (vertical) */}
       <div className="flex flex-col h-full w-full md:hidden">
         <PanelGroup direction="vertical" className="h-full">
-          <InputPanel borderClass="border-b" />
+          <InputPanel
+            inputFiles={inputFiles}
+            activeInputFile={activeInputFile}
+            setActiveInputFile={setActiveInputFile}
+            handleInputFileCreate={handleInputFileCreate}
+            handleInputFileDelete={handleInputFileDelete}
+            handleInputFileRename={handleInputFileRename}
+            handleInputContentChange={handleInputContentChange}
+          />
           <ResizeHandle isVertical={true} />
-          <OutputPanel />
+          <OutputPanel
+            bundleResult={bundleResult}
+            activeOutputFile={activeOutputFile}
+            setActiveOutputFile={setActiveOutputFile}
+            isBundling={isBundling}
+          />
         </PanelGroup>
       </div>
 
       {/* Desktop layout (horizontal) */}
       <div className="hidden md:flex h-full w-full">
         <PanelGroup direction="horizontal" className="h-full">
-          <InputPanel borderClass="border-r" />
+          <InputPanel
+            inputFiles={inputFiles}
+            activeInputFile={activeInputFile}
+            setActiveInputFile={setActiveInputFile}
+            handleInputFileCreate={handleInputFileCreate}
+            handleInputFileDelete={handleInputFileDelete}
+            handleInputFileRename={handleInputFileRename}
+            handleInputContentChange={handleInputContentChange}
+          />
           <ResizeHandle isVertical={false} />
-          <OutputPanel />
+          <OutputPanel
+            bundleResult={bundleResult}
+            activeOutputFile={activeOutputFile}
+            setActiveOutputFile={setActiveOutputFile}
+            isBundling={isBundling}
+          />
         </PanelGroup>
       </div>
     </div>
