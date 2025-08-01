@@ -1,18 +1,24 @@
-import { defineConfig } from '@rsbuild/core';
-import { pluginReact } from '@rsbuild/plugin-react';
+import { defineConfig } from "@rsbuild/core";
+import { pluginReact } from "@rsbuild/plugin-react";
 
 export default defineConfig({
   plugins: [pluginReact()],
   html: {
-    title: 'Rspack REPL',
+    title: "Rspack REPL",
     appIcon: {
-      name: 'Rspack REPL',
+      name: "Rspack REPL",
       icons: [
         {
-          src: 'public/favicon-128x128.png',
+          src: "public/favicon-128x128.png",
           size: 128,
         },
       ],
+    },
+  },
+  server: {
+    headers: {
+      "Cross-Origin-Opener-Policy": "same-origin",
+      "Cross-Origin-Embedder-Policy": "require-corp",
     },
   },
 });

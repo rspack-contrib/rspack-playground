@@ -80,7 +80,7 @@ export default function Header() {
             <Share2 className="h-4 w-4" />
             <span>Share</span>
           </Button>
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center space-x-2 hidden">
             <span className="text-sm text-muted-foreground">Version:</span>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -109,7 +109,7 @@ export default function Header() {
               {isBundling
                 ? "Bundling..."
                 : bundleResult
-                  ? `${bundleResult.duration}ms`
+                  ? `${bundleResult.duration.toFixed(0)}ms`
                   : "--ms"}
             </span>
           </div>

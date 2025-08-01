@@ -1,11 +1,12 @@
 import { atom } from "jotai";
 
-export const RSPACK_CONFIG = "rspack.config.mjs";
+export const RSPACK_CONFIG = "rspack.config.js";
 export const INITIAL_FILES: SourceFile[] = [
   {
     filename: RSPACK_CONFIG,
     text: `export default {
   mode: "development",
+  devtool: false,
 	entry: {
 		main: "./index.js"
 	}
