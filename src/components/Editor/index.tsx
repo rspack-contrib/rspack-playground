@@ -3,7 +3,6 @@ import { debounce } from "lodash-es";
 import { useCallback, useEffect, useMemo } from "react";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import CodeEditor from "@/components/Editor/CodeEditor";
-import { bundle } from "@/lib/bundle";
 import type { BundleResult, SourceFile } from "@/store/bundler";
 import {
   bundleResultAtom,
@@ -136,7 +135,7 @@ function Editor() {
   const handleBundle = useCallback(
     async (files: SourceFile[]) => {
       setIsBundling(true);
-      const result = await bundle(files);
+      const result = await (await import("@/lib/bundle")).bundle(files);
       setBundleResult(result);
 
       if (
@@ -148,12 +147,12 @@ function Editor() {
 
       setIsBundling(false);
     },
-    [activeOutputFile, setActiveOutputFile, setIsBundling, setBundleResult],
+    [activeOutputFile, setActiveOutputFile, setIsBundling, setBundleResult]
   );
 
   const debouncedHandleBundle = useMemo(
     () => debounce(handleBundle, 300),
-    [handleBundle],
+    [handleBundle]
   );
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: initialize bundle on mount
