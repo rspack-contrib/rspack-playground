@@ -7,14 +7,15 @@ import {
 
 export async function bundle(files: SourceFile[]): Promise<BundleResult> {
   const startTime = performance.now();
+  builtinMemFs.volume.reset();
 
-  const fileJSON: Record<string, string> = {};
+  const inputFileJSON: Record<string, string> = {};
   for (const file of files) {
-    fileJSON[file.filename] = file.text;
+    inputFileJSON[file.filename] = file.text;
   }
-  builtinMemFs.volume.fromJSON(fileJSON);
+  builtinMemFs.volume.fromJSON(inputFileJSON);
 
-  const configCode = fileJSON[RSPACK_CONFIG];
+  const configCode = inputFileJSON[RSPACK_CONFIG];
   const dataUrl = `data:text/javascript;base64,${btoa(configCode)}`;
   // biome-ignore lint/security/noGlobalEval: use `eval("import")` rather than `import` to suppress the warning in @rspack/browser
   const configModulePromise = eval(`import("${dataUrl}")`);
@@ -37,7 +38,9 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
       const output: SourceFile[] = [];
       const fileJSON: Record<string, string> = builtinMemFs.volume.toJSON();
       for (const [filename, text] of Object.entries(fileJSON)) {
-        if (filename.startsWith("/dist")) {
+        // Reguard all new files as output files
+        const filenameWithoutPrefixSlash = filename.slice(1);
+        if (!inputFileJSON[filenameWithoutPrefixSlash]) {
           output.push({ filename, text });
         }
       }
