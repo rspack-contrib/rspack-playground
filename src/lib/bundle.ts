@@ -36,8 +36,11 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
       }
 
       const output: SourceFile[] = [];
-      const fileJSON: Record<string, string> = builtinMemFs.volume.toJSON();
+      const fileJSON = builtinMemFs.volume.toJSON();
       for (const [filename, text] of Object.entries(fileJSON)) {
+        if (!text) {
+          continue;
+        }
         // Reguard all new files as output files
         const filenameWithoutPrefixSlash = filename.slice(1);
         if (!inputFileJSON[filenameWithoutPrefixSlash]) {
