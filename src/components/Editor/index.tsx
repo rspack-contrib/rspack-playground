@@ -1,8 +1,9 @@
-import { useAtom } from "jotai";
+import { useAtom, useAtomValue } from "jotai";
 import { debounce } from "lodash-es";
-import { useCallback, useEffect, useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import CodeEditor from "@/components/Editor/CodeEditor";
+import useBundle from "@/hooks/use-bundle";
 import type { BundleResult, SourceFile } from "@/store/bundler";
 import {
   bundleResultAtom,
@@ -138,26 +139,9 @@ function Editor() {
   const [inputFiles, _setInputFiles] = useAtom(inputFilesAtom);
   const [activeInputFile, setActiveInputFile] = useAtom(activeInputFileAtom);
   const [activeOutputFile, setActiveOutputFile] = useAtom(activeOutputFileAtom);
-  const [isBundling, setIsBundling] = useAtom(isBundlingAtom);
-  const [bundleResult, setBundleResult] = useAtom(bundleResultAtom);
-
-  const handleBundle = useCallback(
-    async (files: SourceFile[]) => {
-      setIsBundling(true);
-      const result = await (await import("@/lib/bundle")).bundle(files);
-      setBundleResult(result);
-
-      if (
-        result.output.length > 0 &&
-        activeOutputFile >= result.output.length
-      ) {
-        setActiveOutputFile(0);
-      }
-
-      setIsBundling(false);
-    },
-    [activeOutputFile, setActiveOutputFile, setIsBundling, setBundleResult],
-  );
+  const isBundling = useAtomValue(isBundlingAtom);
+  const bundleResult = useAtomValue(bundleResultAtom);
+  const handleBundle = useBundle();
 
   const debouncedHandleBundle = useMemo(
     () => debounce(handleBundle, 300),

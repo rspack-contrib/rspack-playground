@@ -22,6 +22,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import useBundle from "@/hooks/use-bundle";
 import { getShareUrl, type ShareData } from "@/lib/share";
 import {
   availableVersionsAtom,
@@ -39,9 +40,12 @@ export default function Header() {
   const [isBundling] = useAtom(isBundlingAtom);
   const [inputFiles] = useAtom(inputFilesAtom);
   const setInputFiles = useSetAtom(inputFilesAtom);
+  const handleBundle = useBundle();
 
   const handleReset = () => {
-    setInputFiles([...INITIAL_FILES]);
+    const files = [...INITIAL_FILES];
+    setInputFiles(files);
+    handleBundle(files);
     window.history.replaceState(null, "", window.location.pathname);
   };
 
