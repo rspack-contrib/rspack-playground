@@ -6,7 +6,6 @@ import {
 } from "@/store/bundler";
 
 export async function bundle(files: SourceFile[]): Promise<BundleResult> {
-  const startTime = performance.now();
   builtinMemFs.volume.reset();
 
   const inputFileJSON: Record<string, string> = {};
@@ -21,6 +20,7 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
   const configModulePromise = eval(`import("${dataUrl}")`);
   const options: RspackOptions = (await configModulePromise).default;
 
+  const startTime = performance.now();
   return new Promise((resolve) => {
     rspack(options, (err, stats) => {
       if (err) {
@@ -35,6 +35,7 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
         return;
       }
 
+      const endTime = performance.now();
       const output: SourceFile[] = [];
       const fileJSON = builtinMemFs.volume.toJSON();
       for (const [filename, text] of Object.entries(fileJSON)) {
@@ -54,7 +55,6 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
         warnings: true,
       });
 
-      const endTime = performance.now();
       resolve({
         duration: endTime - startTime,
         output,
