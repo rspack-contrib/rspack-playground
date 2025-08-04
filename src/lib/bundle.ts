@@ -1,7 +1,7 @@
-import { rspack, builtinMemFs, type RspackOptions } from "@rspack/browser";
+import { builtinMemFs, type RspackOptions, rspack } from "@rspack/browser";
 import {
-  RSPACK_CONFIG,
   type BundleResult,
+  RSPACK_CONFIG,
   type SourceFile,
 } from "@/store/bundler";
 
