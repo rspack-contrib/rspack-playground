@@ -5,6 +5,7 @@ export default defineConfig({
   plugins: [pluginReact()],
   html: {
     title: "Rspack REPL",
+    favicon: "./public/favicon-128x128.png",
     appIcon: {
       name: "Rspack REPL",
       icons: [
