@@ -94,7 +94,7 @@ export default function CodeEditor({
         readonly={readonly}
       />
 
-      <div className="flex-1">
+      <div className="flex-1 min-h-0">
         <MonacoEditor
           value={currentFile.text}
           language={getLanguage(currentFile.filename)}

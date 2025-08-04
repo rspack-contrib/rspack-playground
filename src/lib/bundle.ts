@@ -47,7 +47,6 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
         errors: true,
         warnings: true,
       });
-      console.log(statsJson);
 
       const endTime = performance.now();
       resolve({
