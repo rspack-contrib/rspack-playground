@@ -86,17 +86,26 @@ function OutputPanel({
                   readonly
                 />
               </Panel>
-              <PanelResizeHandle className="h-1 bg-border hover:bg-border/80" />
-              <Panel>
-                <div className="h-full overflow-y-auto">
-                  {bundleResult.errors.map((err) => (
-                    <div key={err}>{err}</div>
-                  ))}
-                  {bundleResult.warnings.map((warning) => (
-                    <div key={warning}>{warning}</div>
-                  ))}
-                </div>
-              </Panel>
+              {(bundleResult.errors.length > 0 ||
+                bundleResult.warnings.length > 0) && (
+                <>
+                  <PanelResizeHandle className="h-1 bg-border hover:bg-border/80" />
+                  <Panel minSize={0} maxSize={33.33}>
+                    <pre className="p-2 h-full overflow-y-auto text-wrap">
+                      {bundleResult.errors.map((err) => (
+                        <div key={err} className="text-red-500">
+                          {err}
+                        </div>
+                      ))}
+                      {bundleResult.warnings.map((warning) => (
+                        <div key={warning} className="text-orange-300">
+                          {warning}
+                        </div>
+                      ))}
+                    </pre>
+                  </Panel>
+                </>
+              )}
             </PanelGroup>
           ) : (
             <div className="flex items-center justify-center h-full text-muted-foreground">
@@ -147,12 +156,12 @@ function Editor() {
 
       setIsBundling(false);
     },
-    [activeOutputFile, setActiveOutputFile, setIsBundling, setBundleResult]
+    [activeOutputFile, setActiveOutputFile, setIsBundling, setBundleResult],
   );
 
   const debouncedHandleBundle = useMemo(
     () => debounce(handleBundle, 300),
-    [handleBundle]
+    [handleBundle],
   );
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: initialize bundle on mount
