@@ -1,6 +1,13 @@
-# Rsbuild project
+# Rspack REPL
 
-## Setup
+> [!NOTE]
+> `@rspack/browser` is still in an early stage of development.
+
+The REPL for [Rspack](https://rspack.dev/) based on `@rspack/browser`.
+
+Try it on https://repl.rspack.rs/
+
+## Get started
 
 Install the dependencies:
 
@@ -8,29 +15,12 @@ Install the dependencies:
 pnpm install
 ```
 
-## Get started
-
 Start the dev server, and the app will be available at [http://localhost:3000](http://localhost:3000).
 
 ```bash
 pnpm dev
 ```
 
-Build the app for production:
+## Acknowledgement
 
-```bash
-pnpm build
-```
-
-Preview the production build locally:
-
-```bash
-pnpm preview
-```
-
-## Learn more
-
-To learn more about Rsbuild, check out the following resources:
-
-- [Rsbuild documentation](https://rsbuild.rs) - explore Rsbuild features and APIs.
-- [Rsbuild GitHub repository](https://github.com/web-infra-dev/rsbuild) - your feedback and contributions are welcome!
+- https://bundler.sxzz.dev/
