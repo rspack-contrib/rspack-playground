@@ -78,12 +78,27 @@ function OutputPanel({
         </div>
         <div className="flex-1 min-h-0">
           {bundleResult && bundleResult?.output.length > 0 ? (
-            <CodeEditor
-              files={bundleResult.output}
-              activeIndex={activeOutputFile}
-              onFileSelect={setActiveOutputFile}
-              readonly
-            />
+            <PanelGroup direction="vertical" className="h-full">
+              <Panel>
+                <CodeEditor
+                  files={bundleResult.output}
+                  activeIndex={activeOutputFile}
+                  onFileSelect={setActiveOutputFile}
+                  readonly
+                />
+              </Panel>
+              <PanelResizeHandle className="h-1 bg-border hover:bg-border/80" />
+              <Panel>
+                <div className="h-full overflow-y-auto">
+                  {bundleResult.errors.map((err) => (
+                    <div key={err}>{err}</div>
+                  ))}
+                  {bundleResult.warnings.map((warning) => (
+                    <div key={warning}>{warning}</div>
+                  ))}
+                </div>
+              </Panel>
+            </PanelGroup>
           ) : (
             <div className="flex items-center justify-center h-full text-muted-foreground">
               <div className="text-center">
@@ -124,14 +139,11 @@ function Editor() {
       const result = await bundle(files);
       setBundleResult(result);
 
-      if (result.success) {
-        setBundleResult(result);
-        if (
-          result.output.length > 0 &&
-          activeOutputFile >= result.output.length
-        ) {
-          setActiveOutputFile(0);
-        }
+      if (
+        result.output.length > 0 &&
+        activeOutputFile >= result.output.length
+      ) {
+        setActiveOutputFile(0);
       }
 
       setIsBundling(false);

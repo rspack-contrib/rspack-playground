@@ -21,7 +21,19 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
   const options: RspackOptions = (await configModulePromise).default;
 
   return new Promise((resolve) => {
-    rspack(options, (_err, _stats) => {
+    rspack(options, (err, stats) => {
+      if (err) {
+        const endTime = performance.now();
+        resolve({
+          duration: endTime - startTime,
+          output: [],
+          success: false,
+          errors: [err.message],
+          warnings: [],
+        });
+        return;
+      }
+
       const output: SourceFile[] = [];
       const fileJSON: Record<string, string> = builtinMemFs.volume.toJSON();
       for (const [filename, text] of Object.entries(fileJSON)) {
@@ -30,12 +42,20 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
         }
       }
 
+      const statsJson = stats?.toJson({
+        all: false,
+        errors: true,
+        warnings: true,
+      });
+      console.log(statsJson);
+
       const endTime = performance.now();
       resolve({
         duration: endTime - startTime,
         output,
         success: true,
-        error: "",
+        errors: statsJson?.errors?.map((err) => err.message) || [],
+        warnings: statsJson?.warnings?.map((warning) => warning.message) || [],
       });
     });
   });

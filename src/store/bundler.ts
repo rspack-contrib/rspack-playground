@@ -31,8 +31,9 @@ export interface SourceFile {
 export interface BundleResult {
   success: boolean;
   output: SourceFile[];
-  error?: string;
   duration: number;
+  errors: string[];
+  warnings: string[];
 }
 
 // Bundle
