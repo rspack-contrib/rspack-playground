@@ -113,8 +113,8 @@ export default function Header() {
               {isBundling
                 ? "Bundling..."
                 : bundleResult
-                  ? `${bundleResult.duration.toFixed(0)}ms`
-                  : "--ms"}
+                ? `${bundleResult.duration.toFixed(0)}ms`
+                : "--ms"}
             </span>
           </div>
           <ModeToggle />
@@ -146,7 +146,7 @@ export default function Header() {
           </AlertDialog>
           <Button variant="ghost" size="icon" asChild>
             <a
-              href="https://github.com/web-infra-dev/rspack"
+              href="https://github.com/rspack-contrib/rspack-repl"
               target="_blank"
               rel="noopener noreferrer"
               title="View on GitHub"
