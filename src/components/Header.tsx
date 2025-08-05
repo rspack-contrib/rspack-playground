@@ -75,6 +75,17 @@ export default function Header() {
         </div>
         <div className="flex-1" />
         <div className="flex items-center space-x-4">
+          {/* Bundle Duration */}
+          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+            <Clock className="h-4 w-4" />
+            <span>
+              {isBundling
+                ? "Bundling..."
+                : bundleResult
+                  ? `${bundleResult.duration.toFixed(0)}ms`
+                  : "--ms"}
+            </span>
+          </div>
           <Button
             variant="default"
             size="sm"
@@ -106,17 +117,6 @@ export default function Header() {
             </DropdownMenu>
           </div>
 
-          {/* Bundle Duration */}
-          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <Clock className="h-4 w-4" />
-            <span>
-              {isBundling
-                ? "Bundling..."
-                : bundleResult
-                ? `${bundleResult.duration.toFixed(0)}ms`
-                : "--ms"}
-            </span>
-          </div>
           <ModeToggle />
           <AlertDialog>
             <AlertDialogTrigger asChild>

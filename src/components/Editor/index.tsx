@@ -63,7 +63,6 @@ interface OutputPanelProps {
 function OutputPanel({
   bundleResult,
   activeOutputFile,
-  isBundling,
   setActiveOutputFile,
 }: OutputPanelProps) {
   return (
@@ -119,17 +118,6 @@ function OutputPanel({
             </div>
           )}
         </div>
-
-        {isBundling && (
-          <div className="absolute inset-0 bg-background/80 flex items-center justify-center z-10">
-            <div className="flex flex-col items-center gap-3">
-              <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
-              <div className="text-sm text-muted-foreground font-medium">
-                Bundling...
-              </div>
-            </div>
-          </div>
-        )}
       </div>
     </Panel>
   );
