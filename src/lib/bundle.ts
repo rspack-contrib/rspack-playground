@@ -1,9 +1,38 @@
-import { builtinMemFs, type RspackOptions, rspack } from "@rspack/browser";
+import * as rspackAPI from "@rspack/browser";
+import {
+  builtinMemFs,
+  experiments,
+  type RspackOptions,
+  rspack,
+} from "@rspack/browser";
 import {
   type BundleResult,
   RSPACK_CONFIG,
   type SourceFile,
 } from "@/store/bundler";
+
+async function loadConfig(content: string): Promise<RspackOptions> {
+  function requireRspack(name: string) {
+    if (name === "@rspack/core" || name === "@rspack/browser") {
+      return rspackAPI;
+    }
+    throw new Error(
+      "Only support for importing '@rspack/core' or '@rspack/browser",
+    );
+  }
+  const module: { exports: { default: RspackOptions } } = {
+    exports: { default: {} },
+  };
+  const exports = module.exports;
+
+  const cjsContent = await experiments.swc.transform(content, {
+    module: { type: "commonjs" },
+  });
+
+  const wrapper = new Function("module", "exports", "require", cjsContent.code);
+  wrapper(module, exports, requireRspack);
+  return exports.default as RspackOptions;
+}
 
 export async function bundle(files: SourceFile[]): Promise<BundleResult> {
   builtinMemFs.volume.reset();
@@ -15,10 +44,7 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
   builtinMemFs.volume.fromJSON(inputFileJSON);
 
   const configCode = inputFileJSON[RSPACK_CONFIG];
-  const dataUrl = `data:text/javascript;base64,${btoa(configCode)}`;
-  // biome-ignore lint/security/noGlobalEval: use `eval("import")` rather than `import` to suppress the warning in @rspack/browser
-  const configModulePromise = eval(`import("${dataUrl}")`);
-  const options: RspackOptions = (await configModulePromise).default;
+  const options = await loadConfig(configCode);
 
   const startTime = performance.now();
   return new Promise((resolve) => {
@@ -37,7 +63,10 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
 
       const endTime = performance.now();
       const output: SourceFile[] = [];
-      const fileJSON = builtinMemFs.volume.toJSON();
+      const fileJSON = builtinMemFs.volume.toJSON() as Record<
+        string,
+        string | undefined
+      >;
       for (const [filename, text] of Object.entries(fileJSON)) {
         if (!text) {
           continue;
