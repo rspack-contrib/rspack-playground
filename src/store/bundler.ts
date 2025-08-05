@@ -5,12 +5,19 @@ export const RSPACK_CONFIG = "rspack.config.js";
 export const INITIAL_FILES: SourceFile[] = [
   {
     filename: RSPACK_CONFIG,
-    text: `export default {
+    text: `import * as rspack from "@rspack/browser"
+
+export default {
   mode: "development",
   devtool: false,
 	entry: {
 		main: "./index.js"
-	}
+	},
+  plugins: [
+    new rspack.BannerPlugin({
+      banner: 'hello world',
+    }),
+  ],
 };`,
   },
   {
@@ -56,7 +63,7 @@ export const bundleResultAtom = atom<BundleResult | null>(null);
 // Version
 export const availableVersionsAtom = atom(async () => {
   const res = await fetch(
-    "https://registry.npmjs.org/@rspack/binding-wasm32-wasi",
+    "https://registry.npmjs.org/@rspack/binding-wasm32-wasi"
   );
   const data = await res.json();
   return Object.keys(data.versions).sort((a, b) => {
@@ -90,5 +97,5 @@ export const rspackVersionAtom = atom(
   },
   (_, set, newVersion: string) => {
     set(overwrittenRspackVersionAtom, newVersion);
-  },
+  }
 );
