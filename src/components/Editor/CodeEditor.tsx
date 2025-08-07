@@ -100,6 +100,27 @@ export default function CodeEditor({
           language={getLanguage(currentFile.filename)}
           theme={theme === "dark" ? "vs-dark" : "vs"}
           onChange={handleContentChange}
+          onMount={(_, monaco) => {
+            const jsOptions =
+              monaco.languages.typescript.javascriptDefaults.getCompilerOptions();
+            monaco.languages.typescript.javascriptDefaults.setCompilerOptions({
+              ...jsOptions,
+              jsx: monaco.languages.typescript.JsxEmit.React,
+              jsxFactory: "React.createElement",
+              module: monaco.languages.typescript.ModuleKind.ESNext,
+              target: monaco.languages.typescript.ScriptTarget.ESNext,
+            });
+
+            const tsOptions =
+              monaco.languages.typescript.javascriptDefaults.getCompilerOptions();
+            monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
+              ...tsOptions,
+              jsx: monaco.languages.typescript.JsxEmit.React,
+              jsxFactory: "React.createElement",
+              module: monaco.languages.typescript.ModuleKind.ESNext,
+              target: monaco.languages.typescript.ScriptTarget.ESNext,
+            });
+          }}
           options={{
             readOnly: readonly,
             minimap: { enabled: false },
