@@ -32,7 +32,7 @@ function InputPanel({
   handleInputContentChange,
 }: InputPanelProps) {
   return (
-    <Panel defaultSize={50} minSize={20} className="min-h-0">
+    <Panel id="input" defaultSize={50} minSize={20} className="min-h-0">
       <div className="flex flex-col h-full">
         <div className="flex items-center justify-between p-2 border-b bg-muted/30">
           <span className="text-sm font-medium">Input Files</span>
@@ -66,7 +66,7 @@ function OutputPanel({
   setActiveOutputFile,
 }: OutputPanelProps) {
   return (
-    <Panel defaultSize={50} minSize={20} className="min-h-0">
+    <Panel id="output" defaultSize={50} minSize={20} className="min-h-0">
       <div className="flex flex-col h-full relative">
         <div className="flex items-center justify-between p-2 border-b bg-muted/30">
           <span className="text-sm font-medium">Output Files</span>
@@ -77,8 +77,12 @@ function OutputPanel({
         </div>
         <div className="flex-1 min-h-0">
           {bundleResult && bundleResult?.output.length > 0 ? (
-            <PanelGroup direction="vertical" className="h-full">
-              <Panel>
+            <PanelGroup
+              id="output-group"
+              direction="vertical"
+              className="h-full"
+            >
+              <Panel id="output-editor" order={0}>
                 <CodeEditor
                   files={bundleResult.output}
                   activeIndex={activeOutputFile}
@@ -90,7 +94,12 @@ function OutputPanel({
                 bundleResult.warnings.length > 0) && (
                 <>
                   <PanelResizeHandle className="h-1 bg-border hover:bg-border/80" />
-                  <Panel minSize={0} maxSize={33.33}>
+                  <Panel
+                    id="output-errors"
+                    order={1}
+                    minSize={0}
+                    maxSize={33.33}
+                  >
                     <pre className="p-2 h-full overflow-y-auto text-wrap">
                       {bundleResult.errors.map((err) => (
                         <div key={err} className="text-red-500">
@@ -133,7 +142,7 @@ function Editor() {
 
   const debouncedHandleBundle = useMemo(
     () => debounce(handleBundle, 300),
-    [handleBundle],
+    [handleBundle]
   );
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: initialize bundle on mount
@@ -207,7 +216,7 @@ function Editor() {
     <div className="flex h-full">
       {/* Mobile layout (vertical) */}
       <div className="flex flex-col h-full w-full md:hidden">
-        <PanelGroup direction="vertical" className="h-full">
+        <PanelGroup id="editors-mobile" direction="vertical" className="h-full">
           <InputPanel
             inputFiles={inputFiles}
             activeInputFile={activeInputFile}
@@ -229,7 +238,11 @@ function Editor() {
 
       {/* Desktop layout (horizontal) */}
       <div className="hidden md:flex h-full w-full">
-        <PanelGroup direction="horizontal" className="h-full">
+        <PanelGroup
+          id="editors-desktop"
+          direction="horizontal"
+          className="h-full"
+        >
           <InputPanel
             inputFiles={inputFiles}
             activeInputFile={activeInputFile}
