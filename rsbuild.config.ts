@@ -16,6 +16,12 @@ export default defineConfig({
       ],
     },
   },
+  source: {
+    define: {
+      // Temporary workaround for https://github.com/napi-rs/napi-rs/issues/2867
+      "process.env.NODE_DEBUG_NATIVE": false,
+    },
+  },
   server: {
     headers: {
       "Cross-Origin-Opener-Policy": "same-origin",
