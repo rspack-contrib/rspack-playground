@@ -10,6 +10,7 @@ import {
   RSPACK_CONFIG,
   type SourceFile,
 } from "@/store/bundler";
+import { format } from "./format";
 
 async function loadConfig(content: string): Promise<RspackOptions> {
   function requireRspack(name: string) {
@@ -48,12 +49,13 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
 
   const startTime = performance.now();
   return new Promise((resolve) => {
-    rspack(options, (err, stats) => {
+    rspack(options, async (err, stats) => {
       if (err) {
         const endTime = performance.now();
         resolve({
           duration: endTime - startTime,
           output: [],
+          formattedOutput: [],
           success: false,
           errors: [err.message],
           warnings: [],
@@ -63,6 +65,7 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
 
       const endTime = performance.now();
       const output: SourceFile[] = [];
+      const formattedOutput: SourceFile[] = [];
       const fileJSON = builtinMemFs.volume.toJSON() as Record<
         string,
         string | undefined
@@ -74,7 +77,9 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
         // Reguard all new files as output files
         const filenameWithoutPrefixSlash = filename.slice(1);
         if (!inputFileJSON[filenameWithoutPrefixSlash]) {
+          const formattedText = await format(text);
           output.push({ filename, text });
+          formattedOutput.push({ filename, text: formattedText });
         }
       }
 
@@ -87,6 +92,7 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
       resolve({
         duration: endTime - startTime,
         output,
+        formattedOutput,
         success: true,
         errors: statsJson?.errors?.map((err) => err.message) || [],
         warnings: statsJson?.warnings?.map((warning) => warning.message) || [],

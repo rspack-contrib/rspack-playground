@@ -3,10 +3,13 @@ import { debounce } from "lodash-es";
 import { useEffect, useMemo } from "react";
 import { Panel, PanelGroup, PanelResizeHandle } from "react-resizable-panels";
 import CodeEditor from "@/components/Editor/CodeEditor";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import useBundle from "@/hooks/use-bundle";
 import type { BundleResult, SourceFile } from "@/store/bundler";
 import {
   bundleResultAtom,
+  enableFormatCode,
   inputFilesAtom,
   isBundlingAtom,
 } from "@/store/bundler";
@@ -65,14 +68,19 @@ function OutputPanel({
   activeOutputFile,
   setActiveOutputFile,
 }: OutputPanelProps) {
+  const [formatCode, setFormatCode] = useAtom(enableFormatCode);
   return (
     <Panel id="output" defaultSize={50} minSize={20} className="min-h-0">
       <div className="flex flex-col h-full relative">
         <div className="flex items-center justify-between p-2 border-b bg-muted/30">
           <span className="text-sm font-medium">Output Files</span>
-          <span className="text-xs text-muted-foreground">
-            {bundleResult?.output.length} file
-            {bundleResult?.output.length !== 1 ? "s" : ""}
+          <span className="flex gap-2 text-xs text-accent-foreground">
+            <Checkbox
+              id="format-output"
+              checked={formatCode}
+              onCheckedChange={(state) => setFormatCode(Boolean(state))}
+            />
+            <Label htmlFor="format-output">Format Output</Label>
           </span>
         </div>
         <div className="flex-1 min-h-0">
@@ -84,7 +92,11 @@ function OutputPanel({
             >
               <Panel id="output-editor" order={0}>
                 <CodeEditor
-                  files={bundleResult.output}
+                  files={
+                    formatCode
+                      ? bundleResult.formattedOutput
+                      : bundleResult.output
+                  }
                   activeIndex={activeOutputFile}
                   onFileSelect={setActiveOutputFile}
                   readonly
@@ -142,7 +154,7 @@ function Editor() {
 
   const debouncedHandleBundle = useMemo(
     () => debounce(handleBundle, 300),
-    [handleBundle]
+    [handleBundle],
   );
 
   // biome-ignore lint/correctness/useExhaustiveDependencies: initialize bundle on mount

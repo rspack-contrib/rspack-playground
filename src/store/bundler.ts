@@ -39,6 +39,7 @@ export interface SourceFile {
 export interface BundleResult {
   success: boolean;
   output: SourceFile[];
+  formattedOutput: SourceFile[];
   duration: number;
   errors: string[];
   warnings: string[];
@@ -59,6 +60,7 @@ function getInitFiles() {
 export const isBundlingAtom = atom(false);
 export const inputFilesAtom = atom<SourceFile[]>(getInitFiles());
 export const bundleResultAtom = atom<BundleResult | null>(null);
+export const enableFormatCode = atom(false);
 
 // Version
 export const availableVersionsAtom = atom(async () => {
