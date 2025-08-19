@@ -1,11 +1,11 @@
-# Rspack REPL
+# Rspack Playground
 
 > [!NOTE]
 > `@rspack/browser` is still in an early stage of development.
 
-The REPL for [Rspack](https://rspack.dev/) based on `@rspack/browser`.
+The playground for [Rspack](https://rspack.dev/) based on `@rspack/browser`.
 
-Try it on https://repl.rspack.rs/
+Try it on https://playground.rspack.rs/
 
 ## Get started
 

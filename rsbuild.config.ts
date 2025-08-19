@@ -4,10 +4,10 @@ import { pluginReact } from "@rsbuild/plugin-react";
 export default defineConfig({
   plugins: [pluginReact()],
   html: {
-    title: "Rspack REPL",
+    title: "Rspack Playground",
     favicon: "./public/favicon-128x128.png",
     appIcon: {
-      name: "Rspack REPL",
+      name: "Rspack Playground",
       icons: [
         {
           src: "public/favicon-128x128.png",

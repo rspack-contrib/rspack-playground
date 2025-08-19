@@ -71,7 +71,7 @@ export default function Header() {
       <div className="flex h-14 items-center px-4">
         <div className="flex items-center space-x-3 max-h-full">
           <Logo className="w-10 h-10" />
-          <h1 className="text-lg font-semibold">Rspack REPL</h1>
+          <h1 className="text-lg font-semibold">Rspack Playground</h1>
         </div>
         <div className="flex-1" />
         <div className="flex items-center space-x-4">
@@ -146,7 +146,7 @@ export default function Header() {
           </AlertDialog>
           <Button variant="ghost" size="icon" asChild>
             <a
-              href="https://github.com/rspack-contrib/rspack-repl"
+              href="https://github.com/rspack-contrib/rspack-playground"
               target="_blank"
               rel="noopener noreferrer"
               title="View on GitHub"
