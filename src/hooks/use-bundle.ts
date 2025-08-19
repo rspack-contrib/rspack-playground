@@ -1,6 +1,8 @@
 import { useAtom, useSetAtom } from "jotai";
 import { useCallback } from "react";
 import {
+  bindingLoadedAtom,
+  bindingLoadingAtom,
   bundleResultAtom,
   isBundlingAtom,
   type SourceFile,
@@ -8,6 +10,9 @@ import {
 import { activeOutputFileAtom } from "@/store/editor";
 
 export default function useBundle() {
+  const [bindingLoaded, setBindingLoaded] = useAtom(bindingLoadedAtom);
+  const setBindingLoading = useSetAtom(bindingLoadingAtom);
+
   const setIsBundling = useSetAtom(isBundlingAtom);
   const setBundleResult = useSetAtom(bundleResultAtom);
   const [activeOutputFile, setActiveOutputFile] = useAtom(activeOutputFileAtom);
@@ -15,7 +20,14 @@ export default function useBundle() {
   const handleBundle = useCallback(
     async (files: SourceFile[]) => {
       setIsBundling(true);
-      const result = await (await import("@/lib/bundle")).bundle(files);
+      if (!bindingLoaded) {
+        setBindingLoading(true);
+      }
+      const bundler = await import("@/lib/bundle");
+      setBindingLoading(false);
+      setBindingLoaded(true);
+
+      const result = await bundler.bundle(files);
       setBundleResult(result);
 
       if (
@@ -27,7 +39,15 @@ export default function useBundle() {
 
       setIsBundling(false);
     },
-    [activeOutputFile, setActiveOutputFile, setIsBundling, setBundleResult],
+    [
+      activeOutputFile,
+      bindingLoaded,
+      setActiveOutputFile,
+      setIsBundling,
+      setBundleResult,
+      setBindingLoaded,
+      setBindingLoading,
+    ],
   );
 
   return handleBundle;

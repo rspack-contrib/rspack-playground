@@ -8,10 +8,10 @@ import { Label } from "@/components/ui/label";
 import useBundle from "@/hooks/use-bundle";
 import type { BundleResult, SourceFile } from "@/store/bundler";
 import {
+  bindingLoadingAtom,
   bundleResultAtom,
   enableFormatCode,
   inputFilesAtom,
-  isBundlingAtom,
 } from "@/store/bundler";
 import { activeInputFileAtom, activeOutputFileAtom } from "@/store/editor";
 
@@ -59,13 +59,14 @@ function InputPanel({
 interface OutputPanelProps {
   bundleResult: BundleResult | null;
   activeOutputFile: number;
-  isBundling: boolean;
+  isLoadingBinding: boolean;
   setActiveOutputFile: (index: number) => void;
 }
 
 function OutputPanel({
   bundleResult,
   activeOutputFile,
+  isLoadingBinding,
   setActiveOutputFile,
 }: OutputPanelProps) {
   const [formatCode, setFormatCode] = useAtom(enableFormatCode);
@@ -139,6 +140,16 @@ function OutputPanel({
             </div>
           )}
         </div>
+        {isLoadingBinding && (
+          <div className="absolute inset-0 bg-background/80 flex items-center justify-center z-10">
+            <div className="flex flex-col items-center gap-3">
+              <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+              <div className="text-sm text-muted-foreground font-medium">
+                Loading Binding...
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </Panel>
   );
@@ -148,7 +159,7 @@ function Editor() {
   const [inputFiles, _setInputFiles] = useAtom(inputFilesAtom);
   const [activeInputFile, setActiveInputFile] = useAtom(activeInputFileAtom);
   const [activeOutputFile, setActiveOutputFile] = useAtom(activeOutputFileAtom);
-  const isBundling = useAtomValue(isBundlingAtom);
+  const isLoadingBinding = useAtomValue(bindingLoadingAtom);
   const bundleResult = useAtomValue(bundleResultAtom);
   const handleBundle = useBundle();
 
@@ -243,7 +254,7 @@ function Editor() {
             bundleResult={bundleResult}
             activeOutputFile={activeOutputFile}
             setActiveOutputFile={setActiveOutputFile}
-            isBundling={isBundling}
+            isLoadingBinding={isLoadingBinding}
           />
         </PanelGroup>
       </div>
@@ -269,7 +280,7 @@ function Editor() {
             bundleResult={bundleResult}
             activeOutputFile={activeOutputFile}
             setActiveOutputFile={setActiveOutputFile}
-            isBundling={isBundling}
+            isLoadingBinding={isLoadingBinding}
           />
         </PanelGroup>
       </div>
