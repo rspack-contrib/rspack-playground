@@ -99,6 +99,49 @@ export default function Header() {
                   : "--ms"}
             </span>
           </div>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button variant="outline" title="Reset to a preset">
+                <RotateCcw className="h-4 w-4" />
+                <span>Choose a preset</span>
+              </Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Reset Files</AlertDialogTitle>
+                <AlertDialogDescription>
+                  <span>
+                    This will reset all files to a preset. This action cannot be
+                    undone.
+                  </span>
+                  <Select
+                    value={selectedPreset}
+                    onValueChange={setSelectedPreset}
+                  >
+                    <SelectTrigger className="w-[180px] mt-4">
+                      <SelectValue placeholder="Select a preset" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>Preset</SelectLabel>
+                        {presets.map((preset) => (
+                          <SelectItem key={preset.name} value={preset.name}>
+                            {preset.name}
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction onClick={handleReset}>
+                  Reset
+                </AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
           <Button
             variant="default"
             size="sm"
@@ -131,52 +174,6 @@ export default function Header() {
           </div>
 
           <ModeToggle />
-          <AlertDialog>
-            <AlertDialogTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                title="Reset to initial files"
-              >
-                <RotateCcw className="h-4 w-4" />
-              </Button>
-            </AlertDialogTrigger>
-            <AlertDialogContent>
-              <AlertDialogHeader>
-                <AlertDialogTitle>Reset Files</AlertDialogTitle>
-                <AlertDialogDescription>
-                  <div>
-                    This will reset all files to their initial state. This
-                    action cannot be undone.
-                  </div>
-                  <Select
-                    value={selectedPreset}
-                    onValueChange={setSelectedPreset}
-                  >
-                    <SelectTrigger className="w-[180px] mt-4">
-                      <SelectValue placeholder="Select a preset" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectGroup>
-                        <SelectLabel>Preset</SelectLabel>
-                        {presets.map((preset) => (
-                          <SelectItem key={preset.name} value={preset.name}>
-                            {preset.name}
-                          </SelectItem>
-                        ))}
-                      </SelectGroup>
-                    </SelectContent>
-                  </Select>
-                </AlertDialogDescription>
-              </AlertDialogHeader>
-              <AlertDialogFooter>
-                <AlertDialogCancel>Cancel</AlertDialogCancel>
-                <AlertDialogAction onClick={handleReset}>
-                  Reset
-                </AlertDialogAction>
-              </AlertDialogFooter>
-            </AlertDialogContent>
-          </AlertDialog>
           <Button variant="ghost" size="icon" asChild>
             <a
               href="https://github.com/rspack-contrib/rspack-playground"
