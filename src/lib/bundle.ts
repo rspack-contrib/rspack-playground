@@ -87,6 +87,13 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
         }
       }
 
+      const filenameComparator = (f1: string, f2: string) =>
+        f1.length !== f2.length ? f1.length - f2.length : f1.localeCompare(f2);
+      output.sort((a, b) => filenameComparator(a.filename, b.filename));
+      formattedOutput.sort((a, b) =>
+        filenameComparator(a.filename, b.filename),
+      );
+
       const statsJson = stats?.toJson({
         all: false,
         errors: true,
