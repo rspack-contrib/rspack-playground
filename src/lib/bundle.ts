@@ -77,9 +77,13 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
         // Reguard all new files as output files
         const filenameWithoutPrefixSlash = filename.slice(1);
         if (!inputFileJSON[filenameWithoutPrefixSlash]) {
-          const formattedText = await format(text);
           output.push({ filename, text });
-          formattedOutput.push({ filename, text: formattedText });
+          if (filenameWithoutPrefixSlash.endsWith(".js")) {
+            const formattedText = await format(text);
+            formattedOutput.push({ filename, text: formattedText });
+          } else {
+            formattedOutput.push({ filename, text });
+          }
         }
       }
 
