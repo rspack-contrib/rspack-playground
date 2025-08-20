@@ -5,11 +5,8 @@ import {
   type RspackOptions,
   rspack,
 } from "@rspack/browser";
-import {
-  type BundleResult,
-  RSPACK_CONFIG,
-  type SourceFile,
-} from "@/store/bundler";
+import type { BundleResult, SourceFile } from "@/store/bundler";
+import { RSPACK_CONFIG } from "@/store/common";
 import { format } from "./format";
 
 async function loadConfig(content: string): Promise<RspackOptions> {

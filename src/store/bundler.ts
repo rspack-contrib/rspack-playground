@@ -1,35 +1,6 @@
 import { atom } from "jotai";
 import { deserializeShareData } from "@/lib/share";
-
-export const RSPACK_CONFIG = "rspack.config.js";
-export const INITIAL_FILES: SourceFile[] = [
-  {
-    filename: RSPACK_CONFIG,
-    text: `import * as rspack from "@rspack/core"
-
-export default {
-  mode: "development",
-  devtool: false,
-	entry: {
-		main: "./index.js"
-	},
-  plugins: [
-    new rspack.BannerPlugin({
-      banner: 'hello world',
-    }),
-  ],
-};`,
-  },
-  {
-    filename: "index.js",
-    text: `import lib from "./lib.js"
-console.log(lib)`,
-  },
-  {
-    filename: "lib.js",
-    text: `export default "lib";`,
-  },
-];
+import { PresetBasicLibrary } from "./presets";
 
 export interface SourceFile {
   filename: string;
@@ -53,7 +24,7 @@ function getInitFiles() {
       return shareData.inputFiles;
     }
   }
-  return [...INITIAL_FILES];
+  return [...PresetBasicLibrary.files];
 }
 
 // Bundle

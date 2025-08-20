@@ -1,5 +1,6 @@
 import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import { Clock, RotateCcw, Share2 } from "lucide-react";
+import { useState } from "react";
 import { toast } from "sonner";
 import Github from "@/components/icon/Github";
 import Logo from "@/components/icon/Rspack";
@@ -22,16 +23,25 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import useBundle from "@/hooks/use-bundle";
 import { getShareUrl, type ShareData } from "@/lib/share";
 import {
   availableVersionsAtom,
   bundleResultAtom,
-  INITIAL_FILES,
   inputFilesAtom,
   isBundlingAtom,
   rspackVersionAtom,
 } from "@/store/bundler";
+import { presets } from "@/store/presets";
 
 export default function Header() {
   const [rspackVersion, setRspackVersion] = useAtom(rspackVersionAtom);
@@ -42,8 +52,11 @@ export default function Header() {
   const setInputFiles = useSetAtom(inputFilesAtom);
   const handleBundle = useBundle();
 
+  const [selectedPreset, setSelectedPreset] = useState(presets[0].name);
+
   const handleReset = () => {
-    const files = [...INITIAL_FILES];
+    const preset = presets.find((p) => p.name === selectedPreset);
+    const files = [...(preset?.files || [])];
     setInputFiles(files);
     handleBundle(files);
     window.history.replaceState(null, "", window.location.pathname);
@@ -132,8 +145,28 @@ export default function Header() {
               <AlertDialogHeader>
                 <AlertDialogTitle>Reset Files</AlertDialogTitle>
                 <AlertDialogDescription>
-                  This will reset all files to their initial state. This action
-                  cannot be undone.
+                  <div>
+                    This will reset all files to their initial state. This
+                    action cannot be undone.
+                  </div>
+                  <Select
+                    value={selectedPreset}
+                    onValueChange={setSelectedPreset}
+                  >
+                    <SelectTrigger className="w-[180px] mt-4">
+                      <SelectValue placeholder="Select a preset" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectGroup>
+                        <SelectLabel>Preset</SelectLabel>
+                        {presets.map((preset) => (
+                          <SelectItem key={preset.name} value={preset.name}>
+                            {preset.name}
+                          </SelectItem>
+                        ))}
+                      </SelectGroup>
+                    </SelectContent>
+                  </Select>
                 </AlertDialogDescription>
               </AlertDialogHeader>
               <AlertDialogFooter>
