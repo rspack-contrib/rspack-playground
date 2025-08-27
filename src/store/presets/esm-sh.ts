@@ -15,7 +15,7 @@ export default {
 		main: "./index.js"
 	},
   plugins: [
-    new rspack.BrowserHttpImportPlugin(),
+    new rspack.BrowserHttpImportEsmPlugin({ domain: "https://esm.sh" }),
     new rspack.BannerPlugin({
       banner: 'hello world',
     }),

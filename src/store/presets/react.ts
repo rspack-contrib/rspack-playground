@@ -47,7 +47,7 @@ export default {
     ],
   },
   plugins: [
-    new rspack.BrowserHttpImportPlugin(),
+    new rspack.BrowserHttpImportEsmPlugin({ domain: "https://esm.sh" }),
   ],
   experiments: {
     css: true,
