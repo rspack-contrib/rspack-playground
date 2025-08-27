@@ -1,3 +1,4 @@
+import ansis from "ansis";
 import { useAtom, useAtomValue } from "jotai";
 import { debounce } from "lodash-es";
 import { useEffect, useMemo } from "react";
@@ -116,12 +117,12 @@ function OutputPanel({
                     <pre className="p-2 h-full overflow-y-auto text-wrap">
                       {bundleResult.errors.map((err) => (
                         <div key={err} className="text-red-500">
-                          {err}
+                          {ansis.strip(err)}
                         </div>
                       ))}
                       {bundleResult.warnings.map((warning) => (
                         <div key={warning} className="text-orange-300">
-                          {warning}
+                          {ansis.strip(warning)}
                         </div>
                       ))}
                     </pre>
