@@ -85,7 +85,7 @@ function OutputPanel({
           </span>
         </div>
         <div className="flex-1 min-h-0">
-          {bundleResult && bundleResult?.output.length > 0 ? (
+          {bundleResult ? (
             <PanelGroup
               id="output-group"
               direction="vertical"

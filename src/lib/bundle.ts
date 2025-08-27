@@ -42,7 +42,19 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
   builtinMemFs.volume.fromJSON(inputFileJSON);
 
   const configCode = inputFileJSON[RSPACK_CONFIG];
-  const options = await loadConfig(configCode);
+  let options: rspackAPI.RspackOptions;
+  try {
+    options = await loadConfig(configCode);
+  } catch (e) {
+    return {
+      duration: 0,
+      output: [],
+      formattedOutput: [],
+      success: false,
+      errors: [(e as Error).message],
+      warnings: [],
+    };
+  }
 
   const startTime = performance.now();
   return new Promise((resolve) => {
