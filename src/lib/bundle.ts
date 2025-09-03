@@ -15,7 +15,7 @@ async function loadConfig(content: string): Promise<RspackOptions> {
       return rspackAPI;
     }
     throw new Error(
-      "Only support for importing '@rspack/core' or '@rspack/browser",
+      "Only support for importing '@rspack/core' or '@rspack/browser"
     );
   }
   const module: { exports: { default: RspackOptions } } = {
@@ -85,7 +85,10 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
         }
         // Reguard all new files as output files
         const filenameWithoutPrefixSlash = filename.slice(1);
-        if (!inputFileJSON[filenameWithoutPrefixSlash]) {
+        if (
+          !inputFileJSON[filenameWithoutPrefixSlash] &&
+          !filenameWithoutPrefixSlash.includes("rspack.lock")
+        ) {
           output.push({ filename, text });
           if (filenameWithoutPrefixSlash.endsWith(".js")) {
             const formattedText = await format(text);
@@ -100,7 +103,7 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
         f1.length !== f2.length ? f1.length - f2.length : f1.localeCompare(f2);
       output.sort((a, b) => filenameComparator(a.filename, b.filename));
       formattedOutput.sort((a, b) =>
-        filenameComparator(a.filename, b.filename),
+        filenameComparator(a.filename, b.filename)
       );
 
       const statsJson = stats?.toJson({
