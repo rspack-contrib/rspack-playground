@@ -15,6 +15,9 @@ export default {
   resolve: {
     extensions: [".js", ".jsx", ".json"],
   },
+  output: {
+    publicPath: "/"
+  },
   module: {
     rules: [
       {
@@ -42,11 +45,25 @@ export default {
       },
       {
         test: /\.(png|svg|jpg)$/,
-        type: "asset/resource",
+        type: "asset/inline",
       },
     ],
   },
   plugins: [
+    new rspack.HtmlRspackPlugin({ 
+      inject: false,
+      templateContent: \`
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>Rspack</title>
+          </head>
+          <body>
+            <div id="root"></div>
+          </body>
+        </html>
+      \`
+    }),
     new rspack.BrowserHttpImportEsmPlugin({ domain: "https://esm.sh" }),
   ],
   experiments: {
