@@ -17,30 +17,13 @@ interface PlaygroundFrameProps {
 
 function PlaygroundFrame(props: PlaygroundFrameProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  const files = props.files;
-  const entry = getEntry(files);
-
-  useEffect(() => {
-    const iframe = iframeRef.current;
-    const iframeWindow = iframe?.contentWindow;
-    if (!entry || !iframe || !iframeWindow) {
-      return;
-    }
-
-    const js = files.find((a) => a.filename === "/dist/main.js")?.text || "";
-    const script = iframeWindow.document.createElement("script");
-    script.textContent = js;
-
-    iframeWindow.onload = () => {
-      iframeWindow.document.body.appendChild(script);
-    };
-  }, [files, entry]);
+  useEffect(() => {}, []);
 
   return (
     <iframe
-      ref={iframeRef}
-      srcDoc={entry?.text}
       className="w-full h-full border-none"
+      src="/preview"
+      ref={iframeRef}
     />
   );
 }
