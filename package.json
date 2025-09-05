@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "rsbuild build",
+    "build:sw": "rslib build",
     "check": "biome check --write",
     "dev": "rsbuild dev --open",
     "format": "biome format --write",
@@ -38,10 +39,12 @@
     "@biomejs/biome": "2.0.6",
     "@rsbuild/core": "^1.5.3",
     "@rsbuild/plugin-react": "^1.4.0",
+    "@rslib/core": "^0.12.4",
     "@tailwindcss/postcss": "^4.1.12",
     "@types/lodash-es": "^4.17.12",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
+    "mime": "^4.0.7",
     "tailwindcss": "^4.1.12",
     "typescript": "^5.9.2"
   }
