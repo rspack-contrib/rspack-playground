@@ -33,8 +33,8 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3(@types/react@19.1.12)(react@19.1.1)
       '@rspack/browser':
-        specifier: npm:@rspack-canary/browser@1.5.3-canary-21e07ae4-20250903090509
-        version: '@rspack-canary/browser@1.5.3-canary-21e07ae4-20250903090509(@swc/helpers@0.5.17)'
+        specifier: npm:@rspack-canary/browser@1.5.3-canary-e5a6ac07-20250908084040
+        version: '@rspack-canary/browser@1.5.3-canary-e5a6ac07-20250908084040(@swc/helpers@0.5.17)'
       ansis:
         specifier: ^4.1.0
         version: 4.1.0
@@ -716,8 +716,8 @@ packages:
       typescript:
         optional: true
 
-  '@rspack-canary/browser@1.5.3-canary-21e07ae4-20250903090509':
-    resolution: {integrity: sha512-RG93wwiXE1q7mTsIvk5IwKxxYLWMemAKBH3UjHE9YVIzv5r8I4FBocqATTyanlYpsfTqxhniSJ3qL31zyWP0CQ==}
+  '@rspack-canary/browser@1.5.3-canary-e5a6ac07-20250908084040':
+    resolution: {integrity: sha512-ULKj8ECy04q4kTRSuGsKN3OBBZGmLs0hI7CR+ChzRutYShUTl+rViGSQ8tp0MfRrb90rzQe0+EgchqeFgr6AlA==}
     peerDependencies:
       '@swc/helpers': '>=0.5.1'
     peerDependenciesMeta:
@@ -1874,7 +1874,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.2
 
-  '@rspack-canary/browser@1.5.3-canary-21e07ae4-20250903090509(@swc/helpers@0.5.17)':
+  '@rspack-canary/browser@1.5.3-canary-e5a6ac07-20250908084040(@swc/helpers@0.5.17)':
     dependencies:
       '@napi-rs/wasm-runtime': 1.0.3
       '@rspack/lite-tapable': 1.0.1

@@ -46,6 +46,12 @@ mode: "development",
       externals: ["react"],
       dependencyVersions: {
         "react": "19.1.1"
+      },
+      postprocess: (request) => {
+        if (request.packageName === "@module-federation/webpack-bundler-runtime" || request.packageName === "react-dom") {
+          request.url.searchParams.set("dev", "");
+        }
+        request.url.searchParams.set("external", "react");
       }
     }),
     new rspack.HtmlRspackPlugin({
