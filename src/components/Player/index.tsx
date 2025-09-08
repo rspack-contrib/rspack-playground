@@ -17,7 +17,70 @@ interface PlaygroundFrameProps {
 
 function PlaygroundFrame(props: PlaygroundFrameProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
-  useEffect(() => {}, []);
+  const files = props.files;
+  const entry = getEntry(files);
+
+  useEffect(() => {
+    async function disposeServiceWorker() {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(
+        registrations.map((registration) => registration.unregister())
+      );
+    }
+
+    async function registerServiceWorker() {
+      await disposeServiceWorker();
+
+      const registration = await navigator.serviceWorker.register(
+        "/preview/service-worker.js",
+        { scope: "/preview/" }
+      );
+
+      function init(sw: ServiceWorker) {
+        sw.postMessage({
+          type: "init",
+          files,
+          scope: "/preview/",
+        });
+      }
+
+      function waitToInit(sw: ServiceWorker) {
+        sw.addEventListener("statechange", () => {
+          if (sw.state === "activated") {
+            init(sw);
+          }
+        });
+      }
+
+      if (registration.active) {
+        init(registration.active);
+      } else if (registration.installing) {
+        waitToInit(registration.installing);
+      }
+
+      registration.addEventListener("updatefound", () => {
+        const sw = registration.installing;
+        if (sw) {
+          waitToInit(sw);
+        }
+      });
+    }
+
+    const iframe = iframeRef.current;
+    if (iframe?.contentWindow && entry?.filename) {
+      const iframeWindow = iframe.contentWindow;
+      registerServiceWorker().then(() => {
+        const name = entry.filename.startsWith("/")
+          ? entry.filename.slice(1)
+          : entry.filename;
+        iframeWindow.location = `/preview/${name}`;
+      });
+    }
+
+    return () => {
+      disposeServiceWorker();
+    };
+  }, [files, entry]);
 
   return (
     <iframe

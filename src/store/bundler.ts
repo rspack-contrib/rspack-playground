@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 import { deserializeShareData } from "@/lib/share";
-import { PresetBasicLibrary } from "./presets";
+import { PresetBasicLibrary, PresetReact } from "./presets";
 
 export interface SourceFile {
   filename: string;
@@ -24,7 +24,7 @@ function getInitFiles() {
       return shareData.inputFiles;
     }
   }
-  return [...PresetBasicLibrary.files];
+  return [...PresetReact.files];
 }
 
 // Bundle
