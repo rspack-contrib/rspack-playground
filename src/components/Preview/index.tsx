@@ -11,11 +11,11 @@ import {
 } from "@/components/ui/dialog";
 import { bundleResultAtom, type SourceFile } from "@/store/bundler";
 
-interface PlaygroundFrameProps {
+interface PreviewFrameProps {
   files: SourceFile[];
 }
 
-function PlaygroundFrame(props: PlaygroundFrameProps) {
+function PreviewFrame(props: PreviewFrameProps) {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const files = props.files;
   const entry = getEntry(files);
@@ -91,7 +91,7 @@ function PlaygroundFrame(props: PlaygroundFrameProps) {
   );
 }
 
-function Player() {
+function Preview() {
   const bundleResult = useAtomValue(bundleResultAtom);
   const entry = getEntry(bundleResult?.output || []);
 
@@ -106,7 +106,7 @@ function Player() {
         <DialogContent showCloseButton={false} className="w-9/12 h-9/12">
           <DialogTitle className="hidden"></DialogTitle>
           <DialogDescription className="hidden"></DialogDescription>
-          <PlaygroundFrame files={bundleResult?.output || []} />
+          <PreviewFrame files={bundleResult?.output || []} />
         </DialogContent>
       </Dialog>
     </div>
@@ -118,4 +118,4 @@ function getEntry(sourceFiles: SourceFile[]) {
   return entry;
 }
 
-export default Player;
+export default Preview;
