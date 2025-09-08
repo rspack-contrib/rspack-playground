@@ -109,7 +109,7 @@ export async function bundle(files: SourceFile[]): Promise<BundleResult> {
       const statsJson = stats?.toJson({
         all: false,
         errors: true,
-        warnings: true,
+        warnings: false,
       });
 
       resolve({

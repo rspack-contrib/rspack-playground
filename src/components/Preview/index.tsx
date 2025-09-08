@@ -103,7 +103,10 @@ function Preview() {
             <Play />
           </Button>
         </DialogTrigger>
-        <DialogContent showCloseButton={false} className="w-9/12 h-9/12">
+        <DialogContent
+          showCloseButton={false}
+          className="max-w-full! w-9/12! h-8/12!"
+        >
           <DialogTitle className="hidden"></DialogTitle>
           <DialogDescription className="hidden"></DialogDescription>
           <PreviewFrame files={bundleResult?.output || []} />
