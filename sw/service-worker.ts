@@ -44,7 +44,7 @@ _self.addEventListener("fetch", (event) => {
           .replace(scope, "")
           .replace(/^\//, "");
         const file = files.find(
-          (f) => f.filename === filename || f.filename === `/${filename}`
+          (f) => f.filename === filename || f.filename === `/${filename}`,
         );
         if (file) {
           const contentType = mime.getType(file.filename) || "text/plain";
@@ -58,6 +58,6 @@ _self.addEventListener("fetch", (event) => {
         }
       }
       return fetch(event.request);
-    })()
+    })(),
   );
 });

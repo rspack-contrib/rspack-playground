@@ -1,4 +1,6 @@
+import { useAtomValue } from "jotai";
 import { Play } from "lucide-react";
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -7,9 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { useAtomValue } from "jotai";
 import { bundleResultAtom, type SourceFile } from "@/store/bundler";
-import { useEffect, useRef } from "react";
 
 interface PlaygroundFrameProps {
   files: SourceFile[];
@@ -24,7 +24,7 @@ function PlaygroundFrame(props: PlaygroundFrameProps) {
     async function disposeServiceWorker() {
       const registrations = await navigator.serviceWorker.getRegistrations();
       await Promise.all(
-        registrations.map((registration) => registration.unregister())
+        registrations.map((registration) => registration.unregister()),
       );
     }
 
@@ -33,7 +33,7 @@ function PlaygroundFrame(props: PlaygroundFrameProps) {
 
       const registration = await navigator.serviceWorker.register(
         "/preview/service-worker.js",
-        { scope: "/preview/" }
+        { scope: "/preview/" },
       );
 
       function init(sw: ServiceWorker) {

@@ -1,6 +1,6 @@
 import { atom } from "jotai";
 import { deserializeShareData } from "@/lib/share";
-import { PresetBasicLibrary, PresetReact } from "./presets";
+import { PresetBasicLibrary } from "./presets";
 
 export interface SourceFile {
   filename: string;
@@ -24,7 +24,7 @@ function getInitFiles() {
       return shareData.inputFiles;
     }
   }
-  return [...PresetReact.files];
+  return [...PresetBasicLibrary.files];
 }
 
 // Bundle
@@ -38,7 +38,7 @@ export const enableFormatCode = atom(true);
 // Version
 export const availableVersionsAtom = atom(async () => {
   const res = await fetch(
-    "https://registry.npmjs.org/@rspack/binding-wasm32-wasi"
+    "https://registry.npmjs.org/@rspack/binding-wasm32-wasi",
   );
   const data = await res.json();
   return Object.keys(data.versions).sort((a, b) => {
@@ -72,5 +72,5 @@ export const rspackVersionAtom = atom(
   },
   (_, set, newVersion: string) => {
     set(overwrittenRspackVersionAtom, newVersion);
-  }
+  },
 );
