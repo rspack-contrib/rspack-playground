@@ -1,3 +1,5 @@
+import mime from "mime/lite";
+
 const _self = self as unknown as ServiceWorkerGlobalScope;
 
 interface SourceFile {
@@ -45,19 +47,7 @@ _self.addEventListener("fetch", (event) => {
           (f) => f.filename === filename || f.filename === `/${filename}`
         );
         if (file) {
-          let contentType = "text/plain";
-          if (file.filename.endsWith(".html")) {
-            contentType = "text/html";
-          } else if (file.filename.endsWith(".js")) {
-            contentType = "application/javascript";
-          } else if (file.filename.endsWith(".css")) {
-            contentType = "text/css";
-          } else if (file.filename.endsWith(".json")) {
-            contentType = "application/json";
-          } else if (file.filename.endsWith(".wasm")) {
-            contentType = "application/wasm";
-          }
-
+          const contentType = mime.getType(file.filename) || "text/plain";
           return new Response(file.text, {
             status: 200,
             headers: {
