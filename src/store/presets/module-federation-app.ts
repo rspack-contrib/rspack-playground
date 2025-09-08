@@ -55,7 +55,7 @@ mode: "development",
       name: "app",
       // List of remotes with URLs
       remotes: {
-        "mfe-b": "mfeBBB@http://${window.location.host}/mf-lib/mfeBBB.js",
+        "mfe-b": "mfeBBB@${new URL("mf-lib/mfeBBB.js", window.location.href).toString()}",
       },
 
       // list of shared modules with optional options
