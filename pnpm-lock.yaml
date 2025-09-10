@@ -33,8 +33,8 @@ importers:
         specifier: ^1.2.3
         version: 1.2.3(@types/react@19.1.12)(react@19.1.1)
       '@rspack/browser':
-        specifier: npm:@rspack-canary/browser@1.5.3-canary-e5a6ac07-20250908084040
-        version: '@rspack-canary/browser@1.5.3-canary-e5a6ac07-20250908084040(@swc/helpers@0.5.17)'
+        specifier: ^1.5.3
+        version: 1.5.3(@swc/helpers@0.5.17)
       ansis:
         specifier: ^4.1.0
         version: 4.1.0
@@ -716,14 +716,6 @@ packages:
       typescript:
         optional: true
 
-  '@rspack-canary/browser@1.5.3-canary-e5a6ac07-20250908084040':
-    resolution: {integrity: sha512-ULKj8ECy04q4kTRSuGsKN3OBBZGmLs0hI7CR+ChzRutYShUTl+rViGSQ8tp0MfRrb90rzQe0+EgchqeFgr6AlA==}
-    peerDependencies:
-      '@swc/helpers': '>=0.5.1'
-    peerDependenciesMeta:
-      '@swc/helpers':
-        optional: true
-
   '@rspack/binding-darwin-arm64@1.5.2':
     resolution: {integrity: sha512-aO76T6VQvAFt1LJNRA5aPOJ+szeTLlzC5wubsnxgWWjG53goP+Te35kFjDIDe+9VhKE/XqRId6iNAymaEsN+Uw==}
     cpu: [arm64]
@@ -775,6 +767,14 @@ packages:
 
   '@rspack/binding@1.5.2':
     resolution: {integrity: sha512-NKiBcsxmAzFDYRnK2ZHWbTtDFVT5/704eK4OfpgsDXPMkaMnBKijMKNgP5pbe18X4rUlz+8HnGm4+Xllo9EESw==}
+
+  '@rspack/browser@1.5.3':
+    resolution: {integrity: sha512-3FsB/61ScazWbLvReDYD8yb+S6gLj/Sx1Xis1csuVgdCtNLL6PqnpRlTUadmRA4Aak9L5tdrWBl+F6s0YXixrQ==}
+    peerDependencies:
+      '@swc/helpers': '>=0.5.1'
+    peerDependenciesMeta:
+      '@swc/helpers':
+        optional: true
 
   '@rspack/core@1.5.2':
     resolution: {integrity: sha512-ifjHqLczC81d1xjXPXCzxTFKNOFsEzuuLN44cMnyzQ/GWi4B48fyX7JHndWE7Lxd54cW1O9Ik7AdBN3Gq891EA==}
@@ -973,6 +973,12 @@ packages:
     resolution: {integrity: sha512-FJhYRoDaiatfEkUK8HKlicmu/3SGFD51q3itKDGoSTysQJBnfOcxU5GxnhE1E6soB76MbT0MBtnKJuXyAx+96Q==}
     engines: {node: '>=6'}
 
+  glob-to-regex.js@1.0.1:
+    resolution: {integrity: sha512-CG/iEvgQqfzoVsMUbxSJcwbG2JwyZ3naEqPkeltwl0BSS8Bp83k3xlGms+0QdWFUAwV+uvo80wNswKF6FWEkKg==}
+    engines: {node: '>=10.0'}
+    peerDependencies:
+      tslib: '2'
+
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
@@ -1085,8 +1091,8 @@ packages:
   magic-string@0.30.18:
     resolution: {integrity: sha512-yi8swmWbO17qHhwIBNeeZxTceJMeBvWJaId6dyvTSOwTipqeHhMhOrz6513r1sOKnpvQ7zkhlG8tPrpilwTxHQ==}
 
-  memfs@4.36.0:
-    resolution: {integrity: sha512-mfBfzGUdoEw5AZwG8E965ej3BbvW2F9LxEWj4uLxF6BEh1dO2N9eS3AGu9S6vfenuQYrVjsbUOOZK7y3vz4vyQ==}
+  memfs@4.38.2:
+    resolution: {integrity: sha512-FpWsVHpAkoSh/LfY1BgAl72BVd374ooMRtDi2VqzBycX4XEfvC0XKACCe0C9VRZoYq5viuoyTv6lYXZ/Q7TrLQ==}
     engines: {node: '>= 4.0.0'}
 
   mime@4.0.7:
@@ -1874,17 +1880,6 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.2
 
-  '@rspack-canary/browser@1.5.3-canary-e5a6ac07-20250908084040(@swc/helpers@0.5.17)':
-    dependencies:
-      '@napi-rs/wasm-runtime': 1.0.3
-      '@rspack/lite-tapable': 1.0.1
-      '@swc/types': 0.1.24
-      '@types/watchpack': 2.4.4
-      memfs: 4.36.0
-      webpack-sources: 3.3.3
-    optionalDependencies:
-      '@swc/helpers': 0.5.17
-
   '@rspack/binding-darwin-arm64@1.5.2':
     optional: true
 
@@ -1929,6 +1924,17 @@ snapshots:
       '@rspack/binding-win32-arm64-msvc': 1.5.2
       '@rspack/binding-win32-ia32-msvc': 1.5.2
       '@rspack/binding-win32-x64-msvc': 1.5.2
+
+  '@rspack/browser@1.5.3(@swc/helpers@0.5.17)':
+    dependencies:
+      '@napi-rs/wasm-runtime': 1.0.3
+      '@rspack/lite-tapable': 1.0.1
+      '@swc/types': 0.1.24
+      '@types/watchpack': 2.4.4
+      memfs: 4.38.2
+      webpack-sources: 3.3.3
+    optionalDependencies:
+      '@swc/helpers': 0.5.17
 
   '@rspack/core@1.5.2(@swc/helpers@0.5.17)':
     dependencies:
@@ -2096,6 +2102,10 @@ snapshots:
 
   get-nonce@1.0.1: {}
 
+  glob-to-regex.js@1.0.1(tslib@2.8.1):
+    dependencies:
+      tslib: 2.8.1
+
   graceful-fs@4.2.11: {}
 
   html-entities@2.6.0: {}
@@ -2166,10 +2176,12 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  memfs@4.36.0:
+  memfs@4.38.2:
     dependencies:
       '@jsonjoy.com/json-pack': 1.11.0(tslib@2.8.1)
       '@jsonjoy.com/util': 1.9.0(tslib@2.8.1)
+      glob-to-regex.js: 1.0.1(tslib@2.8.1)
+      thingies: 2.5.0(tslib@2.8.1)
       tree-dump: 1.0.3(tslib@2.8.1)
       tslib: 2.8.1
 
