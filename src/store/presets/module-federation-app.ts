@@ -42,8 +42,6 @@ mode: "development",
   plugins: [
     new rspack.BrowserHttpImportEsmPlugin({
       domain: "https://esm.sh",
-      dev: ["@module-federation/webpack-bundler-runtime", "react-dom"],
-      externals: ["react"],
       dependencyVersions: {
         "react": "19.1.1"
       },
