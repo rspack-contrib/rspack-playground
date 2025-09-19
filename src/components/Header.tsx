@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import Github from "@/components/icon/Github";
 import Logo from "@/components/icon/Rspack";
 import { ModeToggle } from "@/components/ModeToggle";
+import Preview from "@/components/Preview";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -87,7 +88,7 @@ export default function Header() {
           <h1 className="text-lg font-semibold">Rspack Playground</h1>
         </div>
         <div className="flex-1" />
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-3">
           {/* Bundle Duration */}
           <div className="flex items-center space-x-2 text-sm text-muted-foreground">
             <Clock className="h-4 w-4" />
@@ -151,6 +152,7 @@ export default function Header() {
             <Share2 className="h-4 w-4" />
             <span>Share</span>
           </Button>
+          <Preview />
           <div className="flex items-center space-x-2 hidden">
             <span className="text-sm text-muted-foreground">Version:</span>
             <DropdownMenu>

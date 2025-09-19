@@ -9,6 +9,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { bundleResultAtom, type SourceFile } from "@/store/bundler";
 
 interface PreviewFrameProps {
@@ -96,23 +101,36 @@ function Preview() {
   const entry = getEntry(bundleResult?.output || []);
 
   return (
-    <div className="absolute right-6 bottom-6 opacity-0 hover:opacity-100 transition-opacity duration-300">
-      <Dialog>
-        <DialogTrigger disabled={!entry} asChild>
-          <Button variant="secondary" size="icon" disabled={!entry}>
+    <Dialog>
+      {!entry ? (
+        <Tooltip>
+          <TooltipTrigger>
+            <DialogTrigger disabled asChild>
+              <Button variant="outline" size="icon" disabled>
+                <Play />
+              </Button>
+            </DialogTrigger>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>'index.html' is needed</p>
+          </TooltipContent>
+        </Tooltip>
+      ) : (
+        <DialogTrigger asChild>
+          <Button variant="outline" size="icon">
             <Play />
           </Button>
         </DialogTrigger>
-        <DialogContent
-          showCloseButton={false}
-          className="max-w-full! w-9/12! h-8/12!"
-        >
-          <DialogTitle className="hidden"></DialogTitle>
-          <DialogDescription className="hidden"></DialogDescription>
-          <PreviewFrame files={bundleResult?.output || []} />
-        </DialogContent>
-      </Dialog>
-    </div>
+      )}
+      <DialogContent
+        showCloseButton={false}
+        className="max-w-full! w-9/12! h-8/12!"
+      >
+        <DialogTitle className="hidden"></DialogTitle>
+        <DialogDescription className="hidden"></DialogDescription>
+        <PreviewFrame files={bundleResult?.output || []} />
+      </DialogContent>
+    </Dialog>
   );
 }
 

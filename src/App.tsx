@@ -2,7 +2,6 @@ import { Toaster } from "sonner";
 import Editor from "@/components/Editor";
 import Header from "@/components/Header";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import Preview from "./components/Preview";
 
 const App = () => {
   return (
@@ -12,7 +11,6 @@ const App = () => {
         <main className="flex-1 overflow-hidden">
           <Editor />
         </main>
-        <Preview />
       </div>
       <Toaster />
     </ThemeProvider>
