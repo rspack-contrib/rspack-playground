@@ -9,11 +9,6 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 import { bundleResultAtom, type SourceFile } from "@/store/bundler";
 
 interface PreviewFrameProps {
@@ -99,29 +94,15 @@ function PreviewFrame(props: PreviewFrameProps) {
 function Preview() {
   const bundleResult = useAtomValue(bundleResultAtom);
   const entry = getEntry(bundleResult?.output || []);
+  const disabled = !entry;
 
   return (
     <Dialog>
-      {!entry ? (
-        <Tooltip>
-          <TooltipTrigger>
-            <DialogTrigger disabled asChild>
-              <Button variant="outline" size="icon" disabled>
-                <Play />
-              </Button>
-            </DialogTrigger>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>'index.html' is needed</p>
-          </TooltipContent>
-        </Tooltip>
-      ) : (
-        <DialogTrigger asChild>
-          <Button variant="outline" size="icon">
-            <Play />
-          </Button>
-        </DialogTrigger>
-      )}
+      <DialogTrigger disabled={disabled} asChild>
+        <Button variant="outline" size="icon" disabled={disabled}>
+          <Play />
+        </Button>
+      </DialogTrigger>
       <DialogContent
         showCloseButton={false}
         className="max-w-full! w-9/12! h-8/12!"
