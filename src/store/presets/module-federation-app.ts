@@ -43,7 +43,8 @@ mode: "development",
     new rspack.BrowserHttpImportEsmPlugin({
       domain: "https://esm.sh",
       dependencyVersions: {
-        "react": "19.1.1"
+        "react": "19.1.1",
+        "react-dom": "19.1.1"
       },
       postprocess: (request) => {
         if (request.packageName === "@module-federation/webpack-bundler-runtime" || request.packageName === "react-dom") {
