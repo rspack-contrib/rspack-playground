@@ -2,9 +2,9 @@ var mfeBBB;
 (() => { // webpackBootstrap
 "use strict";
 var __webpack_modules__ = ({
-"../../../node_modules/.pnpm/@module-federation+error-codes@0.18.0/node_modules/@module-federation/error-codes/dist/index.cjs.js": 
+"../../../node_modules/.pnpm/@module-federation+error-codes@0.21.2/node_modules/@module-federation/error-codes/dist/index.cjs.js": 
 /*!***************************************************************************************************************************************!*\
-  !*** ../../../node_modules/.pnpm/@module-federation+error-codes@0.18.0/node_modules/@module-federation/error-codes/dist/index.cjs.js ***!
+  !*** ../../../node_modules/.pnpm/@module-federation+error-codes@0.21.2/node_modules/@module-federation/error-codes/dist/index.cjs.js ***!
   \***************************************************************************************************************************************/
 (function (__unused_webpack_module, exports) {
 
@@ -22,32 +22,17 @@ const TYPE_001 = 'TYPE-001';
 const BUILD_001 = 'BUILD-001';
 const BUILD_002 = 'BUILD-002';
 
-const getDocsUrl = (errorCode)=>{
+const getDocsUrl = (errorCode) => {
     const type = errorCode.split('-')[0].toLowerCase();
     return `View the docs to see how to solve: https://module-federation.io/guide/troubleshooting/${type}/${errorCode}`;
 };
-const getShortErrorMsg = (errorCode, errorDescMap, args, originalErrorMsg)=>{
-    const msg = [
-        `${[
-            errorDescMap[errorCode]
-        ]} #${errorCode}`
-    ];
+const getShortErrorMsg = (errorCode, errorDescMap, args, originalErrorMsg) => {
+    const msg = [`${[errorDescMap[errorCode]]} #${errorCode}`];
     args && msg.push(`args: ${JSON.stringify(args)}`);
     msg.push(getDocsUrl(errorCode));
     originalErrorMsg && msg.push(`Original Error Message:\n ${originalErrorMsg}`);
     return msg.join('\n');
 };
-
-function _extends() {
-    _extends = Object.assign || function assign(target) {
-        for(var i = 1; i < arguments.length; i++){
-            var source = arguments[i];
-            for(var key in source)if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
-        }
-        return target;
-    };
-    return _extends.apply(this, arguments);
-}
 
 const runtimeDescMap = {
     [RUNTIME_001]: 'Failed to get remoteEntry exports.',
@@ -58,16 +43,20 @@ const runtimeDescMap = {
     [RUNTIME_006]: 'Invalid loadShareSync function call from runtime',
     [RUNTIME_007]: 'Failed to get remote snapshot.',
     [RUNTIME_008]: 'Failed to load script resources.',
-    [RUNTIME_009]: 'Please call createInstance first.'
+    [RUNTIME_009]: 'Please call createInstance first.',
 };
 const typeDescMap = {
-    [TYPE_001]: 'Failed to generate type declaration. Execute the below cmd to reproduce and fix the error.'
+    [TYPE_001]: 'Failed to generate type declaration. Execute the below cmd to reproduce and fix the error.',
 };
 const buildDescMap = {
     [BUILD_001]: 'Failed to find expose module.',
-    [BUILD_002]: 'PublicPath is required in prod mode.'
+    [BUILD_002]: 'PublicPath is required in prod mode.',
 };
-const errorDescMap = _extends({}, runtimeDescMap, typeDescMap, buildDescMap);
+const errorDescMap = {
+    ...runtimeDescMap,
+    ...typeDescMap,
+    ...buildDescMap,
+};
 
 exports.BUILD_001 = BUILD_001;
 exports.BUILD_002 = BUILD_002;
@@ -86,6 +75,7 @@ exports.errorDescMap = errorDescMap;
 exports.getShortErrorMsg = getShortErrorMsg;
 exports.runtimeDescMap = runtimeDescMap;
 exports.typeDescMap = typeDescMap;
+//# sourceMappingURL=index.cjs.js.map
 
 
 }),
@@ -101,27 +91,26 @@ __webpack_require__.d(exports, {
 });
 
 }),
-"@module-federation/runtime/rspack.js!=!data:text/javascript,import __module_federation_bundler_runtime__ from \"/Users/bytedance/Projects/rstack-examples/node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.18.0/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs\";const __module_federation_runtime_plugins__ = [];const __module_federation_remote_infos__ = {};const __module_federation_container_name__ = \"mfeBBB\";const __module_federation_share_strategy__ = \"version-first\";if((__webpack_require__.initializeSharingData||__webpack_require__.initializeExposesData)&&__webpack_require__.federation){var __webpack_require___remotesLoadingData,__webpack_require___remotesLoadingData1,__webpack_require___initializeSharingData,__webpack_require___consumesLoadingData,__webpack_require___consumesLoadingData1,__webpack_require___initializeExposesData,__webpack_require___consumesLoadingData2;const override=(obj,key,value)=>{if(!obj)return;if(obj[key])obj[key]=value};const merge=(obj,key,fn)=>{const value=fn();if(Array.isArray(value)){var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=[];obj[key].push(...value)}else if(typeof value===\"object\"&&value!==null){var _obj1,_key1;var _1;(_1=(_obj1=obj)[_key1=key])!==null&&_1!==void 0?_1:_obj1[_key1]={};Object.assign(obj[key],value)}};const early=(obj,key,initial)=>{var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=initial()};var __webpack_require___remotesLoadingData_chunkMapping;const remotesLoadingChunkMapping=(__webpack_require___remotesLoadingData_chunkMapping=(__webpack_require___remotesLoadingData=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData===void 0?void 0:__webpack_require___remotesLoadingData.chunkMapping)!==null&&__webpack_require___remotesLoadingData_chunkMapping!==void 0?__webpack_require___remotesLoadingData_chunkMapping:{};var __webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping;const remotesLoadingModuleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData1=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData1===void 0?void 0:__webpack_require___remotesLoadingData1.moduleIdToRemoteDataMapping)!==null&&__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping!==void 0?__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping:{};var __webpack_require___initializeSharingData_scopeToSharingDataMapping;const initializeSharingScopeToInitDataMapping=(__webpack_require___initializeSharingData_scopeToSharingDataMapping=(__webpack_require___initializeSharingData=__webpack_require__.initializeSharingData)===null||__webpack_require___initializeSharingData===void 0?void 0:__webpack_require___initializeSharingData.scopeToSharingDataMapping)!==null&&__webpack_require___initializeSharingData_scopeToSharingDataMapping!==void 0?__webpack_require___initializeSharingData_scopeToSharingDataMapping:{};var __webpack_require___consumesLoadingData_chunkMapping;const consumesLoadingChunkMapping=(__webpack_require___consumesLoadingData_chunkMapping=(__webpack_require___consumesLoadingData=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData===void 0?void 0:__webpack_require___consumesLoadingData.chunkMapping)!==null&&__webpack_require___consumesLoadingData_chunkMapping!==void 0?__webpack_require___consumesLoadingData_chunkMapping:{};var __webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping;const consumesLoadingModuleToConsumeDataMapping=(__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping=(__webpack_require___consumesLoadingData1=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData1===void 0?void 0:__webpack_require___consumesLoadingData1.moduleIdToConsumeDataMapping)!==null&&__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping!==void 0?__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping:{};const consumesLoadinginstalledModules={};const initializeSharingInitPromises=[];const initializeSharingInitTokens={};const containerShareScope=(__webpack_require___initializeExposesData=__webpack_require__.initializeExposesData)===null||__webpack_require___initializeExposesData===void 0?void 0:__webpack_require___initializeExposesData.shareScope;for(const key in __module_federation_bundler_runtime__){__webpack_require__.federation[key]=__module_federation_bundler_runtime__[key]}early(__webpack_require__.federation,\"consumesLoadingModuleToHandlerMapping\",()=>{const consumesLoadingModuleToHandlerMapping={};for(let[moduleId,data]of Object.entries(consumesLoadingModuleToConsumeDataMapping)){consumesLoadingModuleToHandlerMapping[moduleId]={getter:data.fallback,shareInfo:{shareConfig:{fixedDependencies:false,requiredVersion:data.requiredVersion,strictVersion:data.strictVersion,singleton:data.singleton,eager:data.eager},scope:[data.shareScope]},shareKey:data.shareKey}}return consumesLoadingModuleToHandlerMapping});early(__webpack_require__.federation,\"initOptions\",()=>({}));early(__webpack_require__.federation.initOptions,\"name\",()=>__module_federation_container_name__);early(__webpack_require__.federation.initOptions,\"shareStrategy\",()=>__module_federation_share_strategy__);early(__webpack_require__.federation.initOptions,\"shared\",()=>{const shared={};for(let[scope,stages]of Object.entries(initializeSharingScopeToInitDataMapping)){for(let stage of stages){if(typeof stage===\"object\"&&stage!==null){const{name,version,factory,eager,singleton,requiredVersion,strictVersion}=stage;const shareConfig={};const isValidValue=function(val){return typeof val!==\"undefined\"};if(isValidValue(singleton)){shareConfig.singleton=singleton}if(isValidValue(requiredVersion)){shareConfig.requiredVersion=requiredVersion}if(isValidValue(eager)){shareConfig.eager=eager}if(isValidValue(strictVersion)){shareConfig.strictVersion=strictVersion}const options={version,scope:[scope],shareConfig,get:factory};if(shared[name]){shared[name].push(options)}else{shared[name]=[options]}}}}return shared});merge(__webpack_require__.federation.initOptions,\"remotes\",()=>Object.values(__module_federation_remote_infos__).flat().filter(remote=>remote.externalType===\"script\"));merge(__webpack_require__.federation.initOptions,\"plugins\",()=>__module_federation_runtime_plugins__);early(__webpack_require__.federation,\"bundlerRuntimeOptions\",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions,\"remotes\",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"chunkMapping\",()=>remotesLoadingChunkMapping);early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"idToExternalAndNameMapping\",()=>{const remotesLoadingIdToExternalAndNameMappingMapping={};for(let[moduleId,data]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){remotesLoadingIdToExternalAndNameMappingMapping[moduleId]=[data.shareScope,data.name,data.externalModuleId,data.remoteName]}return remotesLoadingIdToExternalAndNameMappingMapping});early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"webpackRequire\",()=>__webpack_require__);merge(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"idToRemoteMap\",()=>{const idToRemoteMap={};for(let[id,remoteData]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){const info=__module_federation_remote_infos__[remoteData.remoteName];if(info)idToRemoteMap[id]=info}return idToRemoteMap});override(__webpack_require__,\"S\",__webpack_require__.federation.bundlerRuntime.S);if(__webpack_require__.federation.attachShareScopeMap){__webpack_require__.federation.attachShareScopeMap(__webpack_require__)}override(__webpack_require__.f,\"remotes\",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.remotes({chunkId,promises,chunkMapping:remotesLoadingChunkMapping,idToExternalAndNameMapping:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToExternalAndNameMapping,idToRemoteMap:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToRemoteMap,webpackRequire:__webpack_require__}));override(__webpack_require__.f,\"consumes\",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.consumes({chunkId,promises,chunkMapping:consumesLoadingChunkMapping,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping,installedModules:consumesLoadinginstalledModules,webpackRequire:__webpack_require__}));override(__webpack_require__,\"I\",(name,initScope)=>__webpack_require__.federation.bundlerRuntime.I({shareScopeName:name,initScope,initPromises:initializeSharingInitPromises,initTokens:initializeSharingInitTokens,webpackRequire:__webpack_require__}));override(__webpack_require__,\"initContainer\",(shareScope,initScope,remoteEntryInitOptions)=>__webpack_require__.federation.bundlerRuntime.initContainerEntry({shareScope,initScope,remoteEntryInitOptions,shareScopeKey:containerShareScope,webpackRequire:__webpack_require__}));override(__webpack_require__,\"getContainer\",(module1,getScope)=>{var moduleMap=__webpack_require__.initializeExposesData.moduleMap;__webpack_require__.R=getScope;getScope=Object.prototype.hasOwnProperty.call(moduleMap,module1)?moduleMap[module1]():Promise.resolve().then(()=>{throw new Error('Module \"'+module1+'\" does not exist in container.')});__webpack_require__.R=undefined;return getScope});__webpack_require__.federation.instance=__webpack_require__.federation.runtime.init(__webpack_require__.federation.initOptions);if((__webpack_require___consumesLoadingData2=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData2===void 0?void 0:__webpack_require___consumesLoadingData2.initialConsumes){__webpack_require__.federation.bundlerRuntime.installInitialConsumes({webpackRequire:__webpack_require__,installedModules:consumesLoadinginstalledModules,initialConsumes:__webpack_require__.consumesLoadingData.initialConsumes,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping})}}": 
-/*!******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** @module-federation/runtime/rspack.js!=!data:text/javascript,import __module_federation_bundler_runtime__ from "/Users/bytedance/Projects/rstack-examples/node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.18.0/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs";const __module_federation_runtime_plugins__ = [];const __module_federation_remote_infos__ = {};const __module_federation_container_name__ = "mfeBBB";const __module_federation_share_strategy__ = "version-first";if((__webpack_require__.initializeSharingData||__webpack_require__.initializeExposesData)&&__webpack_require__.federation){var __webpack_require___remotesLoadingData,__webpack_require___remotesLoadingData1,__webpack_require___initializeSharingData,__webpack_require___consumesLoadingData,__webpack_require___consumesLoadingData1,__webpack_require___initializeExposesData,__webpack_require___consumesLoadingData2;const override=(obj,key,value)=>{if(!obj)return;if(obj[key])obj[key]=value};const merge=(obj,key,fn)=>{const value=fn();if(Array.isArray(value)){var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=[];obj[key].push(...value)}else if(typeof value==="object"&&value!==null){var _obj1,_key1;var _1;(_1=(_obj1=obj)[_key1=key])!==null&&_1!==void 0?_1:_obj1[_key1]={};Object.assign(obj[key],value)}};const early=(obj,key,initial)=>{var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=initial()};var __webpack_require___remotesLoadingData_chunkMapping;const remotesLoadingChunkMapping=(__webpack_require___remotesLoadingData_chunkMapping=(__webpack_require___remotesLoadingData=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData===void 0?void 0:__webpack_require___remotesLoadingData.chunkMapping)!==null&&__webpack_require___remotesLoadingData_chunkMapping!==void 0?__webpack_require___remotesLoadingData_chunkMapping:{};var __webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping;const remotesLoadingModuleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData1=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData1===void 0?void 0:__webpack_require___remotesLoadingData1.moduleIdToRemoteDataMapping)!==null&&__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping!==void 0?__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping:{};var __webpack_require___initializeSharingData_scopeToSharingDataMapping;const initializeSharingScopeToInitDataMapping=(__webpack_require___initializeSharingData_scopeToSharingDataMapping=(__webpack_require___initializeSharingData=__webpack_require__.initializeSharingData)===null||__webpack_require___initializeSharingData===void 0?void 0:__webpack_require___initializeSharingData.scopeToSharingDataMapping)!==null&&__webpack_require___initializeSharingData_scopeToSharingDataMapping!==void 0?__webpack_require___initializeSharingData_scopeToSharingDataMapping:{};var __webpack_require___consumesLoadingData_chunkMapping;const consumesLoadingChunkMapping=(__webpack_require___consumesLoadingData_chunkMapping=(__webpack_require___consumesLoadingData=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData===void 0?void 0:__webpack_require___consumesLoadingData.chunkMapping)!==null&&__webpack_require___consumesLoadingData_chunkMapping!==void 0?__webpack_require___consumesLoadingData_chunkMapping:{};var __webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping;const consumesLoadingModuleToConsumeDataMapping=(__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping=(__webpack_require___consumesLoadingData1=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData1===void 0?void 0:__webpack_require___consumesLoadingData1.moduleIdToConsumeDataMapping)!==null&&__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping!==void 0?__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping:{};const consumesLoadinginstalledModules={};const initializeSharingInitPromises=[];const initializeSharingInitTokens={};const containerShareScope=(__webpack_require___initializeExposesData=__webpack_require__.initializeExposesData)===null||__webpack_require___initializeExposesData===void 0?void 0:__webpack_require___initializeExposesData.shareScope;for(const key in __module_federation_bundler_runtime__){__webpack_require__.federation[key]=__module_federation_bundler_runtime__[key]}early(__webpack_require__.federation,"consumesLoadingModuleToHandlerMapping",()=>{const consumesLoadingModuleToHandlerMapping={};for(let[moduleId,data]of Object.entries(consumesLoadingModuleToConsumeDataMapping)){consumesLoadingModuleToHandlerMapping[moduleId]={getter:data.fallback,shareInfo:{shareConfig:{fixedDependencies:false,requiredVersion:data.requiredVersion,strictVersion:data.strictVersion,singleton:data.singleton,eager:data.eager},scope:[data.shareScope]},shareKey:data.shareKey}}return consumesLoadingModuleToHandlerMapping});early(__webpack_require__.federation,"initOptions",()=>({}));early(__webpack_require__.federation.initOptions,"name",()=>__module_federation_container_name__);early(__webpack_require__.federation.initOptions,"shareStrategy",()=>__module_federation_share_strategy__);early(__webpack_require__.federation.initOptions,"shared",()=>{const shared={};for(let[scope,stages]of Object.entries(initializeSharingScopeToInitDataMapping)){for(let stage of stages){if(typeof stage==="object"&&stage!==null){const{name,version,factory,eager,singleton,requiredVersion,strictVersion}=stage;const shareConfig={};const isValidValue=function(val){return typeof val!=="undefined"};if(isValidValue(singleton)){shareConfig.singleton=singleton}if(isValidValue(requiredVersion)){shareConfig.requiredVersion=requiredVersion}if(isValidValue(eager)){shareConfig.eager=eager}if(isValidValue(strictVersion)){shareConfig.strictVersion=strictVersion}const options={version,scope:[scope],shareConfig,get:factory};if(shared[name]){shared[name].push(options)}else{shared[name]=[options]}}}}return shared});merge(__webpack_require__.federation.initOptions,"remotes",()=>Object.values(__module_federation_remote_infos__).flat().filter(remote=>remote.externalType==="script"));merge(__webpack_require__.federation.initOptions,"plugins",()=>__module_federation_runtime_plugins__);early(__webpack_require__.federation,"bundlerRuntimeOptions",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions,"remotes",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"chunkMapping",()=>remotesLoadingChunkMapping);early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"idToExternalAndNameMapping",()=>{const remotesLoadingIdToExternalAndNameMappingMapping={};for(let[moduleId,data]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){remotesLoadingIdToExternalAndNameMappingMapping[moduleId]=[data.shareScope,data.name,data.externalModuleId,data.remoteName]}return remotesLoadingIdToExternalAndNameMappingMapping});early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"webpackRequire",()=>__webpack_require__);merge(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"idToRemoteMap",()=>{const idToRemoteMap={};for(let[id,remoteData]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){const info=__module_federation_remote_infos__[remoteData.remoteName];if(info)idToRemoteMap[id]=info}return idToRemoteMap});override(__webpack_require__,"S",__webpack_require__.federation.bundlerRuntime.S);if(__webpack_require__.federation.attachShareScopeMap){__webpack_require__.federation.attachShareScopeMap(__webpack_require__)}override(__webpack_require__.f,"remotes",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.remotes({chunkId,promises,chunkMapping:remotesLoadingChunkMapping,idToExternalAndNameMapping:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToExternalAndNameMapping,idToRemoteMap:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToRemoteMap,webpackRequire:__webpack_require__}));override(__webpack_require__.f,"consumes",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.consumes({chunkId,promises,chunkMapping:consumesLoadingChunkMapping,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping,installedModules:consumesLoadinginstalledModules,webpackRequire:__webpack_require__}));override(__webpack_require__,"I",(name,initScope)=>__webpack_require__.federation.bundlerRuntime.I({shareScopeName:name,initScope,initPromises:initializeSharingInitPromises,initTokens:initializeSharingInitTokens,webpackRequire:__webpack_require__}));override(__webpack_require__,"initContainer",(shareScope,initScope,remoteEntryInitOptions)=>__webpack_require__.federation.bundlerRuntime.initContainerEntry({shareScope,initScope,remoteEntryInitOptions,shareScopeKey:containerShareScope,webpackRequire:__webpack_require__}));override(__webpack_require__,"getContainer",(module1,getScope)=>{var moduleMap=__webpack_require__.initializeExposesData.moduleMap;__webpack_require__.R=getScope;getScope=Object.prototype.hasOwnProperty.call(moduleMap,module1)?moduleMap[module1]():Promise.resolve().then(()=>{throw new Error('Module "'+module1+'" does not exist in container.')});__webpack_require__.R=undefined;return getScope});__webpack_require__.federation.instance=__webpack_require__.federation.runtime.init(__webpack_require__.federation.initOptions);if((__webpack_require___consumesLoadingData2=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData2===void 0?void 0:__webpack_require___consumesLoadingData2.initialConsumes){__webpack_require__.federation.bundlerRuntime.installInitialConsumes({webpackRequire:__webpack_require__,installedModules:consumesLoadinginstalledModules,initialConsumes:__webpack_require__.consumesLoadingData.initialConsumes,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping})}} ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+"@module-federation/runtime/rspack.js!=!data:text/javascript,import __module_federation_bundler_runtime__ from \"/Users/bytedance/Projects/rstack-examples/node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.21.2/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs\";const __module_federation_runtime_plugins__ = [];const __module_federation_remote_infos__ = {};const __module_federation_container_name__ = \"mfeBBB\";const __module_federation_share_strategy__ = \"version-first\";if((__webpack_require__.initializeSharingData||__webpack_require__.initializeExposesData)&&__webpack_require__.federation){var __webpack_require___remotesLoadingData,__webpack_require___remotesLoadingData1,__webpack_require___initializeSharingData,__webpack_require___consumesLoadingData,__webpack_require___consumesLoadingData1,__webpack_require___initializeExposesData,__webpack_require___consumesLoadingData2;const override=(obj,key,value)=>{if(!obj)return;if(obj[key])obj[key]=value};const merge=(obj,key,fn)=>{const value=fn();if(Array.isArray(value)){var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=[];obj[key].push(...value)}else if(typeof value===\"object\"&&value!==null){var _obj1,_key1;var _1;(_1=(_obj1=obj)[_key1=key])!==null&&_1!==void 0?_1:_obj1[_key1]={};Object.assign(obj[key],value)}};const early=(obj,key,initial)=>{var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=initial()};var __webpack_require___remotesLoadingData_chunkMapping;const remotesLoadingChunkMapping=(__webpack_require___remotesLoadingData_chunkMapping=(__webpack_require___remotesLoadingData=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData===void 0?void 0:__webpack_require___remotesLoadingData.chunkMapping)!==null&&__webpack_require___remotesLoadingData_chunkMapping!==void 0?__webpack_require___remotesLoadingData_chunkMapping:{};var __webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping;const remotesLoadingModuleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData1=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData1===void 0?void 0:__webpack_require___remotesLoadingData1.moduleIdToRemoteDataMapping)!==null&&__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping!==void 0?__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping:{};var __webpack_require___initializeSharingData_scopeToSharingDataMapping;const initializeSharingScopeToInitDataMapping=(__webpack_require___initializeSharingData_scopeToSharingDataMapping=(__webpack_require___initializeSharingData=__webpack_require__.initializeSharingData)===null||__webpack_require___initializeSharingData===void 0?void 0:__webpack_require___initializeSharingData.scopeToSharingDataMapping)!==null&&__webpack_require___initializeSharingData_scopeToSharingDataMapping!==void 0?__webpack_require___initializeSharingData_scopeToSharingDataMapping:{};var __webpack_require___consumesLoadingData_chunkMapping;const consumesLoadingChunkMapping=(__webpack_require___consumesLoadingData_chunkMapping=(__webpack_require___consumesLoadingData=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData===void 0?void 0:__webpack_require___consumesLoadingData.chunkMapping)!==null&&__webpack_require___consumesLoadingData_chunkMapping!==void 0?__webpack_require___consumesLoadingData_chunkMapping:{};var __webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping;const consumesLoadingModuleToConsumeDataMapping=(__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping=(__webpack_require___consumesLoadingData1=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData1===void 0?void 0:__webpack_require___consumesLoadingData1.moduleIdToConsumeDataMapping)!==null&&__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping!==void 0?__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping:{};const consumesLoadinginstalledModules={};const initializeSharingInitPromises=[];const initializeSharingInitTokens={};const containerShareScope=(__webpack_require___initializeExposesData=__webpack_require__.initializeExposesData)===null||__webpack_require___initializeExposesData===void 0?void 0:__webpack_require___initializeExposesData.shareScope;for(const key in __module_federation_bundler_runtime__){__webpack_require__.federation[key]=__module_federation_bundler_runtime__[key]}early(__webpack_require__.federation,\"consumesLoadingModuleToHandlerMapping\",()=>{const consumesLoadingModuleToHandlerMapping={};for(let[moduleId,data]of Object.entries(consumesLoadingModuleToConsumeDataMapping)){consumesLoadingModuleToHandlerMapping[moduleId]={getter:data.fallback,shareInfo:{shareConfig:{fixedDependencies:false,requiredVersion:data.requiredVersion,strictVersion:data.strictVersion,singleton:data.singleton,eager:data.eager},scope:[data.shareScope]},shareKey:data.shareKey}}return consumesLoadingModuleToHandlerMapping});early(__webpack_require__.federation,\"initOptions\",()=>({}));early(__webpack_require__.federation.initOptions,\"name\",()=>__module_federation_container_name__);early(__webpack_require__.federation.initOptions,\"shareStrategy\",()=>__module_federation_share_strategy__);early(__webpack_require__.federation.initOptions,\"shared\",()=>{const shared={};for(let[scope,stages]of Object.entries(initializeSharingScopeToInitDataMapping)){for(let stage of stages){if(typeof stage===\"object\"&&stage!==null){const{name,version,factory,eager,singleton,requiredVersion,strictVersion}=stage;const shareConfig={};const isValidValue=function(val){return typeof val!==\"undefined\"};if(isValidValue(singleton)){shareConfig.singleton=singleton}if(isValidValue(requiredVersion)){shareConfig.requiredVersion=requiredVersion}if(isValidValue(eager)){shareConfig.eager=eager}if(isValidValue(strictVersion)){shareConfig.strictVersion=strictVersion}const options={version,scope:[scope],shareConfig,get:factory};if(shared[name]){shared[name].push(options)}else{shared[name]=[options]}}}}return shared});merge(__webpack_require__.federation.initOptions,\"remotes\",()=>Object.values(__module_federation_remote_infos__).flat().filter(remote=>remote.externalType===\"script\"));merge(__webpack_require__.federation.initOptions,\"plugins\",()=>__module_federation_runtime_plugins__);early(__webpack_require__.federation,\"bundlerRuntimeOptions\",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions,\"remotes\",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"chunkMapping\",()=>remotesLoadingChunkMapping);early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"remoteInfos\",()=>__module_federation_remote_infos__);early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"idToExternalAndNameMapping\",()=>{const remotesLoadingIdToExternalAndNameMappingMapping={};for(let[moduleId,data]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){remotesLoadingIdToExternalAndNameMappingMapping[moduleId]=[data.shareScope,data.name,data.externalModuleId,data.remoteName]}return remotesLoadingIdToExternalAndNameMappingMapping});early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"webpackRequire\",()=>__webpack_require__);merge(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"idToRemoteMap\",()=>{const idToRemoteMap={};for(let[id,remoteData]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){const info=__module_federation_remote_infos__[remoteData.remoteName];if(info)idToRemoteMap[id]=info}return idToRemoteMap});override(__webpack_require__,\"S\",__webpack_require__.federation.bundlerRuntime.S);if(__webpack_require__.federation.attachShareScopeMap){__webpack_require__.federation.attachShareScopeMap(__webpack_require__)}override(__webpack_require__.f,\"remotes\",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.remotes({chunkId,promises,chunkMapping:remotesLoadingChunkMapping,idToExternalAndNameMapping:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToExternalAndNameMapping,idToRemoteMap:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToRemoteMap,webpackRequire:__webpack_require__}));override(__webpack_require__.f,\"consumes\",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.consumes({chunkId,promises,chunkMapping:consumesLoadingChunkMapping,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping,installedModules:consumesLoadinginstalledModules,webpackRequire:__webpack_require__}));override(__webpack_require__,\"I\",(name,initScope)=>__webpack_require__.federation.bundlerRuntime.I({shareScopeName:name,initScope,initPromises:initializeSharingInitPromises,initTokens:initializeSharingInitTokens,webpackRequire:__webpack_require__}));override(__webpack_require__,\"initContainer\",(shareScope,initScope,remoteEntryInitOptions)=>__webpack_require__.federation.bundlerRuntime.initContainerEntry({shareScope,initScope,remoteEntryInitOptions,shareScopeKey:containerShareScope,webpackRequire:__webpack_require__}));override(__webpack_require__,\"getContainer\",(module1,getScope)=>{var moduleMap=__webpack_require__.initializeExposesData.moduleMap;__webpack_require__.R=getScope;getScope=Object.prototype.hasOwnProperty.call(moduleMap,module1)?moduleMap[module1]():Promise.resolve().then(()=>{throw new Error('Module \"'+module1+'\" does not exist in container.')});__webpack_require__.R=undefined;return getScope});__webpack_require__.federation.instance=__webpack_require__.federation.runtime.init(__webpack_require__.federation.initOptions);if((__webpack_require___consumesLoadingData2=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData2===void 0?void 0:__webpack_require___consumesLoadingData2.initialConsumes){__webpack_require__.federation.bundlerRuntime.installInitialConsumes({webpackRequire:__webpack_require__,installedModules:consumesLoadinginstalledModules,initialConsumes:__webpack_require__.consumesLoadingData.initialConsumes,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping})}}": 
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** @module-federation/runtime/rspack.js!=!data:text/javascript,import __module_federation_bundler_runtime__ from "/Users/bytedance/Projects/rstack-examples/node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.21.2/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs";const __module_federation_runtime_plugins__ = [];const __module_federation_remote_infos__ = {};const __module_federation_container_name__ = "mfeBBB";const __module_federation_share_strategy__ = "version-first";if((__webpack_require__.initializeSharingData||__webpack_require__.initializeExposesData)&&__webpack_require__.federation){var __webpack_require___remotesLoadingData,__webpack_require___remotesLoadingData1,__webpack_require___initializeSharingData,__webpack_require___consumesLoadingData,__webpack_require___consumesLoadingData1,__webpack_require___initializeExposesData,__webpack_require___consumesLoadingData2;const override=(obj,key,value)=>{if(!obj)return;if(obj[key])obj[key]=value};const merge=(obj,key,fn)=>{const value=fn();if(Array.isArray(value)){var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=[];obj[key].push(...value)}else if(typeof value==="object"&&value!==null){var _obj1,_key1;var _1;(_1=(_obj1=obj)[_key1=key])!==null&&_1!==void 0?_1:_obj1[_key1]={};Object.assign(obj[key],value)}};const early=(obj,key,initial)=>{var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=initial()};var __webpack_require___remotesLoadingData_chunkMapping;const remotesLoadingChunkMapping=(__webpack_require___remotesLoadingData_chunkMapping=(__webpack_require___remotesLoadingData=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData===void 0?void 0:__webpack_require___remotesLoadingData.chunkMapping)!==null&&__webpack_require___remotesLoadingData_chunkMapping!==void 0?__webpack_require___remotesLoadingData_chunkMapping:{};var __webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping;const remotesLoadingModuleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData1=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData1===void 0?void 0:__webpack_require___remotesLoadingData1.moduleIdToRemoteDataMapping)!==null&&__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping!==void 0?__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping:{};var __webpack_require___initializeSharingData_scopeToSharingDataMapping;const initializeSharingScopeToInitDataMapping=(__webpack_require___initializeSharingData_scopeToSharingDataMapping=(__webpack_require___initializeSharingData=__webpack_require__.initializeSharingData)===null||__webpack_require___initializeSharingData===void 0?void 0:__webpack_require___initializeSharingData.scopeToSharingDataMapping)!==null&&__webpack_require___initializeSharingData_scopeToSharingDataMapping!==void 0?__webpack_require___initializeSharingData_scopeToSharingDataMapping:{};var __webpack_require___consumesLoadingData_chunkMapping;const consumesLoadingChunkMapping=(__webpack_require___consumesLoadingData_chunkMapping=(__webpack_require___consumesLoadingData=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData===void 0?void 0:__webpack_require___consumesLoadingData.chunkMapping)!==null&&__webpack_require___consumesLoadingData_chunkMapping!==void 0?__webpack_require___consumesLoadingData_chunkMapping:{};var __webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping;const consumesLoadingModuleToConsumeDataMapping=(__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping=(__webpack_require___consumesLoadingData1=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData1===void 0?void 0:__webpack_require___consumesLoadingData1.moduleIdToConsumeDataMapping)!==null&&__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping!==void 0?__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping:{};const consumesLoadinginstalledModules={};const initializeSharingInitPromises=[];const initializeSharingInitTokens={};const containerShareScope=(__webpack_require___initializeExposesData=__webpack_require__.initializeExposesData)===null||__webpack_require___initializeExposesData===void 0?void 0:__webpack_require___initializeExposesData.shareScope;for(const key in __module_federation_bundler_runtime__){__webpack_require__.federation[key]=__module_federation_bundler_runtime__[key]}early(__webpack_require__.federation,"consumesLoadingModuleToHandlerMapping",()=>{const consumesLoadingModuleToHandlerMapping={};for(let[moduleId,data]of Object.entries(consumesLoadingModuleToConsumeDataMapping)){consumesLoadingModuleToHandlerMapping[moduleId]={getter:data.fallback,shareInfo:{shareConfig:{fixedDependencies:false,requiredVersion:data.requiredVersion,strictVersion:data.strictVersion,singleton:data.singleton,eager:data.eager},scope:[data.shareScope]},shareKey:data.shareKey}}return consumesLoadingModuleToHandlerMapping});early(__webpack_require__.federation,"initOptions",()=>({}));early(__webpack_require__.federation.initOptions,"name",()=>__module_federation_container_name__);early(__webpack_require__.federation.initOptions,"shareStrategy",()=>__module_federation_share_strategy__);early(__webpack_require__.federation.initOptions,"shared",()=>{const shared={};for(let[scope,stages]of Object.entries(initializeSharingScopeToInitDataMapping)){for(let stage of stages){if(typeof stage==="object"&&stage!==null){const{name,version,factory,eager,singleton,requiredVersion,strictVersion}=stage;const shareConfig={};const isValidValue=function(val){return typeof val!=="undefined"};if(isValidValue(singleton)){shareConfig.singleton=singleton}if(isValidValue(requiredVersion)){shareConfig.requiredVersion=requiredVersion}if(isValidValue(eager)){shareConfig.eager=eager}if(isValidValue(strictVersion)){shareConfig.strictVersion=strictVersion}const options={version,scope:[scope],shareConfig,get:factory};if(shared[name]){shared[name].push(options)}else{shared[name]=[options]}}}}return shared});merge(__webpack_require__.federation.initOptions,"remotes",()=>Object.values(__module_federation_remote_infos__).flat().filter(remote=>remote.externalType==="script"));merge(__webpack_require__.federation.initOptions,"plugins",()=>__module_federation_runtime_plugins__);early(__webpack_require__.federation,"bundlerRuntimeOptions",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions,"remotes",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"chunkMapping",()=>remotesLoadingChunkMapping);early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"remoteInfos",()=>__module_federation_remote_infos__);early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"idToExternalAndNameMapping",()=>{const remotesLoadingIdToExternalAndNameMappingMapping={};for(let[moduleId,data]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){remotesLoadingIdToExternalAndNameMappingMapping[moduleId]=[data.shareScope,data.name,data.externalModuleId,data.remoteName]}return remotesLoadingIdToExternalAndNameMappingMapping});early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"webpackRequire",()=>__webpack_require__);merge(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"idToRemoteMap",()=>{const idToRemoteMap={};for(let[id,remoteData]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){const info=__module_federation_remote_infos__[remoteData.remoteName];if(info)idToRemoteMap[id]=info}return idToRemoteMap});override(__webpack_require__,"S",__webpack_require__.federation.bundlerRuntime.S);if(__webpack_require__.federation.attachShareScopeMap){__webpack_require__.federation.attachShareScopeMap(__webpack_require__)}override(__webpack_require__.f,"remotes",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.remotes({chunkId,promises,chunkMapping:remotesLoadingChunkMapping,idToExternalAndNameMapping:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToExternalAndNameMapping,idToRemoteMap:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToRemoteMap,webpackRequire:__webpack_require__}));override(__webpack_require__.f,"consumes",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.consumes({chunkId,promises,chunkMapping:consumesLoadingChunkMapping,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping,installedModules:consumesLoadinginstalledModules,webpackRequire:__webpack_require__}));override(__webpack_require__,"I",(name,initScope)=>__webpack_require__.federation.bundlerRuntime.I({shareScopeName:name,initScope,initPromises:initializeSharingInitPromises,initTokens:initializeSharingInitTokens,webpackRequire:__webpack_require__}));override(__webpack_require__,"initContainer",(shareScope,initScope,remoteEntryInitOptions)=>__webpack_require__.federation.bundlerRuntime.initContainerEntry({shareScope,initScope,remoteEntryInitOptions,shareScopeKey:containerShareScope,webpackRequire:__webpack_require__}));override(__webpack_require__,"getContainer",(module1,getScope)=>{var moduleMap=__webpack_require__.initializeExposesData.moduleMap;__webpack_require__.R=getScope;getScope=Object.prototype.hasOwnProperty.call(moduleMap,module1)?moduleMap[module1]():Promise.resolve().then(()=>{throw new Error('Module "'+module1+'" does not exist in container.')});__webpack_require__.R=undefined;return getScope});__webpack_require__.federation.instance=__webpack_require__.federation.runtime.init(__webpack_require__.federation.initOptions);if((__webpack_require___consumesLoadingData2=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData2===void 0?void 0:__webpack_require___consumesLoadingData2.initialConsumes){__webpack_require__.federation.bundlerRuntime.installInitialConsumes({webpackRequire:__webpack_require__,installedModules:consumesLoadinginstalledModules,initialConsumes:__webpack_require__.consumesLoadingData.initialConsumes,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping})}} ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 (function (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 __webpack_require__.r(__webpack_exports__);
-/* ESM import */var _Users_bytedance_Projects_rstack_examples_node_modules_pnpm_module_federation_webpack_bundler_runtime_0_18_0_node_modules_module_federation_webpack_bundler_runtime_dist_index_cjs_cjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.18.0/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs */ "../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.18.0/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs");
-/* ESM import */var _Users_bytedance_Projects_rstack_examples_node_modules_pnpm_module_federation_webpack_bundler_runtime_0_18_0_node_modules_module_federation_webpack_bundler_runtime_dist_index_cjs_cjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Users_bytedance_Projects_rstack_examples_node_modules_pnpm_module_federation_webpack_bundler_runtime_0_18_0_node_modules_module_federation_webpack_bundler_runtime_dist_index_cjs_cjs__WEBPACK_IMPORTED_MODULE_0__);
-const __module_federation_runtime_plugins__ = [];const __module_federation_remote_infos__ = {};const __module_federation_container_name__ = "mfeBBB";const __module_federation_share_strategy__ = "version-first";if((__webpack_require__.initializeSharingData||__webpack_require__.initializeExposesData)&&__webpack_require__.federation){var __webpack_require___remotesLoadingData,__webpack_require___remotesLoadingData1,__webpack_require___initializeSharingData,__webpack_require___consumesLoadingData,__webpack_require___consumesLoadingData1,__webpack_require___initializeExposesData,__webpack_require___consumesLoadingData2;const override=(obj,key,value)=>{if(!obj)return;if(obj[key])obj[key]=value};const merge=(obj,key,fn)=>{const value=fn();if(Array.isArray(value)){var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=[];obj[key].push(...value)}else if(typeof value==="object"&&value!==null){var _obj1,_key1;var _1;(_1=(_obj1=obj)[_key1=key])!==null&&_1!==void 0?_1:_obj1[_key1]={};Object.assign(obj[key],value)}};const early=(obj,key,initial)=>{var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=initial()};var __webpack_require___remotesLoadingData_chunkMapping;const remotesLoadingChunkMapping=(__webpack_require___remotesLoadingData_chunkMapping=(__webpack_require___remotesLoadingData=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData===void 0?void 0:__webpack_require___remotesLoadingData.chunkMapping)!==null&&__webpack_require___remotesLoadingData_chunkMapping!==void 0?__webpack_require___remotesLoadingData_chunkMapping:{};var __webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping;const remotesLoadingModuleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData1=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData1===void 0?void 0:__webpack_require___remotesLoadingData1.moduleIdToRemoteDataMapping)!==null&&__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping!==void 0?__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping:{};var __webpack_require___initializeSharingData_scopeToSharingDataMapping;const initializeSharingScopeToInitDataMapping=(__webpack_require___initializeSharingData_scopeToSharingDataMapping=(__webpack_require___initializeSharingData=__webpack_require__.initializeSharingData)===null||__webpack_require___initializeSharingData===void 0?void 0:__webpack_require___initializeSharingData.scopeToSharingDataMapping)!==null&&__webpack_require___initializeSharingData_scopeToSharingDataMapping!==void 0?__webpack_require___initializeSharingData_scopeToSharingDataMapping:{};var __webpack_require___consumesLoadingData_chunkMapping;const consumesLoadingChunkMapping=(__webpack_require___consumesLoadingData_chunkMapping=(__webpack_require___consumesLoadingData=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData===void 0?void 0:__webpack_require___consumesLoadingData.chunkMapping)!==null&&__webpack_require___consumesLoadingData_chunkMapping!==void 0?__webpack_require___consumesLoadingData_chunkMapping:{};var __webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping;const consumesLoadingModuleToConsumeDataMapping=(__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping=(__webpack_require___consumesLoadingData1=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData1===void 0?void 0:__webpack_require___consumesLoadingData1.moduleIdToConsumeDataMapping)!==null&&__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping!==void 0?__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping:{};const consumesLoadinginstalledModules={};const initializeSharingInitPromises=[];const initializeSharingInitTokens={};const containerShareScope=(__webpack_require___initializeExposesData=__webpack_require__.initializeExposesData)===null||__webpack_require___initializeExposesData===void 0?void 0:__webpack_require___initializeExposesData.shareScope;for(const key in (_Users_bytedance_Projects_rstack_examples_node_modules_pnpm_module_federation_webpack_bundler_runtime_0_18_0_node_modules_module_federation_webpack_bundler_runtime_dist_index_cjs_cjs__WEBPACK_IMPORTED_MODULE_0___default())){__webpack_require__.federation[key]=(_Users_bytedance_Projects_rstack_examples_node_modules_pnpm_module_federation_webpack_bundler_runtime_0_18_0_node_modules_module_federation_webpack_bundler_runtime_dist_index_cjs_cjs__WEBPACK_IMPORTED_MODULE_0___default())[key]}early(__webpack_require__.federation,"consumesLoadingModuleToHandlerMapping",()=>{const consumesLoadingModuleToHandlerMapping={};for(let[moduleId,data]of Object.entries(consumesLoadingModuleToConsumeDataMapping)){consumesLoadingModuleToHandlerMapping[moduleId]={getter:data.fallback,shareInfo:{shareConfig:{fixedDependencies:false,requiredVersion:data.requiredVersion,strictVersion:data.strictVersion,singleton:data.singleton,eager:data.eager},scope:[data.shareScope]},shareKey:data.shareKey}}return consumesLoadingModuleToHandlerMapping});early(__webpack_require__.federation,"initOptions",()=>({}));early(__webpack_require__.federation.initOptions,"name",()=>__module_federation_container_name__);early(__webpack_require__.federation.initOptions,"shareStrategy",()=>__module_federation_share_strategy__);early(__webpack_require__.federation.initOptions,"shared",()=>{const shared={};for(let[scope,stages]of Object.entries(initializeSharingScopeToInitDataMapping)){for(let stage of stages){if(typeof stage==="object"&&stage!==null){const{name,version,factory,eager,singleton,requiredVersion,strictVersion}=stage;const shareConfig={};const isValidValue=function(val){return typeof val!=="undefined"};if(isValidValue(singleton)){shareConfig.singleton=singleton}if(isValidValue(requiredVersion)){shareConfig.requiredVersion=requiredVersion}if(isValidValue(eager)){shareConfig.eager=eager}if(isValidValue(strictVersion)){shareConfig.strictVersion=strictVersion}const options={version,scope:[scope],shareConfig,get:factory};if(shared[name]){shared[name].push(options)}else{shared[name]=[options]}}}}return shared});merge(__webpack_require__.federation.initOptions,"remotes",()=>Object.values(__module_federation_remote_infos__).flat().filter(remote=>remote.externalType==="script"));merge(__webpack_require__.federation.initOptions,"plugins",()=>__module_federation_runtime_plugins__);early(__webpack_require__.federation,"bundlerRuntimeOptions",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions,"remotes",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"chunkMapping",()=>remotesLoadingChunkMapping);early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"idToExternalAndNameMapping",()=>{const remotesLoadingIdToExternalAndNameMappingMapping={};for(let[moduleId,data]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){remotesLoadingIdToExternalAndNameMappingMapping[moduleId]=[data.shareScope,data.name,data.externalModuleId,data.remoteName]}return remotesLoadingIdToExternalAndNameMappingMapping});early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"webpackRequire",()=>__webpack_require__);merge(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"idToRemoteMap",()=>{const idToRemoteMap={};for(let[id,remoteData]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){const info=__module_federation_remote_infos__[remoteData.remoteName];if(info)idToRemoteMap[id]=info}return idToRemoteMap});override(__webpack_require__,"S",__webpack_require__.federation.bundlerRuntime.S);if(__webpack_require__.federation.attachShareScopeMap){__webpack_require__.federation.attachShareScopeMap(__webpack_require__)}override(__webpack_require__.f,"remotes",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.remotes({chunkId,promises,chunkMapping:remotesLoadingChunkMapping,idToExternalAndNameMapping:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToExternalAndNameMapping,idToRemoteMap:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToRemoteMap,webpackRequire:__webpack_require__}));override(__webpack_require__.f,"consumes",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.consumes({chunkId,promises,chunkMapping:consumesLoadingChunkMapping,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping,installedModules:consumesLoadinginstalledModules,webpackRequire:__webpack_require__}));override(__webpack_require__,"I",(name,initScope)=>__webpack_require__.federation.bundlerRuntime.I({shareScopeName:name,initScope,initPromises:initializeSharingInitPromises,initTokens:initializeSharingInitTokens,webpackRequire:__webpack_require__}));override(__webpack_require__,"initContainer",(shareScope,initScope,remoteEntryInitOptions)=>__webpack_require__.federation.bundlerRuntime.initContainerEntry({shareScope,initScope,remoteEntryInitOptions,shareScopeKey:containerShareScope,webpackRequire:__webpack_require__}));override(__webpack_require__,"getContainer",(module1,getScope)=>{var moduleMap=__webpack_require__.initializeExposesData.moduleMap;__webpack_require__.R=getScope;getScope=Object.prototype.hasOwnProperty.call(moduleMap,module1)?moduleMap[module1]():Promise.resolve().then(()=>{throw new Error('Module "'+module1+'" does not exist in container.')});__webpack_require__.R=undefined;return getScope});__webpack_require__.federation.instance=__webpack_require__.federation.runtime.init(__webpack_require__.federation.initOptions);if((__webpack_require___consumesLoadingData2=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData2===void 0?void 0:__webpack_require___consumesLoadingData2.initialConsumes){__webpack_require__.federation.bundlerRuntime.installInitialConsumes({webpackRequire:__webpack_require__,installedModules:consumesLoadinginstalledModules,initialConsumes:__webpack_require__.consumesLoadingData.initialConsumes,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping})}}
+/* ESM import */var _Users_bytedance_Projects_rstack_examples_node_modules_pnpm_module_federation_webpack_bundler_runtime_0_21_2_node_modules_module_federation_webpack_bundler_runtime_dist_index_cjs_cjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.21.2/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs */ "../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.21.2/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs");
+/* ESM import */var _Users_bytedance_Projects_rstack_examples_node_modules_pnpm_module_federation_webpack_bundler_runtime_0_21_2_node_modules_module_federation_webpack_bundler_runtime_dist_index_cjs_cjs__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Users_bytedance_Projects_rstack_examples_node_modules_pnpm_module_federation_webpack_bundler_runtime_0_21_2_node_modules_module_federation_webpack_bundler_runtime_dist_index_cjs_cjs__WEBPACK_IMPORTED_MODULE_0__);
+const __module_federation_runtime_plugins__ = [];const __module_federation_remote_infos__ = {};const __module_federation_container_name__ = "mfeBBB";const __module_federation_share_strategy__ = "version-first";if((__webpack_require__.initializeSharingData||__webpack_require__.initializeExposesData)&&__webpack_require__.federation){var __webpack_require___remotesLoadingData,__webpack_require___remotesLoadingData1,__webpack_require___initializeSharingData,__webpack_require___consumesLoadingData,__webpack_require___consumesLoadingData1,__webpack_require___initializeExposesData,__webpack_require___consumesLoadingData2;const override=(obj,key,value)=>{if(!obj)return;if(obj[key])obj[key]=value};const merge=(obj,key,fn)=>{const value=fn();if(Array.isArray(value)){var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=[];obj[key].push(...value)}else if(typeof value==="object"&&value!==null){var _obj1,_key1;var _1;(_1=(_obj1=obj)[_key1=key])!==null&&_1!==void 0?_1:_obj1[_key1]={};Object.assign(obj[key],value)}};const early=(obj,key,initial)=>{var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=initial()};var __webpack_require___remotesLoadingData_chunkMapping;const remotesLoadingChunkMapping=(__webpack_require___remotesLoadingData_chunkMapping=(__webpack_require___remotesLoadingData=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData===void 0?void 0:__webpack_require___remotesLoadingData.chunkMapping)!==null&&__webpack_require___remotesLoadingData_chunkMapping!==void 0?__webpack_require___remotesLoadingData_chunkMapping:{};var __webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping;const remotesLoadingModuleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData1=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData1===void 0?void 0:__webpack_require___remotesLoadingData1.moduleIdToRemoteDataMapping)!==null&&__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping!==void 0?__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping:{};var __webpack_require___initializeSharingData_scopeToSharingDataMapping;const initializeSharingScopeToInitDataMapping=(__webpack_require___initializeSharingData_scopeToSharingDataMapping=(__webpack_require___initializeSharingData=__webpack_require__.initializeSharingData)===null||__webpack_require___initializeSharingData===void 0?void 0:__webpack_require___initializeSharingData.scopeToSharingDataMapping)!==null&&__webpack_require___initializeSharingData_scopeToSharingDataMapping!==void 0?__webpack_require___initializeSharingData_scopeToSharingDataMapping:{};var __webpack_require___consumesLoadingData_chunkMapping;const consumesLoadingChunkMapping=(__webpack_require___consumesLoadingData_chunkMapping=(__webpack_require___consumesLoadingData=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData===void 0?void 0:__webpack_require___consumesLoadingData.chunkMapping)!==null&&__webpack_require___consumesLoadingData_chunkMapping!==void 0?__webpack_require___consumesLoadingData_chunkMapping:{};var __webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping;const consumesLoadingModuleToConsumeDataMapping=(__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping=(__webpack_require___consumesLoadingData1=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData1===void 0?void 0:__webpack_require___consumesLoadingData1.moduleIdToConsumeDataMapping)!==null&&__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping!==void 0?__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping:{};const consumesLoadinginstalledModules={};const initializeSharingInitPromises=[];const initializeSharingInitTokens={};const containerShareScope=(__webpack_require___initializeExposesData=__webpack_require__.initializeExposesData)===null||__webpack_require___initializeExposesData===void 0?void 0:__webpack_require___initializeExposesData.shareScope;for(const key in (_Users_bytedance_Projects_rstack_examples_node_modules_pnpm_module_federation_webpack_bundler_runtime_0_21_2_node_modules_module_federation_webpack_bundler_runtime_dist_index_cjs_cjs__WEBPACK_IMPORTED_MODULE_0___default())){__webpack_require__.federation[key]=(_Users_bytedance_Projects_rstack_examples_node_modules_pnpm_module_federation_webpack_bundler_runtime_0_21_2_node_modules_module_federation_webpack_bundler_runtime_dist_index_cjs_cjs__WEBPACK_IMPORTED_MODULE_0___default())[key]}early(__webpack_require__.federation,"consumesLoadingModuleToHandlerMapping",()=>{const consumesLoadingModuleToHandlerMapping={};for(let[moduleId,data]of Object.entries(consumesLoadingModuleToConsumeDataMapping)){consumesLoadingModuleToHandlerMapping[moduleId]={getter:data.fallback,shareInfo:{shareConfig:{fixedDependencies:false,requiredVersion:data.requiredVersion,strictVersion:data.strictVersion,singleton:data.singleton,eager:data.eager},scope:[data.shareScope]},shareKey:data.shareKey}}return consumesLoadingModuleToHandlerMapping});early(__webpack_require__.federation,"initOptions",()=>({}));early(__webpack_require__.federation.initOptions,"name",()=>__module_federation_container_name__);early(__webpack_require__.federation.initOptions,"shareStrategy",()=>__module_federation_share_strategy__);early(__webpack_require__.federation.initOptions,"shared",()=>{const shared={};for(let[scope,stages]of Object.entries(initializeSharingScopeToInitDataMapping)){for(let stage of stages){if(typeof stage==="object"&&stage!==null){const{name,version,factory,eager,singleton,requiredVersion,strictVersion}=stage;const shareConfig={};const isValidValue=function(val){return typeof val!=="undefined"};if(isValidValue(singleton)){shareConfig.singleton=singleton}if(isValidValue(requiredVersion)){shareConfig.requiredVersion=requiredVersion}if(isValidValue(eager)){shareConfig.eager=eager}if(isValidValue(strictVersion)){shareConfig.strictVersion=strictVersion}const options={version,scope:[scope],shareConfig,get:factory};if(shared[name]){shared[name].push(options)}else{shared[name]=[options]}}}}return shared});merge(__webpack_require__.federation.initOptions,"remotes",()=>Object.values(__module_federation_remote_infos__).flat().filter(remote=>remote.externalType==="script"));merge(__webpack_require__.federation.initOptions,"plugins",()=>__module_federation_runtime_plugins__);early(__webpack_require__.federation,"bundlerRuntimeOptions",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions,"remotes",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"chunkMapping",()=>remotesLoadingChunkMapping);early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"remoteInfos",()=>__module_federation_remote_infos__);early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"idToExternalAndNameMapping",()=>{const remotesLoadingIdToExternalAndNameMappingMapping={};for(let[moduleId,data]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){remotesLoadingIdToExternalAndNameMappingMapping[moduleId]=[data.shareScope,data.name,data.externalModuleId,data.remoteName]}return remotesLoadingIdToExternalAndNameMappingMapping});early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"webpackRequire",()=>__webpack_require__);merge(__webpack_require__.federation.bundlerRuntimeOptions.remotes,"idToRemoteMap",()=>{const idToRemoteMap={};for(let[id,remoteData]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){const info=__module_federation_remote_infos__[remoteData.remoteName];if(info)idToRemoteMap[id]=info}return idToRemoteMap});override(__webpack_require__,"S",__webpack_require__.federation.bundlerRuntime.S);if(__webpack_require__.federation.attachShareScopeMap){__webpack_require__.federation.attachShareScopeMap(__webpack_require__)}override(__webpack_require__.f,"remotes",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.remotes({chunkId,promises,chunkMapping:remotesLoadingChunkMapping,idToExternalAndNameMapping:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToExternalAndNameMapping,idToRemoteMap:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToRemoteMap,webpackRequire:__webpack_require__}));override(__webpack_require__.f,"consumes",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.consumes({chunkId,promises,chunkMapping:consumesLoadingChunkMapping,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping,installedModules:consumesLoadinginstalledModules,webpackRequire:__webpack_require__}));override(__webpack_require__,"I",(name,initScope)=>__webpack_require__.federation.bundlerRuntime.I({shareScopeName:name,initScope,initPromises:initializeSharingInitPromises,initTokens:initializeSharingInitTokens,webpackRequire:__webpack_require__}));override(__webpack_require__,"initContainer",(shareScope,initScope,remoteEntryInitOptions)=>__webpack_require__.federation.bundlerRuntime.initContainerEntry({shareScope,initScope,remoteEntryInitOptions,shareScopeKey:containerShareScope,webpackRequire:__webpack_require__}));override(__webpack_require__,"getContainer",(module1,getScope)=>{var moduleMap=__webpack_require__.initializeExposesData.moduleMap;__webpack_require__.R=getScope;getScope=Object.prototype.hasOwnProperty.call(moduleMap,module1)?moduleMap[module1]():Promise.resolve().then(()=>{throw new Error('Module "'+module1+'" does not exist in container.')});__webpack_require__.R=undefined;return getScope});__webpack_require__.federation.instance=__webpack_require__.federation.runtime.init(__webpack_require__.federation.initOptions);if((__webpack_require___consumesLoadingData2=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData2===void 0?void 0:__webpack_require___consumesLoadingData2.initialConsumes){__webpack_require__.federation.bundlerRuntime.installInitialConsumes({webpackRequire:__webpack_require__,installedModules:consumesLoadinginstalledModules,initialConsumes:__webpack_require__.consumesLoadingData.initialConsumes,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping})}}
 
 }),
-"../../../node_modules/.pnpm/@module-federation+runtime-core@0.18.0/node_modules/@module-federation/runtime-core/dist/index.cjs.cjs": 
+"../../../node_modules/.pnpm/@module-federation+runtime-core@0.21.2/node_modules/@module-federation/runtime-core/dist/index.cjs.cjs": 
 /*!******************************************************************************************************************************************!*\
-  !*** ../../../node_modules/.pnpm/@module-federation+runtime-core@0.18.0/node_modules/@module-federation/runtime-core/dist/index.cjs.cjs ***!
+  !*** ../../../node_modules/.pnpm/@module-federation+runtime-core@0.21.2/node_modules/@module-federation/runtime-core/dist/index.cjs.cjs ***!
   \******************************************************************************************************************************************/
 (function (__unused_webpack_module, exports, __webpack_require__) {
 
 
-var polyfills = __webpack_require__(/*! ./polyfills.cjs.cjs */ "../../../node_modules/.pnpm/@module-federation+runtime-core@0.18.0/node_modules/@module-federation/runtime-core/dist/polyfills.cjs.cjs");
-var sdk = __webpack_require__(/*! @module-federation/sdk */ "../../../node_modules/.pnpm/@module-federation+sdk@0.18.0/node_modules/@module-federation/sdk/dist/index.cjs.cjs");
-var errorCodes = __webpack_require__(/*! @module-federation/error-codes */ "../../../node_modules/.pnpm/@module-federation+error-codes@0.18.0/node_modules/@module-federation/error-codes/dist/index.cjs.js");
+var sdk = __webpack_require__(/*! @module-federation/sdk */ "../../../node_modules/.pnpm/@module-federation+sdk@0.21.2/node_modules/@module-federation/sdk/dist/index.cjs.cjs");
+var errorCodes = __webpack_require__(/*! @module-federation/error-codes */ "../../../node_modules/.pnpm/@module-federation+error-codes@0.21.2/node_modules/@module-federation/error-codes/dist/index.cjs.js");
 
 const LOG_CATEGORY = '[ Federation Runtime ]';
 // FIXME: pre-bundle ?
@@ -149,13 +138,14 @@ function warn(msg) {
             msg.message = `${LOG_CATEGORY}: ${msg.message}`;
         }
         logger.warn(msg);
-    } else {
+    }
+    else {
         logger.warn(msg);
     }
 }
 
 function addUniqueItem(arr, item) {
-    if (arr.findIndex((name)=>name === item) === -1) {
+    if (arr.findIndex((name) => name === item) === -1) {
         arr.push(item);
     }
     return arr;
@@ -163,9 +153,11 @@ function addUniqueItem(arr, item) {
 function getFMId(remoteInfo) {
     if ('version' in remoteInfo && remoteInfo.version) {
         return `${remoteInfo.name}:${remoteInfo.version}`;
-    } else if ('entry' in remoteInfo && remoteInfo.entry) {
+    }
+    else if ('entry' in remoteInfo && remoteInfo.entry) {
         return `${remoteInfo.name}:${remoteInfo.entry}`;
-    } else {
+    }
+    else {
         return `${remoteInfo.name}`;
     }
 }
@@ -180,7 +172,8 @@ async function safeWrapper(callback, disableWarn) {
     try {
         const res = await callback();
         return res;
-    } catch (e) {
+    }
+    catch (e) {
         !disableWarn && warn(e);
         return;
     }
@@ -202,38 +195,39 @@ function isStaticResourcesEqual(url1, url2) {
     return relativeUrl1 === relativeUrl2;
 }
 function arrayOptions(options) {
-    return Array.isArray(options) ? options : [
-        options
-    ];
+    return Array.isArray(options) ? options : [options];
 }
 function getRemoteEntryInfoFromSnapshot(snapshot) {
     const defaultRemoteEntryInfo = {
         url: '',
         type: 'global',
-        globalName: ''
+        globalName: '',
     };
     if (sdk.isBrowserEnv() || sdk.isReactNativeEnv()) {
-        return 'remoteEntry' in snapshot ? {
-            url: snapshot.remoteEntry,
-            type: snapshot.remoteEntryType,
-            globalName: snapshot.globalName
-        } : defaultRemoteEntryInfo;
+        return 'remoteEntry' in snapshot
+            ? {
+                url: snapshot.remoteEntry,
+                type: snapshot.remoteEntryType,
+                globalName: snapshot.globalName,
+            }
+            : defaultRemoteEntryInfo;
     }
     if ('ssrRemoteEntry' in snapshot) {
         return {
             url: snapshot.ssrRemoteEntry || defaultRemoteEntryInfo.url,
             type: snapshot.ssrRemoteEntryType || defaultRemoteEntryInfo.type,
-            globalName: snapshot.globalName
+            globalName: snapshot.globalName,
         };
     }
     return defaultRemoteEntryInfo;
 }
-const processModuleAlias = (name, subPath)=>{
+const processModuleAlias = (name, subPath) => {
     // @host/ ./button -> @host/button
     let moduleName;
     if (name.endsWith('/')) {
         moduleName = name.slice(0, -1);
-    } else {
+    }
+    else {
         moduleName = name;
     }
     if (subPath.startsWith('.')) {
@@ -244,11 +238,12 @@ const processModuleAlias = (name, subPath)=>{
 };
 
 const CurrentGlobal = typeof globalThis === 'object' ? globalThis : window;
-const nativeGlobal = (()=>{
+const nativeGlobal = (() => {
     try {
         // get real window (incase of sandbox)
         return document.defaultView;
-    } catch (e) {
+    }
+    catch {
         // node env
         return CurrentGlobal;
     }
@@ -258,7 +253,7 @@ function definePropertyGlobalVal(target, key, val) {
     Object.defineProperty(target, key, {
         value: val,
         configurable: false,
-        writable: true
+        writable: true,
     });
 }
 function includeOwnProperty(target, key) {
@@ -272,8 +267,8 @@ if (!includeOwnProperty(CurrentGlobal, '__GLOBAL_LOADING_REMOTE_ENTRY__')) {
 }
 const globalLoading = CurrentGlobal.__GLOBAL_LOADING_REMOTE_ENTRY__;
 function setGlobalDefaultVal(target) {
-    var _target___FEDERATION__, _target___FEDERATION__1, _target___FEDERATION__2, _target___FEDERATION__3, _target___FEDERATION__4, _target___FEDERATION__5;
-    if (includeOwnProperty(target, '__VMOK__') && !includeOwnProperty(target, '__FEDERATION__')) {
+    if (includeOwnProperty(target, '__VMOK__') &&
+        !includeOwnProperty(target, '__FEDERATION__')) {
         definePropertyGlobalVal(target, '__FEDERATION__', target.__VMOK__);
     }
     if (!includeOwnProperty(target, '__FEDERATION__')) {
@@ -283,22 +278,16 @@ function setGlobalDefaultVal(target) {
             moduleInfo: {},
             __SHARE__: {},
             __MANIFEST_LOADING__: {},
-            __PRELOADED_MAP__: new Map()
+            __PRELOADED_MAP__: new Map(),
         });
         definePropertyGlobalVal(target, '__VMOK__', target.__FEDERATION__);
     }
-    var ___GLOBAL_PLUGIN__;
-    (___GLOBAL_PLUGIN__ = (_target___FEDERATION__ = target.__FEDERATION__).__GLOBAL_PLUGIN__) != null ? ___GLOBAL_PLUGIN__ : _target___FEDERATION__.__GLOBAL_PLUGIN__ = [];
-    var ___INSTANCES__;
-    (___INSTANCES__ = (_target___FEDERATION__1 = target.__FEDERATION__).__INSTANCES__) != null ? ___INSTANCES__ : _target___FEDERATION__1.__INSTANCES__ = [];
-    var _moduleInfo;
-    (_moduleInfo = (_target___FEDERATION__2 = target.__FEDERATION__).moduleInfo) != null ? _moduleInfo : _target___FEDERATION__2.moduleInfo = {};
-    var ___SHARE__;
-    (___SHARE__ = (_target___FEDERATION__3 = target.__FEDERATION__).__SHARE__) != null ? ___SHARE__ : _target___FEDERATION__3.__SHARE__ = {};
-    var ___MANIFEST_LOADING__;
-    (___MANIFEST_LOADING__ = (_target___FEDERATION__4 = target.__FEDERATION__).__MANIFEST_LOADING__) != null ? ___MANIFEST_LOADING__ : _target___FEDERATION__4.__MANIFEST_LOADING__ = {};
-    var ___PRELOADED_MAP__;
-    (___PRELOADED_MAP__ = (_target___FEDERATION__5 = target.__FEDERATION__).__PRELOADED_MAP__) != null ? ___PRELOADED_MAP__ : _target___FEDERATION__5.__PRELOADED_MAP__ = new Map();
+    target.__FEDERATION__.__GLOBAL_PLUGIN__ ??= [];
+    target.__FEDERATION__.__INSTANCES__ ??= [];
+    target.__FEDERATION__.moduleInfo ??= {};
+    target.__FEDERATION__.__SHARE__ ??= {};
+    target.__FEDERATION__.__MANIFEST_LOADING__ ??= {};
+    target.__FEDERATION__.__PRELOADED_MAP__ ??= new Map();
 }
 setGlobalDefaultVal(CurrentGlobal);
 setGlobalDefaultVal(nativeGlobal);
@@ -308,7 +297,7 @@ function resetFederationGlobalInfo() {
     CurrentGlobal.__FEDERATION__.moduleInfo = {};
     CurrentGlobal.__FEDERATION__.__SHARE__ = {};
     CurrentGlobal.__FEDERATION__.__MANIFEST_LOADING__ = {};
-    Object.keys(globalLoading).forEach((key)=>{
+    Object.keys(globalLoading).forEach((key) => {
         delete globalLoading[key];
     });
 }
@@ -321,7 +310,7 @@ function getGlobalFederationConstructor() {
 function setGlobalFederationConstructor(FederationConstructor, isDebug = sdk.isDebugMode()) {
     if (isDebug) {
         CurrentGlobal.__FEDERATION__.__DEBUG_CONSTRUCTOR__ = FederationConstructor;
-        CurrentGlobal.__FEDERATION__.__DEBUG_CONSTRUCTOR_VERSION__ = "0.18.0";
+        CurrentGlobal.__FEDERATION__.__DEBUG_CONSTRUCTOR_VERSION__ = "0.21.2";
     }
 }
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -331,37 +320,42 @@ function getInfoWithoutType(target, key) {
         if (keyRes) {
             return {
                 value: target[key],
-                key: key
+                key: key,
             };
-        } else {
+        }
+        else {
             const targetKeys = Object.keys(target);
-            for (const targetKey of targetKeys){
+            for (const targetKey of targetKeys) {
                 const [targetTypeOrName, _] = targetKey.split(':');
                 const nKey = `${targetTypeOrName}:${key}`;
                 const typeWithKeyRes = target[nKey];
                 if (typeWithKeyRes) {
                     return {
                         value: typeWithKeyRes,
-                        key: nKey
+                        key: nKey,
                     };
                 }
             }
             return {
                 value: undefined,
-                key: key
+                key: key,
             };
         }
-    } else {
+    }
+    else {
         throw new Error('key must be string');
     }
 }
-const getGlobalSnapshot = ()=>nativeGlobal.__FEDERATION__.moduleInfo;
-const getTargetSnapshotInfoByModuleInfo = (moduleInfo, snapshot)=>{
+const getGlobalSnapshot = () => nativeGlobal.__FEDERATION__.moduleInfo;
+const getTargetSnapshotInfoByModuleInfo = (moduleInfo, snapshot) => {
     // Check if the remote is included in the hostSnapshot
     const moduleKey = getFMId(moduleInfo);
     const getModuleInfo = getInfoWithoutType(snapshot, moduleKey).value;
     // The remoteSnapshot might not include a version
-    if (getModuleInfo && !getModuleInfo.version && 'version' in moduleInfo && moduleInfo['version']) {
+    if (getModuleInfo &&
+        !getModuleInfo.version &&
+        'version' in moduleInfo &&
+        moduleInfo['version']) {
         getModuleInfo.version = moduleInfo['version'];
     }
     if (getModuleInfo) {
@@ -369,57 +363,59 @@ const getTargetSnapshotInfoByModuleInfo = (moduleInfo, snapshot)=>{
     }
     // If the remote is not included in the hostSnapshot, deploy a micro app snapshot
     if ('version' in moduleInfo && moduleInfo['version']) {
-        const { version } = moduleInfo, resModuleInfo = polyfills._object_without_properties_loose(moduleInfo, [
-            "version"
-        ]);
+        const { version, ...resModuleInfo } = moduleInfo;
         const moduleKeyWithoutVersion = getFMId(resModuleInfo);
         const getModuleInfoWithoutVersion = getInfoWithoutType(nativeGlobal.__FEDERATION__.moduleInfo, moduleKeyWithoutVersion).value;
-        if ((getModuleInfoWithoutVersion == null ? void 0 : getModuleInfoWithoutVersion.version) === version) {
+        if (getModuleInfoWithoutVersion?.version === version) {
             return getModuleInfoWithoutVersion;
         }
     }
     return;
 };
-const getGlobalSnapshotInfoByModuleInfo = (moduleInfo)=>getTargetSnapshotInfoByModuleInfo(moduleInfo, nativeGlobal.__FEDERATION__.moduleInfo);
-const setGlobalSnapshotInfoByModuleInfo = (remoteInfo, moduleDetailInfo)=>{
+const getGlobalSnapshotInfoByModuleInfo = (moduleInfo) => getTargetSnapshotInfoByModuleInfo(moduleInfo, nativeGlobal.__FEDERATION__.moduleInfo);
+const setGlobalSnapshotInfoByModuleInfo = (remoteInfo, moduleDetailInfo) => {
     const moduleKey = getFMId(remoteInfo);
     nativeGlobal.__FEDERATION__.moduleInfo[moduleKey] = moduleDetailInfo;
     return nativeGlobal.__FEDERATION__.moduleInfo;
 };
-const addGlobalSnapshot = (moduleInfos)=>{
-    nativeGlobal.__FEDERATION__.moduleInfo = polyfills._extends({}, nativeGlobal.__FEDERATION__.moduleInfo, moduleInfos);
-    return ()=>{
+const addGlobalSnapshot = (moduleInfos) => {
+    nativeGlobal.__FEDERATION__.moduleInfo = {
+        ...nativeGlobal.__FEDERATION__.moduleInfo,
+        ...moduleInfos,
+    };
+    return () => {
         const keys = Object.keys(moduleInfos);
-        for (const key of keys){
+        for (const key of keys) {
             delete nativeGlobal.__FEDERATION__.moduleInfo[key];
         }
     };
 };
-const getRemoteEntryExports = (name, globalName)=>{
+const getRemoteEntryExports = (name, globalName) => {
     const remoteEntryKey = globalName || `__FEDERATION_${name}:custom__`;
     const entryExports = CurrentGlobal[remoteEntryKey];
     return {
         remoteEntryKey,
-        entryExports
+        entryExports,
     };
 };
 // This function is used to register global plugins.
 // It iterates over the provided plugins and checks if they are already registered.
 // If a plugin is not registered, it is added to the global plugins.
 // If a plugin is already registered, a warning message is logged.
-const registerGlobalPlugins = (plugins)=>{
+const registerGlobalPlugins = (plugins) => {
     const { __GLOBAL_PLUGIN__ } = nativeGlobal.__FEDERATION__;
-    plugins.forEach((plugin)=>{
-        if (__GLOBAL_PLUGIN__.findIndex((p)=>p.name === plugin.name) === -1) {
+    plugins.forEach((plugin) => {
+        if (__GLOBAL_PLUGIN__.findIndex((p) => p.name === plugin.name) === -1) {
             __GLOBAL_PLUGIN__.push(plugin);
-        } else {
+        }
+        else {
             warn(`The plugin ${plugin.name} has been registered.`);
         }
     });
 };
-const getGlobalHostPlugins = ()=>nativeGlobal.__FEDERATION__.__GLOBAL_PLUGIN__;
-const getPreloaded = (id)=>CurrentGlobal.__FEDERATION__.__PRELOADED_MAP__.get(id);
-const setPreloaded = (id)=>CurrentGlobal.__FEDERATION__.__PRELOADED_MAP__.set(id, true);
+const getGlobalHostPlugins = () => nativeGlobal.__FEDERATION__.__GLOBAL_PLUGIN__;
+const getPreloaded = (id) => CurrentGlobal.__FEDERATION__.__PRELOADED_MAP__.get(id);
+const setPreloaded = (id) => CurrentGlobal.__FEDERATION__.__PRELOADED_MAP__.set(id, true);
 
 const DEFAULT_SCOPE = 'default';
 const DEFAULT_REMOTE_TYPE = 'global';
@@ -478,7 +474,7 @@ function isXVersion(version) {
     return !version || version.toLowerCase() === 'x' || version === '*';
 }
 function pipe(...fns) {
-    return (x)=>fns.reduce((v, f)=>f(v), x);
+    return (x) => fns.reduce((v, f) => f(v), x);
 }
 function extractComparator(comparatorString) {
     return comparatorString.match(parseRegex(comparator));
@@ -500,25 +496,32 @@ function combineVersion(major, minor, patch, preRelease) {
 // THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
 // See the Mulan PSL v2 for more details.
 function parseHyphen(range) {
-    return range.replace(parseRegex(hyphenRange), (_range, from, fromMajor, fromMinor, fromPatch, _fromPreRelease, _fromBuild, to, toMajor, toMinor, toPatch, toPreRelease)=>{
+    return range.replace(parseRegex(hyphenRange), (_range, from, fromMajor, fromMinor, fromPatch, _fromPreRelease, _fromBuild, to, toMajor, toMinor, toPatch, toPreRelease) => {
         if (isXVersion(fromMajor)) {
             from = '';
-        } else if (isXVersion(fromMinor)) {
+        }
+        else if (isXVersion(fromMinor)) {
             from = `>=${fromMajor}.0.0`;
-        } else if (isXVersion(fromPatch)) {
+        }
+        else if (isXVersion(fromPatch)) {
             from = `>=${fromMajor}.${fromMinor}.0`;
-        } else {
+        }
+        else {
             from = `>=${from}`;
         }
         if (isXVersion(toMajor)) {
             to = '';
-        } else if (isXVersion(toMinor)) {
+        }
+        else if (isXVersion(toMinor)) {
             to = `<${Number(toMajor) + 1}.0.0-0`;
-        } else if (isXVersion(toPatch)) {
+        }
+        else if (isXVersion(toPatch)) {
             to = `<${toMajor}.${Number(toMinor) + 1}.0-0`;
-        } else if (toPreRelease) {
+        }
+        else if (toPreRelease) {
             to = `<=${toMajor}.${toMinor}.${toPatch}-${toPreRelease}`;
-        } else {
+        }
+        else {
             to = `<=${to}`;
         }
         return `${from} ${to}`.trim();
@@ -534,109 +537,140 @@ function parseCaretTrim(range) {
     return range.replace(parseRegex(caretTrim), '$1^');
 }
 function parseCarets(range) {
-    return range.trim().split(/\s+/).map((rangeVersion)=>rangeVersion.replace(parseRegex(caret), (_, major, minor, patch, preRelease)=>{
-            if (isXVersion(major)) {
-                return '';
-            } else if (isXVersion(minor)) {
-                return `>=${major}.0.0 <${Number(major) + 1}.0.0-0`;
-            } else if (isXVersion(patch)) {
-                if (major === '0') {
-                    return `>=${major}.${minor}.0 <${major}.${Number(minor) + 1}.0-0`;
-                } else {
-                    return `>=${major}.${minor}.0 <${Number(major) + 1}.0.0-0`;
-                }
-            } else if (preRelease) {
-                if (major === '0') {
-                    if (minor === '0') {
-                        return `>=${major}.${minor}.${patch}-${preRelease} <${major}.${minor}.${Number(patch) + 1}-0`;
-                    } else {
-                        return `>=${major}.${minor}.${patch}-${preRelease} <${major}.${Number(minor) + 1}.0-0`;
-                    }
-                } else {
-                    return `>=${major}.${minor}.${patch}-${preRelease} <${Number(major) + 1}.0.0-0`;
-                }
-            } else {
-                if (major === '0') {
-                    if (minor === '0') {
-                        return `>=${major}.${minor}.${patch} <${major}.${minor}.${Number(patch) + 1}-0`;
-                    } else {
-                        return `>=${major}.${minor}.${patch} <${major}.${Number(minor) + 1}.0-0`;
-                    }
-                }
-                return `>=${major}.${minor}.${patch} <${Number(major) + 1}.0.0-0`;
+    return range
+        .trim()
+        .split(/\s+/)
+        .map((rangeVersion) => rangeVersion.replace(parseRegex(caret), (_, major, minor, patch, preRelease) => {
+        if (isXVersion(major)) {
+            return '';
+        }
+        else if (isXVersion(minor)) {
+            return `>=${major}.0.0 <${Number(major) + 1}.0.0-0`;
+        }
+        else if (isXVersion(patch)) {
+            if (major === '0') {
+                return `>=${major}.${minor}.0 <${major}.${Number(minor) + 1}.0-0`;
             }
-        })).join(' ');
+            else {
+                return `>=${major}.${minor}.0 <${Number(major) + 1}.0.0-0`;
+            }
+        }
+        else if (preRelease) {
+            if (major === '0') {
+                if (minor === '0') {
+                    return `>=${major}.${minor}.${patch}-${preRelease} <${major}.${minor}.${Number(patch) + 1}-0`;
+                }
+                else {
+                    return `>=${major}.${minor}.${patch}-${preRelease} <${major}.${Number(minor) + 1}.0-0`;
+                }
+            }
+            else {
+                return `>=${major}.${minor}.${patch}-${preRelease} <${Number(major) + 1}.0.0-0`;
+            }
+        }
+        else {
+            if (major === '0') {
+                if (minor === '0') {
+                    return `>=${major}.${minor}.${patch} <${major}.${minor}.${Number(patch) + 1}-0`;
+                }
+                else {
+                    return `>=${major}.${minor}.${patch} <${major}.${Number(minor) + 1}.0-0`;
+                }
+            }
+            return `>=${major}.${minor}.${patch} <${Number(major) + 1}.0.0-0`;
+        }
+    }))
+        .join(' ');
 }
 function parseTildes(range) {
-    return range.trim().split(/\s+/).map((rangeVersion)=>rangeVersion.replace(parseRegex(tilde), (_, major, minor, patch, preRelease)=>{
-            if (isXVersion(major)) {
-                return '';
-            } else if (isXVersion(minor)) {
-                return `>=${major}.0.0 <${Number(major) + 1}.0.0-0`;
-            } else if (isXVersion(patch)) {
-                return `>=${major}.${minor}.0 <${major}.${Number(minor) + 1}.0-0`;
-            } else if (preRelease) {
-                return `>=${major}.${minor}.${patch}-${preRelease} <${major}.${Number(minor) + 1}.0-0`;
-            }
-            return `>=${major}.${minor}.${patch} <${major}.${Number(minor) + 1}.0-0`;
-        })).join(' ');
+    return range
+        .trim()
+        .split(/\s+/)
+        .map((rangeVersion) => rangeVersion.replace(parseRegex(tilde), (_, major, minor, patch, preRelease) => {
+        if (isXVersion(major)) {
+            return '';
+        }
+        else if (isXVersion(minor)) {
+            return `>=${major}.0.0 <${Number(major) + 1}.0.0-0`;
+        }
+        else if (isXVersion(patch)) {
+            return `>=${major}.${minor}.0 <${major}.${Number(minor) + 1}.0-0`;
+        }
+        else if (preRelease) {
+            return `>=${major}.${minor}.${patch}-${preRelease} <${major}.${Number(minor) + 1}.0-0`;
+        }
+        return `>=${major}.${minor}.${patch} <${major}.${Number(minor) + 1}.0-0`;
+    }))
+        .join(' ');
 }
 function parseXRanges(range) {
-    return range.split(/\s+/).map((rangeVersion)=>rangeVersion.trim().replace(parseRegex(xRange), (ret, gtlt, major, minor, patch, preRelease)=>{
-            const isXMajor = isXVersion(major);
-            const isXMinor = isXMajor || isXVersion(minor);
-            const isXPatch = isXMinor || isXVersion(patch);
-            if (gtlt === '=' && isXPatch) {
-                gtlt = '';
+    return range
+        .split(/\s+/)
+        .map((rangeVersion) => rangeVersion
+        .trim()
+        .replace(parseRegex(xRange), (ret, gtlt, major, minor, patch, preRelease) => {
+        const isXMajor = isXVersion(major);
+        const isXMinor = isXMajor || isXVersion(minor);
+        const isXPatch = isXMinor || isXVersion(patch);
+        if (gtlt === '=' && isXPatch) {
+            gtlt = '';
+        }
+        preRelease = '';
+        if (isXMajor) {
+            if (gtlt === '>' || gtlt === '<') {
+                // nothing is allowed
+                return '<0.0.0-0';
             }
-            preRelease = '';
-            if (isXMajor) {
-                if (gtlt === '>' || gtlt === '<') {
-                    // nothing is allowed
-                    return '<0.0.0-0';
-                } else {
-                    // nothing is forbidden
-                    return '*';
-                }
-            } else if (gtlt && isXPatch) {
-                // replace X with 0
+            else {
+                // nothing is forbidden
+                return '*';
+            }
+        }
+        else if (gtlt && isXPatch) {
+            // replace X with 0
+            if (isXMinor) {
+                minor = 0;
+            }
+            patch = 0;
+            if (gtlt === '>') {
+                // >1 => >=2.0.0
+                // >1.2 => >=1.3.0
+                gtlt = '>=';
                 if (isXMinor) {
+                    major = Number(major) + 1;
                     minor = 0;
+                    patch = 0;
                 }
-                patch = 0;
-                if (gtlt === '>') {
-                    // >1 => >=2.0.0
-                    // >1.2 => >=1.3.0
-                    gtlt = '>=';
-                    if (isXMinor) {
-                        major = Number(major) + 1;
-                        minor = 0;
-                        patch = 0;
-                    } else {
-                        minor = Number(minor) + 1;
-                        patch = 0;
-                    }
-                } else if (gtlt === '<=') {
-                    // <=0.7.x is actually <0.8.0, since any 0.7.x should pass
-                    // Similarly, <=7.x is actually <8.0.0, etc.
-                    gtlt = '<';
-                    if (isXMinor) {
-                        major = Number(major) + 1;
-                    } else {
-                        minor = Number(minor) + 1;
-                    }
+                else {
+                    minor = Number(minor) + 1;
+                    patch = 0;
                 }
-                if (gtlt === '<') {
-                    preRelease = '-0';
-                }
-                return `${gtlt + major}.${minor}.${patch}${preRelease}`;
-            } else if (isXMinor) {
-                return `>=${major}.0.0${preRelease} <${Number(major) + 1}.0.0-0`;
-            } else if (isXPatch) {
-                return `>=${major}.${minor}.0${preRelease} <${major}.${Number(minor) + 1}.0-0`;
             }
-            return ret;
-        })).join(' ');
+            else if (gtlt === '<=') {
+                // <=0.7.x is actually <0.8.0, since any 0.7.x should pass
+                // Similarly, <=7.x is actually <8.0.0, etc.
+                gtlt = '<';
+                if (isXMinor) {
+                    major = Number(major) + 1;
+                }
+                else {
+                    minor = Number(minor) + 1;
+                }
+            }
+            if (gtlt === '<') {
+                preRelease = '-0';
+            }
+            return `${gtlt + major}.${minor}.${patch}${preRelease}`;
+        }
+        else if (isXMinor) {
+            return `>=${major}.0.0${preRelease} <${Number(major) + 1}.0.0-0`;
+        }
+        else if (isXPatch) {
+            return `>=${major}.${minor}.0${preRelease} <${major}.${Number(minor) + 1}.0-0`;
+        }
+        return ret;
+    }))
+        .join(' ');
 }
 function parseStar(range) {
     return range.trim().replace(parseRegex(star), '');
@@ -676,7 +710,7 @@ function comparePreRelease(rangeAtom, versionAtom) {
     if (rangePreRelease === undefined && versionPreRelease === undefined) {
         return 0;
     }
-    for(let i = 0, n = rangePreRelease.length; i <= n; i++){
+    for (let i = 0, n = rangePreRelease.length; i <= n; i++) {
         const rangeElement = rangePreRelease[i];
         const versionElement = versionPreRelease[i];
         if (rangeElement === versionElement) {
@@ -696,29 +730,31 @@ function comparePreRelease(rangeAtom, versionAtom) {
     return 0;
 }
 function compareVersion(rangeAtom, versionAtom) {
-    return compareAtom(rangeAtom.major, versionAtom.major) || compareAtom(rangeAtom.minor, versionAtom.minor) || compareAtom(rangeAtom.patch, versionAtom.patch) || comparePreRelease(rangeAtom, versionAtom);
+    return (compareAtom(rangeAtom.major, versionAtom.major) ||
+        compareAtom(rangeAtom.minor, versionAtom.minor) ||
+        compareAtom(rangeAtom.patch, versionAtom.patch) ||
+        comparePreRelease(rangeAtom, versionAtom));
 }
 function eq(rangeAtom, versionAtom) {
     return rangeAtom.version === versionAtom.version;
 }
 function compare(rangeAtom, versionAtom) {
-    switch(rangeAtom.operator){
+    switch (rangeAtom.operator) {
         case '':
         case '=':
             return eq(rangeAtom, versionAtom);
         case '>':
             return compareVersion(rangeAtom, versionAtom) < 0;
         case '>=':
-            return eq(rangeAtom, versionAtom) || compareVersion(rangeAtom, versionAtom) < 0;
+            return (eq(rangeAtom, versionAtom) || compareVersion(rangeAtom, versionAtom) < 0);
         case '<':
             return compareVersion(rangeAtom, versionAtom) > 0;
         case '<=':
-            return eq(rangeAtom, versionAtom) || compareVersion(rangeAtom, versionAtom) > 0;
-        case undefined:
-            {
-                // mean * or x -> all versions
-                return true;
-            }
+            return (eq(rangeAtom, versionAtom) || compareVersion(rangeAtom, versionAtom) > 0);
+        case undefined: {
+            // mean * or x -> all versions
+            return true;
+        }
         default:
             return false;
     }
@@ -733,14 +769,16 @@ function compare(rangeAtom, versionAtom) {
 // THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
 // See the Mulan PSL v2 for more details.
 function parseComparatorString(range) {
-    return pipe(// handle caret
+    return pipe(
+    // handle caret
     // ^ --> * (any, kinda silly)
     // ^2, ^2.x, ^2.x.x --> >=2.0.0 <3.0.0-0
     // ^2.0, ^2.0.x --> >=2.0.0 <3.0.0-0
     // ^1.2, ^1.2.x --> >=1.2.0 <2.0.0-0
     // ^1.2.3 --> >=1.2.3 <2.0.0-0
     // ^1.2.0 --> >=1.2.0 <2.0.0-0
-    parseCarets, // handle tilde
+    parseCarets, 
+    // handle tilde
     // ~, ~> --> * (any, kinda silly)
     // ~2, ~2.x, ~2.x.x, ~>2, ~>2.x ~>2.x.x --> >=2.0.0 <3.0.0-0
     // ~2.0, ~2.0.x, ~>2.0, ~>2.0.x --> >=2.0.0 <2.1.0-0
@@ -750,15 +788,21 @@ function parseComparatorString(range) {
     parseTildes, parseXRanges, parseStar)(range);
 }
 function parseRange(range) {
-    return pipe(// handle hyphenRange
+    return pipe(
+    // handle hyphenRange
     // `1.2.3 - 1.2.4` => `>=1.2.3 <=1.2.4`
-    parseHyphen, // handle trim comparator
+    parseHyphen, 
+    // handle trim comparator
     // `> 1.2.3 < 1.2.5` => `>1.2.3 <1.2.5`
-    parseComparatorTrim, // handle trim tilde
+    parseComparatorTrim, 
+    // handle trim tilde
     // `~ 1.2.3` => `~1.2.3`
-    parseTildeTrim, // handle trim caret
+    parseTildeTrim, 
+    // handle trim caret
     // `^ 1.2.3` => `^1.2.3`
-    parseCaretTrim)(range.trim()).split(/\s+/).join(' ');
+    parseCaretTrim)(range.trim())
+        .split(/\s+/)
+        .join(' ');
 }
 function satisfy(version, range) {
     if (!version) {
@@ -770,18 +814,18 @@ function satisfy(version, range) {
         // If the version string is invalid, it can't satisfy any range
         return false;
     }
-    const [, versionOperator, , versionMajor, versionMinor, versionPatch, versionPreRelease] = extractedVersion;
+    const [, versionOperator, , versionMajor, versionMinor, versionPatch, versionPreRelease,] = extractedVersion;
     const versionAtom = {
         operator: versionOperator,
-        version: combineVersion(versionMajor, versionMinor, versionPatch, versionPreRelease),
+        version: combineVersion(versionMajor, versionMinor, versionPatch, versionPreRelease), // exclude build atom
         major: versionMajor,
         minor: versionMinor,
         patch: versionPatch,
-        preRelease: versionPreRelease == null ? void 0 : versionPreRelease.split('.')
+        preRelease: versionPreRelease?.split('.'),
     };
     // Split the range by || to handle OR conditions
     const orRanges = range.split('||');
-    for (const orRange of orRanges){
+    for (const orRange of orRanges) {
         const trimmedOrRange = orRange.trim();
         if (!trimmedOrRange) {
             // An empty range string signifies wildcard *, satisfy any valid version
@@ -802,36 +846,41 @@ function satisfy(version, range) {
                 // If parsing results in empty string, treat as wildcard match
                 return true;
             }
-            const parsedComparatorString = parsedSubRange.split(' ').map((rangeVersion)=>parseComparatorString(rangeVersion)) // Expands ^, ~
-            .join(' ');
+            const parsedComparatorString = parsedSubRange
+                .split(' ')
+                .map((rangeVersion) => parseComparatorString(rangeVersion)) // Expands ^, ~
+                .join(' ');
             // Check again if the comparator string became empty after specific parsing like ^ or ~
             if (!parsedComparatorString.trim()) {
                 return true;
             }
             // Split the sub-range by space for implicit AND conditions
-            const comparators = parsedComparatorString.split(/\s+/).map((comparator)=>parseGTE0(comparator))// Filter out empty strings that might result from multiple spaces
-            .filter(Boolean);
+            const comparators = parsedComparatorString
+                .split(/\s+/)
+                .map((comparator) => parseGTE0(comparator))
+                // Filter out empty strings that might result from multiple spaces
+                .filter(Boolean);
             // If a sub-range becomes empty after parsing (e.g., invalid characters),
             // it cannot be satisfied. This check might be redundant now but kept for safety.
             if (comparators.length === 0) {
                 continue;
             }
             let subRangeSatisfied = true;
-            for (const comparator of comparators){
+            for (const comparator of comparators) {
                 const extractedComparator = extractComparator(comparator);
                 // If any part of the AND sub-range is invalid, the sub-range is not satisfied
                 if (!extractedComparator) {
                     subRangeSatisfied = false;
                     break;
                 }
-                const [, rangeOperator, , rangeMajor, rangeMinor, rangePatch, rangePreRelease] = extractedComparator;
+                const [, rangeOperator, , rangeMajor, rangeMinor, rangePatch, rangePreRelease,] = extractedComparator;
                 const rangeAtom = {
                     operator: rangeOperator,
                     version: combineVersion(rangeMajor, rangeMinor, rangePatch, rangePreRelease),
                     major: rangeMajor,
                     minor: rangeMinor,
                     patch: rangePatch,
-                    preRelease: rangePreRelease == null ? void 0 : rangePreRelease.split('.')
+                    preRelease: rangePreRelease?.split('.'),
                 };
                 // Check if the version satisfies this specific comparator in the AND chain
                 if (!compare(rangeAtom, versionAtom)) {
@@ -843,7 +892,8 @@ function satisfy(version, range) {
             if (subRangeSatisfied) {
                 return true;
             }
-        } catch (e) {
+        }
+        catch (e) {
             // Log error and treat this sub-range as unsatisfied
             console.error(`[semver] Error processing range part "${trimmedOrRange}":`, e);
             continue;
@@ -858,71 +908,73 @@ function formatShare(shareArgs, from, name, shareStrategy) {
     if ('get' in shareArgs) {
         // eslint-disable-next-line prefer-destructuring
         get = shareArgs.get;
-    } else if ('lib' in shareArgs) {
-        get = ()=>Promise.resolve(shareArgs.lib);
-    } else {
-        get = ()=>Promise.resolve(()=>{
-                throw new Error(`Can not get shared '${name}'!`);
-            });
     }
-    var _shareArgs_version, _shareArgs_scope, _shareArgs_strategy;
-    return polyfills._extends({
+    else if ('lib' in shareArgs) {
+        get = () => Promise.resolve(shareArgs.lib);
+    }
+    else {
+        get = () => Promise.resolve(() => {
+            throw new Error(`Can not get shared '${name}'!`);
+        });
+    }
+    return {
         deps: [],
         useIn: [],
         from,
-        loading: null
-    }, shareArgs, {
-        shareConfig: polyfills._extends({
+        loading: null,
+        ...shareArgs,
+        shareConfig: {
             requiredVersion: `^${shareArgs.version}`,
             singleton: false,
             eager: false,
-            strictVersion: false
-        }, shareArgs.shareConfig),
+            strictVersion: false,
+            ...shareArgs.shareConfig,
+        },
         get,
-        loaded: (shareArgs == null ? void 0 : shareArgs.loaded) || 'lib' in shareArgs ? true : undefined,
-        version: (_shareArgs_version = shareArgs.version) != null ? _shareArgs_version : '0',
-        scope: Array.isArray(shareArgs.scope) ? shareArgs.scope : [
-            (_shareArgs_scope = shareArgs.scope) != null ? _shareArgs_scope : 'default'
-        ],
-        strategy: ((_shareArgs_strategy = shareArgs.strategy) != null ? _shareArgs_strategy : shareStrategy) || 'version-first'
-    });
+        loaded: shareArgs?.loaded || 'lib' in shareArgs ? true : undefined,
+        version: shareArgs.version ?? '0',
+        scope: Array.isArray(shareArgs.scope)
+            ? shareArgs.scope
+            : [shareArgs.scope ?? 'default'],
+        strategy: (shareArgs.strategy ?? shareStrategy) || 'version-first',
+    };
 }
 function formatShareConfigs(globalOptions, userOptions) {
     const shareArgs = userOptions.shared || {};
     const from = userOptions.name;
-    const shareInfos = Object.keys(shareArgs).reduce((res, pkgName)=>{
+    const shareInfos = Object.keys(shareArgs).reduce((res, pkgName) => {
         const arrayShareArgs = arrayOptions(shareArgs[pkgName]);
         res[pkgName] = res[pkgName] || [];
-        arrayShareArgs.forEach((shareConfig)=>{
+        arrayShareArgs.forEach((shareConfig) => {
             res[pkgName].push(formatShare(shareConfig, from, pkgName, userOptions.shareStrategy));
         });
         return res;
     }, {});
-    const shared = polyfills._extends({}, globalOptions.shared);
-    Object.keys(shareInfos).forEach((shareKey)=>{
+    const shared = {
+        ...globalOptions.shared,
+    };
+    Object.keys(shareInfos).forEach((shareKey) => {
         if (!shared[shareKey]) {
             shared[shareKey] = shareInfos[shareKey];
-        } else {
-            shareInfos[shareKey].forEach((newUserSharedOptions)=>{
-                const isSameVersion = shared[shareKey].find((sharedVal)=>sharedVal.version === newUserSharedOptions.version);
+        }
+        else {
+            shareInfos[shareKey].forEach((newUserSharedOptions) => {
+                const isSameVersion = shared[shareKey].find((sharedVal) => sharedVal.version === newUserSharedOptions.version);
                 if (!isSameVersion) {
                     shared[shareKey].push(newUserSharedOptions);
                 }
             });
         }
     });
-    return {
-        shared,
-        shareInfos
-    };
+    return { shared, shareInfos };
 }
 function versionLt(a, b) {
-    const transformInvalidVersion = (version)=>{
+    const transformInvalidVersion = (version) => {
         const isNumberVersion = !Number.isNaN(Number(version));
         if (isNumberVersion) {
             const splitArr = version.split('.');
             let validVersion = version;
-            for(let i = 0; i < 3 - splitArr.length; i++){
+            for (let i = 0; i < 3 - splitArr.length; i++) {
                 validVersion += '.0';
             }
             return validVersion;
@@ -931,15 +983,17 @@ function versionLt(a, b) {
     };
     if (satisfy(transformInvalidVersion(a), `<=${transformInvalidVersion(b)}`)) {
         return true;
-    } else {
+    }
+    else {
         return false;
     }
 }
-const findVersion = (shareVersionMap, cb)=>{
-    const callback = cb || function(prev, cur) {
-        return versionLt(prev, cur);
-    };
-    return Object.keys(shareVersionMap).reduce((prev, cur)=>{
+const findVersion = (shareVersionMap, cb) => {
+    const callback = cb ||
+        function (prev, cur) {
+            return versionLt(prev, cur);
+        };
+    return Object.keys(shareVersionMap).reduce((prev, cur) => {
         if (!prev) {
             return cur;
         }
@@ -953,29 +1007,30 @@ const findVersion = (shareVersionMap, cb)=>{
         return prev;
     }, 0);
 };
-const isLoaded = (shared)=>{
+const isLoaded = (shared) => {
     return Boolean(shared.loaded) || typeof shared.lib === 'function';
 };
-const isLoading = (shared)=>{
+const isLoading = (shared) => {
     return Boolean(shared.loading);
 };
 function findSingletonVersionOrderByVersion(shareScopeMap, scope, pkgName) {
     const versions = shareScopeMap[scope][pkgName];
-    const callback = function(prev, cur) {
+    const callback = function (prev, cur) {
         return !isLoaded(versions[prev]) && versionLt(prev, cur);
     };
     return findVersion(shareScopeMap[scope][pkgName], callback);
 }
 function findSingletonVersionOrderByLoaded(shareScopeMap, scope, pkgName) {
     const versions = shareScopeMap[scope][pkgName];
-    const callback = function(prev, cur) {
-        const isLoadingOrLoaded = (shared)=>{
+    const callback = function (prev, cur) {
+        const isLoadingOrLoaded = (shared) => {
             return isLoaded(shared) || isLoading(shared);
         };
         if (isLoadingOrLoaded(versions[cur])) {
             if (isLoadingOrLoaded(versions[prev])) {
                 return Boolean(versionLt(prev, cur));
-            } else {
+            }
+            else {
                 return true;
             }
         }
@@ -997,34 +1052,38 @@ function getRegisteredShare(localShareScopeMap, pkgName, shareInfo, resolveShare
         return;
     }
     const { shareConfig, scope = DEFAULT_SCOPE, strategy } = shareInfo;
-    const scopes = Array.isArray(scope) ? scope : [
-        scope
-    ];
-    for (const sc of scopes){
-        if (shareConfig && localShareScopeMap[sc] && localShareScopeMap[sc][pkgName]) {
+    const scopes = Array.isArray(scope) ? scope : [scope];
+    for (const sc of scopes) {
+        if (shareConfig &&
+            localShareScopeMap[sc] &&
+            localShareScopeMap[sc][pkgName]) {
             const { requiredVersion } = shareConfig;
             const findShareFunction = getFindShareFunction(strategy);
             const maxOrSingletonVersion = findShareFunction(localShareScopeMap, sc, pkgName);
             //@ts-ignore
-            const defaultResolver = ()=>{
+            const defaultResolver = () => {
                 if (shareConfig.singleton) {
-                    if (typeof requiredVersion === 'string' && !satisfy(maxOrSingletonVersion, requiredVersion)) {
-                        const msg = `Version ${maxOrSingletonVersion} from ${maxOrSingletonVersion && localShareScopeMap[sc][pkgName][maxOrSingletonVersion].from} of shared singleton module ${pkgName} does not satisfy the requirement of ${shareInfo.from} which needs ${requiredVersion})`;
+                    if (typeof requiredVersion === 'string' &&
+                        !satisfy(maxOrSingletonVersion, requiredVersion)) {
+                        const msg = `Version ${maxOrSingletonVersion} from ${maxOrSingletonVersion &&
+                            localShareScopeMap[sc][pkgName][maxOrSingletonVersion].from} of shared singleton module ${pkgName} does not satisfy the requirement of ${shareInfo.from} which needs ${requiredVersion})`;
                         if (shareConfig.strictVersion) {
                             error(msg);
-                        } else {
+                        }
+                        else {
                             warn(msg);
                         }
                     }
                     return localShareScopeMap[sc][pkgName][maxOrSingletonVersion];
-                } else {
+                }
+                else {
                     if (requiredVersion === false || requiredVersion === '*') {
                         return localShareScopeMap[sc][pkgName][maxOrSingletonVersion];
                     }
                     if (satisfy(maxOrSingletonVersion, requiredVersion)) {
                         return localShareScopeMap[sc][pkgName][maxOrSingletonVersion];
                     }
-                    for (const [versionKey, versionValue] of Object.entries(localShareScopeMap[sc][pkgName])){
+                    for (const [versionKey, versionValue] of Object.entries(localShareScopeMap[sc][pkgName])) {
                         if (satisfy(versionKey, requiredVersion)) {
                             return versionValue;
                         }
@@ -1037,7 +1096,7 @@ function getRegisteredShare(localShareScopeMap, pkgName, shareInfo, resolveShare
                 pkgName,
                 version: maxOrSingletonVersion,
                 GlobalFederation: Global.__FEDERATION__,
-                resolver: defaultResolver
+                resolver: defaultResolver,
             };
             const resolveShared = resolveShare.emit(params) || params;
             return resolveShared.resolver();
@@ -1049,28 +1108,30 @@ function getGlobalShareScope() {
 }
 function getTargetSharedOptions(options) {
     const { pkgName, extraOptions, shareInfos } = options;
-    const defaultResolver = (sharedOptions)=>{
+    const defaultResolver = (sharedOptions) => {
         if (!sharedOptions) {
             return undefined;
         }
         const shareVersionMap = {};
-        sharedOptions.forEach((shared)=>{
+        sharedOptions.forEach((shared) => {
             shareVersionMap[shared.version] = shared;
         });
-        const callback = function(prev, cur) {
+        const callback = function (prev, cur) {
             return !isLoaded(shareVersionMap[prev]) && versionLt(prev, cur);
         };
         const maxVersion = findVersion(shareVersionMap, callback);
         return shareVersionMap[maxVersion];
     };
-    var _extraOptions_resolver;
-    const resolver = (_extraOptions_resolver = extraOptions == null ? void 0 : extraOptions.resolver) != null ? _extraOptions_resolver : defaultResolver;
-    return Object.assign({}, resolver(shareInfos[pkgName]), extraOptions == null ? void 0 : extraOptions.customShareInfo);
+    const resolver = extraOptions?.resolver ?? defaultResolver;
+    return Object.assign({}, resolver(shareInfos[pkgName]), extraOptions?.customShareInfo);
 }
 
 function getBuilderId() {
     //@ts-ignore
-    return typeof FEDERATION_BUILD_IDENTIFIER !== 'undefined' ? FEDERATION_BUILD_IDENTIFIER : '';
+    return typeof FEDERATION_BUILD_IDENTIFIER !== 'undefined'
+        ? //@ts-ignore
+            FEDERATION_BUILD_IDENTIFIER
+        : '';
 }
 
 // Function to match a remote with its name and expose
@@ -1078,7 +1139,7 @@ function getBuilderId() {
 // id: alias(app1) + expose(button) = app1/button
 // id: alias(app1/utils) + expose(loadash/sort) = app1/utils/loadash/sort
 function matchRemoteWithNameAndExpose(remotes, id) {
-    for (const remote of remotes){
+    for (const remote of remotes) {
         // match pkgName
         const isNameMatched = id.startsWith(remote.name);
         let expose = id.replace(remote.name, '');
@@ -1089,13 +1150,14 @@ function matchRemoteWithNameAndExpose(remotes, id) {
                 return {
                     pkgNameOrAlias,
                     expose,
-                    remote
+                    remote,
                 };
-            } else if (expose === '') {
+            }
+            else if (expose === '') {
                 return {
                     pkgNameOrAlias: remote.name,
                     expose: '.',
-                    remote
+                    remote,
                 };
             }
         }
@@ -1109,13 +1171,14 @@ function matchRemoteWithNameAndExpose(remotes, id) {
                 return {
                     pkgNameOrAlias,
                     expose: exposeWithAlias,
-                    remote
+                    remote,
                 };
-            } else if (exposeWithAlias === '') {
+            }
+            else if (exposeWithAlias === '') {
                 return {
                     pkgNameOrAlias: remote.alias,
                     expose: '.',
-                    remote
+                    remote,
                 };
             }
         }
@@ -1124,7 +1187,7 @@ function matchRemoteWithNameAndExpose(remotes, id) {
 }
 // Function to match a remote with its name or alias
 function matchRemote(remotes, nameOrAlias) {
-    for (const remote of remotes){
+    for (const remote of remotes) {
         const isNameMatched = nameOrAlias === remote.name;
         if (isNameMatched) {
             return remote;
@@ -1145,19 +1208,19 @@ function registerPlugins(plugins, instance) {
         instance.sharedHandler.hooks,
         instance.snapshotHandler.hooks,
         instance.loaderHook,
-        instance.bridgeHook
+        instance.bridgeHook,
     ];
     // Incorporate global plugins
     if (globalPlugins.length > 0) {
-        globalPlugins.forEach((plugin)=>{
-            if (plugins == null ? void 0 : plugins.find((item)=>item.name !== plugin.name)) {
+        globalPlugins.forEach((plugin) => {
+            if (plugins?.find((item) => item.name !== plugin.name)) {
                 plugins.push(plugin);
             }
         });
     }
     if (plugins && plugins.length > 0) {
-        plugins.forEach((plugin)=>{
-            hookInstances.forEach((hookInstance)=>{
+        plugins.forEach((plugin) => {
+            hookInstances.forEach((hookInstance) => {
                 hookInstance.applyPlugin(plugin, instance);
             });
         });
@@ -1166,41 +1229,46 @@ function registerPlugins(plugins, instance) {
 }
 
 const importCallback = '.then(callbacks[0]).catch(callbacks[1])';
-async function loadEsmEntry({ entry, remoteEntryExports }) {
-    return new Promise((resolve, reject)=>{
+async function loadEsmEntry({ entry, remoteEntryExports, }) {
+    return new Promise((resolve, reject) => {
         try {
             if (!remoteEntryExports) {
                 if (typeof FEDERATION_ALLOW_NEW_FUNCTION !== 'undefined') {
                     new Function('callbacks', `import("${entry}")${importCallback}`)([
                         resolve,
-                        reject
+                        reject,
                     ]);
-                } else {
-                    import(/* webpackIgnore: true */ /* @vite-ignore */ entry).then(resolve).catch(reject);
                 }
-            } else {
+                else {
+                    import(/* webpackIgnore: true */ /* @vite-ignore */ entry)
+                        .then(resolve)
+                        .catch(reject);
+                }
+            }
+            else {
                 resolve(remoteEntryExports);
             }
-        } catch (e) {
+        }
+        catch (e) {
             reject(e);
         }
     });
 }
-async function loadSystemJsEntry({ entry, remoteEntryExports }) {
-    return new Promise((resolve, reject)=>{
+async function loadSystemJsEntry({ entry, remoteEntryExports, }) {
+    return new Promise((resolve, reject) => {
         try {
             if (!remoteEntryExports) {
                 //@ts-ignore
-                if (false) {} else {
-                    new Function('callbacks', `System.import("${entry}")${importCallback}`)([
-                        resolve,
-                        reject
-                    ]);
+                if (false) {}
+                else {
+                    new Function('callbacks', `System.import("${entry}")${importCallback}`)([resolve, reject]);
                 }
-            } else {
+            }
+            else {
                 resolve(remoteEntryExports);
             }
-        } catch (e) {
+        }
+        catch (e) {
             reject(e);
         }
     });
@@ -1210,23 +1278,23 @@ function handleRemoteEntryLoaded(name, globalName, entry) {
     assert(entryExports, errorCodes.getShortErrorMsg(errorCodes.RUNTIME_001, errorCodes.runtimeDescMap, {
         remoteName: name,
         remoteEntryUrl: entry,
-        remoteEntryKey
+        remoteEntryKey,
     }));
     return entryExports;
 }
-async function loadEntryScript({ name, globalName, entry, loaderHook }) {
+async function loadEntryScript({ name, globalName, entry, loaderHook, getEntryUrl, }) {
     const { entryExports: remoteEntryExports } = getRemoteEntryExports(name, globalName);
     if (remoteEntryExports) {
         return remoteEntryExports;
     }
-    return sdk.loadScript(entry, {
+    // if getEntryUrl is passed, use the getEntryUrl to get the entry url
+    const url = getEntryUrl ? getEntryUrl(entry) : entry;
+    return sdk.loadScript(url, {
         attrs: {},
-        createScriptHook: (url, attrs)=>{
-            const res = loaderHook.lifecycle.createScript.emit({
-                url,
-                attrs
-            });
-            if (!res) return;
+        createScriptHook: (url, attrs) => {
+            const res = loaderHook.lifecycle.createScript.emit({ url, attrs });
+            if (!res)
+                return;
             if (res instanceof HTMLScriptElement) {
                 return res;
             }
@@ -1234,68 +1302,61 @@ async function loadEntryScript({ name, globalName, entry, loaderHook }) {
                 return res;
             }
             return;
-        }
-    }).then(()=>{
+        },
+    })
+        .then(() => {
         return handleRemoteEntryLoaded(name, globalName, entry);
-    }).catch((e)=>{
+    })
+        .catch((e) => {
         assert(undefined, errorCodes.getShortErrorMsg(errorCodes.RUNTIME_008, errorCodes.runtimeDescMap, {
             remoteName: name,
-            resourceUrl: entry
+            resourceUrl: entry,
         }));
         throw e;
     });
 }
-async function loadEntryDom({ remoteInfo, remoteEntryExports, loaderHook }) {
+async function loadEntryDom({ remoteInfo, remoteEntryExports, loaderHook, getEntryUrl, }) {
     const { entry, entryGlobalName: globalName, name, type } = remoteInfo;
-    switch(type){
+    switch (type) {
         case 'esm':
         case 'module':
-            return loadEsmEntry({
-                entry,
-                remoteEntryExports
-            });
+            return loadEsmEntry({ entry, remoteEntryExports });
         case 'system':
-            return loadSystemJsEntry({
-                entry,
-                remoteEntryExports
-            });
+            return loadSystemJsEntry({ entry, remoteEntryExports });
         default:
             return loadEntryScript({
                 entry,
                 globalName,
                 name,
-                loaderHook
+                loaderHook,
+                getEntryUrl,
             });
     }
 }
-async function loadEntryNode({ remoteInfo, loaderHook }) {
+async function loadEntryNode({ remoteInfo, loaderHook, }) {
     const { entry, entryGlobalName: globalName, name, type } = remoteInfo;
     const { entryExports: remoteEntryExports } = getRemoteEntryExports(name, globalName);
     if (remoteEntryExports) {
         return remoteEntryExports;
     }
     return sdk.loadScriptNode(entry, {
-        attrs: {
-            name,
-            globalName,
-            type
-        },
+        attrs: { name, globalName, type },
         loaderHook: {
-            createScriptHook: (url, attrs = {})=>{
-                const res = loaderHook.lifecycle.createScript.emit({
-                    url,
-                    attrs
-                });
-                if (!res) return;
+            createScriptHook: (url, attrs = {}) => {
+                const res = loaderHook.lifecycle.createScript.emit({ url, attrs });
+                if (!res)
+                    return;
                 if ('url' in res) {
                     return res;
                 }
                 return;
-            }
-        }
-    }).then(()=>{
+            },
+        },
+    })
+        .then(() => {
         return handleRemoteEntryLoaded(name, globalName, entry);
-    }).catch((e)=>{
+    })
+        .catch((e) => {
         throw e;
     });
 }
@@ -1303,7 +1364,8 @@ function getRemoteEntryUniqueKey(remoteInfo) {
     const { entry, name } = remoteInfo;
     return sdk.composeKeyWithSeparator(name, entry);
 }
-async function getRemoteEntry({ origin, remoteEntryExports, remoteInfo }) {
+async function getRemoteEntry(params) {
+    const { origin, remoteEntryExports, remoteInfo, getEntryUrl, _inErrorHandling = false, } = params;
     const uniqueKey = getRemoteEntryUniqueKey(remoteInfo);
     if (remoteEntryExports) {
         return remoteEntryExports;
@@ -1311,55 +1373,83 @@ async function getRemoteEntry({ origin, remoteEntryExports, remoteInfo }) {
     if (!globalLoading[uniqueKey]) {
         const loadEntryHook = origin.remoteHandler.hooks.lifecycle.loadEntry;
         const loaderHook = origin.loaderHook;
-        globalLoading[uniqueKey] = loadEntryHook.emit({
+        globalLoading[uniqueKey] = loadEntryHook
+            .emit({
             loaderHook,
             remoteInfo,
-            remoteEntryExports
-        }).then((res)=>{
+            remoteEntryExports,
+        })
+            .then((res) => {
             if (res) {
                 return res;
             }
             // Use ENV_TARGET if defined, otherwise fallback to isBrowserEnv, must keep this
-            const isWebEnvironment = typeof ENV_TARGET !== 'undefined' ? ENV_TARGET === 'web' : sdk.isBrowserEnv();
-            return isWebEnvironment ? loadEntryDom({
-                remoteInfo,
-                remoteEntryExports,
-                loaderHook
-            }) : loadEntryNode({
-                remoteInfo,
-                loaderHook
-            });
+            const isWebEnvironment = typeof ENV_TARGET !== 'undefined'
+                ? ENV_TARGET === 'web'
+                : sdk.isBrowserEnv();
+            return isWebEnvironment
+                ? loadEntryDom({
+                    remoteInfo,
+                    remoteEntryExports,
+                    loaderHook,
+                    getEntryUrl,
+                })
+                : loadEntryNode({ remoteInfo, loaderHook });
+        })
+            .catch(async (err) => {
+            const uniqueKey = getRemoteEntryUniqueKey(remoteInfo);
+            const isScriptLoadError = err instanceof Error && err.message.includes(errorCodes.RUNTIME_008);
+            if (isScriptLoadError && !_inErrorHandling) {
+                const wrappedGetRemoteEntry = (params) => {
+                    return getRemoteEntry({ ...params, _inErrorHandling: true });
+                };
+                const RemoteEntryExports = await origin.loaderHook.lifecycle.loadEntryError.emit({
+                    getRemoteEntry: wrappedGetRemoteEntry,
+                    origin,
+                    remoteInfo: remoteInfo,
+                    remoteEntryExports,
+                    globalLoading,
+                    uniqueKey,
+                });
+                if (RemoteEntryExports) {
+                    return RemoteEntryExports;
+                }
+            }
+            throw err;
         });
     }
     return globalLoading[uniqueKey];
 }
 function getRemoteInfo(remote) {
-    return polyfills._extends({}, remote, {
+    return {
+        ...remote,
         entry: 'entry' in remote ? remote.entry : '',
         type: remote.type || DEFAULT_REMOTE_TYPE,
         entryGlobalName: remote.entryGlobalName || remote.name,
-        shareScope: remote.shareScope || DEFAULT_SCOPE
-    });
+        shareScope: remote.shareScope || DEFAULT_SCOPE,
+    };
 }
 
 function defaultPreloadArgs(preloadConfig) {
-    return polyfills._extends({
+    return {
         resourceCategory: 'sync',
         share: true,
         depsRemote: true,
-        prefetchInterface: false
-    }, preloadConfig);
+        prefetchInterface: false,
+        ...preloadConfig,
+    };
 }
 function formatPreloadArgs(remotes, preloadArgs) {
-    return preloadArgs.map((args)=>{
+    return preloadArgs.map((args) => {
         const remoteInfo = matchRemote(remotes, args.nameOrAlias);
-        assert(remoteInfo, `Unable to preload ${args.nameOrAlias} as it is not included in ${!remoteInfo && sdk.safeToString({
-            remoteInfo,
-            remotes
-        })}`);
+        assert(remoteInfo, `Unable to preload ${args.nameOrAlias} as it is not included in ${!remoteInfo &&
+            sdk.safeToString({
+                remoteInfo,
+                remotes,
+            })}`);
         return {
             remote: remoteInfo,
-            preloadConfig: defaultPreloadArgs(args)
+            preloadConfig: defaultPreloadArgs(args),
         };
     });
 }
@@ -1367,7 +1457,7 @@ function normalizePreloadExposes(exposes) {
     if (!exposes) {
         return [];
     }
-    return exposes.map((expose)=>{
+    return exposes.map((expose) => {
         if (expose === '.') {
             return expose;
         }
@@ -1377,75 +1467,78 @@ function normalizePreloadExposes(exposes) {
         return expose;
     });
 }
-function preloadAssets(remoteInfo, host, assets, // It is used to distinguish preload from load remote parallel loading
+function preloadAssets(remoteInfo, host, assets, 
+// It is used to distinguish preload from load remote parallel loading
 useLinkPreload = true) {
     const { cssAssets, jsAssetsWithoutEntry, entryAssets } = assets;
     if (host.options.inBrowser) {
-        entryAssets.forEach((asset)=>{
+        entryAssets.forEach((asset) => {
             const { moduleInfo } = asset;
             const module = host.moduleCache.get(remoteInfo.name);
             if (module) {
                 getRemoteEntry({
                     origin: host,
                     remoteInfo: moduleInfo,
-                    remoteEntryExports: module.remoteEntryExports
+                    remoteEntryExports: module.remoteEntryExports,
                 });
-            } else {
+            }
+            else {
                 getRemoteEntry({
                     origin: host,
                     remoteInfo: moduleInfo,
-                    remoteEntryExports: undefined
+                    remoteEntryExports: undefined,
                 });
             }
         });
         if (useLinkPreload) {
             const defaultAttrs = {
                 rel: 'preload',
-                as: 'style'
+                as: 'style',
             };
-            cssAssets.forEach((cssUrl)=>{
+            cssAssets.forEach((cssUrl) => {
                 const { link: cssEl, needAttach } = sdk.createLink({
                     url: cssUrl,
-                    cb: ()=>{
-                    // noop
+                    cb: () => {
+                        // noop
                     },
                     attrs: defaultAttrs,
-                    createLinkHook: (url, attrs)=>{
+                    createLinkHook: (url, attrs) => {
                         const res = host.loaderHook.lifecycle.createLink.emit({
                             url,
-                            attrs
+                            attrs,
                         });
                         if (res instanceof HTMLLinkElement) {
                             return res;
                         }
                         return;
-                    }
+                    },
                 });
                 needAttach && document.head.appendChild(cssEl);
             });
-        } else {
+        }
+        else {
             const defaultAttrs = {
                 rel: 'stylesheet',
-                type: 'text/css'
+                type: 'text/css',
             };
-            cssAssets.forEach((cssUrl)=>{
+            cssAssets.forEach((cssUrl) => {
                 const { link: cssEl, needAttach } = sdk.createLink({
                     url: cssUrl,
-                    cb: ()=>{
-                    // noop
+                    cb: () => {
+                        // noop
                     },
                     attrs: defaultAttrs,
-                    createLinkHook: (url, attrs)=>{
+                    createLinkHook: (url, attrs) => {
                         const res = host.loaderHook.lifecycle.createLink.emit({
                             url,
-                            attrs
+                            attrs,
                         });
                         if (res instanceof HTMLLinkElement) {
                             return res;
                         }
                         return;
                     },
-                    needDeleteLink: false
+                    needDeleteLink: false,
                 });
                 needAttach && document.head.appendChild(cssEl);
             });
@@ -1453,51 +1546,52 @@ useLinkPreload = true) {
         if (useLinkPreload) {
             const defaultAttrs = {
                 rel: 'preload',
-                as: 'script'
+                as: 'script',
             };
-            jsAssetsWithoutEntry.forEach((jsUrl)=>{
+            jsAssetsWithoutEntry.forEach((jsUrl) => {
                 const { link: linkEl, needAttach } = sdk.createLink({
                     url: jsUrl,
-                    cb: ()=>{
-                    // noop
+                    cb: () => {
+                        // noop
                     },
                     attrs: defaultAttrs,
-                    createLinkHook: (url, attrs)=>{
+                    createLinkHook: (url, attrs) => {
                         const res = host.loaderHook.lifecycle.createLink.emit({
                             url,
-                            attrs
+                            attrs,
                         });
                         if (res instanceof HTMLLinkElement) {
                             return res;
                         }
                         return;
-                    }
+                    },
                 });
                 needAttach && document.head.appendChild(linkEl);
             });
-        } else {
+        }
+        else {
             const defaultAttrs = {
                 fetchpriority: 'high',
-                type: (remoteInfo == null ? void 0 : remoteInfo.type) === 'module' ? 'module' : 'text/javascript'
+                type: remoteInfo?.type === 'module' ? 'module' : 'text/javascript',
             };
-            jsAssetsWithoutEntry.forEach((jsUrl)=>{
+            jsAssetsWithoutEntry.forEach((jsUrl) => {
                 const { script: scriptEl, needAttach } = sdk.createScript({
                     url: jsUrl,
-                    cb: ()=>{
-                    // noop
+                    cb: () => {
+                        // noop
                     },
                     attrs: defaultAttrs,
-                    createScriptHook: (url, attrs)=>{
+                    createScriptHook: (url, attrs) => {
                         const res = host.loaderHook.lifecycle.createScript.emit({
                             url,
-                            attrs
+                            attrs,
                         });
                         if (res instanceof HTMLScriptElement) {
                             return res;
                         }
                         return;
                     },
-                    needDeleteScript: true
+                    needDeleteScript: true,
                 });
                 needAttach && document.head.appendChild(scriptEl);
             });
@@ -1507,7 +1601,7 @@ useLinkPreload = true) {
 
 const ShareUtils = {
     getRegisteredShare,
-    getGlobalShareScope
+    getGlobalShareScope,
 };
 const GlobalUtils = {
     Global,
@@ -1526,7 +1620,7 @@ const GlobalUtils = {
     registerGlobalPlugins,
     getGlobalHostPlugins,
     getPreloaded,
-    setPreloaded
+    setPreloaded,
 };
 var helpers = {
     global: GlobalUtils,
@@ -1534,53 +1628,45 @@ var helpers = {
     utils: {
         matchRemoteWithNameAndExpose,
         preloadAssets,
-        getRemoteInfo
-    }
+        getRemoteInfo,
+    },
 };
 
-let Module = class Module {
+class Module {
+    constructor({ remoteInfo, host, }) {
+        this.inited = false;
+        this.lib = undefined;
+        this.remoteInfo = remoteInfo;
+        this.host = host;
+    }
     async getEntry() {
         if (this.remoteEntryExports) {
             return this.remoteEntryExports;
         }
         let remoteEntryExports;
-        try {
-            remoteEntryExports = await getRemoteEntry({
-                origin: this.host,
-                remoteInfo: this.remoteInfo,
-                remoteEntryExports: this.remoteEntryExports
-            });
-        } catch (err) {
-            const uniqueKey = getRemoteEntryUniqueKey(this.remoteInfo);
-            remoteEntryExports = await this.host.loaderHook.lifecycle.loadEntryError.emit({
-                getRemoteEntry,
-                origin: this.host,
-                remoteInfo: this.remoteInfo,
-                remoteEntryExports: this.remoteEntryExports,
-                globalLoading,
-                uniqueKey
-            });
-        }
+        remoteEntryExports = await getRemoteEntry({
+            origin: this.host,
+            remoteInfo: this.remoteInfo,
+            remoteEntryExports: this.remoteEntryExports,
+        });
         assert(remoteEntryExports, `remoteEntryExports is undefined \n ${sdk.safeToString(this.remoteInfo)}`);
         this.remoteEntryExports = remoteEntryExports;
         return this.remoteEntryExports;
     }
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     async get(id, expose, options, remoteSnapshot) {
-        const { loadFactory = true } = options || {
-            loadFactory: true
-        };
+        const { loadFactory = true } = options || { loadFactory: true };
         // Get remoteEntry.js
         const remoteEntryExports = await this.getEntry();
         if (!this.inited) {
             const localShareScopeMap = this.host.shareScopeMap;
-            const shareScopeKeys = Array.isArray(this.remoteInfo.shareScope) ? this.remoteInfo.shareScope : [
-                this.remoteInfo.shareScope
-            ];
+            const shareScopeKeys = Array.isArray(this.remoteInfo.shareScope)
+                ? this.remoteInfo.shareScope
+                : [this.remoteInfo.shareScope];
             if (!shareScopeKeys.length) {
                 shareScopeKeys.push('default');
             }
-            shareScopeKeys.forEach((shareScopeKey)=>{
+            shareScopeKeys.forEach((shareScopeKey) => {
                 if (!localShareScopeMap[shareScopeKey]) {
                     localShareScopeMap[shareScopeKey] = {};
                 }
@@ -1590,13 +1676,15 @@ let Module = class Module {
             const initScope = [];
             const remoteEntryInitOptions = {
                 version: this.remoteInfo.version || '',
-                shareScopeKeys: Array.isArray(this.remoteInfo.shareScope) ? shareScopeKeys : this.remoteInfo.shareScope || 'default'
+                shareScopeKeys: Array.isArray(this.remoteInfo.shareScope)
+                    ? shareScopeKeys
+                    : this.remoteInfo.shareScope || 'default',
             };
             // Help to find host instance
             Object.defineProperty(remoteEntryInitOptions, 'shareScopeMap', {
                 value: localShareScopeMap,
                 // remoteEntryInitOptions will be traversed and assigned during container init, ,so this attribute is not allowed to be traversed
-                enumerable: false
+                enumerable: false,
             });
             const initContainerOptions = await this.host.hooks.lifecycle.beforeInitContainer.emit({
                 shareScope,
@@ -1604,22 +1692,23 @@ let Module = class Module {
                 remoteEntryInitOptions,
                 initScope,
                 remoteInfo: this.remoteInfo,
-                origin: this.host
+                origin: this.host,
             });
-            if (typeof (remoteEntryExports == null ? void 0 : remoteEntryExports.init) === 'undefined') {
+            if (typeof remoteEntryExports?.init === 'undefined') {
                 error(errorCodes.getShortErrorMsg(errorCodes.RUNTIME_002, errorCodes.runtimeDescMap, {
                     hostName: this.host.name,
                     remoteName: this.remoteInfo.name,
                     remoteEntryUrl: this.remoteInfo.entry,
-                    remoteEntryKey: this.remoteInfo.entryGlobalName
+                    remoteEntryKey: this.remoteInfo.entryGlobalName,
                 }));
             }
             await remoteEntryExports.init(initContainerOptions.shareScope, initContainerOptions.initScope, initContainerOptions.remoteEntryInitOptions);
-            await this.host.hooks.lifecycle.initContainer.emit(polyfills._extends({}, initContainerOptions, {
+            await this.host.hooks.lifecycle.initContainer.emit({
+                ...initContainerOptions,
                 id,
                 remoteSnapshot,
-                remoteEntryExports
-            }));
+                remoteEntryExports,
+            });
         }
         this.lib = remoteEntryExports;
         this.inited = true;
@@ -1627,7 +1716,7 @@ let Module = class Module {
         moduleFactory = await this.host.loaderHook.lifecycle.getModuleFactory.emit({
             remoteEntryExports,
             expose,
-            moduleInfo: this.remoteInfo
+            moduleInfo: this.remoteInfo,
         });
         // get exposeGetter
         if (!moduleFactory) {
@@ -1645,22 +1734,26 @@ let Module = class Module {
     }
     wraperFactory(moduleFactory, id) {
         function defineModuleId(res, id) {
-            if (res && typeof res === 'object' && Object.isExtensible(res) && !Object.getOwnPropertyDescriptor(res, Symbol.for('mf_module_id'))) {
+            if (res &&
+                typeof res === 'object' &&
+                Object.isExtensible(res) &&
+                !Object.getOwnPropertyDescriptor(res, Symbol.for('mf_module_id'))) {
                 Object.defineProperty(res, Symbol.for('mf_module_id'), {
                     value: id,
-                    enumerable: false
+                    enumerable: false,
                 });
             }
         }
         if (moduleFactory instanceof Promise) {
-            return async ()=>{
+            return async () => {
                 const res = await moduleFactory();
                 // This parameter is used for bridge debugging
                 defineModuleId(res, id);
                 return res;
             };
-        } else {
-            return ()=>{
+        }
+        else {
+            return () => {
                 const res = moduleFactory();
                 // This parameter is used for bridge debugging
                 defineModuleId(res, id);
@@ -1668,15 +1761,16 @@ let Module = class Module {
             };
         }
     }
-    constructor({ remoteInfo, host }){
-        this.inited = false;
-        this.lib = undefined;
-        this.remoteInfo = remoteInfo;
-        this.host = host;
-    }
-};
+}
 
 class SyncHook {
+    constructor(type) {
+        this.type = '';
+        this.listeners = new Set();
+        if (type) {
+            this.type = type;
+        }
+    }
     on(fn) {
         if (typeof fn === 'function') {
             this.listeners.add(fn);
@@ -1695,7 +1789,7 @@ class SyncHook {
         let result;
         if (this.listeners.size > 0) {
             // eslint-disable-next-line prefer-spread
-            this.listeners.forEach((fn)=>{
+            this.listeners.forEach((fn) => {
                 result = fn(...data);
             });
         }
@@ -1707,13 +1801,6 @@ class SyncHook {
     removeAll() {
         this.listeners.clear();
     }
-    constructor(type){
-        this.type = '';
-        this.listeners = new Set();
-        if (type) {
-            this.type = type;
-        }
-    }
 }
 
 class AsyncHook extends SyncHook {
@@ -1722,12 +1809,14 @@ class AsyncHook extends SyncHook {
         const ls = Array.from(this.listeners);
         if (ls.length > 0) {
             let i = 0;
-            const call = (prev)=>{
+            const call = (prev) => {
                 if (prev === false) {
                     return false; // Abort process
-                } else if (i < ls.length) {
+                }
+                else if (i < ls.length) {
                     return Promise.resolve(ls[i++].apply(null, data)).then(call);
-                } else {
+                }
+                else {
                     return prev;
                 }
             };
@@ -1744,7 +1833,7 @@ function checkReturnData(originalData, returnedData) {
     }
     if (originalData !== returnedData) {
         // eslint-disable-next-line no-restricted-syntax
-        for(const key in originalData){
+        for (const key in originalData) {
             if (!(key in returnedData)) {
                 return false;
             }
@@ -1753,34 +1842,41 @@ function checkReturnData(originalData, returnedData) {
     return true;
 }
 class SyncWaterfallHook extends SyncHook {
+    constructor(type) {
+        super();
+        this.onerror = error;
+        this.type = type;
+    }
     emit(data) {
         if (!isObject(data)) {
             error(`The data for the "${this.type}" hook should be an object.`);
         }
-        for (const fn of this.listeners){
+        for (const fn of this.listeners) {
             try {
                 const tempData = fn(data);
                 if (checkReturnData(data, tempData)) {
                     data = tempData;
-                } else {
+                }
+                else {
                     this.onerror(`A plugin returned an unacceptable value for the "${this.type}" type.`);
                     break;
                 }
-            } catch (e) {
+            }
+            catch (e) {
                 warn(e);
                 this.onerror(e);
             }
         }
         return data;
     }
-    constructor(type){
+}
+
+class AsyncWaterfallHook extends SyncHook {
+    constructor(type) {
         super();
         this.onerror = error;
         this.type = type;
     }
-}
-
-class AsyncWaterfallHook extends SyncHook {
     emit(data) {
         if (!isObject(data)) {
             error(`The response data for the "${this.type}" hook must be an object.`);
@@ -1788,22 +1884,24 @@ class AsyncWaterfallHook extends SyncHook {
         const ls = Array.from(this.listeners);
         if (ls.length > 0) {
             let i = 0;
-            const processError = (e)=>{
+            const processError = (e) => {
                 warn(e);
                 this.onerror(e);
                 return data;
             };
-            const call = (prevData)=>{
+            const call = (prevData) => {
                 if (checkReturnData(data, prevData)) {
                     data = prevData;
                     if (i < ls.length) {
                         try {
                             return Promise.resolve(ls[i++](data)).then(call, processError);
-                        } catch (e) {
+                        }
+                        catch (e) {
                             return processError(e);
                         }
                     }
-                } else {
+                }
+                else {
                     this.onerror(`A plugin returned an incorrect value for the "${this.type}" type.`);
                 }
                 return data;
@@ -1812,14 +1910,14 @@ class AsyncWaterfallHook extends SyncHook {
         }
         return Promise.resolve(data);
     }
-    constructor(type){
-        super();
-        this.onerror = error;
-        this.type = type;
-    }
 }
 
 class PluginSystem {
+    constructor(lifecycle) {
+        this.registerPlugins = {};
+        this.lifecycle = lifecycle;
+        this.lifecycleKeys = Object.keys(lifecycle);
+    }
     applyPlugin(plugin, instance) {
         assert(isPlainObject(plugin), 'Plugin configuration is invalid.');
         // The plugin's name is mandatory and must be unique
@@ -1827,8 +1925,8 @@ class PluginSystem {
         assert(pluginName, 'A name must be provided by the plugin.');
         if (!this.registerPlugins[pluginName]) {
             this.registerPlugins[pluginName] = plugin;
-            plugin.apply == null ? void 0 : plugin.apply.call(plugin, instance);
-            Object.keys(this.lifecycle).forEach((key)=>{
+            plugin.apply?.(instance);
+            Object.keys(this.lifecycle).forEach((key) => {
                 const pluginLife = plugin[key];
                 if (pluginLife) {
                     this.lifecycle[key].on(pluginLife);
@@ -1840,16 +1938,11 @@ class PluginSystem {
         assert(pluginName, 'A name is required.');
         const plugin = this.registerPlugins[pluginName];
         assert(plugin, `The plugin "${pluginName}" is not registered.`);
-        Object.keys(plugin).forEach((key)=>{
+        Object.keys(plugin).forEach((key) => {
             if (key !== 'name') {
                 this.lifecycle[key].remove(plugin[key]);
             }
         });
-    }
-    constructor(lifecycle){
-        this.registerPlugins = {};
-        this.lifecycle = lifecycle;
-        this.lifecycleKeys = Object.keys(lifecycle);
     }
 }
 
@@ -1871,12 +1964,12 @@ function assignRemoteInfo(remoteInfo, remoteSnapshot) {
 function snapshotPlugin() {
     return {
         name: 'snapshot-plugin',
-        async afterResolve (args) {
+        async afterResolve(args) {
             const { remote, pkgNameOrAlias, expose, origin, remoteInfo, id } = args;
             if (!isRemoteInfoWithEntry(remote) || !isPureRemoteEntry(remote)) {
                 const { remoteSnapshot, globalSnapshot } = await origin.snapshotHandler.loadRemoteSnapshotInfo({
                     moduleInfo: remote,
-                    id
+                    id,
                 });
                 assignRemoteInfo(remoteInfo, remoteSnapshot);
                 // preloading assets
@@ -1884,13 +1977,11 @@ function snapshotPlugin() {
                     remote,
                     preloadConfig: {
                         nameOrAlias: pkgNameOrAlias,
-                        exposes: [
-                            expose
-                        ],
+                        exposes: [expose],
                         resourceCategory: 'sync',
                         share: false,
-                        depsRemote: false
-                    }
+                        depsRemote: false,
+                    },
                 };
                 const assets = await origin.remoteHandler.hooks.lifecycle.generatePreloadAssets.emit({
                     origin,
@@ -1898,17 +1989,18 @@ function snapshotPlugin() {
                     remoteInfo,
                     remote,
                     remoteSnapshot,
-                    globalSnapshot
+                    globalSnapshot,
                 });
                 if (assets) {
                     preloadAssets(remoteInfo, origin, assets, false);
                 }
-                return polyfills._extends({}, args, {
-                    remoteSnapshot
-                });
+                return {
+                    ...args,
+                    remoteSnapshot,
+                };
             }
             return args;
-        }
+        },
     };
 }
 
@@ -1919,17 +2011,19 @@ function splitId(id) {
     if (splitInfo.length === 1) {
         return {
             name: splitInfo[0],
-            version: undefined
+            version: undefined,
         };
-    } else if (splitInfo.length === 2) {
+    }
+    else if (splitInfo.length === 2) {
         return {
             name: splitInfo[0],
-            version: splitInfo[1]
+            version: splitInfo[1],
         };
-    } else {
+    }
+    else {
         return {
             name: splitInfo[1],
-            version: splitInfo[2]
+            version: splitInfo[2],
         };
     }
 }
@@ -1942,7 +2036,7 @@ function traverseModuleInfo(globalSnapshot, remoteInfo, traverse, isRoot, memo =
         traverse(effectiveRemoteSnapshot, remoteInfo, isRoot);
         if (effectiveRemoteSnapshot.remotesInfo) {
             const remoteKeys = Object.keys(effectiveRemoteSnapshot.remotesInfo);
-            for (const key of remoteKeys){
+            for (const key of remoteKeys) {
                 if (memo[key]) {
                     continue;
                 }
@@ -1951,13 +2045,13 @@ function traverseModuleInfo(globalSnapshot, remoteInfo, traverse, isRoot, memo =
                 const remoteValue = effectiveRemoteSnapshot.remotesInfo[key];
                 traverseModuleInfo(globalSnapshot, {
                     name: subRemoteInfo.name,
-                    version: remoteValue.matchedVersion
+                    version: remoteValue.matchedVersion,
                 }, traverse, false, memo, undefined);
             }
         }
     }
 }
-const isExisted = (type, url)=>{
+const isExisted = (type, url) => {
     return document.querySelector(`${type}[${type === 'link' ? 'href' : 'src'}="${url}"]`);
 };
 // eslint-disable-next-line max-lines-per-function
@@ -1971,15 +2065,17 @@ function generatePreloadAssets(origin, preloadOptions, remote, globalSnapshot, r
     const { preloadConfig: rootPreloadConfig } = preloadOptions;
     const { depsRemote } = rootPreloadConfig;
     const memo = {};
-    traverseModuleInfo(globalSnapshot, remote, (moduleInfoSnapshot, remoteInfo, isRoot)=>{
+    traverseModuleInfo(globalSnapshot, remote, (moduleInfoSnapshot, remoteInfo, isRoot) => {
         let preloadConfig;
         if (isRoot) {
             preloadConfig = rootPreloadConfig;
-        } else {
+        }
+        else {
             if (Array.isArray(depsRemote)) {
                 // eslint-disable-next-line array-callback-return
-                const findPreloadConfig = depsRemote.find((remoteConfig)=>{
-                    if (remoteConfig.nameOrAlias === remoteInfo.name || remoteConfig.nameOrAlias === remoteInfo.alias) {
+                const findPreloadConfig = depsRemote.find((remoteConfig) => {
+                    if (remoteConfig.nameOrAlias === remoteInfo.name ||
+                        remoteConfig.nameOrAlias === remoteInfo.alias) {
                         return true;
                     }
                     return false;
@@ -1988,9 +2084,11 @@ function generatePreloadAssets(origin, preloadOptions, remote, globalSnapshot, r
                     return;
                 }
                 preloadConfig = defaultPreloadArgs(findPreloadConfig);
-            } else if (depsRemote === true) {
+            }
+            else if (depsRemote === true) {
                 preloadConfig = rootPreloadConfig;
-            } else {
+            }
+            else {
                 return;
             }
         }
@@ -2001,27 +2099,33 @@ function generatePreloadAssets(origin, preloadOptions, remote, globalSnapshot, r
                 moduleInfo: {
                     name: remoteInfo.name,
                     entry: remoteEntryUrl,
-                    type: 'remoteEntryType' in moduleInfoSnapshot ? moduleInfoSnapshot.remoteEntryType : 'global',
-                    entryGlobalName: 'globalName' in moduleInfoSnapshot ? moduleInfoSnapshot.globalName : remoteInfo.name,
+                    type: 'remoteEntryType' in moduleInfoSnapshot
+                        ? moduleInfoSnapshot.remoteEntryType
+                        : 'global',
+                    entryGlobalName: 'globalName' in moduleInfoSnapshot
+                        ? moduleInfoSnapshot.globalName
+                        : remoteInfo.name,
                     shareScope: '',
-                    version: 'version' in moduleInfoSnapshot ? moduleInfoSnapshot.version : undefined
+                    version: 'version' in moduleInfoSnapshot
+                        ? moduleInfoSnapshot.version
+                        : undefined,
                 },
-                url: remoteEntryUrl
+                url: remoteEntryUrl,
             });
         }
         let moduleAssetsInfo = 'modules' in moduleInfoSnapshot ? moduleInfoSnapshot.modules : [];
         const normalizedPreloadExposes = normalizePreloadExposes(preloadConfig.exposes);
         if (normalizedPreloadExposes.length && 'modules' in moduleInfoSnapshot) {
-            var _moduleInfoSnapshot_modules;
-            moduleAssetsInfo = moduleInfoSnapshot == null ? void 0 : (_moduleInfoSnapshot_modules = moduleInfoSnapshot.modules) == null ? void 0 : _moduleInfoSnapshot_modules.reduce((assets, moduleAssetInfo)=>{
-                if ((normalizedPreloadExposes == null ? void 0 : normalizedPreloadExposes.indexOf(moduleAssetInfo.moduleName)) !== -1) {
+            moduleAssetsInfo = moduleInfoSnapshot?.modules?.reduce((assets, moduleAssetInfo) => {
+                if (normalizedPreloadExposes?.indexOf(moduleAssetInfo.moduleName) !==
+                    -1) {
                     assets.push(moduleAssetInfo);
                 }
                 return assets;
             }, []);
         }
         function handleAssets(assets) {
-            const assetsRes = assets.map((asset)=>sdk.getResourceUrl(moduleInfoSnapshot, asset));
+            const assetsRes = assets.map((asset) => sdk.getResourceUrl(moduleInfoSnapshot, asset));
             if (preloadConfig.filter) {
                 return assetsRes.filter(preloadConfig.filter);
             }
@@ -2029,7 +2133,7 @@ function generatePreloadAssets(origin, preloadOptions, remote, globalSnapshot, r
         }
         if (moduleAssetsInfo) {
             const assetsLength = moduleAssetsInfo.length;
-            for(let index = 0; index < assetsLength; index++){
+            for (let index = 0; index < assetsLength; index++) {
                 const assetsInfo = moduleAssetsInfo[index];
                 const exposeFullPath = `${remoteInfo.name}/${assetsInfo.moduleName}`;
                 origin.remoteHandler.hooks.lifecycle.handlePreloadModule.emit({
@@ -2038,7 +2142,7 @@ function generatePreloadAssets(origin, preloadOptions, remote, globalSnapshot, r
                     remoteSnapshot: moduleInfoSnapshot,
                     preloadConfig,
                     remote: remoteInfo,
-                    origin
+                    origin,
                 });
                 const preloaded = getPreloaded(exposeFullPath);
                 if (preloaded) {
@@ -2049,8 +2153,9 @@ function generatePreloadAssets(origin, preloadOptions, remote, globalSnapshot, r
                     cssAssets.push(...handleAssets(assetsInfo.assets.css.sync));
                     jsAssets.push(...handleAssets(assetsInfo.assets.js.async));
                     jsAssets.push(...handleAssets(assetsInfo.assets.js.sync));
-                // eslint-disable-next-line no-constant-condition
-                } else if (preloadConfig.resourceCategory = 'sync') {
+                    // eslint-disable-next-line no-constant-condition
+                }
+                else if ((preloadConfig.resourceCategory = 'sync')) {
                     cssAssets.push(...handleAssets(assetsInfo.assets.css.sync));
                     jsAssets.push(...handleAssets(assetsInfo.assets.js.sync));
                 }
@@ -2059,53 +2164,54 @@ function generatePreloadAssets(origin, preloadOptions, remote, globalSnapshot, r
         }
     }, true, memo, remoteSnapshot);
     if (remoteSnapshot.shared && remoteSnapshot.shared.length > 0) {
-        const collectSharedAssets = (shareInfo, snapshotShared)=>{
+        const collectSharedAssets = (shareInfo, snapshotShared) => {
             const registeredShared = getRegisteredShare(origin.shareScopeMap, snapshotShared.sharedName, shareInfo, origin.sharedHandler.hooks.lifecycle.resolveShare);
             // If the global share does not exist, or the lib function does not exist, it means that the shared has not been loaded yet and can be preloaded.
             if (registeredShared && typeof registeredShared.lib === 'function') {
-                snapshotShared.assets.js.sync.forEach((asset)=>{
+                snapshotShared.assets.js.sync.forEach((asset) => {
                     loadedSharedJsAssets.add(asset);
                 });
-                snapshotShared.assets.css.sync.forEach((asset)=>{
+                snapshotShared.assets.css.sync.forEach((asset) => {
                     loadedSharedCssAssets.add(asset);
                 });
             }
         };
-        remoteSnapshot.shared.forEach((shared)=>{
-            var _options_shared;
-            const shareInfos = (_options_shared = options.shared) == null ? void 0 : _options_shared[shared.sharedName];
+        remoteSnapshot.shared.forEach((shared) => {
+            const shareInfos = options.shared?.[shared.sharedName];
             if (!shareInfos) {
                 return;
             }
             // if no version, preload all shared
-            const sharedOptions = shared.version ? shareInfos.find((s)=>s.version === shared.version) : shareInfos;
+            const sharedOptions = shared.version
+                ? shareInfos.find((s) => s.version === shared.version)
+                : shareInfos;
             if (!sharedOptions) {
                 return;
             }
             const arrayShareInfo = arrayOptions(sharedOptions);
-            arrayShareInfo.forEach((s)=>{
+            arrayShareInfo.forEach((s) => {
                 collectSharedAssets(s, shared);
             });
         });
     }
-    const needPreloadJsAssets = jsAssets.filter((asset)=>!loadedSharedJsAssets.has(asset) && !isExisted('script', asset));
-    const needPreloadCssAssets = cssAssets.filter((asset)=>!loadedSharedCssAssets.has(asset) && !isExisted('link', asset));
+    const needPreloadJsAssets = jsAssets.filter((asset) => !loadedSharedJsAssets.has(asset) && !isExisted('script', asset));
+    const needPreloadCssAssets = cssAssets.filter((asset) => !loadedSharedCssAssets.has(asset) && !isExisted('link', asset));
     return {
         cssAssets: needPreloadCssAssets,
         jsAssetsWithoutEntry: needPreloadJsAssets,
-        entryAssets: entryAssets.filter((entry)=>!isExisted('script', entry.url))
+        entryAssets: entryAssets.filter((entry) => !isExisted('script', entry.url)),
     };
 }
-const generatePreloadAssetsPlugin = function() {
+const generatePreloadAssetsPlugin = function () {
     return {
         name: 'generate-preload-assets-plugin',
-        async generatePreloadAssets (args) {
-            const { origin, preloadOptions, remoteInfo, remote, globalSnapshot, remoteSnapshot } = args;
+        async generatePreloadAssets(args) {
+            const { origin, preloadOptions, remoteInfo, remote, globalSnapshot, remoteSnapshot, } = args;
             if (!sdk.isBrowserEnv()) {
                 return {
                     cssAssets: [],
                     jsAssetsWithoutEntry: [],
-                    entryAssets: []
+                    entryAssets: [],
                 };
             }
             if (isRemoteInfoWithEntry(remote) && isPureRemoteEntry(remote)) {
@@ -2121,34 +2227,37 @@ const generatePreloadAssetsPlugin = function() {
                                 entry: remote.entry,
                                 type: remoteInfo.type || 'global',
                                 entryGlobalName: '',
-                                shareScope: ''
-                            }
-                        }
-                    ]
+                                shareScope: '',
+                            },
+                        },
+                    ],
                 };
             }
             assignRemoteInfo(remoteInfo, remoteSnapshot);
             const assets = generatePreloadAssets(origin, preloadOptions, remoteInfo, globalSnapshot, remoteSnapshot);
             return assets;
-        }
+        },
     };
 };
 
 function getGlobalRemoteInfo(moduleInfo, origin) {
     const hostGlobalSnapshot = getGlobalSnapshotInfoByModuleInfo({
         name: origin.name,
-        version: origin.options.version
+        version: origin.options.version,
     });
     // get remote detail info from global
-    const globalRemoteInfo = hostGlobalSnapshot && 'remotesInfo' in hostGlobalSnapshot && hostGlobalSnapshot.remotesInfo && getInfoWithoutType(hostGlobalSnapshot.remotesInfo, moduleInfo.name).value;
+    const globalRemoteInfo = hostGlobalSnapshot &&
+        'remotesInfo' in hostGlobalSnapshot &&
+        hostGlobalSnapshot.remotesInfo &&
+        getInfoWithoutType(hostGlobalSnapshot.remotesInfo, moduleInfo.name).value;
     if (globalRemoteInfo && globalRemoteInfo.matchedVersion) {
         return {
             hostGlobalSnapshot,
             globalSnapshot: getGlobalSnapshot(),
             remoteSnapshot: getGlobalSnapshotInfoByModuleInfo({
                 name: moduleInfo.name,
-                version: globalRemoteInfo.matchedVersion
-            })
+                version: globalRemoteInfo.matchedVersion,
+            }),
         };
     }
     return {
@@ -2156,77 +2265,100 @@ function getGlobalRemoteInfo(moduleInfo, origin) {
         globalSnapshot: getGlobalSnapshot(),
         remoteSnapshot: getGlobalSnapshotInfoByModuleInfo({
             name: moduleInfo.name,
-            version: 'version' in moduleInfo ? moduleInfo.version : undefined
-        })
+            version: 'version' in moduleInfo ? moduleInfo.version : undefined,
+        }),
     };
 }
 class SnapshotHandler {
+    constructor(HostInstance) {
+        this.loadingHostSnapshot = null;
+        this.manifestCache = new Map();
+        this.hooks = new PluginSystem({
+            beforeLoadRemoteSnapshot: new AsyncHook('beforeLoadRemoteSnapshot'),
+            loadSnapshot: new AsyncWaterfallHook('loadGlobalSnapshot'),
+            loadRemoteSnapshot: new AsyncWaterfallHook('loadRemoteSnapshot'),
+            afterLoadSnapshot: new AsyncWaterfallHook('afterLoadSnapshot'),
+        });
+        this.manifestLoading = Global.__FEDERATION__.__MANIFEST_LOADING__;
+        this.HostInstance = HostInstance;
+        this.loaderHook = HostInstance.loaderHook;
+    }
     // eslint-disable-next-line max-lines-per-function
-    async loadRemoteSnapshotInfo({ moduleInfo, id, expose }) {
+    async loadRemoteSnapshotInfo({ moduleInfo, id, expose, }) {
         const { options } = this.HostInstance;
         await this.hooks.lifecycle.beforeLoadRemoteSnapshot.emit({
             options,
-            moduleInfo
+            moduleInfo,
         });
         let hostSnapshot = getGlobalSnapshotInfoByModuleInfo({
             name: this.HostInstance.options.name,
-            version: this.HostInstance.options.version
+            version: this.HostInstance.options.version,
         });
         if (!hostSnapshot) {
             hostSnapshot = {
                 version: this.HostInstance.options.version || '',
                 remoteEntry: '',
-                remotesInfo: {}
+                remotesInfo: {},
             };
             addGlobalSnapshot({
-                [this.HostInstance.options.name]: hostSnapshot
+                [this.HostInstance.options.name]: hostSnapshot,
             });
         }
         // In dynamic loadRemote scenarios, incomplete remotesInfo delivery may occur. In such cases, the remotesInfo in the host needs to be completed in the snapshot at runtime.
         // This ensures the snapshot's integrity and helps the chrome plugin correctly identify all producer modules, ensuring that proxyable producer modules will not be missing.
-        if (hostSnapshot && 'remotesInfo' in hostSnapshot && !getInfoWithoutType(hostSnapshot.remotesInfo, moduleInfo.name).value) {
+        if (hostSnapshot &&
+            'remotesInfo' in hostSnapshot &&
+            !getInfoWithoutType(hostSnapshot.remotesInfo, moduleInfo.name).value) {
             if ('version' in moduleInfo || 'entry' in moduleInfo) {
-                hostSnapshot.remotesInfo = polyfills._extends({}, hostSnapshot == null ? void 0 : hostSnapshot.remotesInfo, {
+                hostSnapshot.remotesInfo = {
+                    ...hostSnapshot?.remotesInfo,
                     [moduleInfo.name]: {
-                        matchedVersion: 'version' in moduleInfo ? moduleInfo.version : moduleInfo.entry
-                    }
-                });
+                        matchedVersion: 'version' in moduleInfo ? moduleInfo.version : moduleInfo.entry,
+                    },
+                };
             }
         }
         const { hostGlobalSnapshot, remoteSnapshot, globalSnapshot } = this.getGlobalRemoteInfo(moduleInfo);
-        const { remoteSnapshot: globalRemoteSnapshot, globalSnapshot: globalSnapshotRes } = await this.hooks.lifecycle.loadSnapshot.emit({
+        const { remoteSnapshot: globalRemoteSnapshot, globalSnapshot: globalSnapshotRes, } = await this.hooks.lifecycle.loadSnapshot.emit({
             options,
             moduleInfo,
             hostGlobalSnapshot,
             remoteSnapshot,
-            globalSnapshot
+            globalSnapshot,
         });
         let mSnapshot;
         let gSnapshot;
         // global snapshot includes manifest or module info includes manifest
         if (globalRemoteSnapshot) {
             if (sdk.isManifestProvider(globalRemoteSnapshot)) {
-                const remoteEntry = sdk.isBrowserEnv() ? globalRemoteSnapshot.remoteEntry : globalRemoteSnapshot.ssrRemoteEntry || globalRemoteSnapshot.remoteEntry || '';
+                const remoteEntry = sdk.isBrowserEnv()
+                    ? globalRemoteSnapshot.remoteEntry
+                    : globalRemoteSnapshot.ssrRemoteEntry ||
+                        globalRemoteSnapshot.remoteEntry ||
+                        '';
                 const moduleSnapshot = await this.getManifestJson(remoteEntry, moduleInfo, {});
                 // eslint-disable-next-line @typescript-eslint/no-shadow
-                const globalSnapshotRes = setGlobalSnapshotInfoByModuleInfo(polyfills._extends({}, moduleInfo, {
+                const globalSnapshotRes = setGlobalSnapshotInfoByModuleInfo({
+                    ...moduleInfo,
                     // The global remote may be overridden
                     // Therefore, set the snapshot key to the global address of the actual request
-                    entry: remoteEntry
-                }), moduleSnapshot);
+                    entry: remoteEntry,
+                }, moduleSnapshot);
                 mSnapshot = moduleSnapshot;
                 gSnapshot = globalSnapshotRes;
-            } else {
+            }
+            else {
                 const { remoteSnapshot: remoteSnapshotRes } = await this.hooks.lifecycle.loadRemoteSnapshot.emit({
                     options: this.HostInstance.options,
                     moduleInfo,
                     remoteSnapshot: globalRemoteSnapshot,
-                    from: 'global'
+                    from: 'global',
                 });
                 mSnapshot = remoteSnapshotRes;
                 gSnapshot = globalSnapshotRes;
             }
-        } else {
+        }
+        else {
             if (isRemoteInfoWithEntry(moduleInfo)) {
                 // get from manifest.json and merge remote info from remote server
                 const moduleSnapshot = await this.getManifestJson(moduleInfo.entry, moduleInfo, {});
@@ -2236,15 +2368,16 @@ class SnapshotHandler {
                     options: this.HostInstance.options,
                     moduleInfo,
                     remoteSnapshot: moduleSnapshot,
-                    from: 'global'
+                    from: 'global',
                 });
                 mSnapshot = remoteSnapshotRes;
                 gSnapshot = globalSnapshotRes;
-            } else {
+            }
+            else {
                 error(errorCodes.getShortErrorMsg(errorCodes.RUNTIME_007, errorCodes.runtimeDescMap, {
                     hostName: moduleInfo.name,
                     hostVersion: moduleInfo.version,
-                    globalSnapshot: JSON.stringify(globalSnapshotRes)
+                    globalSnapshot: JSON.stringify(globalSnapshotRes),
                 }));
             }
         }
@@ -2253,18 +2386,18 @@ class SnapshotHandler {
             host: this.HostInstance,
             options,
             moduleInfo,
-            remoteSnapshot: mSnapshot
+            remoteSnapshot: mSnapshot,
         });
         return {
             remoteSnapshot: mSnapshot,
-            globalSnapshot: gSnapshot
+            globalSnapshot: gSnapshot,
         };
     }
     getGlobalRemoteInfo(moduleInfo) {
         return getGlobalRemoteInfo(moduleInfo, this.HostInstance);
     }
     async getManifestJson(manifestUrl, moduleInfo, extraOptions) {
-        const getManifest = async ()=>{
+        const getManifest = async () => {
             let manifestJson = this.manifestCache.get(manifestUrl);
             if (manifestJson) {
                 return manifestJson;
@@ -2274,21 +2407,23 @@ class SnapshotHandler {
                 if (!res || !(res instanceof Response)) {
                     res = await fetch(manifestUrl, {});
                 }
-                manifestJson = await res.json();
-            } catch (err) {
-                manifestJson = await this.HostInstance.remoteHandler.hooks.lifecycle.errorLoadRemote.emit({
-                    id: manifestUrl,
-                    error: err,
-                    from: 'runtime',
-                    lifecycle: 'afterResolve',
-                    origin: this.HostInstance
-                });
+                manifestJson = (await res.json());
+            }
+            catch (err) {
+                manifestJson =
+                    (await this.HostInstance.remoteHandler.hooks.lifecycle.errorLoadRemote.emit({
+                        id: manifestUrl,
+                        error: err,
+                        from: 'runtime',
+                        lifecycle: 'afterResolve',
+                        origin: this.HostInstance,
+                    }));
                 if (!manifestJson) {
                     delete this.manifestLoading[manifestUrl];
                     error(errorCodes.getShortErrorMsg(errorCodes.RUNTIME_003, errorCodes.runtimeDescMap, {
                         manifestUrl,
                         moduleName: moduleInfo.name,
-                        hostName: this.HostInstance.options.name
+                        hostName: this.HostInstance.options.name,
                     }, `${err}`));
                 }
             }
@@ -2296,10 +2431,10 @@ class SnapshotHandler {
             this.manifestCache.set(manifestUrl, manifestJson);
             return manifestJson;
         };
-        const asyncLoadProcess = async ()=>{
+        const asyncLoadProcess = async () => {
             const manifestJson = await getManifest();
             const remoteSnapshot = sdk.generateSnapshotFromManifest(manifestJson, {
-                version: manifestUrl
+                version: manifestUrl,
             });
             const { remoteSnapshot: remoteSnapshotRes } = await this.hooks.lifecycle.loadRemoteSnapshot.emit({
                 options: this.HostInstance.options,
@@ -2307,38 +2442,40 @@ class SnapshotHandler {
                 manifestJson,
                 remoteSnapshot,
                 manifestUrl,
-                from: 'manifest'
+                from: 'manifest',
             });
             return remoteSnapshotRes;
         };
         if (!this.manifestLoading[manifestUrl]) {
-            this.manifestLoading[manifestUrl] = asyncLoadProcess().then((res)=>res);
+            this.manifestLoading[manifestUrl] = asyncLoadProcess().then((res) => res);
         }
         return this.manifestLoading[manifestUrl];
-    }
-    constructor(HostInstance){
-        this.loadingHostSnapshot = null;
-        this.manifestCache = new Map();
-        this.hooks = new PluginSystem({
-            beforeLoadRemoteSnapshot: new AsyncHook('beforeLoadRemoteSnapshot'),
-            loadSnapshot: new AsyncWaterfallHook('loadGlobalSnapshot'),
-            loadRemoteSnapshot: new AsyncWaterfallHook('loadRemoteSnapshot'),
-            afterLoadSnapshot: new AsyncWaterfallHook('afterLoadSnapshot')
-        });
-        this.manifestLoading = Global.__FEDERATION__.__MANIFEST_LOADING__;
-        this.HostInstance = HostInstance;
-        this.loaderHook = HostInstance.loaderHook;
     }
 }
 
 class SharedHandler {
+    constructor(host) {
+        this.hooks = new PluginSystem({
+            afterResolve: new AsyncWaterfallHook('afterResolve'),
+            beforeLoadShare: new AsyncWaterfallHook('beforeLoadShare'),
+            // not used yet
+            loadShare: new AsyncHook(),
+            resolveShare: new SyncWaterfallHook('resolveShare'),
+            // maybe will change, temporarily for internal use only
+            initContainerShareScopeMap: new SyncWaterfallHook('initContainerShareScopeMap'),
+        });
+        this.host = host;
+        this.shareScopeMap = {};
+        this.initTokens = {};
+        this._setGlobalShareScopeMap(host.options);
+    }
     // register shared in shareScopeMap
     registerShared(globalOptions, userOptions) {
         const { shareInfos, shared } = formatShareConfigs(globalOptions, userOptions);
         const sharedKeys = Object.keys(shareInfos);
-        sharedKeys.forEach((sharedKey)=>{
+        sharedKeys.forEach((sharedKey) => {
             const sharedVals = shareInfos[sharedKey];
-            sharedVals.forEach((sharedVal)=>{
+            sharedVals.forEach((sharedVal) => {
                 const registeredShared = getRegisteredShare(this.shareScopeMap, sharedKey, sharedVal, this.hooks.lifecycle.resolveShare);
                 if (!registeredShared && sharedVal && sharedVal.lib) {
                     this.setShared({
@@ -2347,14 +2484,14 @@ class SharedHandler {
                         get: sharedVal.get,
                         loaded: true,
                         shared: sharedVal,
-                        from: userOptions.name
+                        from: userOptions.name,
                     });
                 }
             });
         });
         return {
             shareInfos,
-            shared
+            shared,
         };
     }
     async loadShare(pkgName, extraOptions) {
@@ -2363,31 +2500,31 @@ class SharedHandler {
         // 1. Checks if the currently loaded share already exists, if not, it throws an error
         // 2. Searches globally for a matching share, if found, it uses it directly
         // 3. If not found, it retrieves it from the current share and stores the obtained share globally.
-        const shareInfo = getTargetSharedOptions({
+        const shareOptions = getTargetSharedOptions({
             pkgName,
             extraOptions,
-            shareInfos: host.options.shared
+            shareInfos: host.options.shared,
         });
-        if (shareInfo == null ? void 0 : shareInfo.scope) {
-            await Promise.all(shareInfo.scope.map(async (shareScope)=>{
+        if (shareOptions?.scope) {
+            await Promise.all(shareOptions.scope.map(async (shareScope) => {
                 await Promise.all(this.initializeSharing(shareScope, {
-                    strategy: shareInfo.strategy
+                    strategy: shareOptions.strategy,
                 }));
                 return;
             }));
         }
         const loadShareRes = await this.hooks.lifecycle.beforeLoadShare.emit({
             pkgName,
-            shareInfo,
+            shareInfo: shareOptions,
             shared: host.options.shared,
-            origin: host
+            origin: host,
         });
-        const { shareInfo: shareInfoRes } = loadShareRes;
+        const { shareInfo: shareOptionsRes } = loadShareRes;
         // Assert that shareInfoRes exists, if not, throw an error
-        assert(shareInfoRes, `Cannot find ${pkgName} Share in the ${host.options.name}. Please ensure that the ${pkgName} Share parameters have been injected`);
+        assert(shareOptionsRes, `Cannot find ${pkgName} Share in the ${host.options.name}. Please ensure that the ${pkgName} Share parameters have been injected`);
         // Retrieve from cache
-        const registeredShared = getRegisteredShare(this.shareScopeMap, pkgName, shareInfoRes, this.hooks.lifecycle.resolveShare);
-        const addUseIn = (shared)=>{
+        const registeredShared = getRegisteredShare(this.shareScopeMap, pkgName, shareOptionsRes, this.hooks.lifecycle.resolveShare);
+        const addUseIn = (shared) => {
             if (!shared.useIn) {
                 shared.useIn = [];
             }
@@ -2396,7 +2533,10 @@ class SharedHandler {
         if (registeredShared && registeredShared.lib) {
             addUseIn(registeredShared);
             return registeredShared.lib;
-        } else if (registeredShared && registeredShared.loading && !registeredShared.loaded) {
+        }
+        else if (registeredShared &&
+            registeredShared.loading &&
+            !registeredShared.loaded) {
             const factory = await registeredShared.loading;
             registeredShared.loaded = true;
             if (!registeredShared.lib) {
@@ -2404,18 +2544,13 @@ class SharedHandler {
             }
             addUseIn(registeredShared);
             return factory;
-        } else if (registeredShared) {
-            const asyncLoadProcess = async ()=>{
+        }
+        else if (registeredShared) {
+            const asyncLoadProcess = async () => {
                 const factory = await registeredShared.get();
-                shareInfoRes.lib = factory;
-                shareInfoRes.loaded = true;
-                addUseIn(shareInfoRes);
-                const gShared = getRegisteredShare(this.shareScopeMap, pkgName, shareInfoRes, this.hooks.lifecycle.resolveShare);
-                if (gShared) {
-                    gShared.lib = factory;
-                    gShared.loaded = true;
-                    addUseIn(gShared);
-                }
+                addUseIn(registeredShared);
+                registeredShared.loaded = true;
+                registeredShared.lib = factory;
                 return factory;
             };
             const loading = asyncLoadProcess();
@@ -2425,22 +2560,24 @@ class SharedHandler {
                 shared: registeredShared,
                 from: host.options.name,
                 lib: null,
-                loading
+                loading,
             });
             return loading;
-        } else {
-            if (extraOptions == null ? void 0 : extraOptions.customShareInfo) {
+        }
+        else {
+            if (extraOptions?.customShareInfo) {
                 return false;
             }
-            const asyncLoadProcess = async ()=>{
-                const factory = await shareInfoRes.get();
-                shareInfoRes.lib = factory;
-                shareInfoRes.loaded = true;
-                addUseIn(shareInfoRes);
-                const gShared = getRegisteredShare(this.shareScopeMap, pkgName, shareInfoRes, this.hooks.lifecycle.resolveShare);
+            const asyncLoadProcess = async () => {
+                const factory = await shareOptionsRes.get();
+                shareOptionsRes.lib = factory;
+                shareOptionsRes.loaded = true;
+                addUseIn(shareOptionsRes);
+                const gShared = getRegisteredShare(this.shareScopeMap, pkgName, shareOptionsRes, this.hooks.lifecycle.resolveShare);
                 if (gShared) {
                     gShared.lib = factory;
                     gShared.loaded = true;
+                    gShared.from = shareOptionsRes.from;
                 }
                 return factory;
             };
@@ -2448,10 +2585,10 @@ class SharedHandler {
             this.setShared({
                 pkgName,
                 loaded: false,
-                shared: shareInfoRes,
+                shared: shareOptionsRes,
                 from: host.options.name,
                 lib: null,
-                loading
+                loading,
             });
             return loading;
         }
@@ -2460,21 +2597,23 @@ class SharedHandler {
      * This function initializes the sharing sequence (executed only once per share scope).
      * It accepts one argument, the name of the share scope.
      * If the share scope does not exist, it creates one.
-     */ // eslint-disable-next-line @typescript-eslint/member-ordering
+     */
+    // eslint-disable-next-line @typescript-eslint/member-ordering
     initializeSharing(shareScopeName = DEFAULT_SCOPE, extraOptions) {
         const { host } = this;
-        const from = extraOptions == null ? void 0 : extraOptions.from;
-        const strategy = extraOptions == null ? void 0 : extraOptions.strategy;
-        let initScope = extraOptions == null ? void 0 : extraOptions.initScope;
+        const from = extraOptions?.from;
+        const strategy = extraOptions?.strategy;
+        let initScope = extraOptions?.initScope;
         const promises = [];
         if (from !== 'build') {
             const { initTokens } = this;
-            if (!initScope) initScope = [];
+            if (!initScope)
+                initScope = [];
             let initToken = initTokens[shareScopeName];
-            if (!initToken) initToken = initTokens[shareScopeName] = {
-                from: this.host.name
-            };
-            if (initScope.indexOf(initToken) >= 0) return promises;
+            if (!initToken)
+                initToken = initTokens[shareScopeName] = { from: this.host.name };
+            if (initScope.indexOf(initToken) >= 0)
+                return promises;
             initScope.push(initToken);
         }
         const shareScope = this.shareScopeMap;
@@ -2485,34 +2624,41 @@ class SharedHandler {
         }
         // Executes all initialization snippets from all accessible modules
         const scope = shareScope[shareScopeName];
-        const register = (name, shared)=>{
-            var _activeVersion_shareConfig;
+        const register = (name, shared) => {
             const { version, eager } = shared;
             scope[name] = scope[name] || {};
             const versions = scope[name];
             const activeVersion = versions[version];
-            const activeVersionEager = Boolean(activeVersion && (activeVersion.eager || ((_activeVersion_shareConfig = activeVersion.shareConfig) == null ? void 0 : _activeVersion_shareConfig.eager)));
-            if (!activeVersion || activeVersion.strategy !== 'loaded-first' && !activeVersion.loaded && (Boolean(!eager) !== !activeVersionEager ? eager : hostName > activeVersion.from)) {
+            const activeVersionEager = Boolean(activeVersion &&
+                (activeVersion.eager || activeVersion.shareConfig?.eager));
+            if (!activeVersion ||
+                (activeVersion.strategy !== 'loaded-first' &&
+                    !activeVersion.loaded &&
+                    (Boolean(!eager) !== !activeVersionEager
+                        ? eager
+                        : hostName > activeVersion.from))) {
                 versions[version] = shared;
             }
         };
-        const initFn = (mod)=>mod && mod.init && mod.init(shareScope[shareScopeName], initScope);
-        const initRemoteModule = async (key)=>{
+        const initFn = (mod) => mod && mod.init && mod.init(shareScope[shareScopeName], initScope);
+        const initRemoteModule = async (key) => {
             const { module } = await host.remoteHandler.getRemoteModuleAndOptions({
-                id: key
+                id: key,
             });
             if (module.getEntry) {
                 let remoteEntryExports;
                 try {
                     remoteEntryExports = await module.getEntry();
-                } catch (error) {
-                    remoteEntryExports = await host.remoteHandler.hooks.lifecycle.errorLoadRemote.emit({
-                        id: key,
-                        error,
-                        from: 'runtime',
-                        lifecycle: 'beforeLoadShare',
-                        origin: host
-                    });
+                }
+                catch (error) {
+                    remoteEntryExports =
+                        (await host.remoteHandler.hooks.lifecycle.errorLoadRemote.emit({
+                            id: key,
+                            error,
+                            from: 'runtime',
+                            lifecycle: 'beforeLoadShare',
+                            origin: host,
+                        }));
                 }
                 if (!module.inited) {
                     await initFn(remoteEntryExports);
@@ -2520,17 +2666,18 @@ class SharedHandler {
                 }
             }
         };
-        Object.keys(host.options.shared).forEach((shareName)=>{
+        Object.keys(host.options.shared).forEach((shareName) => {
             const sharedArr = host.options.shared[shareName];
-            sharedArr.forEach((shared)=>{
+            sharedArr.forEach((shared) => {
                 if (shared.scope.includes(shareScopeName)) {
                     register(shareName, shared);
                 }
             });
         });
         // TODO: strategy==='version-first' need to be removed in the future
-        if (host.options.shareStrategy === 'version-first' || strategy === 'version-first') {
-            host.options.remotes.forEach((remote)=>{
+        if (host.options.shareStrategy === 'version-first' ||
+            strategy === 'version-first') {
+            host.options.remotes.forEach((remote) => {
                 if (remote.shareScope === shareScopeName) {
                     promises.push(initRemoteModule(remote.name));
                 }
@@ -2544,20 +2691,18 @@ class SharedHandler {
     // 3. If the local get returns something other than Promise, then it will be used directly
     loadShareSync(pkgName, extraOptions) {
         const { host } = this;
-        const shareInfo = getTargetSharedOptions({
+        const shareOptions = getTargetSharedOptions({
             pkgName,
             extraOptions,
-            shareInfos: host.options.shared
+            shareInfos: host.options.shared,
         });
-        if (shareInfo == null ? void 0 : shareInfo.scope) {
-            shareInfo.scope.forEach((shareScope)=>{
-                this.initializeSharing(shareScope, {
-                    strategy: shareInfo.strategy
-                });
+        if (shareOptions?.scope) {
+            shareOptions.scope.forEach((shareScope) => {
+                this.initializeSharing(shareScope, { strategy: shareOptions.strategy });
             });
         }
-        const registeredShared = getRegisteredShare(this.shareScopeMap, pkgName, shareInfo, this.hooks.lifecycle.resolveShare);
-        const addUseIn = (shared)=>{
+        const registeredShared = getRegisteredShare(this.shareScopeMap, pkgName, shareOptions, this.hooks.lifecycle.resolveShare);
+        const addUseIn = (shared) => {
             if (!shared.useIn) {
                 shared.useIn = [];
             }
@@ -2569,7 +2714,7 @@ class SharedHandler {
                 if (!registeredShared.loaded) {
                     registeredShared.loaded = true;
                     if (registeredShared.from === host.options.name) {
-                        shareInfo.loaded = true;
+                        shareOptions.loaded = true;
                     }
                 }
                 return registeredShared.lib;
@@ -2583,40 +2728,40 @@ class SharedHandler {
                         loaded: true,
                         from: host.options.name,
                         lib: module,
-                        shared: registeredShared
+                        shared: registeredShared,
                     });
                     return module;
                 }
             }
         }
-        if (shareInfo.lib) {
-            if (!shareInfo.loaded) {
-                shareInfo.loaded = true;
+        if (shareOptions.lib) {
+            if (!shareOptions.loaded) {
+                shareOptions.loaded = true;
             }
-            return shareInfo.lib;
+            return shareOptions.lib;
         }
-        if (shareInfo.get) {
-            const module = shareInfo.get();
+        if (shareOptions.get) {
+            const module = shareOptions.get();
             if (module instanceof Promise) {
-                const errorCode = (extraOptions == null ? void 0 : extraOptions.from) === 'build' ? errorCodes.RUNTIME_005 : errorCodes.RUNTIME_006;
+                const errorCode = extraOptions?.from === 'build' ? errorCodes.RUNTIME_005 : errorCodes.RUNTIME_006;
                 throw new Error(errorCodes.getShortErrorMsg(errorCode, errorCodes.runtimeDescMap, {
                     hostName: host.options.name,
-                    sharedPkgName: pkgName
+                    sharedPkgName: pkgName,
                 }));
             }
-            shareInfo.lib = module;
+            shareOptions.lib = module;
             this.setShared({
                 pkgName,
                 loaded: true,
                 from: host.options.name,
-                lib: shareInfo.lib,
-                shared: shareInfo
+                lib: shareOptions.lib,
+                shared: shareOptions,
             });
-            return shareInfo.lib;
+            return shareOptions.lib;
         }
         throw new Error(errorCodes.getShortErrorMsg(errorCodes.RUNTIME_006, errorCodes.runtimeDescMap, {
             hostName: host.options.name,
-            sharedPkgName: pkgName
+            sharedPkgName: pkgName,
         }));
     }
     initShareScopeMap(scopeName, shareScope, extraOptions = {}) {
@@ -2627,18 +2772,13 @@ class SharedHandler {
             options: host.options,
             origin: host,
             scopeName,
-            hostShareScopeMap: extraOptions.hostShareScopeMap
+            hostShareScopeMap: extraOptions.hostShareScopeMap,
         });
     }
-    setShared({ pkgName, shared, from, lib, loading, loaded, get }) {
-        const { version, scope = 'default' } = shared, shareInfo = polyfills._object_without_properties_loose(shared, [
-            "version",
-            "scope"
-        ]);
-        const scopes = Array.isArray(scope) ? scope : [
-            scope
-        ];
-        scopes.forEach((sc)=>{
+    setShared({ pkgName, shared, from, lib, loading, loaded, get, }) {
+        const { version, scope = 'default', ...shareInfo } = shared;
+        const scopes = Array.isArray(scope) ? scope : [scope];
+        scopes.forEach((sc) => {
             if (!this.shareScopeMap[sc]) {
                 this.shareScopeMap[sc] = {};
             }
@@ -2646,16 +2786,14 @@ class SharedHandler {
                 this.shareScopeMap[sc][pkgName] = {};
             }
             if (!this.shareScopeMap[sc][pkgName][version]) {
-                this.shareScopeMap[sc][pkgName][version] = polyfills._extends({
+                this.shareScopeMap[sc][pkgName][version] = {
                     version,
-                    scope: [
-                        'default'
-                    ]
-                }, shareInfo, {
+                    scope: ['default'],
+                    ...shareInfo,
                     lib,
                     loaded,
-                    loading
-                });
+                    loading,
+                };
                 if (get) {
                     this.shareScopeMap[sc][pkgName][version].get = get;
                 }
@@ -2664,6 +2802,12 @@ class SharedHandler {
             const registeredShared = this.shareScopeMap[sc][pkgName][version];
             if (loading && !registeredShared.loading) {
                 registeredShared.loading = loading;
+            }
+            if (loaded && !registeredShared.loaded) {
+                registeredShared.loaded = loaded;
+            }
+            if (from && registeredShared.from !== from) {
+                registeredShared.from = from;
             }
         });
     }
@@ -2674,54 +2818,45 @@ class SharedHandler {
             globalShareScopeMap[identifier] = this.shareScopeMap;
         }
     }
-    constructor(host){
-        this.hooks = new PluginSystem({
-            afterResolve: new AsyncWaterfallHook('afterResolve'),
-            beforeLoadShare: new AsyncWaterfallHook('beforeLoadShare'),
-            // not used yet
-            loadShare: new AsyncHook(),
-            resolveShare: new SyncWaterfallHook('resolveShare'),
-            // maybe will change, temporarily for internal use only
-            initContainerShareScopeMap: new SyncWaterfallHook('initContainerShareScopeMap')
-        });
-        this.host = host;
-        this.shareScopeMap = {};
-        this.initTokens = {};
-        this._setGlobalShareScopeMap(host.options);
-    }
 }
 
 class RemoteHandler {
+    constructor(host) {
+        this.hooks = new PluginSystem({
+            beforeRegisterRemote: new SyncWaterfallHook('beforeRegisterRemote'),
+            registerRemote: new SyncWaterfallHook('registerRemote'),
+            beforeRequest: new AsyncWaterfallHook('beforeRequest'),
+            onLoad: new AsyncHook('onLoad'),
+            handlePreloadModule: new SyncHook('handlePreloadModule'),
+            errorLoadRemote: new AsyncHook('errorLoadRemote'),
+            beforePreloadRemote: new AsyncHook('beforePreloadRemote'),
+            generatePreloadAssets: new AsyncHook('generatePreloadAssets'),
+            // not used yet
+            afterPreloadRemote: new AsyncHook(),
+            loadEntry: new AsyncHook(),
+        });
+        this.host = host;
+        this.idToRemoteMap = {};
+    }
     formatAndRegisterRemote(globalOptions, userOptions) {
         const userRemotes = userOptions.remotes || [];
-        return userRemotes.reduce((res, remote)=>{
-            this.registerRemote(remote, res, {
-                force: false
-            });
+        return userRemotes.reduce((res, remote) => {
+            this.registerRemote(remote, res, { force: false });
             return res;
         }, globalOptions.remotes);
     }
     setIdToRemoteMap(id, remoteMatchInfo) {
         const { remote, expose } = remoteMatchInfo;
         const { name, alias } = remote;
-        this.idToRemoteMap[id] = {
-            name: remote.name,
-            expose
-        };
+        this.idToRemoteMap[id] = { name: remote.name, expose };
         if (alias && id.startsWith(name)) {
             const idWithAlias = id.replace(name, alias);
-            this.idToRemoteMap[idWithAlias] = {
-                name: remote.name,
-                expose
-            };
+            this.idToRemoteMap[idWithAlias] = { name: remote.name, expose };
             return;
         }
         if (alias && id.startsWith(alias)) {
             const idWithName = id.replace(alias, name);
-            this.idToRemoteMap[idWithName] = {
-                name: remote.name,
-                expose
-            };
+            this.idToRemoteMap[idWithName] = { name: remote.name, expose };
         }
     }
     // eslint-disable-next-line max-lines-per-function
@@ -2730,7 +2865,7 @@ class RemoteHandler {
         const { host } = this;
         try {
             const { loadFactory = true } = options || {
-                loadFactory: true
+                loadFactory: true,
             };
             // 1. Validate the parameters of the retrieved module. There are two module request methods: pkgName + expose and alias + expose.
             // 2. Request the snapshot information of the current host and globally store the obtained snapshot information. The retrieved module information is partially offline and partially online. The online module information will retrieve the modules used online.
@@ -2740,10 +2875,10 @@ class RemoteHandler {
             // id: alias(app1) + expose(button) = app1/button
             // id: alias(app1/utils) + expose(loadash/sort) = app1/utils/loadash/sort
             const { module, moduleOptions, remoteMatchInfo } = await this.getRemoteModuleAndOptions({
-                id
+                id,
             });
-            const { pkgNameOrAlias, remote, expose, id: idRes, remoteSnapshot } = remoteMatchInfo;
-            const moduleOrFactory = await module.get(idRes, expose, options, remoteSnapshot);
+            const { pkgNameOrAlias, remote, expose, id: idRes, remoteSnapshot, } = remoteMatchInfo;
+            const moduleOrFactory = (await module.get(idRes, expose, options, remoteSnapshot));
             const moduleWrapper = await this.hooks.lifecycle.onLoad.emit({
                 id: idRes,
                 pkgNameOrAlias,
@@ -2753,23 +2888,22 @@ class RemoteHandler {
                 remote,
                 options: moduleOptions,
                 moduleInstance: module,
-                origin: host
+                origin: host,
             });
             this.setIdToRemoteMap(id, remoteMatchInfo);
             if (typeof moduleWrapper === 'function') {
                 return moduleWrapper;
             }
             return moduleOrFactory;
-        } catch (error) {
-            const { from = 'runtime' } = options || {
-                from: 'runtime'
-            };
+        }
+        catch (error) {
+            const { from = 'runtime' } = options || { from: 'runtime' };
             const failOver = await this.hooks.lifecycle.errorLoadRemote.emit({
                 id,
                 error,
                 from,
                 lifecycle: 'onLoad',
-                origin: host
+                origin: host,
             });
             if (!failOver) {
                 throw error;
@@ -2783,14 +2917,14 @@ class RemoteHandler {
         await this.hooks.lifecycle.beforePreloadRemote.emit({
             preloadOps: preloadOptions,
             options: host.options,
-            origin: host
+            origin: host,
         });
         const preloadOps = formatPreloadArgs(host.options.remotes, preloadOptions);
-        await Promise.all(preloadOps.map(async (ops)=>{
+        await Promise.all(preloadOps.map(async (ops) => {
             const { remote } = ops;
             const remoteInfo = getRemoteInfo(remote);
             const { globalSnapshot, remoteSnapshot } = await host.snapshotHandler.loadRemoteSnapshotInfo({
-                moduleInfo: remote
+                moduleInfo: remote,
             });
             const assets = await this.hooks.lifecycle.generatePreloadAssets.emit({
                 origin: host,
@@ -2798,7 +2932,7 @@ class RemoteHandler {
                 remote,
                 remoteInfo,
                 globalSnapshot,
-                remoteSnapshot
+                remoteSnapshot,
             });
             if (!assets) {
                 return;
@@ -2808,9 +2942,9 @@ class RemoteHandler {
     }
     registerRemotes(remotes, options) {
         const { host } = this;
-        remotes.forEach((remote)=>{
+        remotes.forEach((remote) => {
             this.registerRemote(remote, host.options.remotes, {
-                force: options == null ? void 0 : options.force
+                force: options?.force,
             });
         });
     }
@@ -2822,17 +2956,18 @@ class RemoteHandler {
             loadRemoteArgs = await this.hooks.lifecycle.beforeRequest.emit({
                 id,
                 options: host.options,
-                origin: host
+                origin: host,
             });
-        } catch (error) {
-            loadRemoteArgs = await this.hooks.lifecycle.errorLoadRemote.emit({
+        }
+        catch (error) {
+            loadRemoteArgs = (await this.hooks.lifecycle.errorLoadRemote.emit({
                 id,
                 options: host.options,
                 origin: host,
                 from: 'runtime',
                 error,
-                lifecycle: 'beforeRequest'
-            });
+                lifecycle: 'beforeRequest',
+            }));
             if (!loadRemoteArgs) {
                 throw error;
             }
@@ -2841,23 +2976,23 @@ class RemoteHandler {
         const remoteSplitInfo = matchRemoteWithNameAndExpose(host.options.remotes, idRes);
         assert(remoteSplitInfo, errorCodes.getShortErrorMsg(errorCodes.RUNTIME_004, errorCodes.runtimeDescMap, {
             hostName: host.options.name,
-            requestId: idRes
+            requestId: idRes,
         }));
         const { remote: rawRemote } = remoteSplitInfo;
         const remoteInfo = getRemoteInfo(rawRemote);
-        const matchInfo = await host.sharedHandler.hooks.lifecycle.afterResolve.emit(polyfills._extends({
-            id: idRes
-        }, remoteSplitInfo, {
+        const matchInfo = await host.sharedHandler.hooks.lifecycle.afterResolve.emit({
+            id: idRes,
+            ...remoteSplitInfo,
             options: host.options,
             origin: host,
-            remoteInfo
-        }));
+            remoteInfo,
+        });
         const { remote, expose } = matchInfo;
         assert(remote && expose, `The 'beforeRequest' hook was executed, but it failed to return the correct 'remote' and 'expose' values while loading ${idRes}.`);
         let module = host.moduleCache.get(remote.name);
         const moduleOptions = {
             host: host,
-            remoteInfo
+            remoteInfo,
         };
         if (!module) {
             module = new Module(moduleOptions);
@@ -2866,19 +3001,18 @@ class RemoteHandler {
         return {
             module,
             moduleOptions,
-            remoteMatchInfo: matchInfo
+            remoteMatchInfo: matchInfo,
         };
     }
     registerRemote(remote, targetRemotes, options) {
         const { host } = this;
-        const normalizeRemote = ()=>{
+        const normalizeRemote = () => {
             if (remote.alias) {
                 // Validate if alias equals the prefix of remote.name and remote.alias, if so, throw an error
                 // As multi-level path references cannot guarantee unique names, alias being a prefix of remote.name is not supported
-                const findEqual = targetRemotes.find((item)=>{
-                    var _item_alias;
-                    return remote.alias && (item.name.startsWith(remote.alias) || ((_item_alias = item.alias) == null ? void 0 : _item_alias.startsWith(remote.alias)));
-                });
+                const findEqual = targetRemotes.find((item) => remote.alias &&
+                    (item.name.startsWith(remote.alias) ||
+                        item.alias?.startsWith(remote.alias)));
                 assert(!findEqual, `The alias ${remote.alias} of remote ${remote.name} is not allowed to be the prefix of ${findEqual && findEqual.name} name or alias`);
             }
             // Set the remote entry to a complete path
@@ -2894,32 +3028,24 @@ class RemoteHandler {
                 remote.type = DEFAULT_REMOTE_TYPE;
             }
         };
-        this.hooks.lifecycle.beforeRegisterRemote.emit({
-            remote,
-            origin: host
-        });
-        const registeredRemote = targetRemotes.find((item)=>item.name === remote.name);
+        this.hooks.lifecycle.beforeRegisterRemote.emit({ remote, origin: host });
+        const registeredRemote = targetRemotes.find((item) => item.name === remote.name);
         if (!registeredRemote) {
             normalizeRemote();
             targetRemotes.push(remote);
-            this.hooks.lifecycle.registerRemote.emit({
-                remote,
-                origin: host
-            });
-        } else {
+            this.hooks.lifecycle.registerRemote.emit({ remote, origin: host });
+        }
+        else {
             const messages = [
                 `The remote "${remote.name}" is already registered.`,
-                'Please note that overriding it may cause unexpected errors.'
+                'Please note that overriding it may cause unexpected errors.',
             ];
-            if (options == null ? void 0 : options.force) {
+            if (options?.force) {
                 // remove registered remote
                 this.removeRemote(registeredRemote);
                 normalizeRemote();
                 targetRemotes.push(remote);
-                this.hooks.lifecycle.registerRemote.emit({
-                    remote,
-                    origin: host
-                });
+                this.hooks.lifecycle.registerRemote.emit({ remote, origin: host });
                 sdk.warn(messages.join(' '));
             }
         }
@@ -2928,7 +3054,7 @@ class RemoteHandler {
         try {
             const { host } = this;
             const { name } = remote;
-            const remoteIndex = host.options.remotes.findIndex((item)=>item.name === name);
+            const remoteIndex = host.options.remotes.findIndex((item) => item.name === name);
             if (remoteIndex !== -1) {
                 host.options.remotes.splice(remoteIndex, 1);
             }
@@ -2937,10 +3063,10 @@ class RemoteHandler {
                 const remoteInfo = loadedModule.remoteInfo;
                 const key = remoteInfo.entryGlobalName;
                 if (CurrentGlobal[key]) {
-                    var _Object_getOwnPropertyDescriptor;
-                    if ((_Object_getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor(CurrentGlobal, key)) == null ? void 0 : _Object_getOwnPropertyDescriptor.configurable) {
+                    if (Object.getOwnPropertyDescriptor(CurrentGlobal, key)?.configurable) {
                         delete CurrentGlobal[key];
-                    } else {
+                    }
+                    else {
                         // @ts-ignore
                         CurrentGlobal[key] = undefined;
                     }
@@ -2951,11 +3077,14 @@ class RemoteHandler {
                 }
                 host.snapshotHandler.manifestCache.delete(remoteInfo.entry);
                 // delete unloaded shared and instance
-                let remoteInsId = remoteInfo.buildVersion ? sdk.composeKeyWithSeparator(remoteInfo.name, remoteInfo.buildVersion) : remoteInfo.name;
-                const remoteInsIndex = CurrentGlobal.__FEDERATION__.__INSTANCES__.findIndex((ins)=>{
+                let remoteInsId = remoteInfo.buildVersion
+                    ? sdk.composeKeyWithSeparator(remoteInfo.name, remoteInfo.buildVersion)
+                    : remoteInfo.name;
+                const remoteInsIndex = CurrentGlobal.__FEDERATION__.__INSTANCES__.findIndex((ins) => {
                     if (remoteInfo.buildVersion) {
                         return ins.options.id === remoteInsId;
-                    } else {
+                    }
+                    else {
                         return ins.name === remoteInsId;
                     }
                 });
@@ -2965,56 +3094,66 @@ class RemoteHandler {
                     const globalShareScopeMap = getGlobalShareScope();
                     let isAllSharedNotUsed = true;
                     const needDeleteKeys = [];
-                    Object.keys(globalShareScopeMap).forEach((instId)=>{
+                    Object.keys(globalShareScopeMap).forEach((instId) => {
                         const shareScopeMap = globalShareScopeMap[instId];
-                        shareScopeMap && Object.keys(shareScopeMap).forEach((shareScope)=>{
-                            const shareScopeVal = shareScopeMap[shareScope];
-                            shareScopeVal && Object.keys(shareScopeVal).forEach((shareName)=>{
-                                const sharedPkgs = shareScopeVal[shareName];
-                                sharedPkgs && Object.keys(sharedPkgs).forEach((shareVersion)=>{
-                                    const shared = sharedPkgs[shareVersion];
-                                    if (shared && typeof shared === 'object' && shared.from === remoteInfo.name) {
-                                        if (shared.loaded || shared.loading) {
-                                            shared.useIn = shared.useIn.filter((usedHostName)=>usedHostName !== remoteInfo.name);
-                                            if (shared.useIn.length) {
-                                                isAllSharedNotUsed = false;
-                                            } else {
-                                                needDeleteKeys.push([
-                                                    instId,
-                                                    shareScope,
-                                                    shareName,
-                                                    shareVersion
-                                                ]);
-                                            }
-                                        } else {
-                                            needDeleteKeys.push([
-                                                instId,
-                                                shareScope,
-                                                shareName,
-                                                shareVersion
-                                            ]);
-                                        }
-                                    }
-                                });
+                        shareScopeMap &&
+                            Object.keys(shareScopeMap).forEach((shareScope) => {
+                                const shareScopeVal = shareScopeMap[shareScope];
+                                shareScopeVal &&
+                                    Object.keys(shareScopeVal).forEach((shareName) => {
+                                        const sharedPkgs = shareScopeVal[shareName];
+                                        sharedPkgs &&
+                                            Object.keys(sharedPkgs).forEach((shareVersion) => {
+                                                const shared = sharedPkgs[shareVersion];
+                                                if (shared &&
+                                                    typeof shared === 'object' &&
+                                                    shared.from === remoteInfo.name) {
+                                                    if (shared.loaded || shared.loading) {
+                                                        shared.useIn = shared.useIn.filter((usedHostName) => usedHostName !== remoteInfo.name);
+                                                        if (shared.useIn.length) {
+                                                            isAllSharedNotUsed = false;
+                                                        }
+                                                        else {
+                                                            needDeleteKeys.push([
+                                                                instId,
+                                                                shareScope,
+                                                                shareName,
+                                                                shareVersion,
+                                                            ]);
+                                                        }
+                                                    }
+                                                    else {
+                                                        needDeleteKeys.push([
+                                                            instId,
+                                                            shareScope,
+                                                            shareName,
+                                                            shareVersion,
+                                                        ]);
+                                                    }
+                                                }
+                                            });
+                                    });
                             });
-                        });
                     });
                     if (isAllSharedNotUsed) {
                         remoteIns.shareScopeMap = {};
                         delete globalShareScopeMap[remoteInsId];
                     }
-                    needDeleteKeys.forEach(([insId, shareScope, shareName, shareVersion])=>{
-                        var _globalShareScopeMap_insId_shareScope_shareName, _globalShareScopeMap_insId_shareScope, _globalShareScopeMap_insId;
-                        (_globalShareScopeMap_insId = globalShareScopeMap[insId]) == null ? true : (_globalShareScopeMap_insId_shareScope = _globalShareScopeMap_insId[shareScope]) == null ? true : (_globalShareScopeMap_insId_shareScope_shareName = _globalShareScopeMap_insId_shareScope[shareName]) == null ? true : delete _globalShareScopeMap_insId_shareScope_shareName[shareVersion];
+                    needDeleteKeys.forEach(([insId, shareScope, shareName, shareVersion]) => {
+                        delete globalShareScopeMap[insId]?.[shareScope]?.[shareName]?.[shareVersion];
                     });
                     CurrentGlobal.__FEDERATION__.__INSTANCES__.splice(remoteInsIndex, 1);
                 }
                 const { hostGlobalSnapshot } = getGlobalRemoteInfo(remote, host);
                 if (hostGlobalSnapshot) {
-                    const remoteKey = hostGlobalSnapshot && 'remotesInfo' in hostGlobalSnapshot && hostGlobalSnapshot.remotesInfo && getInfoWithoutType(hostGlobalSnapshot.remotesInfo, remote.name).key;
+                    const remoteKey = hostGlobalSnapshot &&
+                        'remotesInfo' in hostGlobalSnapshot &&
+                        hostGlobalSnapshot.remotesInfo &&
+                        getInfoWithoutType(hostGlobalSnapshot.remotesInfo, remote.name).key;
                     if (remoteKey) {
                         delete hostGlobalSnapshot.remotesInfo[remoteKey];
-                        if (//eslint-disable-next-line no-extra-boolean-cast
+                        if (
+                        //eslint-disable-next-line no-extra-boolean-cast
                         Boolean(Global.__FEDERATION__.__MANIFEST_LOADING__[remoteKey])) {
                             delete Global.__FEDERATION__.__MANIFEST_LOADING__[remoteKey];
                         }
@@ -3022,31 +3161,68 @@ class RemoteHandler {
                 }
                 host.moduleCache.delete(remote.name);
             }
-        } catch (err) {
+        }
+        catch (err) {
             logger.log('removeRemote fail: ', err);
         }
     }
-    constructor(host){
-        this.hooks = new PluginSystem({
-            beforeRegisterRemote: new SyncWaterfallHook('beforeRegisterRemote'),
-            registerRemote: new SyncWaterfallHook('registerRemote'),
-            beforeRequest: new AsyncWaterfallHook('beforeRequest'),
-            onLoad: new AsyncHook('onLoad'),
-            handlePreloadModule: new SyncHook('handlePreloadModule'),
-            errorLoadRemote: new AsyncHook('errorLoadRemote'),
-            beforePreloadRemote: new AsyncHook('beforePreloadRemote'),
-            generatePreloadAssets: new AsyncHook('generatePreloadAssets'),
-            // not used yet
-            afterPreloadRemote: new AsyncHook(),
-            loadEntry: new AsyncHook()
-        });
-        this.host = host;
-        this.idToRemoteMap = {};
-    }
 }
 
-const USE_SNAPSHOT = typeof FEDERATION_OPTIMIZE_NO_SNAPSHOT_PLUGIN === 'boolean' ? !FEDERATION_OPTIMIZE_NO_SNAPSHOT_PLUGIN : true; // Default to true (use snapshot) when not explicitly defined
+const USE_SNAPSHOT = typeof FEDERATION_OPTIMIZE_NO_SNAPSHOT_PLUGIN === 'boolean'
+    ? !FEDERATION_OPTIMIZE_NO_SNAPSHOT_PLUGIN
+    : true; // Default to true (use snapshot) when not explicitly defined
 class ModuleFederation {
+    constructor(userOptions) {
+        this.hooks = new PluginSystem({
+            beforeInit: new SyncWaterfallHook('beforeInit'),
+            init: new SyncHook(),
+            // maybe will change, temporarily for internal use only
+            beforeInitContainer: new AsyncWaterfallHook('beforeInitContainer'),
+            // maybe will change, temporarily for internal use only
+            initContainer: new AsyncWaterfallHook('initContainer'),
+        });
+        this.version = "0.21.2";
+        this.moduleCache = new Map();
+        this.loaderHook = new PluginSystem({
+            // FIXME: may not be suitable , not open to the public yet
+            getModuleInfo: new SyncHook(),
+            createScript: new SyncHook(),
+            createLink: new SyncHook(),
+            fetch: new AsyncHook(),
+            loadEntryError: new AsyncHook(),
+            getModuleFactory: new AsyncHook(),
+        });
+        this.bridgeHook = new PluginSystem({
+            beforeBridgeRender: new SyncHook(),
+            afterBridgeRender: new SyncHook(),
+            beforeBridgeDestroy: new SyncHook(),
+            afterBridgeDestroy: new SyncHook(),
+        });
+        const plugins = USE_SNAPSHOT
+            ? [snapshotPlugin(), generatePreloadAssetsPlugin()]
+            : [];
+        // TODO: Validate the details of the options
+        // Initialize options with default values
+        const defaultOptions = {
+            id: getBuilderId(),
+            name: userOptions.name,
+            plugins,
+            remotes: [],
+            shared: {},
+            inBrowser: sdk.isBrowserEnv(),
+        };
+        this.name = userOptions.name;
+        this.options = defaultOptions;
+        this.snapshotHandler = new SnapshotHandler(this);
+        this.sharedHandler = new SharedHandler(this);
+        this.remoteHandler = new RemoteHandler(this);
+        this.shareScopeMap = this.sharedHandler.shareScopeMap;
+        this.registerPlugins([
+            ...defaultOptions.plugins,
+            ...(userOptions.plugins || []),
+        ]);
+        this.options = this.formatOptions(defaultOptions, userOptions);
+    }
     initOptions(userOptions) {
         this.registerPlugins(userOptions.plugins);
         const options = this.formatOptions(this.options, userOptions);
@@ -3067,14 +3243,8 @@ class ModuleFederation {
         return this.sharedHandler.initializeSharing(shareScopeName, extraOptions);
     }
     initRawContainer(name, url, container) {
-        const remoteInfo = getRemoteInfo({
-            name,
-            entry: url
-        });
-        const module = new Module({
-            host: this,
-            remoteInfo
-        });
+        const remoteInfo = getRemoteInfo({ name, entry: url });
+        const module = new Module({ host: this, remoteInfo });
         module.remoteEntryExports = container;
         this.moduleCache.set(name, module);
         return module;
@@ -3097,37 +3267,38 @@ class ModuleFederation {
             origin: this,
             userOptions,
             options: globalOptions,
-            shareInfo: shared
+            shareInfo: shared,
         });
         const remotes = this.remoteHandler.formatAndRegisterRemote(globalOptionsRes, userOptionsRes);
         const { shared: handledShared } = this.sharedHandler.registerShared(globalOptionsRes, userOptionsRes);
-        const plugins = [
-            ...globalOptionsRes.plugins
-        ];
+        const plugins = [...globalOptionsRes.plugins];
         if (userOptionsRes.plugins) {
-            userOptionsRes.plugins.forEach((plugin)=>{
+            userOptionsRes.plugins.forEach((plugin) => {
                 if (!plugins.includes(plugin)) {
                     plugins.push(plugin);
                 }
             });
         }
-        const optionsRes = polyfills._extends({}, globalOptions, userOptions, {
+        const optionsRes = {
+            ...globalOptions,
+            ...userOptions,
             plugins,
             remotes,
-            shared: handledShared
-        });
+            shared: handledShared,
+        };
         this.hooks.lifecycle.init.emit({
             origin: this,
-            options: optionsRes
+            options: optionsRes,
         });
         return optionsRes;
     }
     registerPlugins(plugins) {
         const pluginRes = registerPlugins(plugins, this);
         // Merge plugin
-        this.options.plugins = this.options.plugins.reduce((res, plugin)=>{
-            if (!plugin) return res;
-            if (res && !res.find((item)=>item.name === plugin.name)) {
+        this.options.plugins = this.options.plugins.reduce((res, plugin) => {
+            if (!plugin)
+                return res;
+            if (res && !res.find((item) => item.name === plugin.name)) {
                 res.push(plugin);
             }
             return res;
@@ -3137,61 +3308,10 @@ class ModuleFederation {
         return this.remoteHandler.registerRemotes(remotes, options);
     }
     registerShared(shared) {
-        this.sharedHandler.registerShared(this.options, polyfills._extends({}, this.options, {
-            shared
-        }));
-    }
-    constructor(userOptions){
-        this.hooks = new PluginSystem({
-            beforeInit: new SyncWaterfallHook('beforeInit'),
-            init: new SyncHook(),
-            // maybe will change, temporarily for internal use only
-            beforeInitContainer: new AsyncWaterfallHook('beforeInitContainer'),
-            // maybe will change, temporarily for internal use only
-            initContainer: new AsyncWaterfallHook('initContainer')
+        this.sharedHandler.registerShared(this.options, {
+            ...this.options,
+            shared,
         });
-        this.version = "0.18.0";
-        this.moduleCache = new Map();
-        this.loaderHook = new PluginSystem({
-            // FIXME: may not be suitable , not open to the public yet
-            getModuleInfo: new SyncHook(),
-            createScript: new SyncHook(),
-            createLink: new SyncHook(),
-            fetch: new AsyncHook(),
-            loadEntryError: new AsyncHook(),
-            getModuleFactory: new AsyncHook()
-        });
-        this.bridgeHook = new PluginSystem({
-            beforeBridgeRender: new SyncHook(),
-            afterBridgeRender: new SyncHook(),
-            beforeBridgeDestroy: new SyncHook(),
-            afterBridgeDestroy: new SyncHook()
-        });
-        const plugins = USE_SNAPSHOT ? [
-            snapshotPlugin(),
-            generatePreloadAssetsPlugin()
-        ] : [];
-        // TODO: Validate the details of the options
-        // Initialize options with default values
-        const defaultOptions = {
-            id: getBuilderId(),
-            name: userOptions.name,
-            plugins,
-            remotes: [],
-            shared: {},
-            inBrowser: sdk.isBrowserEnv()
-        };
-        this.name = userOptions.name;
-        this.options = defaultOptions;
-        this.snapshotHandler = new SnapshotHandler(this);
-        this.sharedHandler = new SharedHandler(this);
-        this.remoteHandler = new RemoteHandler(this);
-        this.shareScopeMap = this.sharedHandler.shareScopeMap;
-        this.registerPlugins([
-            ...defaultOptions.plugins,
-            ...userOptions.plugins || []
-        ]);
-        this.options = this.formatOptions(defaultOptions, userOptions);
     }
 }
 
@@ -3223,72 +3343,40 @@ exports.satisfy = satisfy;
 exports.setGlobalFederationConstructor = setGlobalFederationConstructor;
 exports.setGlobalFederationInstance = setGlobalFederationInstance;
 exports.types = index;
+//# sourceMappingURL=index.cjs.cjs.map
 
 
 }),
-"../../../node_modules/.pnpm/@module-federation+runtime-core@0.18.0/node_modules/@module-federation/runtime-core/dist/polyfills.cjs.cjs": 
-/*!**********************************************************************************************************************************************!*\
-  !*** ../../../node_modules/.pnpm/@module-federation+runtime-core@0.18.0/node_modules/@module-federation/runtime-core/dist/polyfills.cjs.cjs ***!
-  \**********************************************************************************************************************************************/
-(function (__unused_webpack_module, exports) {
-
-
-function _extends() {
-    _extends = Object.assign || function assign(target) {
-        for(var i = 1; i < arguments.length; i++){
-            var source = arguments[i];
-            for(var key in source)if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
-        }
-        return target;
-    };
-    return _extends.apply(this, arguments);
-}
-
-function _object_without_properties_loose(source, excluded) {
-    if (source == null) return {};
-    var target = {};
-    var sourceKeys = Object.keys(source);
-    var key, i;
-    for(i = 0; i < sourceKeys.length; i++){
-        key = sourceKeys[i];
-        if (excluded.indexOf(key) >= 0) continue;
-        target[key] = source[key];
-    }
-    return target;
-}
-
-exports._extends = _extends;
-exports._object_without_properties_loose = _object_without_properties_loose;
-
-
-}),
-"../../../node_modules/.pnpm/@module-federation+runtime@0.18.0/node_modules/@module-federation/runtime/dist/index.cjs.cjs": 
+"../../../node_modules/.pnpm/@module-federation+runtime@0.21.2/node_modules/@module-federation/runtime/dist/index.cjs.cjs": 
 /*!********************************************************************************************************************************!*\
-  !*** ../../../node_modules/.pnpm/@module-federation+runtime@0.18.0/node_modules/@module-federation/runtime/dist/index.cjs.cjs ***!
+  !*** ../../../node_modules/.pnpm/@module-federation+runtime@0.21.2/node_modules/@module-federation/runtime/dist/index.cjs.cjs ***!
   \********************************************************************************************************************************/
 (function (__unused_webpack_module, exports, __webpack_require__) {
 
 
-var runtimeCore = __webpack_require__(/*! @module-federation/runtime-core */ "../../../node_modules/.pnpm/@module-federation+runtime-core@0.18.0/node_modules/@module-federation/runtime-core/dist/index.cjs.cjs");
-var errorCodes = __webpack_require__(/*! @module-federation/error-codes */ "../../../node_modules/.pnpm/@module-federation+error-codes@0.18.0/node_modules/@module-federation/error-codes/dist/index.cjs.js");
-var utils = __webpack_require__(/*! ./utils.cjs.cjs */ "../../../node_modules/.pnpm/@module-federation+runtime@0.18.0/node_modules/@module-federation/runtime/dist/utils.cjs.cjs");
+var runtimeCore = __webpack_require__(/*! @module-federation/runtime-core */ "../../../node_modules/.pnpm/@module-federation+runtime-core@0.21.2/node_modules/@module-federation/runtime-core/dist/index.cjs.cjs");
+var errorCodes = __webpack_require__(/*! @module-federation/error-codes */ "../../../node_modules/.pnpm/@module-federation+error-codes@0.21.2/node_modules/@module-federation/error-codes/dist/index.cjs.js");
+var utils = __webpack_require__(/*! ./utils.cjs.cjs */ "../../../node_modules/.pnpm/@module-federation+runtime@0.21.2/node_modules/@module-federation/runtime/dist/utils.cjs.cjs");
 
 function createInstance(options) {
     // Retrieve debug constructor
     const ModuleFederationConstructor = runtimeCore.getGlobalFederationConstructor() || runtimeCore.ModuleFederation;
-    return new ModuleFederationConstructor(options);
+    const instance = new ModuleFederationConstructor(options);
+    runtimeCore.setGlobalFederationInstance(instance);
+    return instance;
 }
 let FederationInstance = null;
 /**
  * @deprecated Use createInstance or getInstance instead
- */ function init(options) {
+ */
+function init(options) {
     // Retrieve the same instance with the same name
     const instance = utils.getGlobalFederationInstance(options.name, options.version);
     if (!instance) {
         FederationInstance = createInstance(options);
-        runtimeCore.setGlobalFederationInstance(FederationInstance);
         return FederationInstance;
-    } else {
+    }
+    else {
         // Merge options
         instance.initOptions(options);
         if (!FederationInstance) {
@@ -3299,21 +3387,21 @@ let FederationInstance = null;
 }
 function loadRemote(...args) {
     runtimeCore.assert(FederationInstance, errorCodes.getShortErrorMsg(errorCodes.RUNTIME_009, errorCodes.runtimeDescMap));
-    const loadRemote1 = FederationInstance.loadRemote;
+    const loadRemote = FederationInstance.loadRemote;
     // eslint-disable-next-line prefer-spread
-    return loadRemote1.apply(FederationInstance, args);
+    return loadRemote.apply(FederationInstance, args);
 }
 function loadShare(...args) {
     runtimeCore.assert(FederationInstance, errorCodes.getShortErrorMsg(errorCodes.RUNTIME_009, errorCodes.runtimeDescMap));
     // eslint-disable-next-line prefer-spread
-    const loadShare1 = FederationInstance.loadShare;
-    return loadShare1.apply(FederationInstance, args);
+    const loadShare = FederationInstance.loadShare;
+    return loadShare.apply(FederationInstance, args);
 }
 function loadShareSync(...args) {
     runtimeCore.assert(FederationInstance, errorCodes.getShortErrorMsg(errorCodes.RUNTIME_009, errorCodes.runtimeDescMap));
-    const loadShareSync1 = FederationInstance.loadShareSync;
+    const loadShareSync = FederationInstance.loadShareSync;
     // eslint-disable-next-line prefer-spread
-    return loadShareSync1.apply(FederationInstance, args);
+    return loadShareSync.apply(FederationInstance, args);
 }
 function preloadRemote(...args) {
     runtimeCore.assert(FederationInstance, errorCodes.getShortErrorMsg(errorCodes.RUNTIME_009, errorCodes.runtimeDescMap));
@@ -3358,33 +3446,41 @@ exports.preloadRemote = preloadRemote;
 exports.registerPlugins = registerPlugins;
 exports.registerRemotes = registerRemotes;
 exports.registerShared = registerShared;
+//# sourceMappingURL=index.cjs.cjs.map
 
 
 }),
-"../../../node_modules/.pnpm/@module-federation+runtime@0.18.0/node_modules/@module-federation/runtime/dist/utils.cjs.cjs": 
+"../../../node_modules/.pnpm/@module-federation+runtime@0.21.2/node_modules/@module-federation/runtime/dist/utils.cjs.cjs": 
 /*!********************************************************************************************************************************!*\
-  !*** ../../../node_modules/.pnpm/@module-federation+runtime@0.18.0/node_modules/@module-federation/runtime/dist/utils.cjs.cjs ***!
+  !*** ../../../node_modules/.pnpm/@module-federation+runtime@0.21.2/node_modules/@module-federation/runtime/dist/utils.cjs.cjs ***!
   \********************************************************************************************************************************/
 (function (__unused_webpack_module, exports, __webpack_require__) {
 
 
-var runtimeCore = __webpack_require__(/*! @module-federation/runtime-core */ "../../../node_modules/.pnpm/@module-federation+runtime-core@0.18.0/node_modules/@module-federation/runtime-core/dist/index.cjs.cjs");
+var runtimeCore = __webpack_require__(/*! @module-federation/runtime-core */ "../../../node_modules/.pnpm/@module-federation+runtime-core@0.21.2/node_modules/@module-federation/runtime-core/dist/index.cjs.cjs");
 
 // injected by bundler, so it can not use runtime-core stuff
 function getBuilderId() {
     //@ts-ignore
-    return typeof FEDERATION_BUILD_IDENTIFIER !== 'undefined' ? FEDERATION_BUILD_IDENTIFIER : '';
+    return typeof FEDERATION_BUILD_IDENTIFIER !== 'undefined'
+        ? //@ts-ignore
+            FEDERATION_BUILD_IDENTIFIER
+        : '';
 }
 function getGlobalFederationInstance(name, version) {
     const buildId = getBuilderId();
-    return runtimeCore.CurrentGlobal.__FEDERATION__.__INSTANCES__.find((GMInstance)=>{
+    return runtimeCore.CurrentGlobal.__FEDERATION__.__INSTANCES__.find((GMInstance) => {
         if (buildId && GMInstance.options.id === buildId) {
             return true;
         }
-        if (GMInstance.options.name === name && !GMInstance.options.version && !version) {
+        if (GMInstance.options.name === name &&
+            !GMInstance.options.version &&
+            !version) {
             return true;
         }
-        if (GMInstance.options.name === name && version && GMInstance.options.version === version) {
+        if (GMInstance.options.name === name &&
+            version &&
+            GMInstance.options.version === version) {
             return true;
         }
         return false;
@@ -3392,17 +3488,16 @@ function getGlobalFederationInstance(name, version) {
 }
 
 exports.getGlobalFederationInstance = getGlobalFederationInstance;
+//# sourceMappingURL=utils.cjs.cjs.map
 
 
 }),
-"../../../node_modules/.pnpm/@module-federation+sdk@0.18.0/node_modules/@module-federation/sdk/dist/index.cjs.cjs": 
+"../../../node_modules/.pnpm/@module-federation+sdk@0.21.2/node_modules/@module-federation/sdk/dist/index.cjs.cjs": 
 /*!************************************************************************************************************************!*\
-  !*** ../../../node_modules/.pnpm/@module-federation+sdk@0.18.0/node_modules/@module-federation/sdk/dist/index.cjs.cjs ***!
+  !*** ../../../node_modules/.pnpm/@module-federation+sdk@0.21.2/node_modules/@module-federation/sdk/dist/index.cjs.cjs ***!
   \************************************************************************************************************************/
-(function (__unused_webpack_module, exports, __webpack_require__) {
+(function (__unused_webpack_module, exports) {
 
-
-var polyfills = __webpack_require__(/*! ./polyfills.cjs.cjs */ "../../../node_modules/.pnpm/@module-federation+sdk@0.18.0/node_modules/@module-federation/sdk/dist/polyfills.cjs.cjs");
 
 const FederationModuleManifest = 'federation-manifest.json';
 const MANIFEST_EXT = '.json';
@@ -3410,24 +3505,24 @@ const BROWSER_LOG_KEY = 'FEDERATION_DEBUG';
 const NameTransformSymbol = {
     AT: '@',
     HYPHEN: '-',
-    SLASH: '/'
+    SLASH: '/',
 };
 const NameTransformMap = {
     [NameTransformSymbol.AT]: 'scope_',
     [NameTransformSymbol.HYPHEN]: '_',
-    [NameTransformSymbol.SLASH]: '__'
+    [NameTransformSymbol.SLASH]: '__',
 };
 const EncodedNameTransformMap = {
     [NameTransformMap[NameTransformSymbol.AT]]: NameTransformSymbol.AT,
     [NameTransformMap[NameTransformSymbol.HYPHEN]]: NameTransformSymbol.HYPHEN,
-    [NameTransformMap[NameTransformSymbol.SLASH]]: NameTransformSymbol.SLASH
+    [NameTransformMap[NameTransformSymbol.SLASH]]: NameTransformSymbol.SLASH,
 };
 const SEPARATOR = ':';
 const ManifestFileName = 'mf-manifest.json';
 const StatsFileName = 'mf-stats.json';
 const MFModuleType = {
     NPM: 'npm',
-    APP: 'app'
+    APP: 'app',
 };
 const MODULE_DEVTOOL_IDENTIFIER = '__MF_DEVTOOLS_MODULE_INFO__';
 const ENCODE_NAME_PREFIX = 'ENCODE_NAME_PREFIX';
@@ -3437,12 +3532,24 @@ const MFPrefetchCommon = {
     globalKey: '__PREFETCH__',
     library: 'mf-data-prefetch',
     exportsKey: '__PREFETCH_EXPORTS__',
-    fileName: 'bootstrap.js'
+    fileName: 'bootstrap.js',
 };
+
+/*
+ * This file was automatically generated.
+ * DO NOT MODIFY BY HAND.
+ * Run `yarn special-lint-fix` to update
+ */
 
 var ContainerPlugin = /*#__PURE__*/Object.freeze({
     __proto__: null
 });
+
+/*
+ * This file was automatically generated.
+ * DO NOT MODIFY BY HAND.
+ * Run `yarn special-lint-fix` to update
+ */
 
 var ContainerReferencePlugin = /*#__PURE__*/Object.freeze({
     __proto__: null
@@ -3452,29 +3559,37 @@ var ModuleFederationPlugin = /*#__PURE__*/Object.freeze({
     __proto__: null
 });
 
+/*
+ * This file was automatically generated.
+ * DO NOT MODIFY BY HAND.
+ * Run `yarn special-lint-fix` to update
+ */
+
 var SharePlugin = /*#__PURE__*/Object.freeze({
     __proto__: null
 });
 
 function isBrowserEnv() {
-    return typeof window !== 'undefined' && typeof window.document !== 'undefined';
+    return (typeof window !== 'undefined' && typeof window.document !== 'undefined');
 }
 function isReactNativeEnv() {
-    var _navigator;
-    return typeof navigator !== 'undefined' && ((_navigator = navigator) == null ? void 0 : _navigator.product) === 'ReactNative';
+    return (typeof navigator !== 'undefined' && navigator?.product === 'ReactNative');
 }
 function isBrowserDebug() {
     try {
         if (isBrowserEnv() && window.localStorage) {
             return Boolean(localStorage.getItem(BROWSER_LOG_KEY));
         }
-    } catch (error) {
+    }
+    catch (error) {
         return false;
     }
     return false;
 }
 function isDebugMode() {
-    if (typeof process !== 'undefined' && process.env && process.env['FEDERATION_DEBUG']) {
+    if (typeof process !== 'undefined' &&
+        process.env &&
+        process.env['FEDERATION_DEBUG']) {
         return Boolean(process.env['FEDERATION_DEBUG']);
     }
     if (typeof FEDERATION_DEBUG !== 'undefined' && Boolean(FEDERATION_DEBUG)) {
@@ -3482,18 +3597,18 @@ function isDebugMode() {
     }
     return isBrowserDebug();
 }
-const getProcessEnv = function() {
+const getProcessEnv = function () {
     return typeof process !== 'undefined' && process.env ? process.env : {};
 };
 
 const LOG_CATEGORY = '[ Federation Runtime ]';
 // entry: name:version   version : 1.0.0 | ^1.2.3
 // entry: name:entry  entry:  https://localhost:9000/federation-manifest.json
-const parseEntry = (str, devVerOrUrl, separator = SEPARATOR)=>{
+const parseEntry = (str, devVerOrUrl, separator = SEPARATOR) => {
     const strSplit = str.split(separator);
     const devVersionOrUrl = getProcessEnv()['NODE_ENV'] === 'development' && devVerOrUrl;
     const defaultVersion = '*';
-    const isEntry = (s)=>s.startsWith('http') || s.includes(MANIFEST_EXT);
+    const isEntry = (s) => s.startsWith('http') || s.includes(MANIFEST_EXT);
     // Check if the string starts with a type
     if (strSplit.length >= 2) {
         let [name, ...versionOrEntryArr] = strSplit;
@@ -3501,44 +3616,47 @@ const parseEntry = (str, devVerOrUrl, separator = SEPARATOR)=>{
         if (str.startsWith(separator)) {
             name = strSplit.slice(0, 2).join(separator);
             versionOrEntryArr = [
-                devVersionOrUrl || strSplit.slice(2).join(separator)
+                devVersionOrUrl || strSplit.slice(2).join(separator),
             ];
         }
         let versionOrEntry = devVersionOrUrl || versionOrEntryArr.join(separator);
         if (isEntry(versionOrEntry)) {
             return {
                 name,
-                entry: versionOrEntry
+                entry: versionOrEntry,
             };
-        } else {
+        }
+        else {
             // Apply version rule
             // devVersionOrUrl => inputVersion => defaultVersion
             return {
                 name,
-                version: versionOrEntry || defaultVersion
+                version: versionOrEntry || defaultVersion,
             };
         }
-    } else if (strSplit.length === 1) {
+    }
+    else if (strSplit.length === 1) {
         const [name] = strSplit;
         if (devVersionOrUrl && isEntry(devVersionOrUrl)) {
             return {
                 name,
-                entry: devVersionOrUrl
+                entry: devVersionOrUrl,
             };
         }
         return {
             name,
-            version: devVersionOrUrl || defaultVersion
+            version: devVersionOrUrl || defaultVersion,
         };
-    } else {
+    }
+    else {
         throw `Invalid entry value: ${str}`;
     }
 };
-const composeKeyWithSeparator = function(...args) {
+const composeKeyWithSeparator = function (...args) {
     if (!args.length) {
         return '';
     }
-    return args.reduce((sum, cur)=>{
+    return args.reduce((sum, cur) => {
         if (!cur) {
             return sum;
         }
@@ -3548,15 +3666,19 @@ const composeKeyWithSeparator = function(...args) {
         return `${sum}${SEPARATOR}${cur}`;
     }, '');
 };
-const encodeName = function(name, prefix = '', withExt = false) {
+const encodeName = function (name, prefix = '', withExt = false) {
     try {
         const ext = withExt ? '.js' : '';
-        return `${prefix}${name.replace(new RegExp(`${NameTransformSymbol.AT}`, 'g'), NameTransformMap[NameTransformSymbol.AT]).replace(new RegExp(`${NameTransformSymbol.HYPHEN}`, 'g'), NameTransformMap[NameTransformSymbol.HYPHEN]).replace(new RegExp(`${NameTransformSymbol.SLASH}`, 'g'), NameTransformMap[NameTransformSymbol.SLASH])}${ext}`;
-    } catch (err) {
+        return `${prefix}${name
+            .replace(new RegExp(`${NameTransformSymbol.AT}`, 'g'), NameTransformMap[NameTransformSymbol.AT])
+            .replace(new RegExp(`${NameTransformSymbol.HYPHEN}`, 'g'), NameTransformMap[NameTransformSymbol.HYPHEN])
+            .replace(new RegExp(`${NameTransformSymbol.SLASH}`, 'g'), NameTransformMap[NameTransformSymbol.SLASH])}${ext}`;
+    }
+    catch (err) {
         throw err;
     }
 };
-const decodeName = function(name, prefix, withExt) {
+const decodeName = function (name, prefix, withExt) {
     try {
         let decodedName = name;
         if (prefix) {
@@ -3565,16 +3687,20 @@ const decodeName = function(name, prefix, withExt) {
             }
             decodedName = decodedName.replace(new RegExp(prefix, 'g'), '');
         }
-        decodedName = decodedName.replace(new RegExp(`${NameTransformMap[NameTransformSymbol.AT]}`, 'g'), EncodedNameTransformMap[NameTransformMap[NameTransformSymbol.AT]]).replace(new RegExp(`${NameTransformMap[NameTransformSymbol.SLASH]}`, 'g'), EncodedNameTransformMap[NameTransformMap[NameTransformSymbol.SLASH]]).replace(new RegExp(`${NameTransformMap[NameTransformSymbol.HYPHEN]}`, 'g'), EncodedNameTransformMap[NameTransformMap[NameTransformSymbol.HYPHEN]]);
+        decodedName = decodedName
+            .replace(new RegExp(`${NameTransformMap[NameTransformSymbol.AT]}`, 'g'), EncodedNameTransformMap[NameTransformMap[NameTransformSymbol.AT]])
+            .replace(new RegExp(`${NameTransformMap[NameTransformSymbol.SLASH]}`, 'g'), EncodedNameTransformMap[NameTransformMap[NameTransformSymbol.SLASH]])
+            .replace(new RegExp(`${NameTransformMap[NameTransformSymbol.HYPHEN]}`, 'g'), EncodedNameTransformMap[NameTransformMap[NameTransformSymbol.HYPHEN]]);
         if (withExt) {
             decodedName = decodedName.replace('.js', '');
         }
         return decodedName;
-    } catch (err) {
+    }
+    catch (err) {
         throw err;
     }
 };
-const generateExposeFilename = (exposeName, withExt)=>{
+const generateExposeFilename = (exposeName, withExt) => {
     if (!exposeName) {
         return '';
     }
@@ -3587,47 +3713,51 @@ const generateExposeFilename = (exposeName, withExt)=>{
     }
     return encodeName(expose, '__federation_expose_', withExt);
 };
-const generateShareFilename = (pkgName, withExt)=>{
+const generateShareFilename = (pkgName, withExt) => {
     if (!pkgName) {
         return '';
     }
     return encodeName(pkgName, '__federation_shared_', withExt);
 };
-const getResourceUrl = (module, sourceUrl)=>{
+const getResourceUrl = (module, sourceUrl) => {
     if ('getPublicPath' in module) {
         let publicPath;
         if (!module.getPublicPath.startsWith('function')) {
             publicPath = new Function(module.getPublicPath)();
-        } else {
+        }
+        else {
             publicPath = new Function('return ' + module.getPublicPath)()();
         }
         return `${publicPath}${sourceUrl}`;
-    } else if ('publicPath' in module) {
+    }
+    else if ('publicPath' in module) {
         if (!isBrowserEnv() && !isReactNativeEnv() && 'ssrPublicPath' in module) {
             return `${module.ssrPublicPath}${sourceUrl}`;
         }
         return `${module.publicPath}${sourceUrl}`;
-    } else {
+    }
+    else {
         console.warn('Cannot get resource URL. If in debug mode, please ignore.', module, sourceUrl);
         return '';
     }
 };
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const assert = (condition, msg)=>{
+const assert = (condition, msg) => {
     if (!condition) {
         error(msg);
     }
 };
-const error = (msg)=>{
+const error = (msg) => {
     throw new Error(`${LOG_CATEGORY}: ${msg}`);
 };
-const warn = (msg)=>{
+const warn = (msg) => {
     console.warn(`${LOG_CATEGORY}: ${msg}`);
 };
 function safeToString(info) {
     try {
         return JSON.stringify(info, null, 2);
-    } catch (e) {
+    }
+    catch (e) {
         return '';
     }
 }
@@ -3637,11 +3767,11 @@ function isRequiredVersion(str) {
     return VERSION_PATTERN_REGEXP.test(str);
 }
 
-const simpleJoinRemoteEntry = (rPath, rName)=>{
+const simpleJoinRemoteEntry = (rPath, rName) => {
     if (!rPath) {
         return rName;
     }
-    const transformPath = (str)=>{
+    const transformPath = (str) => {
         if (str === '.') {
             return '';
         }
@@ -3667,22 +3797,25 @@ const simpleJoinRemoteEntry = (rPath, rName)=>{
     return `${transformedPath}/${rName}`;
 };
 function inferAutoPublicPath(url) {
-    return url.replace(/#.*$/, '').replace(/\?.*$/, '').replace(/\/[^\/]+$/, '/');
+    return url
+        .replace(/#.*$/, '')
+        .replace(/\?.*$/, '')
+        .replace(/\/[^\/]+$/, '/');
 }
 // Priority: overrides > remotes
 // eslint-disable-next-line max-lines-per-function
 function generateSnapshotFromManifest(manifest, options = {}) {
-    var _manifest_metaData, _manifest_metaData1;
     const { remotes = {}, overrides = {}, version } = options;
     let remoteSnapshot;
-    const getPublicPath = ()=>{
+    const getPublicPath = () => {
         if ('publicPath' in manifest.metaData) {
             if (manifest.metaData.publicPath === 'auto' && version) {
                 // use same implementation as publicPath auto runtime module implements
                 return inferAutoPublicPath(version);
             }
             return manifest.metaData.publicPath;
-        } else {
+        }
+        else {
             return manifest.metaData.getPublicPath;
         }
     };
@@ -3690,32 +3823,36 @@ function generateSnapshotFromManifest(manifest, options = {}) {
     let remotesInfo = {};
     // If remotes are not provided, only the remotes in the manifest will be read
     if (!Object.keys(remotes).length) {
-        var _manifest_remotes;
-        remotesInfo = ((_manifest_remotes = manifest.remotes) == null ? void 0 : _manifest_remotes.reduce((res, next)=>{
-            let matchedVersion;
-            const name = next.federationContainerName;
-            // overrides have higher priority
-            if (overridesKeys.includes(name)) {
-                matchedVersion = overrides[name];
-            } else {
-                if ('version' in next) {
-                    matchedVersion = next.version;
-                } else {
-                    matchedVersion = next.entry;
+        remotesInfo =
+            manifest.remotes?.reduce((res, next) => {
+                let matchedVersion;
+                const name = next.federationContainerName;
+                // overrides have higher priority
+                if (overridesKeys.includes(name)) {
+                    matchedVersion = overrides[name];
                 }
-            }
-            res[name] = {
-                matchedVersion
-            };
-            return res;
-        }, {})) || {};
+                else {
+                    if ('version' in next) {
+                        matchedVersion = next.version;
+                    }
+                    else {
+                        matchedVersion = next.entry;
+                    }
+                }
+                res[name] = {
+                    matchedVersion,
+                };
+                return res;
+            }, {}) || {};
     }
     // If remotes (deploy scenario) are specified, they need to be traversed again
-    Object.keys(remotes).forEach((key)=>remotesInfo[key] = {
-            // overrides will override dependencies
-            matchedVersion: overridesKeys.includes(key) ? overrides[key] : remotes[key]
-        });
-    const { remoteEntry: { path: remoteEntryPath, name: remoteEntryName, type: remoteEntryType }, types: remoteTypes, buildInfo: { buildVersion }, globalName, ssrRemoteEntry } = manifest.metaData;
+    Object.keys(remotes).forEach((key) => (remotesInfo[key] = {
+        // overrides will override dependencies
+        matchedVersion: overridesKeys.includes(key)
+            ? overrides[key]
+            : remotes[key],
+    }));
+    const { remoteEntry: { path: remoteEntryPath, name: remoteEntryName, type: remoteEntryType, }, types: remoteTypes, buildInfo: { buildVersion }, globalName, ssrRemoteEntry, } = manifest.metaData;
     const { exposes } = manifest;
     let basicRemoteSnapshot = {
         version: version ? version : '',
@@ -3727,98 +3864,210 @@ function generateSnapshotFromManifest(manifest, options = {}) {
         remoteTypesZip: remoteTypes.zip || '',
         remoteTypesAPI: remoteTypes.api || '',
         remotesInfo,
-        shared: manifest == null ? void 0 : manifest.shared.map((item)=>({
-                assets: item.assets,
-                sharedName: item.name,
-                version: item.version
-            })),
-        modules: exposes == null ? void 0 : exposes.map((expose)=>({
-                moduleName: expose.name,
-                modulePath: expose.path,
-                assets: expose.assets
-            }))
+        shared: manifest?.shared.map((item) => ({
+            assets: item.assets,
+            sharedName: item.name,
+            version: item.version,
+        })),
+        modules: exposes?.map((expose) => ({
+            moduleName: expose.name,
+            modulePath: expose.path,
+            assets: expose.assets,
+        })),
     };
-    if ((_manifest_metaData = manifest.metaData) == null ? void 0 : _manifest_metaData.prefetchInterface) {
+    if (manifest.metaData?.prefetchInterface) {
         const prefetchInterface = manifest.metaData.prefetchInterface;
-        basicRemoteSnapshot = polyfills._({}, basicRemoteSnapshot, {
-            prefetchInterface
-        });
+        basicRemoteSnapshot = {
+            ...basicRemoteSnapshot,
+            prefetchInterface,
+        };
     }
-    if ((_manifest_metaData1 = manifest.metaData) == null ? void 0 : _manifest_metaData1.prefetchEntry) {
+    if (manifest.metaData?.prefetchEntry) {
         const { path, name, type } = manifest.metaData.prefetchEntry;
-        basicRemoteSnapshot = polyfills._({}, basicRemoteSnapshot, {
+        basicRemoteSnapshot = {
+            ...basicRemoteSnapshot,
             prefetchEntry: simpleJoinRemoteEntry(path, name),
-            prefetchEntryType: type
-        });
+            prefetchEntryType: type,
+        };
     }
     if ('publicPath' in manifest.metaData) {
-        remoteSnapshot = polyfills._({}, basicRemoteSnapshot, {
+        remoteSnapshot = {
+            ...basicRemoteSnapshot,
             publicPath: getPublicPath(),
-            ssrPublicPath: manifest.metaData.ssrPublicPath
-        });
-    } else {
-        remoteSnapshot = polyfills._({}, basicRemoteSnapshot, {
-            getPublicPath: getPublicPath()
-        });
+            ssrPublicPath: manifest.metaData.ssrPublicPath,
+        };
+    }
+    else {
+        remoteSnapshot = {
+            ...basicRemoteSnapshot,
+            getPublicPath: getPublicPath(),
+        };
     }
     if (ssrRemoteEntry) {
         const fullSSRRemoteEntry = simpleJoinRemoteEntry(ssrRemoteEntry.path, ssrRemoteEntry.name);
         remoteSnapshot.ssrRemoteEntry = fullSSRRemoteEntry;
-        remoteSnapshot.ssrRemoteEntryType = ssrRemoteEntry.type || 'commonjs-module';
+        remoteSnapshot.ssrRemoteEntryType =
+            ssrRemoteEntry.type || 'commonjs-module';
     }
     return remoteSnapshot;
 }
 function isManifestProvider(moduleInfo) {
-    if ('remoteEntry' in moduleInfo && moduleInfo.remoteEntry.includes(MANIFEST_EXT)) {
+    if ('remoteEntry' in moduleInfo &&
+        moduleInfo.remoteEntry.includes(MANIFEST_EXT)) {
         return true;
-    } else {
+    }
+    else {
         return false;
     }
 }
 
 const PREFIX = '[ Module Federation ]';
-let Logger = class Logger {
+const DEFAULT_DELEGATE = console;
+const LOGGER_STACK_SKIP_TOKENS = [
+    'logger.ts',
+    'logger.js',
+    'captureStackTrace',
+    'Logger.emit',
+    'Logger.log',
+    'Logger.info',
+    'Logger.warn',
+    'Logger.error',
+    'Logger.debug',
+];
+function captureStackTrace() {
+    try {
+        const stack = new Error().stack;
+        if (!stack) {
+            return undefined;
+        }
+        const [, ...rawLines] = stack.split('\n');
+        const filtered = rawLines.filter((line) => !LOGGER_STACK_SKIP_TOKENS.some((token) => line.includes(token)));
+        if (!filtered.length) {
+            return undefined;
+        }
+        const stackPreview = filtered.slice(0, 5).join('\n');
+        return `Stack trace:\n${stackPreview}`;
+    }
+    catch {
+        return undefined;
+    }
+}
+class Logger {
+    constructor(prefix, delegate = DEFAULT_DELEGATE) {
+        this.prefix = prefix;
+        this.delegate = delegate ?? DEFAULT_DELEGATE;
+    }
     setPrefix(prefix) {
         this.prefix = prefix;
     }
+    setDelegate(delegate) {
+        this.delegate = delegate ?? DEFAULT_DELEGATE;
+    }
+    emit(method, args) {
+        const delegate = this.delegate;
+        const debugMode = isDebugMode();
+        const stackTrace = debugMode ? captureStackTrace() : undefined;
+        const enrichedArgs = stackTrace ? [...args, stackTrace] : args;
+        const order = (() => {
+            switch (method) {
+                case 'log':
+                    return ['log', 'info'];
+                case 'info':
+                    return ['info', 'log'];
+                case 'warn':
+                    return ['warn', 'info', 'log'];
+                case 'error':
+                    return ['error', 'warn', 'log'];
+                case 'debug':
+                default:
+                    return ['debug', 'log'];
+            }
+        })();
+        for (const candidate of order) {
+            const handler = delegate[candidate];
+            if (typeof handler === 'function') {
+                handler.call(delegate, this.prefix, ...enrichedArgs);
+                return;
+            }
+        }
+        for (const candidate of order) {
+            const handler = DEFAULT_DELEGATE[candidate];
+            if (typeof handler === 'function') {
+                handler.call(DEFAULT_DELEGATE, this.prefix, ...enrichedArgs);
+                return;
+            }
+        }
+    }
     log(...args) {
-        console.log(this.prefix, ...args);
+        this.emit('log', args);
     }
     warn(...args) {
-        console.log(this.prefix, ...args);
+        this.emit('warn', args);
     }
     error(...args) {
-        console.log(this.prefix, ...args);
+        this.emit('error', args);
     }
     success(...args) {
-        console.log(this.prefix, ...args);
+        this.emit('info', args);
     }
     info(...args) {
-        console.log(this.prefix, ...args);
+        this.emit('info', args);
     }
     ready(...args) {
-        console.log(this.prefix, ...args);
+        this.emit('info', args);
     }
     debug(...args) {
         if (isDebugMode()) {
-            console.log(this.prefix, ...args);
+            this.emit('debug', args);
         }
     }
-    constructor(prefix){
-        this.prefix = prefix;
-    }
-};
+}
 function createLogger(prefix) {
     return new Logger(prefix);
 }
+function createInfrastructureLogger(prefix) {
+    const infrastructureLogger = new Logger(prefix);
+    Object.defineProperty(infrastructureLogger, '__mf_infrastructure_logger__', {
+        value: true,
+        enumerable: false,
+        configurable: false,
+    });
+    return infrastructureLogger;
+}
+function bindLoggerToCompiler(loggerInstance, compiler, name) {
+    if (!loggerInstance
+        .__mf_infrastructure_logger__) {
+        return;
+    }
+    if (!compiler?.getInfrastructureLogger) {
+        return;
+    }
+    try {
+        const infrastructureLogger = compiler.getInfrastructureLogger(name);
+        if (infrastructureLogger &&
+            typeof infrastructureLogger === 'object' &&
+            (typeof infrastructureLogger.log === 'function' ||
+                typeof infrastructureLogger.info === 'function' ||
+                typeof infrastructureLogger.warn === 'function' ||
+                typeof infrastructureLogger.error === 'function')) {
+            loggerInstance.setDelegate(infrastructureLogger);
+        }
+    }
+    catch {
+        // If the bundler throws (older versions), fall back to default console logger.
+        loggerInstance.setDelegate(undefined);
+    }
+}
 const logger = createLogger(PREFIX);
+const infrastructureLogger = createInfrastructureLogger(PREFIX);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function safeWrapper(callback, disableWarn) {
     try {
         const res = await callback();
         return res;
-    } catch (e) {
+    }
+    catch (e) {
         !disableWarn && warn(e);
         return;
     }
@@ -3838,7 +4087,7 @@ function createScript(info) {
     let timeout = 20000;
     let timeoutId;
     const scripts = document.getElementsByTagName('script');
-    for(let i = 0; i < scripts.length; i++){
+    for (let i = 0; i < scripts.length; i++) {
         const s = scripts[i];
         const scriptSrc = s.getAttribute('src');
         if (scriptSrc && isStaticResourcesEqual(scriptSrc, info.url)) {
@@ -3850,13 +4099,14 @@ function createScript(info) {
     if (!script) {
         const attrs = info.attrs;
         script = document.createElement('script');
-        script.type = (attrs == null ? void 0 : attrs['type']) === 'module' ? 'module' : 'text/javascript';
+        script.type = attrs?.['type'] === 'module' ? 'module' : 'text/javascript';
         let createScriptRes = undefined;
         if (info.createScriptHook) {
             createScriptRes = info.createScriptHook(info.url, info.attrs);
             if (createScriptRes instanceof HTMLScriptElement) {
                 script = createScriptRes;
-            } else if (typeof createScriptRes === 'object') {
+            }
+            else if (typeof createScriptRes === 'object') {
                 if ('script' in createScriptRes && createScriptRes.script) {
                     script = createScriptRes.script;
                 }
@@ -3869,36 +4119,39 @@ function createScript(info) {
             script.src = info.url;
         }
         if (attrs && !createScriptRes) {
-            Object.keys(attrs).forEach((name)=>{
+            Object.keys(attrs).forEach((name) => {
                 if (script) {
                     if (name === 'async' || name === 'defer') {
                         script[name] = attrs[name];
-                    // Attributes that do not exist are considered overridden
-                    } else if (!script.getAttribute(name)) {
+                        // Attributes that do not exist are considered overridden
+                    }
+                    else if (!script.getAttribute(name)) {
                         script.setAttribute(name, attrs[name]);
                     }
                 }
             });
         }
     }
-    const onScriptComplete = async (prev, // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    event)=>{
+    const onScriptComplete = async (prev, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    event) => {
         clearTimeout(timeoutId);
-        const onScriptCompleteCallback = ()=>{
-            if ((event == null ? void 0 : event.type) === 'error') {
-                (info == null ? void 0 : info.onErrorCallback) && (info == null ? void 0 : info.onErrorCallback(event));
-            } else {
-                (info == null ? void 0 : info.cb) && (info == null ? void 0 : info.cb());
+        const onScriptCompleteCallback = () => {
+            if (event?.type === 'error') {
+                info?.onErrorCallback && info?.onErrorCallback(event);
+            }
+            else {
+                info?.cb && info?.cb();
             }
         };
         // Prevent memory leaks in IE.
         if (script) {
             script.onerror = null;
             script.onload = null;
-            safeWrapper(()=>{
+            safeWrapper(() => {
                 const { needDeleteScript = true } = info;
                 if (needDeleteScript) {
-                    (script == null ? void 0 : script.parentNode) && script.parentNode.removeChild(script);
+                    script?.parentNode && script.parentNode.removeChild(script);
                 }
             });
             if (prev && typeof prev === 'function') {
@@ -3916,13 +4169,10 @@ function createScript(info) {
     };
     script.onerror = onScriptComplete.bind(null, script.onerror);
     script.onload = onScriptComplete.bind(null, script.onload);
-    timeoutId = setTimeout(()=>{
+    timeoutId = setTimeout(() => {
         onScriptComplete(null, new Error(`Remote script "${info.url}" time-outed.`));
     }, timeout);
-    return {
-        script,
-        needAttach
-    };
+    return { script, needAttach };
 }
 function createLink(info) {
     // <link rel="preload" href="script.js" as="script">
@@ -3930,11 +4180,13 @@ function createLink(info) {
     let link = null;
     let needAttach = true;
     const links = document.getElementsByTagName('link');
-    for(let i = 0; i < links.length; i++){
+    for (let i = 0; i < links.length; i++) {
         const l = links[i];
         const linkHref = l.getAttribute('href');
         const linkRel = l.getAttribute('rel');
-        if (linkHref && isStaticResourcesEqual(linkHref, info.url) && linkRel === info.attrs['rel']) {
+        if (linkHref &&
+            isStaticResourcesEqual(linkHref, info.url) &&
+            linkRel === info.attrs['rel']) {
             link = l;
             needAttach = false;
             break;
@@ -3952,30 +4204,32 @@ function createLink(info) {
             }
         }
         if (attrs && !createLinkRes) {
-            Object.keys(attrs).forEach((name)=>{
+            Object.keys(attrs).forEach((name) => {
                 if (link && !link.getAttribute(name)) {
                     link.setAttribute(name, attrs[name]);
                 }
             });
         }
     }
-    const onLinkComplete = (prev, // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    event)=>{
-        const onLinkCompleteCallback = ()=>{
-            if ((event == null ? void 0 : event.type) === 'error') {
-                (info == null ? void 0 : info.onErrorCallback) && (info == null ? void 0 : info.onErrorCallback(event));
-            } else {
-                (info == null ? void 0 : info.cb) && (info == null ? void 0 : info.cb());
+    const onLinkComplete = (prev, 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    event) => {
+        const onLinkCompleteCallback = () => {
+            if (event?.type === 'error') {
+                info?.onErrorCallback && info?.onErrorCallback(event);
+            }
+            else {
+                info?.cb && info?.cb();
             }
         };
         // Prevent memory leaks in IE.
         if (link) {
             link.onerror = null;
             link.onload = null;
-            safeWrapper(()=>{
+            safeWrapper(() => {
                 const { needDeleteLink = true } = info;
                 if (needDeleteLink) {
-                    (link == null ? void 0 : link.parentNode) && link.parentNode.removeChild(link);
+                    link?.parentNode && link.parentNode.removeChild(link);
                 }
             });
             if (prev) {
@@ -3989,44 +4243,54 @@ function createLink(info) {
     };
     link.onerror = onLinkComplete.bind(null, link.onerror);
     link.onload = onLinkComplete.bind(null, link.onload);
-    return {
-        link,
-        needAttach
-    };
+    return { link, needAttach };
 }
 function loadScript(url, info) {
     const { attrs = {}, createScriptHook } = info;
-    return new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject) => {
         const { script, needAttach } = createScript({
             url,
             cb: resolve,
             onErrorCallback: reject,
-            attrs: polyfills._({
-                fetchpriority: 'high'
-            }, attrs),
+            attrs: {
+                fetchpriority: 'high',
+                ...attrs,
+            },
             createScriptHook,
-            needDeleteScript: true
+            needDeleteScript: true,
         });
         needAttach && document.head.appendChild(script);
     });
 }
 
+const sdkImportCache = new Map();
 function importNodeModule(name) {
     if (!name) {
         throw new Error('import specifier is required');
     }
+    // Check cache to prevent infinite recursion
+    if (sdkImportCache.has(name)) {
+        return sdkImportCache.get(name);
+    }
     const importModule = new Function('name', `return import(name)`);
-    return importModule(name).then((res)=>res).catch((error)=>{
+    const promise = importModule(name)
+        .then((res) => res)
+        .catch((error) => {
         console.error(`Error importing module ${name}:`, error);
+        // Remove from cache on error so it can be retried
+        sdkImportCache.delete(name);
         throw error;
     });
+    // Cache the promise to prevent recursive calls
+    sdkImportCache.set(name, promise);
+    return promise;
 }
-const loadNodeFetch = async ()=>{
+const loadNodeFetch = async () => {
     const fetchModule = await importNodeModule('node-fetch');
-    return fetchModule.default || fetchModule;
+    return (fetchModule.default || fetchModule);
 };
-const lazyLoaderHookFetch = async (input, init, loaderHook)=>{
-    const hook = (url, init)=>{
+const lazyLoaderHookFetch = async (input, init, loaderHook) => {
+    const hook = (url, init) => {
         return loaderHook.lifecycle.fetch.emit(url, init);
     };
     const res = await hook(input, init || {});
@@ -4036,109 +4300,132 @@ const lazyLoaderHookFetch = async (input, init, loaderHook)=>{
     }
     return res;
 };
-const createScriptNode = typeof ENV_TARGET === 'undefined' || ENV_TARGET !== 'web' ? (url, cb, attrs, loaderHook)=>{
-    if (loaderHook == null ? void 0 : loaderHook.createScriptHook) {
-        const hookResult = loaderHook.createScriptHook(url);
-        if (hookResult && typeof hookResult === 'object' && 'url' in hookResult) {
-            url = hookResult.url;
+const createScriptNode = typeof ENV_TARGET === 'undefined' || ENV_TARGET !== 'web'
+    ? (url, cb, attrs, loaderHook) => {
+        if (loaderHook?.createScriptHook) {
+            const hookResult = loaderHook.createScriptHook(url);
+            if (hookResult &&
+                typeof hookResult === 'object' &&
+                'url' in hookResult) {
+                url = hookResult.url;
+            }
         }
-    }
-    let urlObj;
-    try {
-        urlObj = new URL(url);
-    } catch (e) {
-        console.error('Error constructing URL:', e);
-        cb(new Error(`Invalid URL: ${e}`));
-        return;
-    }
-    const getFetch = async ()=>{
-        if (loaderHook == null ? void 0 : loaderHook.fetch) {
-            return (input, init)=>lazyLoaderHookFetch(input, init, loaderHook);
-        }
-        return typeof fetch === 'undefined' ? loadNodeFetch() : fetch;
-    };
-    const handleScriptFetch = async (f, urlObj)=>{
+        let urlObj;
         try {
-            var //@ts-ignore
-            _vm_constants;
-            const res = await f(urlObj.href);
-            const data = await res.text();
-            const [path, vm] = await Promise.all([
-                importNodeModule('path'),
-                importNodeModule('vm')
-            ]);
-            const scriptContext = {
-                exports: {},
-                module: {
-                    exports: {}
+            urlObj = new URL(url);
+        }
+        catch (e) {
+            console.error('Error constructing URL:', e);
+            cb(new Error(`Invalid URL: ${e}`));
+            return;
+        }
+        const getFetch = async () => {
+            if (loaderHook?.fetch) {
+                return (input, init) => lazyLoaderHookFetch(input, init, loaderHook);
+            }
+            return typeof fetch === 'undefined' ? loadNodeFetch() : fetch;
+        };
+        const handleScriptFetch = async (f, urlObj) => {
+            try {
+                const res = await f(urlObj.href);
+                const data = await res.text();
+                const [path, vm] = await Promise.all([
+                    importNodeModule('path'),
+                    importNodeModule('vm'),
+                ]);
+                const scriptContext = { exports: {}, module: { exports: {} } };
+                const urlDirname = urlObj.pathname
+                    .split('/')
+                    .slice(0, -1)
+                    .join('/');
+                const filename = path.basename(urlObj.pathname);
+                const script = new vm.Script(`(function(exports, module, require, __dirname, __filename) {${data}\n})`, {
+                    filename,
+                    importModuleDynamically: 
+                    //@ts-ignore
+                    vm.constants?.USE_MAIN_CONTEXT_DEFAULT_LOADER ??
+                        importNodeModule,
+                });
+                script.runInThisContext()(scriptContext.exports, scriptContext.module, eval('require'), urlDirname, filename);
+                const exportedInterface = scriptContext.module.exports || scriptContext.exports;
+                if (attrs && exportedInterface && attrs['globalName']) {
+                    const container = exportedInterface[attrs['globalName']] || exportedInterface;
+                    cb(undefined, container);
+                    return;
                 }
-            };
-            const urlDirname = urlObj.pathname.split('/').slice(0, -1).join('/');
-            const filename = path.basename(urlObj.pathname);
-            var _vm_constants_USE_MAIN_CONTEXT_DEFAULT_LOADER;
-            const script = new vm.Script(`(function(exports, module, require, __dirname, __filename) {${data}\n})`, {
-                filename,
-                importModuleDynamically: (_vm_constants_USE_MAIN_CONTEXT_DEFAULT_LOADER = (_vm_constants = vm.constants) == null ? void 0 : _vm_constants.USE_MAIN_CONTEXT_DEFAULT_LOADER) != null ? _vm_constants_USE_MAIN_CONTEXT_DEFAULT_LOADER : importNodeModule
-            });
-            script.runInThisContext()(scriptContext.exports, scriptContext.module, eval('require'), urlDirname, filename);
-            const exportedInterface = scriptContext.module.exports || scriptContext.exports;
-            if (attrs && exportedInterface && attrs['globalName']) {
-                const container = exportedInterface[attrs['globalName']] || exportedInterface;
-                cb(undefined, container);
-                return;
+                cb(undefined, exportedInterface);
             }
-            cb(undefined, exportedInterface);
-        } catch (e) {
-            cb(e instanceof Error ? e : new Error(`Script execution error: ${e}`));
-        }
+            catch (e) {
+                cb(e instanceof Error
+                    ? e
+                    : new Error(`Script execution error: ${e}`));
+            }
+        };
+        getFetch()
+            .then(async (f) => {
+            if (attrs?.['type'] === 'esm' || attrs?.['type'] === 'module') {
+                return loadModule(urlObj.href, {
+                    fetch: f,
+                    vm: await importNodeModule('vm'),
+                })
+                    .then(async (module) => {
+                    await module.evaluate();
+                    cb(undefined, module.namespace);
+                })
+                    .catch((e) => {
+                    cb(e instanceof Error
+                        ? e
+                        : new Error(`Script execution error: ${e}`));
+                });
+            }
+            handleScriptFetch(f, urlObj);
+        })
+            .catch((err) => {
+            cb(err);
+        });
+    }
+    : (url, cb, attrs, loaderHook) => {
+        cb(new Error('createScriptNode is disabled in non-Node.js environment'));
     };
-    getFetch().then(async (f)=>{
-        if ((attrs == null ? void 0 : attrs['type']) === 'esm' || (attrs == null ? void 0 : attrs['type']) === 'module') {
-            return loadModule(urlObj.href, {
-                fetch: f,
-                vm: await importNodeModule('vm')
-            }).then(async (module)=>{
-                await module.evaluate();
-                cb(undefined, module.namespace);
-            }).catch((e)=>{
-                cb(e instanceof Error ? e : new Error(`Script execution error: ${e}`));
-            });
-        }
-        handleScriptFetch(f, urlObj);
-    }).catch((err)=>{
-        cb(err);
-    });
-} : (url, cb, attrs, loaderHook)=>{
-    cb(new Error('createScriptNode is disabled in non-Node.js environment'));
-};
-const loadScriptNode = typeof ENV_TARGET === 'undefined' || ENV_TARGET !== 'web' ? (url, info)=>{
-    return new Promise((resolve, reject)=>{
-        createScriptNode(url, (error, scriptContext)=>{
-            if (error) {
-                reject(error);
-            } else {
-                var _info_attrs, _info_attrs1;
-                const remoteEntryKey = (info == null ? void 0 : (_info_attrs = info.attrs) == null ? void 0 : _info_attrs['globalName']) || `__FEDERATION_${info == null ? void 0 : (_info_attrs1 = info.attrs) == null ? void 0 : _info_attrs1['name']}:custom__`;
-                const entryExports = globalThis[remoteEntryKey] = scriptContext;
-                resolve(entryExports);
-            }
-        }, info.attrs, info.loaderHook);
-    });
-} : (url, info)=>{
-    throw new Error('loadScriptNode is disabled in non-Node.js environment');
-};
+const loadScriptNode = typeof ENV_TARGET === 'undefined' || ENV_TARGET !== 'web'
+    ? (url, info) => {
+        return new Promise((resolve, reject) => {
+            createScriptNode(url, (error, scriptContext) => {
+                if (error) {
+                    reject(error);
+                }
+                else {
+                    const remoteEntryKey = info?.attrs?.['globalName'] ||
+                        `__FEDERATION_${info?.attrs?.['name']}:custom__`;
+                    const entryExports = (globalThis[remoteEntryKey] =
+                        scriptContext);
+                    resolve(entryExports);
+                }
+            }, info.attrs, info.loaderHook);
+        });
+    }
+    : (url, info) => {
+        throw new Error('loadScriptNode is disabled in non-Node.js environment');
+    };
+const esmModuleCache = new Map();
 async function loadModule(url, options) {
-    const { fetch: fetch1, vm } = options;
-    const response = await fetch1(url);
+    // Check cache to prevent infinite recursion in ESM loading
+    if (esmModuleCache.has(url)) {
+        return esmModuleCache.get(url);
+    }
+    const { fetch, vm } = options;
+    const response = await fetch(url);
     const code = await response.text();
     const module = new vm.SourceTextModule(code, {
         // @ts-ignore
-        importModuleDynamically: async (specifier, script)=>{
+        importModuleDynamically: async (specifier, script) => {
             const resolvedUrl = new URL(specifier, url).href;
             return loadModule(resolvedUrl, options);
-        }
+        },
     });
-    await module.link(async (specifier)=>{
+    // Cache the module before linking to prevent cycles
+    esmModuleCache.set(url, module);
+    await module.link(async (specifier) => {
         const resolvedUrl = new URL(specifier, url).href;
         const module = await loadModule(resolvedUrl, options);
         return module;
@@ -4147,14 +4434,15 @@ async function loadModule(url, options) {
 }
 
 function normalizeOptions(enableDefault, defaultOptions, key) {
-    return function(options) {
+    return function (options) {
         if (options === false) {
             return false;
         }
         if (typeof options === 'undefined') {
             if (enableDefault) {
                 return defaultOptions;
-            } else {
+            }
+            else {
                 return false;
             }
         }
@@ -4162,13 +4450,16 @@ function normalizeOptions(enableDefault, defaultOptions, key) {
             return defaultOptions;
         }
         if (options && typeof options === 'object') {
-            return polyfills._({}, defaultOptions, options);
+            return {
+                ...defaultOptions,
+                ...options,
+            };
         }
         throw new Error(`Unexpected type for \`${key}\`, expect boolean/undefined/object, got: ${typeof options}`);
     };
 }
 
-const createModuleFederationConfig = (options)=>{
+const createModuleFederationConfig = (options) => {
     return options;
 };
 
@@ -4187,9 +4478,11 @@ exports.SEPARATOR = SEPARATOR;
 exports.StatsFileName = StatsFileName;
 exports.TEMP_DIR = TEMP_DIR;
 exports.assert = assert;
+exports.bindLoggerToCompiler = bindLoggerToCompiler;
 exports.composeKeyWithSeparator = composeKeyWithSeparator;
 exports.containerPlugin = ContainerPlugin;
 exports.containerReferencePlugin = ContainerReferencePlugin;
+exports.createInfrastructureLogger = createInfrastructureLogger;
 exports.createLink = createLink;
 exports.createLogger = createLogger;
 exports.createModuleFederationConfig = createModuleFederationConfig;
@@ -4204,6 +4497,7 @@ exports.generateSnapshotFromManifest = generateSnapshotFromManifest;
 exports.getProcessEnv = getProcessEnv;
 exports.getResourceUrl = getResourceUrl;
 exports.inferAutoPublicPath = inferAutoPublicPath;
+exports.infrastructureLogger = infrastructureLogger;
 exports.isBrowserEnv = isBrowserEnv;
 exports.isDebugMode = isDebugMode;
 exports.isManifestProvider = isManifestProvider;
@@ -4221,56 +4515,34 @@ exports.safeWrapper = safeWrapper;
 exports.sharePlugin = SharePlugin;
 exports.simpleJoinRemoteEntry = simpleJoinRemoteEntry;
 exports.warn = warn;
+//# sourceMappingURL=index.cjs.cjs.map
 
 
 }),
-"../../../node_modules/.pnpm/@module-federation+sdk@0.18.0/node_modules/@module-federation/sdk/dist/polyfills.cjs.cjs": 
-/*!****************************************************************************************************************************!*\
-  !*** ../../../node_modules/.pnpm/@module-federation+sdk@0.18.0/node_modules/@module-federation/sdk/dist/polyfills.cjs.cjs ***!
-  \****************************************************************************************************************************/
-(function (__unused_webpack_module, exports) {
-
-
-function _extends() {
-    _extends = Object.assign || function assign(target) {
-        for(var i = 1; i < arguments.length; i++){
-            var source = arguments[i];
-            for(var key in source)if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
-        }
-        return target;
-    };
-    return _extends.apply(this, arguments);
-}
-
-exports._ = _extends;
-
-
-}),
-"../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.18.0/node_modules/@module-federation/webpack-bundler-runtime/dist/constant.cjs.cjs": 
+"../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.21.2/node_modules/@module-federation/webpack-bundler-runtime/dist/constant.cjs.cjs": 
 /*!*******************************************************************************************************************************************************************!*\
-  !*** ../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.18.0/node_modules/@module-federation/webpack-bundler-runtime/dist/constant.cjs.cjs ***!
+  !*** ../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.21.2/node_modules/@module-federation/webpack-bundler-runtime/dist/constant.cjs.cjs ***!
   \*******************************************************************************************************************************************************************/
 (function (__unused_webpack_module, exports) {
 
 
-const FEDERATION_SUPPORTED_TYPES = [
-    'script'
-];
+const FEDERATION_SUPPORTED_TYPES = ['script'];
 
 exports.FEDERATION_SUPPORTED_TYPES = FEDERATION_SUPPORTED_TYPES;
+//# sourceMappingURL=constant.cjs.cjs.map
 
 
 }),
-"../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.18.0/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs": 
+"../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.21.2/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs": 
 /*!****************************************************************************************************************************************************************!*\
-  !*** ../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.18.0/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs ***!
+  !*** ../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.21.2/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs ***!
   \****************************************************************************************************************************************************************/
 (function (module, __unused_webpack_exports, __webpack_require__) {
 
 
-var runtime = __webpack_require__(/*! @module-federation/runtime */ "../../../node_modules/.pnpm/@module-federation+runtime@0.18.0/node_modules/@module-federation/runtime/dist/index.cjs.cjs");
-var constant = __webpack_require__(/*! ./constant.cjs.cjs */ "../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.18.0/node_modules/@module-federation/webpack-bundler-runtime/dist/constant.cjs.cjs");
-var sdk = __webpack_require__(/*! @module-federation/sdk */ "../../../node_modules/.pnpm/@module-federation+sdk@0.18.0/node_modules/@module-federation/sdk/dist/index.cjs.cjs");
+var runtime = __webpack_require__(/*! @module-federation/runtime */ "../../../node_modules/.pnpm/@module-federation+runtime@0.21.2/node_modules/@module-federation/runtime/dist/index.cjs.cjs");
+var constant = __webpack_require__(/*! ./constant.cjs.cjs */ "../../../node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.21.2/node_modules/@module-federation/webpack-bundler-runtime/dist/constant.cjs.cjs");
+var sdk = __webpack_require__(/*! @module-federation/sdk */ "../../../node_modules/.pnpm/@module-federation+sdk@0.21.2/node_modules/@module-federation/sdk/dist/index.cjs.cjs");
 
 function _interopNamespaceDefault(e) {
     var n = Object.create(null);
@@ -4286,24 +4558,168 @@ function _interopNamespaceDefault(e) {
 var runtime__namespace = /*#__PURE__*/_interopNamespaceDefault(runtime);
 
 function attachShareScopeMap(webpackRequire) {
-    if (!webpackRequire.S || webpackRequire.federation.hasAttachShareScopeMap || !webpackRequire.federation.instance || !webpackRequire.federation.instance.shareScopeMap) {
+    if (!webpackRequire.S ||
+        webpackRequire.federation.hasAttachShareScopeMap ||
+        !webpackRequire.federation.instance ||
+        !webpackRequire.federation.instance.shareScopeMap) {
         return;
     }
     webpackRequire.S = webpackRequire.federation.instance.shareScopeMap;
     webpackRequire.federation.hasAttachShareScopeMap = true;
 }
 
+function updateConsumeOptions(options) {
+    const { webpackRequire, moduleToHandlerMapping } = options;
+    const { consumesLoadingData, initializeSharingData } = webpackRequire;
+    if (consumesLoadingData && !consumesLoadingData._updated) {
+        const { moduleIdToConsumeDataMapping: updatedModuleIdToConsumeDataMapping = {}, initialConsumes: updatedInitialConsumes = [], chunkMapping: updatedChunkMapping = {}, } = consumesLoadingData;
+        Object.entries(updatedModuleIdToConsumeDataMapping).forEach(([id, data]) => {
+            if (!moduleToHandlerMapping[id]) {
+                moduleToHandlerMapping[id] = {
+                    getter: data.fallback,
+                    shareInfo: {
+                        shareConfig: {
+                            requiredVersion: data.requiredVersion,
+                            strictVersion: data.strictVersion,
+                            singleton: data.singleton,
+                            eager: data.eager,
+                            layer: data.layer,
+                        },
+                        scope: Array.isArray(data.shareScope)
+                            ? data.shareScope
+                            : [data.shareScope || 'default'],
+                    },
+                    shareKey: data.shareKey,
+                };
+            }
+        });
+        if ('initialConsumes' in options) {
+            const { initialConsumes = [] } = options;
+            updatedInitialConsumes.forEach((id) => {
+                if (!initialConsumes.includes(id)) {
+                    initialConsumes.push(id);
+                }
+            });
+        }
+        if ('chunkMapping' in options) {
+            const { chunkMapping = {} } = options;
+            Object.entries(updatedChunkMapping).forEach(([id, chunkModules]) => {
+                if (!chunkMapping[id]) {
+                    chunkMapping[id] = [];
+                }
+                chunkModules.forEach((moduleId) => {
+                    if (!chunkMapping[id].includes(moduleId)) {
+                        chunkMapping[id].push(moduleId);
+                    }
+                });
+            });
+        }
+        consumesLoadingData._updated = 1;
+    }
+    if (initializeSharingData && !initializeSharingData._updated) {
+        const { federation } = webpackRequire;
+        if (!federation.instance ||
+            !initializeSharingData.scopeToSharingDataMapping) {
+            return;
+        }
+        const shared = {};
+        for (let [scope, stages] of Object.entries(initializeSharingData.scopeToSharingDataMapping)) {
+            for (let stage of stages) {
+                if (typeof stage === 'object' && stage !== null) {
+                    const { name, version, factory, eager, singleton, requiredVersion, strictVersion, } = stage;
+                    const shareConfig = {
+                        requiredVersion: `^${version}`,
+                    };
+                    const isValidValue = function (val) {
+                        return typeof val !== 'undefined';
+                    };
+                    if (isValidValue(singleton)) {
+                        shareConfig.singleton = singleton;
+                    }
+                    if (isValidValue(requiredVersion)) {
+                        shareConfig.requiredVersion = requiredVersion;
+                    }
+                    if (isValidValue(eager)) {
+                        shareConfig.eager = eager;
+                    }
+                    if (isValidValue(strictVersion)) {
+                        shareConfig.strictVersion = strictVersion;
+                    }
+                    const options = {
+                        version,
+                        scope: [scope],
+                        shareConfig,
+                        get: factory,
+                    };
+                    if (shared[name]) {
+                        shared[name].push(options);
+                    }
+                    else {
+                        shared[name] = [options];
+                    }
+                }
+            }
+        }
+        federation.instance.registerShared(shared);
+        initializeSharingData._updated = 1;
+    }
+}
+function updateRemoteOptions(options) {
+    const { webpackRequire, idToExternalAndNameMapping = {}, idToRemoteMap = {}, chunkMapping = {}, } = options;
+    const { remotesLoadingData } = webpackRequire;
+    const remoteInfos = webpackRequire.federation?.bundlerRuntimeOptions?.remotes?.remoteInfos;
+    if (!remotesLoadingData || remotesLoadingData._updated || !remoteInfos) {
+        return;
+    }
+    const { chunkMapping: updatedChunkMapping, moduleIdToRemoteDataMapping } = remotesLoadingData;
+    if (!updatedChunkMapping || !moduleIdToRemoteDataMapping) {
+        return;
+    }
+    for (let [moduleId, data] of Object.entries(moduleIdToRemoteDataMapping)) {
+        if (!idToExternalAndNameMapping[moduleId]) {
+            idToExternalAndNameMapping[moduleId] = [
+                data.shareScope,
+                data.name,
+                data.externalModuleId,
+            ];
+        }
+        if (!idToRemoteMap[moduleId] && remoteInfos[data.remoteName]) {
+            const items = remoteInfos[data.remoteName];
+            idToRemoteMap[moduleId] ||= [];
+            items.forEach((item) => {
+                if (!idToRemoteMap[moduleId].includes(item)) {
+                    idToRemoteMap[moduleId].push(item);
+                }
+            });
+        }
+    }
+    if (chunkMapping) {
+        Object.entries(updatedChunkMapping).forEach(([id, chunkModules]) => {
+            if (!chunkMapping[id]) {
+                chunkMapping[id] = [];
+            }
+            chunkModules.forEach((moduleId) => {
+                if (!chunkMapping[id].includes(moduleId)) {
+                    chunkMapping[id].push(moduleId);
+                }
+            });
+        });
+    }
+    remotesLoadingData._updated = 1;
+}
+
 function remotes(options) {
-    const { chunkId, promises, chunkMapping, idToExternalAndNameMapping, webpackRequire, idToRemoteMap } = options;
+    updateRemoteOptions(options);
+    const { chunkId, promises, webpackRequire, chunkMapping, idToExternalAndNameMapping, idToRemoteMap, } = options;
     attachShareScopeMap(webpackRequire);
     if (webpackRequire.o(chunkMapping, chunkId)) {
-        chunkMapping[chunkId].forEach((id)=>{
+        chunkMapping[chunkId].forEach((id) => {
             let getScope = webpackRequire.R;
             if (!getScope) {
                 getScope = [];
             }
             const data = idToExternalAndNameMapping[id];
-            const remoteInfos = idToRemoteMap[id];
+            const remoteInfos = idToRemoteMap[id] || [];
             // @ts-ignore seems not work
             if (getScope.indexOf(data) >= 0) {
                 return;
@@ -4313,68 +4729,77 @@ function remotes(options) {
             if (data.p) {
                 return promises.push(data.p);
             }
-            const onError = (error)=>{
+            const onError = (error) => {
                 if (!error) {
                     error = new Error('Container missing');
                 }
                 if (typeof error.message === 'string') {
                     error.message += `\nwhile loading "${data[1]}" from ${data[2]}`;
                 }
-                webpackRequire.m[id] = ()=>{
+                webpackRequire.m[id] = () => {
                     throw error;
                 };
                 data.p = 0;
             };
-            const handleFunction = (fn, arg1, arg2, d, next, first)=>{
+            const handleFunction = (fn, arg1, arg2, d, next, first) => {
                 try {
                     const promise = fn(arg1, arg2);
                     if (promise && promise.then) {
-                        const p = promise.then((result)=>next(result, d), onError);
+                        const p = promise.then((result) => next(result, d), onError);
                         if (first) {
-                            promises.push(data.p = p);
-                        } else {
+                            promises.push((data.p = p));
+                        }
+                        else {
                             return p;
                         }
-                    } else {
+                    }
+                    else {
                         return next(promise, d, first);
                     }
-                } catch (error) {
+                }
+                catch (error) {
                     onError(error);
                 }
             };
-            const onExternal = (external, _, first)=>external ? handleFunction(webpackRequire.I, data[0], 0, external, onInitialized, first) : onError();
+            const onExternal = (external, _, first) => external
+                ? handleFunction(webpackRequire.I, data[0], 0, external, onInitialized, first)
+                : onError();
             // eslint-disable-next-line no-var
-            var onInitialized = (_, external, first)=>handleFunction(external.get, data[1], getScope, 0, onFactory, first);
+            var onInitialized = (_, external, first) => handleFunction(external.get, data[1], getScope, 0, onFactory, first);
             // eslint-disable-next-line no-var
-            var onFactory = (factory)=>{
+            var onFactory = (factory) => {
                 data.p = 1;
-                webpackRequire.m[id] = (module)=>{
+                webpackRequire.m[id] = (module) => {
                     module.exports = factory();
                 };
             };
-            const onRemoteLoaded = ()=>{
+            const onRemoteLoaded = () => {
                 try {
                     const remoteName = sdk.decodeName(remoteInfos[0].name, sdk.ENCODE_NAME_PREFIX);
                     const remoteModuleName = remoteName + data[1].slice(1);
                     const instance = webpackRequire.federation.instance;
-                    const loadRemote = ()=>webpackRequire.federation.instance.loadRemote(remoteModuleName, {
-                            loadFactory: false,
-                            from: 'build'
-                        });
+                    const loadRemote = () => webpackRequire.federation.instance.loadRemote(remoteModuleName, {
+                        loadFactory: false,
+                        from: 'build',
+                    });
                     if (instance.options.shareStrategy === 'version-first') {
-                        return Promise.all(instance.sharedHandler.initializeSharing(data[0])).then(()=>{
+                        return Promise.all(instance.sharedHandler.initializeSharing(data[0])).then(() => {
                             return loadRemote();
                         });
                     }
                     return loadRemote();
-                } catch (error) {
+                }
+                catch (error) {
                     onError(error);
                 }
             };
-            const useRuntimeLoad = remoteInfos.length === 1 && constant.FEDERATION_SUPPORTED_TYPES.includes(remoteInfos[0].externalType) && remoteInfos[0].name;
+            const useRuntimeLoad = remoteInfos.length === 1 &&
+                constant.FEDERATION_SUPPORTED_TYPES.includes(remoteInfos[0].externalType) &&
+                remoteInfos[0].name;
             if (useRuntimeLoad) {
                 handleFunction(onRemoteLoaded, data[2], 0, 0, onFactory, 1);
-            } else {
+            }
+            else {
                 handleFunction(webpackRequire, data[2], 0, 0, onExternal, 1);
             }
         });
@@ -4382,23 +4807,41 @@ function remotes(options) {
 }
 
 function consumes(options) {
-    const { chunkId, promises, chunkMapping, installedModules, moduleToHandlerMapping, webpackRequire } = options;
+    updateConsumeOptions(options);
+    const { chunkId, promises, installedModules, webpackRequire, chunkMapping, moduleToHandlerMapping, } = options;
     attachShareScopeMap(webpackRequire);
     if (webpackRequire.o(chunkMapping, chunkId)) {
-        chunkMapping[chunkId].forEach((id)=>{
+        chunkMapping[chunkId].forEach((id) => {
             if (webpackRequire.o(installedModules, id)) {
                 return promises.push(installedModules[id]);
             }
-            const onFactory = (factory)=>{
+            const onFactory = (factory) => {
                 installedModules[id] = 0;
-                webpackRequire.m[id] = (module)=>{
+                webpackRequire.m[id] = (module) => {
                     delete webpackRequire.c[id];
-                    module.exports = factory();
+                    const result = factory();
+                    // Add layer property from shareConfig if available
+                    const { shareInfo } = moduleToHandlerMapping[id];
+                    if (shareInfo?.shareConfig?.layer &&
+                        result &&
+                        typeof result === 'object') {
+                        try {
+                            // Only set layer if it's not already defined or if it's undefined
+                            if (!result.hasOwnProperty('layer') ||
+                                result.layer === undefined) {
+                                result.layer = shareInfo.shareConfig.layer;
+                            }
+                        }
+                        catch (e) {
+                            // Ignore if layer property is read-only
+                        }
+                    }
+                    module.exports = result;
                 };
             };
-            const onError = (error)=>{
+            const onError = (error) => {
                 delete installedModules[id];
-                webpackRequire.m[id] = (module)=>{
+                webpackRequire.m[id] = (module) => {
                     delete webpackRequire.c[id];
                     throw error;
                 };
@@ -4409,78 +4852,89 @@ function consumes(options) {
                     throw new Error('Federation instance not found!');
                 }
                 const { shareKey, getter, shareInfo } = moduleToHandlerMapping[id];
-                const promise = federationInstance.loadShare(shareKey, {
-                    customShareInfo: shareInfo
-                }).then((factory)=>{
+                const promise = federationInstance
+                    .loadShare(shareKey, { customShareInfo: shareInfo })
+                    .then((factory) => {
                     if (factory === false) {
                         return getter();
                     }
                     return factory;
                 });
                 if (promise.then) {
-                    promises.push(installedModules[id] = promise.then(onFactory).catch(onError));
-                } else {
+                    promises.push((installedModules[id] = promise.then(onFactory).catch(onError)));
+                }
+                else {
                     // @ts-ignore maintain previous logic
                     onFactory(promise);
                 }
-            } catch (e) {
+            }
+            catch (e) {
                 onError(e);
             }
         });
     }
 }
 
-function initializeSharing({ shareScopeName, webpackRequire, initPromises, initTokens, initScope }) {
-    const shareScopeKeys = Array.isArray(shareScopeName) ? shareScopeName : [
-        shareScopeName
-    ];
+function initializeSharing({ shareScopeName, webpackRequire, initPromises, initTokens, initScope, }) {
+    const shareScopeKeys = Array.isArray(shareScopeName)
+        ? shareScopeName
+        : [shareScopeName];
     var initializeSharingPromises = [];
-    var _initializeSharing = function(shareScopeKey) {
-        if (!initScope) initScope = [];
+    var _initializeSharing = function (shareScopeKey) {
+        if (!initScope)
+            initScope = [];
         const mfInstance = webpackRequire.federation.instance;
         // handling circular init calls
         var initToken = initTokens[shareScopeKey];
-        if (!initToken) initToken = initTokens[shareScopeKey] = {
-            from: mfInstance.name
-        };
-        if (initScope.indexOf(initToken) >= 0) return;
+        if (!initToken)
+            initToken = initTokens[shareScopeKey] = { from: mfInstance.name };
+        if (initScope.indexOf(initToken) >= 0)
+            return;
         initScope.push(initToken);
         const promise = initPromises[shareScopeKey];
-        if (promise) return promise;
-        var warn = (msg)=>typeof console !== 'undefined' && console.warn && console.warn(msg);
-        var initExternal = (id)=>{
-            var handleError = (err)=>warn('Initialization of sharing external failed: ' + err);
+        if (promise)
+            return promise;
+        var warn = (msg) => typeof console !== 'undefined' && console.warn && console.warn(msg);
+        var initExternal = (id) => {
+            var handleError = (err) => warn('Initialization of sharing external failed: ' + err);
             try {
                 var module = webpackRequire(id);
-                if (!module) return;
-                var initFn = (module)=>module && module.init && // @ts-ignore compat legacy mf shared behavior
+                if (!module)
+                    return;
+                var initFn = (module) => module &&
+                    module.init &&
+                    // @ts-ignore compat legacy mf shared behavior
                     module.init(webpackRequire.S[shareScopeKey], initScope, {
                         shareScopeMap: webpackRequire.S || {},
-                        shareScopeKeys: shareScopeName
+                        shareScopeKeys: shareScopeName,
                     });
-                if (module.then) return promises.push(module.then(initFn, handleError));
+                if (module.then)
+                    return promises.push(module.then(initFn, handleError));
                 var initResult = initFn(module);
                 // @ts-ignore
-                if (initResult && typeof initResult !== 'boolean' && initResult.then) // @ts-ignore
-                return promises.push(initResult['catch'](handleError));
-            } catch (err) {
+                if (initResult && typeof initResult !== 'boolean' && initResult.then)
+                    // @ts-ignore
+                    return promises.push(initResult['catch'](handleError));
+            }
+            catch (err) {
                 handleError(err);
             }
         };
         const promises = mfInstance.initializeSharing(shareScopeKey, {
             strategy: mfInstance.options.shareStrategy,
             initScope,
-            from: 'build'
+            from: 'build',
         });
         attachShareScopeMap(webpackRequire);
         const bundlerRuntimeRemotesOptions = webpackRequire.federation.bundlerRuntimeOptions.remotes;
         if (bundlerRuntimeRemotesOptions) {
-            Object.keys(bundlerRuntimeRemotesOptions.idToRemoteMap).forEach((moduleId)=>{
+            Object.keys(bundlerRuntimeRemotesOptions.idToRemoteMap).forEach((moduleId) => {
                 const info = bundlerRuntimeRemotesOptions.idToRemoteMap[moduleId];
                 const externalModuleId = bundlerRuntimeRemotesOptions.idToExternalAndNameMapping[moduleId][2];
                 if (info.length > 1) {
                     initExternal(externalModuleId);
-                } else if (info.length === 1) {
+                }
+                else if (info.length === 1) {
                     const remoteInfo = info[0];
                     if (!constant.FEDERATION_SUPPORTED_TYPES.includes(remoteInfo.externalType)) {
                         initExternal(externalModuleId);
@@ -4489,14 +4943,14 @@ function initializeSharing({ shareScopeName, webpackRequire, initPromises, initT
             });
         }
         if (!promises.length) {
-            return initPromises[shareScopeKey] = true;
+            return (initPromises[shareScopeKey] = true);
         }
-        return initPromises[shareScopeKey] = Promise.all(promises).then(()=>initPromises[shareScopeKey] = true);
+        return (initPromises[shareScopeKey] = Promise.all(promises).then(() => (initPromises[shareScopeKey] = true)));
     };
-    shareScopeKeys.forEach((key)=>{
+    shareScopeKeys.forEach((key) => {
         initializeSharingPromises.push(_initializeSharing(key));
     });
-    return Promise.all(initializeSharingPromises).then(()=>true);
+    return Promise.all(initializeSharingPromises).then(() => true);
 }
 
 function handleInitialConsumes(options) {
@@ -4508,56 +4962,70 @@ function handleInitialConsumes(options) {
     const { shareKey, shareInfo } = moduleToHandlerMapping[moduleId];
     try {
         return federationInstance.loadShareSync(shareKey, {
-            customShareInfo: shareInfo
+            customShareInfo: shareInfo,
         });
-    } catch (err) {
+    }
+    catch (err) {
         console.error('loadShareSync failed! The function should not be called unless you set "eager:true". If you do not set it, and encounter this issue, you can check whether an async boundary is implemented.');
         console.error('The original error message is as follows: ');
         throw err;
     }
 }
 function installInitialConsumes(options) {
-    const { moduleToHandlerMapping, webpackRequire, installedModules, initialConsumes } = options;
-    initialConsumes.forEach((id)=>{
-        webpackRequire.m[id] = (module)=>{
+    const { webpackRequire } = options;
+    updateConsumeOptions(options);
+    const { initialConsumes, moduleToHandlerMapping, installedModules } = options;
+    initialConsumes.forEach((id) => {
+        webpackRequire.m[id] = (module) => {
             // Handle scenario when module is used synchronously
             installedModules[id] = 0;
             delete webpackRequire.c[id];
             const factory = handleInitialConsumes({
                 moduleId: id,
                 moduleToHandlerMapping,
-                webpackRequire
+                webpackRequire,
             });
             if (typeof factory !== 'function') {
                 throw new Error(`Shared module is not available for eager consumption: ${id}`);
             }
-            module.exports = factory();
+            const result = factory();
+            // Add layer property from shareConfig if available
+            const { shareInfo } = moduleToHandlerMapping[id];
+            if (shareInfo?.shareConfig?.layer &&
+                result &&
+                typeof result === 'object') {
+                try {
+                    // Only set layer if it's not already defined or if it's undefined
+                    if (!result.hasOwnProperty('layer') ||
+                        result.layer === undefined) {
+                        result.layer = shareInfo.shareConfig.layer;
+                    }
+                }
+                catch (e) {
+                    // Ignore if layer property is read-only
+                }
+            }
+            module.exports = result;
         };
     });
 }
 
-function _extends() {
-    _extends = Object.assign || function assign(target) {
-        for(var i = 1; i < arguments.length; i++){
-            var source = arguments[i];
-            for(var key in source)if (Object.prototype.hasOwnProperty.call(source, key)) target[key] = source[key];
-        }
-        return target;
-    };
-    return _extends.apply(this, arguments);
-}
-
 function initContainerEntry(options) {
-    const { webpackRequire, shareScope, initScope, shareScopeKey, remoteEntryInitOptions } = options;
-    if (!webpackRequire.S) return;
-    if (!webpackRequire.federation || !webpackRequire.federation.instance || !webpackRequire.federation.initOptions) return;
+    const { webpackRequire, shareScope, initScope, shareScopeKey, remoteEntryInitOptions, } = options;
+    if (!webpackRequire.S)
+        return;
+    if (!webpackRequire.federation ||
+        !webpackRequire.federation.instance ||
+        !webpackRequire.federation.initOptions)
+        return;
     const federationInstance = webpackRequire.federation.instance;
-    federationInstance.initOptions(_extends({
+    federationInstance.initOptions({
         name: webpackRequire.federation.initOptions.name,
-        remotes: []
-    }, remoteEntryInitOptions));
-    const hostShareScopeKeys = remoteEntryInitOptions == null ? void 0 : remoteEntryInitOptions.shareScopeKeys;
-    const hostShareScopeMap = remoteEntryInitOptions == null ? void 0 : remoteEntryInitOptions.shareScopeMap;
+        remotes: [],
+        ...remoteEntryInitOptions,
+    });
+    const hostShareScopeKeys = remoteEntryInitOptions?.shareScopeKeys;
+    const hostShareScopeMap = remoteEntryInitOptions?.shareScopeMap;
     // host: 'default' remote: 'default'  remote['default'] = hostShareScopeMap['default']
     // host: ['default', 'scope1'] remote: 'default'  remote['default'] = hostShareScopeMap['default']; remote['scope1'] = hostShareScopeMap['scop1']
     // host: 'default' remote: ['default','scope1']  remote['default'] = hostShareScopeMap['default']; remote['scope1'] = hostShareScopeMap['scope1'] = {}
@@ -4572,25 +5040,27 @@ function initContainerEntry(options) {
             // federationInstance.initShareScopeMap(key, sc, {
             //   hostShareScopeMap: remoteEntryInitOptions?.shareScopeMap || {},
             // });
-            hostShareScopeKeys.forEach((hostKey)=>{
+            hostShareScopeKeys.forEach((hostKey) => {
                 if (!hostShareScopeMap[hostKey]) {
                     hostShareScopeMap[hostKey] = {};
                 }
                 const sc = hostShareScopeMap[hostKey];
                 federationInstance.initShareScopeMap(hostKey, sc, {
-                    hostShareScopeMap: (remoteEntryInitOptions == null ? void 0 : remoteEntryInitOptions.shareScopeMap) || {}
+                    hostShareScopeMap: remoteEntryInitOptions?.shareScopeMap || {},
                 });
             });
-        } else {
+        }
+        else {
             federationInstance.initShareScopeMap(key, shareScope, {
-                hostShareScopeMap: (remoteEntryInitOptions == null ? void 0 : remoteEntryInitOptions.shareScopeMap) || {}
+                hostShareScopeMap: remoteEntryInitOptions?.shareScopeMap || {},
             });
         }
-    } else {
-        shareScopeKey.forEach((key)=>{
+    }
+    else {
+        shareScopeKey.forEach((key) => {
             if (!hostShareScopeKeys || !hostShareScopeMap) {
                 federationInstance.initShareScopeMap(key, shareScope, {
-                    hostShareScopeMap: (remoteEntryInitOptions == null ? void 0 : remoteEntryInitOptions.shareScopeMap) || {}
+                    hostShareScopeMap: remoteEntryInitOptions?.shareScopeMap || {},
                 });
                 return;
             }
@@ -4599,7 +5069,7 @@ function initContainerEntry(options) {
             }
             const sc = hostShareScopeMap[key];
             federationInstance.initShareScopeMap(key, sc, {
-                hostShareScopeMap: (remoteEntryInitOptions == null ? void 0 : remoteEntryInitOptions.shareScopeMap) || {}
+                hostShareScopeMap: remoteEntryInitOptions?.shareScopeMap || {},
             });
         });
     }
@@ -4619,10 +5089,10 @@ function initContainerEntry(options) {
         return webpackRequire.I(shareScopeKey, initScope);
     }
     // @ts-ignore
-    return Promise.all(shareScopeKey.map((key)=>{
+    return Promise.all(shareScopeKey.map((key) => {
         // @ts-ignore
         return webpackRequire.I(key, initScope);
-    })).then(()=>true);
+    })).then(() => true);
 }
 
 const federation = {
@@ -4635,13 +5105,14 @@ const federation = {
         I: initializeSharing,
         S: {},
         installInitialConsumes,
-        initContainerEntry
+        initContainerEntry,
     },
     attachShareScopeMap,
-    bundlerRuntimeOptions: {}
+    bundlerRuntimeOptions: {},
 };
 
 module.exports = federation;
+//# sourceMappingURL=index.cjs.cjs.map
 
 
 }),
@@ -4733,7 +5204,7 @@ var hasRun = false;
 __webpack_require__.x = function() {
 	if (!hasRun) {
 		hasRun = true;
-		__webpack_require__("@module-federation/runtime/rspack.js!=!data:text/javascript,import __module_federation_bundler_runtime__ from \"/Users/bytedance/Projects/rstack-examples/node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.18.0/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs\";const __module_federation_runtime_plugins__ = [];const __module_federation_remote_infos__ = {};const __module_federation_container_name__ = \"mfeBBB\";const __module_federation_share_strategy__ = \"version-first\";if((__webpack_require__.initializeSharingData||__webpack_require__.initializeExposesData)&&__webpack_require__.federation){var __webpack_require___remotesLoadingData,__webpack_require___remotesLoadingData1,__webpack_require___initializeSharingData,__webpack_require___consumesLoadingData,__webpack_require___consumesLoadingData1,__webpack_require___initializeExposesData,__webpack_require___consumesLoadingData2;const override=(obj,key,value)=>{if(!obj)return;if(obj[key])obj[key]=value};const merge=(obj,key,fn)=>{const value=fn();if(Array.isArray(value)){var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=[];obj[key].push(...value)}else if(typeof value===\"object\"&&value!==null){var _obj1,_key1;var _1;(_1=(_obj1=obj)[_key1=key])!==null&&_1!==void 0?_1:_obj1[_key1]={};Object.assign(obj[key],value)}};const early=(obj,key,initial)=>{var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=initial()};var __webpack_require___remotesLoadingData_chunkMapping;const remotesLoadingChunkMapping=(__webpack_require___remotesLoadingData_chunkMapping=(__webpack_require___remotesLoadingData=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData===void 0?void 0:__webpack_require___remotesLoadingData.chunkMapping)!==null&&__webpack_require___remotesLoadingData_chunkMapping!==void 0?__webpack_require___remotesLoadingData_chunkMapping:{};var __webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping;const remotesLoadingModuleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData1=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData1===void 0?void 0:__webpack_require___remotesLoadingData1.moduleIdToRemoteDataMapping)!==null&&__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping!==void 0?__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping:{};var __webpack_require___initializeSharingData_scopeToSharingDataMapping;const initializeSharingScopeToInitDataMapping=(__webpack_require___initializeSharingData_scopeToSharingDataMapping=(__webpack_require___initializeSharingData=__webpack_require__.initializeSharingData)===null||__webpack_require___initializeSharingData===void 0?void 0:__webpack_require___initializeSharingData.scopeToSharingDataMapping)!==null&&__webpack_require___initializeSharingData_scopeToSharingDataMapping!==void 0?__webpack_require___initializeSharingData_scopeToSharingDataMapping:{};var __webpack_require___consumesLoadingData_chunkMapping;const consumesLoadingChunkMapping=(__webpack_require___consumesLoadingData_chunkMapping=(__webpack_require___consumesLoadingData=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData===void 0?void 0:__webpack_require___consumesLoadingData.chunkMapping)!==null&&__webpack_require___consumesLoadingData_chunkMapping!==void 0?__webpack_require___consumesLoadingData_chunkMapping:{};var __webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping;const consumesLoadingModuleToConsumeDataMapping=(__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping=(__webpack_require___consumesLoadingData1=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData1===void 0?void 0:__webpack_require___consumesLoadingData1.moduleIdToConsumeDataMapping)!==null&&__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping!==void 0?__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping:{};const consumesLoadinginstalledModules={};const initializeSharingInitPromises=[];const initializeSharingInitTokens={};const containerShareScope=(__webpack_require___initializeExposesData=__webpack_require__.initializeExposesData)===null||__webpack_require___initializeExposesData===void 0?void 0:__webpack_require___initializeExposesData.shareScope;for(const key in __module_federation_bundler_runtime__){__webpack_require__.federation[key]=__module_federation_bundler_runtime__[key]}early(__webpack_require__.federation,\"consumesLoadingModuleToHandlerMapping\",()=>{const consumesLoadingModuleToHandlerMapping={};for(let[moduleId,data]of Object.entries(consumesLoadingModuleToConsumeDataMapping)){consumesLoadingModuleToHandlerMapping[moduleId]={getter:data.fallback,shareInfo:{shareConfig:{fixedDependencies:false,requiredVersion:data.requiredVersion,strictVersion:data.strictVersion,singleton:data.singleton,eager:data.eager},scope:[data.shareScope]},shareKey:data.shareKey}}return consumesLoadingModuleToHandlerMapping});early(__webpack_require__.federation,\"initOptions\",()=>({}));early(__webpack_require__.federation.initOptions,\"name\",()=>__module_federation_container_name__);early(__webpack_require__.federation.initOptions,\"shareStrategy\",()=>__module_federation_share_strategy__);early(__webpack_require__.federation.initOptions,\"shared\",()=>{const shared={};for(let[scope,stages]of Object.entries(initializeSharingScopeToInitDataMapping)){for(let stage of stages){if(typeof stage===\"object\"&&stage!==null){const{name,version,factory,eager,singleton,requiredVersion,strictVersion}=stage;const shareConfig={};const isValidValue=function(val){return typeof val!==\"undefined\"};if(isValidValue(singleton)){shareConfig.singleton=singleton}if(isValidValue(requiredVersion)){shareConfig.requiredVersion=requiredVersion}if(isValidValue(eager)){shareConfig.eager=eager}if(isValidValue(strictVersion)){shareConfig.strictVersion=strictVersion}const options={version,scope:[scope],shareConfig,get:factory};if(shared[name]){shared[name].push(options)}else{shared[name]=[options]}}}}return shared});merge(__webpack_require__.federation.initOptions,\"remotes\",()=>Object.values(__module_federation_remote_infos__).flat().filter(remote=>remote.externalType===\"script\"));merge(__webpack_require__.federation.initOptions,\"plugins\",()=>__module_federation_runtime_plugins__);early(__webpack_require__.federation,\"bundlerRuntimeOptions\",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions,\"remotes\",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"chunkMapping\",()=>remotesLoadingChunkMapping);early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"idToExternalAndNameMapping\",()=>{const remotesLoadingIdToExternalAndNameMappingMapping={};for(let[moduleId,data]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){remotesLoadingIdToExternalAndNameMappingMapping[moduleId]=[data.shareScope,data.name,data.externalModuleId,data.remoteName]}return remotesLoadingIdToExternalAndNameMappingMapping});early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"webpackRequire\",()=>__webpack_require__);merge(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"idToRemoteMap\",()=>{const idToRemoteMap={};for(let[id,remoteData]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){const info=__module_federation_remote_infos__[remoteData.remoteName];if(info)idToRemoteMap[id]=info}return idToRemoteMap});override(__webpack_require__,\"S\",__webpack_require__.federation.bundlerRuntime.S);if(__webpack_require__.federation.attachShareScopeMap){__webpack_require__.federation.attachShareScopeMap(__webpack_require__)}override(__webpack_require__.f,\"remotes\",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.remotes({chunkId,promises,chunkMapping:remotesLoadingChunkMapping,idToExternalAndNameMapping:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToExternalAndNameMapping,idToRemoteMap:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToRemoteMap,webpackRequire:__webpack_require__}));override(__webpack_require__.f,\"consumes\",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.consumes({chunkId,promises,chunkMapping:consumesLoadingChunkMapping,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping,installedModules:consumesLoadinginstalledModules,webpackRequire:__webpack_require__}));override(__webpack_require__,\"I\",(name,initScope)=>__webpack_require__.federation.bundlerRuntime.I({shareScopeName:name,initScope,initPromises:initializeSharingInitPromises,initTokens:initializeSharingInitTokens,webpackRequire:__webpack_require__}));override(__webpack_require__,\"initContainer\",(shareScope,initScope,remoteEntryInitOptions)=>__webpack_require__.federation.bundlerRuntime.initContainerEntry({shareScope,initScope,remoteEntryInitOptions,shareScopeKey:containerShareScope,webpackRequire:__webpack_require__}));override(__webpack_require__,\"getContainer\",(module1,getScope)=>{var moduleMap=__webpack_require__.initializeExposesData.moduleMap;__webpack_require__.R=getScope;getScope=Object.prototype.hasOwnProperty.call(moduleMap,module1)?moduleMap[module1]():Promise.resolve().then(()=>{throw new Error('Module \"'+module1+'\" does not exist in container.')});__webpack_require__.R=undefined;return getScope});__webpack_require__.federation.instance=__webpack_require__.federation.runtime.init(__webpack_require__.federation.initOptions);if((__webpack_require___consumesLoadingData2=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData2===void 0?void 0:__webpack_require___consumesLoadingData2.initialConsumes){__webpack_require__.federation.bundlerRuntime.installInitialConsumes({webpackRequire:__webpack_require__,installedModules:consumesLoadinginstalledModules,initialConsumes:__webpack_require__.consumesLoadingData.initialConsumes,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping})}}")
+		__webpack_require__("@module-federation/runtime/rspack.js!=!data:text/javascript,import __module_federation_bundler_runtime__ from \"/Users/bytedance/Projects/rstack-examples/node_modules/.pnpm/@module-federation+webpack-bundler-runtime@0.21.2/node_modules/@module-federation/webpack-bundler-runtime/dist/index.cjs.cjs\";const __module_federation_runtime_plugins__ = [];const __module_federation_remote_infos__ = {};const __module_federation_container_name__ = \"mfeBBB\";const __module_federation_share_strategy__ = \"version-first\";if((__webpack_require__.initializeSharingData||__webpack_require__.initializeExposesData)&&__webpack_require__.federation){var __webpack_require___remotesLoadingData,__webpack_require___remotesLoadingData1,__webpack_require___initializeSharingData,__webpack_require___consumesLoadingData,__webpack_require___consumesLoadingData1,__webpack_require___initializeExposesData,__webpack_require___consumesLoadingData2;const override=(obj,key,value)=>{if(!obj)return;if(obj[key])obj[key]=value};const merge=(obj,key,fn)=>{const value=fn();if(Array.isArray(value)){var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=[];obj[key].push(...value)}else if(typeof value===\"object\"&&value!==null){var _obj1,_key1;var _1;(_1=(_obj1=obj)[_key1=key])!==null&&_1!==void 0?_1:_obj1[_key1]={};Object.assign(obj[key],value)}};const early=(obj,key,initial)=>{var _obj,_key;var _;(_=(_obj=obj)[_key=key])!==null&&_!==void 0?_:_obj[_key]=initial()};var __webpack_require___remotesLoadingData_chunkMapping;const remotesLoadingChunkMapping=(__webpack_require___remotesLoadingData_chunkMapping=(__webpack_require___remotesLoadingData=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData===void 0?void 0:__webpack_require___remotesLoadingData.chunkMapping)!==null&&__webpack_require___remotesLoadingData_chunkMapping!==void 0?__webpack_require___remotesLoadingData_chunkMapping:{};var __webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping;const remotesLoadingModuleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping=(__webpack_require___remotesLoadingData1=__webpack_require__.remotesLoadingData)===null||__webpack_require___remotesLoadingData1===void 0?void 0:__webpack_require___remotesLoadingData1.moduleIdToRemoteDataMapping)!==null&&__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping!==void 0?__webpack_require___remotesLoadingData_moduleIdToRemoteDataMapping:{};var __webpack_require___initializeSharingData_scopeToSharingDataMapping;const initializeSharingScopeToInitDataMapping=(__webpack_require___initializeSharingData_scopeToSharingDataMapping=(__webpack_require___initializeSharingData=__webpack_require__.initializeSharingData)===null||__webpack_require___initializeSharingData===void 0?void 0:__webpack_require___initializeSharingData.scopeToSharingDataMapping)!==null&&__webpack_require___initializeSharingData_scopeToSharingDataMapping!==void 0?__webpack_require___initializeSharingData_scopeToSharingDataMapping:{};var __webpack_require___consumesLoadingData_chunkMapping;const consumesLoadingChunkMapping=(__webpack_require___consumesLoadingData_chunkMapping=(__webpack_require___consumesLoadingData=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData===void 0?void 0:__webpack_require___consumesLoadingData.chunkMapping)!==null&&__webpack_require___consumesLoadingData_chunkMapping!==void 0?__webpack_require___consumesLoadingData_chunkMapping:{};var __webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping;const consumesLoadingModuleToConsumeDataMapping=(__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping=(__webpack_require___consumesLoadingData1=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData1===void 0?void 0:__webpack_require___consumesLoadingData1.moduleIdToConsumeDataMapping)!==null&&__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping!==void 0?__webpack_require___consumesLoadingData_moduleIdToConsumeDataMapping:{};const consumesLoadinginstalledModules={};const initializeSharingInitPromises=[];const initializeSharingInitTokens={};const containerShareScope=(__webpack_require___initializeExposesData=__webpack_require__.initializeExposesData)===null||__webpack_require___initializeExposesData===void 0?void 0:__webpack_require___initializeExposesData.shareScope;for(const key in __module_federation_bundler_runtime__){__webpack_require__.federation[key]=__module_federation_bundler_runtime__[key]}early(__webpack_require__.federation,\"consumesLoadingModuleToHandlerMapping\",()=>{const consumesLoadingModuleToHandlerMapping={};for(let[moduleId,data]of Object.entries(consumesLoadingModuleToConsumeDataMapping)){consumesLoadingModuleToHandlerMapping[moduleId]={getter:data.fallback,shareInfo:{shareConfig:{fixedDependencies:false,requiredVersion:data.requiredVersion,strictVersion:data.strictVersion,singleton:data.singleton,eager:data.eager},scope:[data.shareScope]},shareKey:data.shareKey}}return consumesLoadingModuleToHandlerMapping});early(__webpack_require__.federation,\"initOptions\",()=>({}));early(__webpack_require__.federation.initOptions,\"name\",()=>__module_federation_container_name__);early(__webpack_require__.federation.initOptions,\"shareStrategy\",()=>__module_federation_share_strategy__);early(__webpack_require__.federation.initOptions,\"shared\",()=>{const shared={};for(let[scope,stages]of Object.entries(initializeSharingScopeToInitDataMapping)){for(let stage of stages){if(typeof stage===\"object\"&&stage!==null){const{name,version,factory,eager,singleton,requiredVersion,strictVersion}=stage;const shareConfig={};const isValidValue=function(val){return typeof val!==\"undefined\"};if(isValidValue(singleton)){shareConfig.singleton=singleton}if(isValidValue(requiredVersion)){shareConfig.requiredVersion=requiredVersion}if(isValidValue(eager)){shareConfig.eager=eager}if(isValidValue(strictVersion)){shareConfig.strictVersion=strictVersion}const options={version,scope:[scope],shareConfig,get:factory};if(shared[name]){shared[name].push(options)}else{shared[name]=[options]}}}}return shared});merge(__webpack_require__.federation.initOptions,\"remotes\",()=>Object.values(__module_federation_remote_infos__).flat().filter(remote=>remote.externalType===\"script\"));merge(__webpack_require__.federation.initOptions,\"plugins\",()=>__module_federation_runtime_plugins__);early(__webpack_require__.federation,\"bundlerRuntimeOptions\",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions,\"remotes\",()=>({}));early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"chunkMapping\",()=>remotesLoadingChunkMapping);early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"remoteInfos\",()=>__module_federation_remote_infos__);early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"idToExternalAndNameMapping\",()=>{const remotesLoadingIdToExternalAndNameMappingMapping={};for(let[moduleId,data]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){remotesLoadingIdToExternalAndNameMappingMapping[moduleId]=[data.shareScope,data.name,data.externalModuleId,data.remoteName]}return remotesLoadingIdToExternalAndNameMappingMapping});early(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"webpackRequire\",()=>__webpack_require__);merge(__webpack_require__.federation.bundlerRuntimeOptions.remotes,\"idToRemoteMap\",()=>{const idToRemoteMap={};for(let[id,remoteData]of Object.entries(remotesLoadingModuleIdToRemoteDataMapping)){const info=__module_federation_remote_infos__[remoteData.remoteName];if(info)idToRemoteMap[id]=info}return idToRemoteMap});override(__webpack_require__,\"S\",__webpack_require__.federation.bundlerRuntime.S);if(__webpack_require__.federation.attachShareScopeMap){__webpack_require__.federation.attachShareScopeMap(__webpack_require__)}override(__webpack_require__.f,\"remotes\",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.remotes({chunkId,promises,chunkMapping:remotesLoadingChunkMapping,idToExternalAndNameMapping:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToExternalAndNameMapping,idToRemoteMap:__webpack_require__.federation.bundlerRuntimeOptions.remotes.idToRemoteMap,webpackRequire:__webpack_require__}));override(__webpack_require__.f,\"consumes\",(chunkId,promises)=>__webpack_require__.federation.bundlerRuntime.consumes({chunkId,promises,chunkMapping:consumesLoadingChunkMapping,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping,installedModules:consumesLoadinginstalledModules,webpackRequire:__webpack_require__}));override(__webpack_require__,\"I\",(name,initScope)=>__webpack_require__.federation.bundlerRuntime.I({shareScopeName:name,initScope,initPromises:initializeSharingInitPromises,initTokens:initializeSharingInitTokens,webpackRequire:__webpack_require__}));override(__webpack_require__,\"initContainer\",(shareScope,initScope,remoteEntryInitOptions)=>__webpack_require__.federation.bundlerRuntime.initContainerEntry({shareScope,initScope,remoteEntryInitOptions,shareScopeKey:containerShareScope,webpackRequire:__webpack_require__}));override(__webpack_require__,\"getContainer\",(module1,getScope)=>{var moduleMap=__webpack_require__.initializeExposesData.moduleMap;__webpack_require__.R=getScope;getScope=Object.prototype.hasOwnProperty.call(moduleMap,module1)?moduleMap[module1]():Promise.resolve().then(()=>{throw new Error('Module \"'+module1+'\" does not exist in container.')});__webpack_require__.R=undefined;return getScope});__webpack_require__.federation.instance=__webpack_require__.federation.runtime.init(__webpack_require__.federation.initOptions);if((__webpack_require___consumesLoadingData2=__webpack_require__.consumesLoadingData)===null||__webpack_require___consumesLoadingData2===void 0?void 0:__webpack_require___consumesLoadingData2.initialConsumes){__webpack_require__.federation.bundlerRuntime.installInitialConsumes({webpackRequire:__webpack_require__,installedModules:consumesLoadinginstalledModules,initialConsumes:__webpack_require__.consumesLoadingData.initialConsumes,moduleToHandlerMapping:__webpack_require__.federation.consumesLoadingModuleToHandlerMapping})}}")
 	}
 	if (typeof prevStartup === 'function') {
 		return prevStartup();
@@ -4808,7 +5279,7 @@ __webpack_require__.l = function (url, done, key, chunkId) {
 		
     script = document.createElement('script');
     
-		script.charset = 'utf-8';
+		
 		script.timeout = 120;
 		if (__webpack_require__.nc) {
 			script.setAttribute("nonce", __webpack_require__.nc);
@@ -4865,13 +5336,13 @@ __webpack_require__.nmd = (module) => {
 })();
 // webpack/runtime/rspack_version
 (() => {
-__webpack_require__.rv = () => ("1.5.0")
+__webpack_require__.rv = () => ("1.6.0")
 })();
 // webpack/runtime/sharing
 (() => {
 
 __webpack_require__.S = {};
-__webpack_require__.initializeSharingData = { scopeToSharingDataMapping: { "default": [{ name: "date-fns", version: "4.1.0", factory: () => (__webpack_require__.e("vendors-node_modules_pnpm_date-fns_4_1_0_node_modules_date-fns_index_js").then(() => (() => (__webpack_require__(/*! ../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/index.js */ "../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/index.js"))))), eager: 0 }, { name: "react", version: "19.1.1", factory: () => (__webpack_require__.e("vendors-node_modules_pnpm_react_19_1_1_node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! ../../../node_modules/.pnpm/react@19.1.1/node_modules/react/index.js */ "../../../node_modules/.pnpm/react@19.1.1/node_modules/react/index.js"))))), eager: 0, singleton: 1 }] }, uniqueName: "lib1" };
+__webpack_require__.initializeSharingData = { scopeToSharingDataMapping: { "default": [{ name: "date-fns", version: "4.1.0", factory: () => (__webpack_require__.e("vendors-node_modules_pnpm_date-fns_4_1_0_node_modules_date-fns_index_js").then(() => (() => (__webpack_require__(/*! ../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/index.js */ "../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/index.js"))))), eager: 0 }, { name: "react", version: "19.2.0", factory: () => (__webpack_require__.e("vendors-node_modules_pnpm_react_19_2_0_node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! ../../../node_modules/.pnpm/react@19.2.0/node_modules/react/index.js */ "../../../node_modules/.pnpm/react@19.2.0/node_modules/react/index.js"))))), eager: 0, singleton: 1 }] }, uniqueName: "lib1" };
 __webpack_require__.I = __webpack_require__.I || function() { throw new Error("should have __webpack_require__.I") }
 
 })();
@@ -4904,7 +5375,7 @@ __webpack_require__.p = scriptUrl
 // webpack/runtime/consumes_loading
 (() => {
 
-__webpack_require__.consumesLoadingData = { chunkMapping: {"src_Component_js-webpack_sharing_consume_default_react_react":["webpack/sharing/consume/default/react/react?14d7","webpack/sharing/consume/default/date-fns/date-fns","webpack/sharing/consume/default/react/react?97d5"]}, moduleIdToConsumeDataMapping: { "webpack/sharing/consume/default/react/react?97d5": { shareScope: "default", shareKey: "react", import: "react", requiredVersion: "^19.1.1", strictVersion: false, singleton: true, eager: false, fallback: () => (__webpack_require__.e("vendors-node_modules_pnpm_react_19_1_1_node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "../../../node_modules/.pnpm/react@19.1.1/node_modules/react/index.js"))))) }, "webpack/sharing/consume/default/date-fns/date-fns": { shareScope: "default", shareKey: "date-fns", import: "date-fns", requiredVersion: "^4.1.0", strictVersion: true, singleton: false, eager: false, fallback: () => (__webpack_require__.e("vendors-node_modules_pnpm_date-fns_4_1_0_node_modules_date-fns_index_js").then(() => (() => (__webpack_require__(/*! date-fns */ "../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/index.js"))))) }, "webpack/sharing/consume/default/react/react?14d7": { shareScope: "default", shareKey: "react", import: "react", requiredVersion: "*", strictVersion: false, singleton: true, eager: false, fallback: () => (__webpack_require__.e("vendors-node_modules_pnpm_react_19_1_1_node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "../../../node_modules/.pnpm/react@19.1.1/node_modules/react/index.js"))))) } }, initialConsumes: [] };
+__webpack_require__.consumesLoadingData = { chunkMapping: {"src_Component_js-webpack_sharing_consume_default_react_react":["webpack/sharing/consume/default/react/react?9214","webpack/sharing/consume/default/react/react?7622","webpack/sharing/consume/default/date-fns/date-fns"]}, moduleIdToConsumeDataMapping: {"webpack/sharing/consume/default/react/react?7622": { shareScope: "default", shareKey: "react", import: "react", requiredVersion: "*", strictVersion: false, singleton: true, eager: false, fallback: () => (__webpack_require__.e("vendors-node_modules_pnpm_react_19_2_0_node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "../../../node_modules/.pnpm/react@19.2.0/node_modules/react/index.js"))))) }, "webpack/sharing/consume/default/date-fns/date-fns": { shareScope: "default", shareKey: "date-fns", import: "date-fns", requiredVersion: "^4.1.0", strictVersion: true, singleton: false, eager: false, fallback: () => (__webpack_require__.e("vendors-node_modules_pnpm_date-fns_4_1_0_node_modules_date-fns_index_js").then(() => (() => (__webpack_require__(/*! date-fns */ "../../../node_modules/.pnpm/date-fns@4.1.0/node_modules/date-fns/index.js"))))) }, "webpack/sharing/consume/default/react/react?9214": { shareScope: "default", shareKey: "react", import: "react", requiredVersion: "^19.2.0", strictVersion: false, singleton: true, eager: false, fallback: () => (__webpack_require__.e("vendors-node_modules_pnpm_react_19_2_0_node_modules_react_index_js").then(() => (() => (__webpack_require__(/*! react */ "../../../node_modules/.pnpm/react@19.2.0/node_modules/react/index.js"))))) }}, initialConsumes: [] };
 __webpack_require__.f.consumes = __webpack_require__.f.consumes || function() { throw new Error("should have __webpack_require__.f.consumes") }
 })();
 // webpack/runtime/initialize_exposes
@@ -4913,7 +5384,7 @@ __webpack_require__.f.consumes = __webpack_require__.f.consumes || function() { 
 __webpack_require__.initializeExposesData = {
   moduleMap: {
   "./Component": () => {
-return Promise.all([__webpack_require__.e("vendors-node_modules_pnpm_react_19_1_1_node_modules_react_jsx-dev-runtime_js"), __webpack_require__.e("src_Component_js-webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! ./src/Component */ "./src/Component.js"))));
+return Promise.all([__webpack_require__.e("vendors-node_modules_pnpm_react_19_2_0_node_modules_react_jsx-dev-runtime_js"), __webpack_require__.e("src_Component_js-webpack_sharing_consume_default_react_react")]).then(() => (() => (__webpack_require__(/*! ./src/Component */ "./src/Component.js"))));
 },
 },
   shareScope: "default",
@@ -5013,7 +5484,7 @@ chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.pus
 })();
 // webpack/runtime/rspack_unique_id
 (() => {
-__webpack_require__.ruid = "bundler=rspack@1.5.0";
+__webpack_require__.ruid = "bundler=rspack@1.6.0";
 
 })();
 /************************************************************************/

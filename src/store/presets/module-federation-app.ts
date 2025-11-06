@@ -24,6 +24,7 @@ mode: "development",
           loader: "builtin:swc-loader",
           options: {
             jsc: {
+              target: "es2017",
               parser: {
                 syntax: "ecmascript",
                 jsx: true,
@@ -43,8 +44,8 @@ mode: "development",
     new rspack.BrowserHttpImportEsmPlugin({
       domain: "https://esm.sh",
       dependencyVersions: {
-        "react": "19.1.1",
-        "react-dom": "19.1.1"
+        "react": "19.2.0",
+        "react-dom": "19.2.0"
       },
       postprocess: (request) => {
         if (request.packageName === "@module-federation/webpack-bundler-runtime" || request.packageName === "react-dom") {
